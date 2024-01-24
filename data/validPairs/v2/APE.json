@@ -1,0 +1,2851 @@
+[
+  {
+    "exchange": "APE",
+    "factoryID": "0xCf083Be4164828f00cAE704EC15a36D711491284",
+    "routerID": "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
+    "pairs": [
+      {
+        "ticker": "WMATIC/DAI",
+        "poolID": "0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BANANA",
+        "poolID": "0x034293F21F1cCE5908BC605CE5850dF2b1059aC0",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/USDT",
+        "poolID": "0x65D43B64E3B31965Cd5EA367D4c2b94c03084797",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/USDC",
+        "poolID": "0x019011032a7ac3A87eE885B6c08467AC46ad11CD",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/WETH",
+        "poolID": "0x6Cf8654e85AB489cA7e70189046D507ebA233613",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/LINK",
+        "poolID": "0xa8EcA6Cc6Fb9F8Cfa9D3B17D4997ccE79E5110cf",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "LINK",
+          "id": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/USDT",
+        "poolID": "0x9Ec257C1862F1BdF0603A6c20ED6f3d6Bae6DEB0",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/CRV",
+        "poolID": "0x7433aFe84dF37d0954fF87D7F5788F124f8597F8",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "CRV",
+          "id": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/BNB",
+        "poolID": "0x3469a9De3E8148568776d4776ae719562E961B85",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BNB",
+          "id": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/WETH",
+        "poolID": "0x44b82c02F404Ed004201FB23602cC0667B1D011e",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/AAVE",
+        "poolID": "0x42eD6D85ccF43859cBc46F6efA1f21e21cC24030",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "AAVE",
+          "id": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/WBTC",
+        "poolID": "0xe82635a105c520fd58e597181cBf754961d51E3e",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "USDC/CRYSTL",
+        "poolID": "0xcfdCb934657C1FB627Db8F2b690EBbaFD7a46E31",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "CRYSTL",
+          "id": "0x76bF0C28e604CC3fE9967c83b3C3F31c213cfE64",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/DAI",
+        "poolID": "0x4e45459DAF7f10b3b825FCA477D8B5a19671150a",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WBTC/USDT",
+        "poolID": "0xcDbcc1Ac4d4e18FB1f2f2D604144Fd33E77cdA52",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/renDOGE",
+        "poolID": "0xEd4C3C81dF68Feb16697C046D316f69fCeb6b0cc",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "renDOGE",
+          "id": "0xcE829A89d4A55a63418bcC43F00145adef0eDB8E",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "WETH/AAVE",
+        "poolID": "0xBFF538AD7C1FD067F5529bBc7AA3b403F66d70Cf",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "AAVE",
+          "id": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "LINK/WETH",
+        "poolID": "0xab291E39CD0F8235BA42A20a86F996A3F8B934e1",
+        "token0": {
+          "symbol": "LINK",
+          "id": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "SNX/USDT",
+        "poolID": "0x44C2995a79d5a94D812792263e111e74bBeC782d",
+        "token0": {
+          "symbol": "SNX",
+          "id": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/SNX",
+        "poolID": "0x1807caC8576468d96A09a2C04Fbdf6fDf0ed2A1d",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SNX",
+          "id": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/SNX",
+        "poolID": "0x110bC65553bb8013b9Db639FE269Cc4BA5d3A9A9",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "SNX",
+          "id": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "CRYSTL/DAI",
+        "poolID": "0xeF960a7Ec85b6498C6f2cd28C43EE57237Bd67aB",
+        "token0": {
+          "symbol": "CRYSTL",
+          "id": "0x76bF0C28e604CC3fE9967c83b3C3F31c213cfE64",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "CRV/WBTC",
+        "poolID": "0x9444aCC23807c1b2C469ed0D2f14C471a65B65B9",
+        "token0": {
+          "symbol": "CRV",
+          "id": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "WMATIC/BSCGIRL",
+        "poolID": "0xf02Cb3d08004999448384f87f1fC4A97845bE741",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BSCGIRL",
+          "id": "0x4E9A46EA6A22f3894aBEE2302Ad42fd3b69E21E2",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "WMATIC/JDI",
+        "poolID": "0xb01bAf15079eE93590A862Df37234e8f7C9825bF",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "JDI",
+          "id": "0x340fE1D898ECCAad394e2ba0fC1F93d27c7b717A",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/DAI",
+        "poolID": "0x5b13B583D4317aB15186Ed660A1E4C65C10da659",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BNB",
+        "poolID": "0x0359001070cF696D5993E0697335157a6f7dB289",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BNB",
+          "id": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/CRYSTL",
+        "poolID": "0xB8e54c9Ea1616beEBe11505a419DD8dF1000E02a",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "CRYSTL",
+          "id": "0x76bF0C28e604CC3fE9967c83b3C3F31c213cfE64",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/PolyDoge",
+        "poolID": "0x5D9d66ac0DB91Ec463Fb3e9E5B1513DBFf02fD0F",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "PolyDoge",
+          "id": "0x8A953CfE442c5E8855cc6c61b1293FA648BAE472",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/BANANA",
+        "poolID": "0xd7b3132b9aedc86e6cd28bA3b29Da6C30C049327",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/FISH",
+        "poolID": "0x64d1393b53E3C4A8B04fB1ddE2C7B40bc0897222",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "FISH",
+          "id": "0x3a3Df212b7AA91Aa0402B9035b098891d276572B",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/WETH",
+        "poolID": "0x84964d9f9480a1dB644c2B2D1022765179A40F68",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "DAI/USDT",
+        "poolID": "0xedE04e0cD393A076C49DEB95D3686A52ccc49C71",
+        "token0": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "BANANA/PolyDoge",
+        "poolID": "0x4B3bf679858DA92c7443B3f2715cd1638899F3a3",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "PolyDoge",
+          "id": "0x8A953CfE442c5E8855cc6c61b1293FA648BAE472",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/CRYSTL",
+        "poolID": "0x600Cc185C9883AC9113B376086d427F70b909894",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "CRYSTL",
+          "id": "0x76bF0C28e604CC3fE9967c83b3C3F31c213cfE64",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WETH/USDT",
+        "poolID": "0x7B2dD4bab4487a303F716070B192543eA171d3B2",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/GIVE",
+        "poolID": "0x652016fc41e4fD0d518957f093dA64873aAA8859",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "GIVE",
+          "id": "0x9Bbcda2606e616659b118399A2823E8a392f55DA",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SIRIUS",
+        "poolID": "0xDf641EaF424a9972e92afd91Ac57D28Ea5bA05B7",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SIRIUS",
+          "id": "0xB1289f48E8d8Ad1532e83A8961f6E8b5a134661D",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/USDT",
+        "poolID": "0x90498B6A4b9adf226B5041F36cDAB1104a501750",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/GIVE",
+        "poolID": "0x75D63764295bfE088CE1685E971faA39Bbc8cDa1",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "GIVE",
+          "id": "0x9Bbcda2606e616659b118399A2823E8a392f55DA",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "SNX/WETH",
+        "poolID": "0x64d372DFED8C0bE989D51c955b4bb2F8F848B461",
+        "token0": {
+          "symbol": "SNX",
+          "id": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/FISH",
+        "poolID": "0x3ab5dcf8e7ab97543Dac941fA2343c527837d329",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "FISH",
+          "id": "0x3a3Df212b7AA91Aa0402B9035b098891d276572B",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/ROLL",
+        "poolID": "0x65C37f48781a555e2AD5542e4306ebAb1Ae93Cd7",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "ROLL",
+          "id": "0xC68e83a305b0FaD69E264A1769a0A070F190D2d6",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/YIELD",
+        "poolID": "0xEF4150a29E6a3255755F697A298c26f7f0e85F42",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "YIELD",
+          "id": "0xCE4e6DA9c509Cb33C23d748713c681C959f68658",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WETH/TITAN",
+        "poolID": "0x39B2d30dDcB169Df5Cd7D9D98e4479ED0fEEC010",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "TITAN",
+          "id": "0xaAa5B9e6c589642f98a1cDA99B9D024B8407285A",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/BUSD",
+        "poolID": "0x3C44fd5BEB0844F9e91d1d1A8C2B6262AA8563C5",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BUSD",
+          "id": "0x9fB83c0635De2E815fd1c21b3a292277540C2e8d",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/OMEN",
+        "poolID": "0x6D579ffAFBD4A0B23A68730aDcd8eF62dca4C015",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "OMEN",
+          "id": "0x76e63a3E7Ba1e2E61D3DA86a87479f983dE89a7E",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/SPADE",
+        "poolID": "0x8f2172568Ad3b2024b8CB29b03279E4b3d4849c8",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "SPADE",
+          "id": "0xf5EA626334037a2cf0155D49eA6462fDdC6Eff19",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WBTC/USDC",
+        "poolID": "0x237ac473Ac0AE4551019d9298A4118b3144F26A8",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WBTC/WETH",
+        "poolID": "0x8B6631324D4Bb1759F708DdE77e93ba898BB58c4",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "SING/WMATIC",
+        "poolID": "0x9DA69091b44D28c82b7364754F1D5C4A74B17ac8",
+        "token0": {
+          "symbol": "SING",
+          "id": "0x0cC4842cdcDE2971ac5373Ae19DAe6Ba8e5Ee660",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/xUSD",
+        "poolID": "0x9d5373d95E95ad9E47800f7959D4d8c195c35Df1",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "xUSD",
+          "id": "0x3A3e7650f8B9f667dA98F236010fBf44Ee4B2975",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/HONOR",
+        "poolID": "0xCDa8e98D5aa3Be4E46f3B3b23e0E7defA4560439",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "HONOR",
+          "id": "0xb82A20B4522680951F11c94c54B8800c1C237693",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BONE",
+        "poolID": "0xbCD83aB205A14648674FE67c97AAD89B261cBaC6",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BONE",
+          "id": "0x80244C2441779361F35803b8C711C6c8fC6054a3",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/SING",
+        "poolID": "0x6046eB198AbC5Ea4f17027bC00a2aeE0420E84EE",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "SING",
+          "id": "0xCB898b0eFb084Df14dd8E018dA37B4d0f06aB26D",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "HAIR/USDC",
+        "poolID": "0xB394009787C2d0cb5B45D06E401a39648e21D681",
+        "token0": {
+          "symbol": "HAIR",
+          "id": "0x100A947f51fA3F1dcdF97f3aE507A72603cAE63C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/SING",
+        "poolID": "0x854D3639F38F65c091664062230091858955Ddc2",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SING",
+          "id": "0xCB898b0eFb084Df14dd8E018dA37B4d0f06aB26D",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "YELD V2/USDC",
+        "poolID": "0xAC2a16E6E6bb4DBA0f702E2D966e379d66e3c379",
+        "token0": {
+          "symbol": "YELD V2",
+          "id": "0x1fd6cF265fd3428F655378a803658942095b4C4e",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/PolyDoge",
+        "poolID": "0xFc9727E9b0666159E1CB2bc5E9d50116D62eb5B0",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "PolyDoge",
+          "id": "0x8A953CfE442c5E8855cc6c61b1293FA648BAE472",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/QUICK",
+        "poolID": "0x4a50d2488E9044Af928569ca4433816947Aa64Bc",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "QUICK",
+          "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "NALIS/USDT",
+        "poolID": "0xff50A77412997FC86e78178A4b47000b9225ffd9",
+        "token0": {
+          "symbol": "NALIS",
+          "id": "0x04f2E3ec0642e501220f32Fcd9E26E77924929A9",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "APE-LP/WMATIC",
+        "poolID": "0xA81Dea02221493a46Dc5f96d257832311B14De0a",
+        "token0": {
+          "symbol": "APE-LP",
+          "id": "0x034293F21F1cCE5908BC605CE5850dF2b1059aC0",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BSIT",
+        "poolID": "0x8e4752750a2222ec806508309A9204c5357beC91",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BSIT",
+          "id": "0x5e765e58A4d15262123a8Db42a31c8BA99Ae48ab",
+          "decimals": 4
+        }
+      },
+      {
+        "ticker": "WMATIC/BUSD",
+        "poolID": "0x83Aec001799601B0cFbb04B513Ed2D59CeD0A139",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BUSD",
+          "id": "0x9fB83c0635De2E815fd1c21b3a292277540C2e8d",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/DINO",
+        "poolID": "0xA01EbB11371c9F8A77017793bee9D04ff1C6e2d9",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DINO",
+          "id": "0xAa9654BECca45B5BDFA5ac646c939C62b527D394",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/KOM",
+        "poolID": "0x0806A407d6eEa72788d91C36829A19d424446040",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "KOM",
+          "id": "0xC004e2318722EA2b15499D6375905d75Ee5390B8",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "USDC/MILK",
+        "poolID": "0x152209d183b9483Bbd5f6c2f546CE3e9d0a9Ef56",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "MILK",
+          "id": "0xdDfE9FF7A6eC80d8eD566CD1AA0eA7E23BeA0764",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WETH/DAI",
+        "poolID": "0xb724E5C1Aef93e972e2d4b43105521575f4ca855",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/Dove",
+        "poolID": "0xc9747123507c56d8f7A666A73D722e77110aEDdc",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "Dove",
+          "id": "0x2Bf56908B0f2440Ad11169d281967EB76665F8c6",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "ALPHA/USDC",
+        "poolID": "0x16D70F7c3D17598AE0f5e56E27273E2a9b845e6e",
+        "token0": {
+          "symbol": "ALPHA",
+          "id": "0x0B048D6e01a6b9002C291060bF2179938fd8264c",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "COUGAR/WMATIC",
+        "poolID": "0x18a73e9a5072D350296EBC4cFccfaa5d41FFF5F6",
+        "token0": {
+          "symbol": "COUGAR",
+          "id": "0x047fD3B3D2366F9babe105ade4598E263d6c699c",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/PEAR",
+        "poolID": "0xE35FBe6BFfb5dd0FA1A81D07967b4d6E6bcEDf4c",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "PEAR",
+          "id": "0xc8bcb58caEf1bE972C0B638B1dD8B0748Fdc8A44",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "SING/USDC",
+        "poolID": "0xcf5eA36c2C4C7cBd3F48bAfB7D9881f1dA0622cb",
+        "token0": {
+          "symbol": "SING",
+          "id": "0x0cC4842cdcDE2971ac5373Ae19DAe6Ba8e5Ee660",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "COUGAR/USDC",
+        "poolID": "0xe6452b610bfb8F89e88B1745Fe8CF5eF67299532",
+        "token0": {
+          "symbol": "COUGAR",
+          "id": "0x047fD3B3D2366F9babe105ade4598E263d6c699c",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/UNIQ",
+        "poolID": "0x30E45059C8F62693BC9ad73C617af2226A160b8e",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "UNIQ",
+          "id": "0x42C3d84e4E465263C85dFcf304ec3571b4332c46",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "ALPHA/WMATIC",
+        "poolID": "0xD4A0B681Ef46902e78CC3f41Be7118Bbe775d6d7",
+        "token0": {
+          "symbol": "ALPHA",
+          "id": "0x0B048D6e01a6b9002C291060bF2179938fd8264c",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/KOM",
+        "poolID": "0x447016EEc356E01eB62854cb1058C4553F864cce",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "KOM",
+          "id": "0xC004e2318722EA2b15499D6375905d75Ee5390B8",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "USDC/XDO",
+        "poolID": "0x398A0b2823bE1BD42C36d96a750bD73511ae2217",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "XDO",
+          "id": "0x3Dc7B06dD0B1f08ef9AcBbD2564f8605b4868EEA",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/pQBERT",
+        "poolID": "0x312D2eAb1c01C0c3d74f41a3B7Dd5772aD9F3Ca2",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "pQBERT",
+          "id": "0x40038C83E459937A988b669f1159cC78d8fdad68",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/HAIR",
+        "poolID": "0x491C17B1b9Aa867f3A7A480bAFFC0721d59A7393",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "HAIR",
+          "id": "0x100A947f51fA3F1dcdF97f3aE507A72603cAE63C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/MegaDoge",
+        "poolID": "0xbd773a2dead04fFd9dC75493F83D59C29d8A097d",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "MegaDoge",
+          "id": "0xCBf4AB00b6Aa19B4d5D29C7c3508B393a1C01Fe3",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WETH/MegaDoge",
+        "poolID": "0x71494CAD7e2F0b1F9A028a45d79C8b0149244FCE",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "MegaDoge",
+          "id": "0xCBf4AB00b6Aa19B4d5D29C7c3508B393a1C01Fe3",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BNB",
+        "poolID": "0xd1b53d5E0fcb0F557d4Ff30c164E8B8dc3C83A1f",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BNB",
+          "id": "0x5c4b7CCBF908E64F32e12c6650ec0C96d717f03F",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/DOGIRA",
+        "poolID": "0x103062f71B7106a8DF6fD2A4dD9368358c44a9D0",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DOGIRA",
+          "id": "0xdDa40cdfe4A0090f42Ff49f264A831402ADB801A",
+          "decimals": 9
+        }
+      },
+      {
+        "ticker": "WMATIC/Dove",
+        "poolID": "0xC68f720cc3fd6B5C48bEA25fC7BbFFC4AecFca1B",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Dove",
+          "id": "0x2Bf56908B0f2440Ad11169d281967EB76665F8c6",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "NALIS/WMATIC",
+        "poolID": "0xeF3cFaA0cA3C4d62893Ed263d14198df0b81AE29",
+        "token0": {
+          "symbol": "NALIS",
+          "id": "0x04f2E3ec0642e501220f32Fcd9E26E77924929A9",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/COLLAR",
+        "poolID": "0x45cE6Bd7a2eF64bf980559C64e602B79f2a0d8f0",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "COLLAR",
+          "id": "0x8DF26a1BD9bD98e2eC506fc9d8009954716A05DC",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/JAGUAR",
+        "poolID": "0x0408aA96B96CE3143B8A44ba5718C98a7184F2bf",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "JAGUAR",
+          "id": "0x30f56F3f6D67011d7818F4CA36cD1d0e6BD1F6D6",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WATCH/WMATIC",
+        "poolID": "0xf67DE5Cf1fB01DC4df842a846Df2a7Ec07c41b93",
+        "token0": {
+          "symbol": "WATCH",
+          "id": "0x09211Dc67f9fe98Fb7bBB91Be0ef05f4a12FA2b2",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/AZUKI",
+        "poolID": "0xe471815a323f8Efd35A288A00FA9768a139e7CBe",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "AZUKI",
+          "id": "0x7CdC0421469398e0F3aA8890693d86c840Ac8931",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/JAGUAR",
+        "poolID": "0x1F02745E0DD69fF9dBA309A395d8E7F4ceF2c20F",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "JAGUAR",
+          "id": "0x30f56F3f6D67011d7818F4CA36cD1d0e6BD1F6D6",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SX",
+        "poolID": "0xF90331CB67f9aE85739F5AEDFA93dEC68B7cE32e",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SX",
+          "id": "0x840195888Db4D6A99ED9F73FcD3B225Bb3cB1A79",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/KIM",
+        "poolID": "0x8A78e8C8f4A140C1124D5bC02A9A24D1d6fba003",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "KIM",
+          "id": "0xd131650151A1F7C3A464Dc57fb2ea2Aec7D6e500",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "TIME/BANANA",
+        "poolID": "0x60518c29c9c1040d05E45Cc5f29c1CbecbE44ac7",
+        "token0": {
+          "symbol": "TIME",
+          "id": "0x5c59D7Cb794471a9633391c4927ADe06B8787a90",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/UNIQ",
+        "poolID": "0x7A963B39f15291d47F6F50234783C456f952d79B",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "UNIQ",
+          "id": "0x42C3d84e4E465263C85dFcf304ec3571b4332c46",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/DRK",
+        "poolID": "0xB93f2d491a00Dc55EEF3A825155888ff9DCE93eC",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DRK",
+          "id": "0xB6509Cbd9e2D1CeC787a7357eB1578B86a0c702d",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/BUSD",
+        "poolID": "0x82a7f1F6D25D2185B161f08fa7D979BB1D56c2b6",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "BUSD",
+          "id": "0x9fB83c0635De2E815fd1c21b3a292277540C2e8d",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "HAIR/WETH",
+        "poolID": "0x86a452807292Cbb5778A4C41AD6f6c40fA413c51",
+        "token0": {
+          "symbol": "HAIR",
+          "id": "0x100A947f51fA3F1dcdF97f3aE507A72603cAE63C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/YELD V2",
+        "poolID": "0x6FB2d3539828b77Ad037Ae4f45f27fF24aD9D9a0",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "YELD V2",
+          "id": "0x1fd6cF265fd3428F655378a803658942095b4C4e",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "ABR/USDC",
+        "poolID": "0xcBf71C04148e5C463223F07A64a50f2Df46B6cdc",
+        "token0": {
+          "symbol": "ABR",
+          "id": "0x04429fbb948BBD09327763214b45e505A5293346",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WSPP/USDT",
+        "poolID": "0x613a9652756935806374B1FAbCe403A7E098D2bC",
+        "token0": {
+          "symbol": "WSPP",
+          "id": "0x46D502Fac9aEA7c5bC7B13C8Ec9D02378C33D36F",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/SQUID",
+        "poolID": "0x35f560481787f24872FcDe9D2AE6566aFDC72fB0",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "SQUID",
+          "id": "0x54c66aFd1D37107b1eA1894C6d03Ee4b2A1543ff",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "PolyDoge/XIAZ2",
+        "poolID": "0x58251EE619773058c183A21e149245e2519A7d2f",
+        "token0": {
+          "symbol": "PolyDoge",
+          "id": "0x8A953CfE442c5E8855cc6c61b1293FA648BAE472",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "XIAZ2",
+          "id": "0xef3aF9dFEA19Dd9892ae6C57BE973FB390991530",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SQUID",
+        "poolID": "0x3fdFD639abdcb3f4e6A8F56269EcBf35Dd4b49Bc",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SQUID",
+          "id": "0x54c66aFd1D37107b1eA1894C6d03Ee4b2A1543ff",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "SHIB/XIAZ2",
+        "poolID": "0xd96eEEE75A531D481ade82fE8E255F3C380C40D1",
+        "token0": {
+          "symbol": "SHIB",
+          "id": "0x6f8a06447Ff6FcF75d803135a7de15CE88C1d4ec",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "XIAZ2",
+          "id": "0xef3aF9dFEA19Dd9892ae6C57BE973FB390991530",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/KIM",
+        "poolID": "0x4254950da075F2348c23044dffD6235E237731f3",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "KIM",
+          "id": "0xd131650151A1F7C3A464Dc57fb2ea2Aec7D6e500",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/FOUR",
+        "poolID": "0x411A34D3E47d9694E1c6AC20C694f55e3F20f8a1",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "FOUR",
+          "id": "0x48cBc913dE09317dF2365e6827Df50dA083701D5",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "AMIS/USDT",
+        "poolID": "0x33Ca4648bB9eb47F0d7B699ca471525f10f9DB2C",
+        "token0": {
+          "symbol": "AMIS",
+          "id": "0x6f57Ec3C983a04C9Bf9958C9E908c39a3cD0870d",
+          "decimals": 9
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/pBREW",
+        "poolID": "0x3a1793E7094890DCB5a467e4191ca7Ca123Cfabe",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "pBREW",
+          "id": "0xb5106A3277718eCaD2F20aB6b86Ce0Fee7A21F09",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "E8/WMATIC",
+        "poolID": "0x68A231d130fE6109cDC02ee931211EAB13496991",
+        "token0": {
+          "symbol": "E8",
+          "id": "0x08e175A1eac9744a0F1cCaeb8F669af6a2BDa3Ce",
+          "decimals": 9
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "Dove/WETH",
+        "poolID": "0xB30F908857c1bE11e0Be9B185EE0E104dFd96817",
+        "token0": {
+          "symbol": "Dove",
+          "id": "0x2Bf56908B0f2440Ad11169d281967EB76665F8c6",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/DOGIRA",
+        "poolID": "0x3b06aEa6BE081ca3EF09013a65ff2CB62484D4FC",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DOGIRA",
+          "id": "0xdDa40cdfe4A0090f42Ff49f264A831402ADB801A",
+          "decimals": 9
+        }
+      },
+      {
+        "ticker": "WMATIC/WSPP",
+        "poolID": "0xf0B65Db5a285eBF4fEAd4dB6b284ba20ED415dEe",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WSPP",
+          "id": "0x46D502Fac9aEA7c5bC7B13C8Ec9D02378C33D36F",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/EGG",
+        "poolID": "0x8eEce066dbf80d5D6CD998b9e90643AB3Cb2C100",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "EGG",
+          "id": "0x245e5ddb65eFea6522Fa913229dF1f4957fB2e21",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "MYST/BANANA",
+        "poolID": "0x249C4CE0227f37a6575B850D0eDe90b580272787",
+        "token0": {
+          "symbol": "MYST",
+          "id": "0x1379E8886A944d2D9d440b3d88DF536Aea08d9F3",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/Wavy",
+        "poolID": "0xF3eCeB0188D9198e7C9C215e0f06188E0667dD75",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Wavy",
+          "id": "0xCEc974B72997B921F629daE516b890B72Aa0bECa",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SKILL",
+        "poolID": "0x42ba6f3aF9d8A2A30F5e55362c45e7121a932b77",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SKILL",
+          "id": "0x863D6074aFaF02D9D41A5f8Ea83278DF7089aA86",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/Dogma",
+        "poolID": "0xaED44B70696D6619009dd1E2464BC41b7b845fE4",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Dogma",
+          "id": "0x9E349fD9D1b8f94069d58e5F7b0c6338BbA03F40",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/PAW",
+        "poolID": "0x836051A89124d0ec92d4D614e23915Dc00898566",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "PAW",
+          "id": "0xBC5b59EA1b6f8Da8258615EE38D40e999EC5D74F",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "ABR/WMATIC",
+        "poolID": "0x63a36609d608456eba4301D3cd77926baCaBE0Ae",
+        "token0": {
+          "symbol": "ABR",
+          "id": "0x04429fbb948BBD09327763214b45e505A5293346",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BUSD",
+        "poolID": "0x30151b8aAeCFD305980411B4efd4167c53A2F773",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BUSD",
+          "id": "0xdAb529f40E671A1D4bF91361c21bf9f0C9712ab7",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/MIMIR",
+        "poolID": "0x256b8a08AD7c47Dc2D0Ca3dDec80D31623efBA76",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "MIMIR",
+          "id": "0xd1790c5435b9fB7C9444c749ceFE53D40D751eaC",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/RELAY",
+        "poolID": "0x65027B18B7E0A4Cae17fa22Ff0497Ed6Bf46F914",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "RELAY",
+          "id": "0x904371845Bc56dCbBcf0225ef84a669b2fD6bd0d",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/CDS",
+        "poolID": "0xdEfeB7433529f4cdE71516b1ED806E51F7F4A535",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "CDS",
+          "id": "0x23f07a1C03e7C6D0C88e0E05E79B6E3511073fD5",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "WELT/USDC",
+        "poolID": "0xfAc2C6B690E171cDbB595B60cA58ed70fa19e90C",
+        "token0": {
+          "symbol": "WELT",
+          "id": "0x23E8B6A3f6891254988B84Da3738D2bfe5E703b9",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/MIMIR",
+        "poolID": "0xADaC86d1B3afDac3ecED11347f14BF9540069394",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "MIMIR",
+          "id": "0xd1790c5435b9fB7C9444c749ceFE53D40D751eaC",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "CDS/WETH",
+        "poolID": "0x49840cc308f5E3De9D687Bda7D8dee29FfBC7A12",
+        "token0": {
+          "symbol": "CDS",
+          "id": "0x23f07a1C03e7C6D0C88e0E05E79B6E3511073fD5",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "PolyDoge/USDT",
+        "poolID": "0x07038c195479226Ce5718D6BD1B7C900dca98371",
+        "token0": {
+          "symbol": "PolyDoge",
+          "id": "0x8A953CfE442c5E8855cc6c61b1293FA648BAE472",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/REQ",
+        "poolID": "0x7e9E4641adf45F9DaB4E809C55d7AdB40f24cdea",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "REQ",
+          "id": "0xB25e20De2F2eBb4CfFD4D16a55C7B395e8a94762",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "GTF/wBAN",
+        "poolID": "0xF64BBf2Afe77a4f41D2faF2870b7d3ba41b8828F",
+        "token0": {
+          "symbol": "GTF",
+          "id": "0x8cB96E95C714E0996e6D299F617F518D965E352E",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "wBAN",
+          "id": "0xe20B9e246db5a0d21BF9209E4858Bc9A3ff7A034",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/NFTY",
+        "poolID": "0x2735d319739eDC6c47C3A20Aa5402b931c3F1A1E",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "NFTY",
+          "id": "0x8623e66Bea0DCe41B6d47f9C44e806A115baBae0",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/EVG",
+        "poolID": "0x29F1960d18dF445C4769e2590A521330A5CbD7bD",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "EVG",
+          "id": "0xc30F68091FB72469b0e0481E2551Aa5E759D6271",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/NACHO",
+        "poolID": "0x2CD2a28B040717ca54576c5fa5762546b15A9760",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "NACHO",
+          "id": "0xcD86152047e800d67BDf00A4c635A8B6C0e5C4c2",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/CPR",
+        "poolID": "0x40F011C74F7AEC28EE2845e39172474F229a4b42",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "CPR",
+          "id": "0xaa404804Ba583c025Fa64c9a276A6127CEB355c6",
+          "decimals": 2
+        }
+      },
+      {
+        "ticker": "WETH/MANA",
+        "poolID": "0xA4A336A5034Dc16243571A8a5A168F4fd2d02095",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "MANA",
+          "id": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SHIB",
+        "poolID": "0x2B9895b8C2d2FbcA65b4A5b0935B522D7079098a",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SHIB",
+          "id": "0x6f8a06447Ff6FcF75d803135a7de15CE88C1d4ec",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/NFTY",
+        "poolID": "0xFdC85cCbCb7f844327b435A96032d36D8d2ff038",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "NFTY",
+          "id": "0x8623e66Bea0DCe41B6d47f9C44e806A115baBae0",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/UNI-V2",
+        "poolID": "0xF2c06158Ddc4df6E5D9413C97C52ba79671cA6ee",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "UNI-V2",
+          "id": "0x369582d2010B6eD950B571F4101e3bB9b554876F",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WETH/REQ",
+        "poolID": "0x451e5CFd20F5Cf1318b09E712a5719182b2C8963",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "REQ",
+          "id": "0xB25e20De2F2eBb4CfFD4D16a55C7B395e8a94762",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BDC",
+        "poolID": "0xBbCd7305b21d2476875F4cD0C96cf9911e95cCD4",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BDC",
+          "id": "0xb9c762Cdf5e510Cdc276695D55e8b85217D1fcc4",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "INK/WMATIC",
+        "poolID": "0xF316486D05B79Cd0153a3999018d7cb5A6a8e21A",
+        "token0": {
+          "symbol": "INK",
+          "id": "0x0731D0C0D123382C163AAe78A09390cAd2FFC941",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "rkl/USDT",
+        "poolID": "0xC61f9D2649a0d9567B00717Da7f62195d6bDD577",
+        "token0": {
+          "symbol": "rkl",
+          "id": "0x9fDC23fe295104Ac55fef09363c56451D0E37CFA",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDT/SFL",
+        "poolID": "0x6E82d9B6981461dAA10b7A8130aa99d134b1A150",
+        "token0": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "SFL",
+          "id": "0xD1f9c58e33933a993A3891F8acFe05a68E1afC05",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/rkl",
+        "poolID": "0x12EB539209F3a7C224643f6A3C69B294cA2bEf8E",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "rkl",
+          "id": "0x9fDC23fe295104Ac55fef09363c56451D0E37CFA",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/aPolUSDC",
+        "poolID": "0x6115BBDE135e35442EddA24eE049Ae9ddF53e988",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "aPolUSDC",
+          "id": "0x625E7708f30cA75bfd92586e17077590C60eb4cD",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/ELON",
+        "poolID": "0x6194d5C087A76d389e2008cc028386BaDF9B40Ba",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "ELON",
+          "id": "0xE0339c80fFDE91F3e20494Df88d4206D86024cdF",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/IDEX",
+        "poolID": "0x083AECFbf862577a6Bd3f3A76A339B5F49845b7b",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "IDEX",
+          "id": "0x9Cb74C8032b007466865f060ad2c46145d45553D",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/NETU21",
+        "poolID": "0xeDF6C5AC9476bFef73693D2Bdc4fe6a7A88C20ee",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "NETU21",
+          "id": "0xf988C3984124685Fcc665dB21E83aD2E988309aD",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "USDC/MSTRM",
+        "poolID": "0x9207155e405c6eA16DEc7E3763b6b79A27798825",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "MSTRM",
+          "id": "0xE7879BaFa6A41F919f145a97207e54839d34c9bA",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/ANML",
+        "poolID": "0x78C22AF1fcD383Cd38f629C21E1CEdFe3C3D1b0b",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "ANML",
+          "id": "0xEcc4176B90613Ed78185f01bd1E42C5640C4F09d",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/AXN",
+        "poolID": "0x81A3F6a138F0B12eCBDCE4583972A6CA57514dBd",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "AXN",
+          "id": "0x839F1a22A59eAAf26c85958712aB32F80FEA23d9",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/CTC",
+        "poolID": "0xa4686f89502f9B2A9f595F6c29B2A0AB34d2dD66",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "CTC",
+          "id": "0xb95E2384d8db81D8776a0f2B2EB994B4E9f1Dd1f",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "Dogma/MegaDoge",
+        "poolID": "0x2e6a02E6f1f9a2e9ba1F4a6AceAC3d42B0Cb56Eb",
+        "token0": {
+          "symbol": "Dogma",
+          "id": "0x9E349fD9D1b8f94069d58e5F7b0c6338BbA03F40",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "MegaDoge",
+          "id": "0xCBf4AB00b6Aa19B4d5D29C7c3508B393a1C01Fe3",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "MegaDoge/Dogma 888",
+        "poolID": "0x60a3a50383ca7459Be437235a76A2d6F766F2563",
+        "token0": {
+          "symbol": "MegaDoge",
+          "id": "0xCBf4AB00b6Aa19B4d5D29C7c3508B393a1C01Fe3",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Dogma 888",
+          "id": "0xCD02ED202938eA2F1470a5a65a7C22b756F6947f",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/AXN",
+        "poolID": "0x3A1768691Ca30EE9114F37bb8B4b6Cf787025265",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "AXN",
+          "id": "0x839F1a22A59eAAf26c85958712aB32F80FEA23d9",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BTC/BTCBR",
+        "poolID": "0x64932F88A70765c21a2BB312ed77ABE1f0115550",
+        "token0": {
+          "symbol": "BTC",
+          "id": "0x82734b765450Adb1A89c4B068a3e34E2079DD838",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BTCBR",
+          "id": "0xB355f4F4CC84a9429a59d5c2B98d77016f7EC482",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BLP",
+        "poolID": "0xa5760194138B90622af5FC4e99Ce3a6D2c816C6A",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BLP",
+          "id": "0x6632040Af3ba1A6e32DC7FbA2bfF8d0Aa106BF8f",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/META",
+        "poolID": "0x25581Bc3886036C427077936dBFa46649c831f5a",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "META",
+          "id": "0xEDcFb6984a3c70501BAA8b7f5421Ae795ecC1496",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "USDC/TUSD",
+        "poolID": "0xdF77924670f39AA94cc58756796B79be1e046065",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "TUSD",
+          "id": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/rkl",
+        "poolID": "0xE82b0745eC3296C9934fB2F9cB7Edd1bd57636db",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "rkl",
+          "id": "0x9fDC23fe295104Ac55fef09363c56451D0E37CFA",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WBTC/BANANA",
+        "poolID": "0xCFAf6f8368A870DD33f0814f17AA508A293d79B7",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/Knot",
+        "poolID": "0xa257fB306A8c632c1af62c6cF1B52e035251db6b",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Knot",
+          "id": "0xb763F1177E9B2Fb66FBe0d50372E3e2575c043e5",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/Bonk",
+        "poolID": "0x1586B0e9119a9Eb78b5A74F8b1645b4Ff4522CAA",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Bonk",
+          "id": "0x1388C6e9C9bF3bd9e0b201A281626adD3a2B76E5",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "ALN/USDT",
+        "poolID": "0x303aEAB53C499DaBc08Fc0e5aEc763a962a51C4C",
+        "token0": {
+          "symbol": "ALN",
+          "id": "0x11340ed6535D64780D2900d410d09Acf8315E233",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/WIKA",
+        "poolID": "0xFbE7bf6443680429c3387D3e004053e47857aF1B",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WIKA",
+          "id": "0x15E3ba30D5a6043289EAda61780065dB77f2077C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WBTC/Knot",
+        "poolID": "0x004Bd1514FF308B67eD017d583Dc0b157E358094",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "Knot",
+          "id": "0xb763F1177E9B2Fb66FBe0d50372E3e2575c043e5",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SAND",
+        "poolID": "0x08fF96a7D60Cbd9A7b3f808B3334f1dD19E7a2aa",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SAND",
+          "id": "0xBbba073C31bF03b8ACf7c28EF0738DeCF3695683",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/CGG",
+        "poolID": "0x3a731F43Ea089E28B4B02AF46024ef02F43b0B0C",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "CGG",
+          "id": "0x2Ab4f9aC80F33071211729e45Cfc346C1f8446d5",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "GHST/BANANA",
+        "poolID": "0xB356eE5384Fb04E16Ca776d885E9447B7dd6E0eB",
+        "token0": {
+          "symbol": "GHST",
+          "id": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/BTCBR",
+        "poolID": "0x5DABeC7037ed5c00fBdE38e52c9859ac21CF95AC",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "BTCBR",
+          "id": "0xB355f4F4CC84a9429a59d5c2B98d77016f7EC482",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/stMATIC",
+        "poolID": "0x458F1f4Ff94E4DbE80d016d67Ec05914858f3681",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "stMATIC",
+          "id": "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/TRAXX",
+        "poolID": "0x545cB3055E62C86F54Ba479c7CAfC7E1e2EeeC54",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "TRAXX",
+          "id": "0xD43Be54C1aedf7Ee4099104f2DaE4eA88B18A249",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "Dogma/Dogma 888",
+        "poolID": "0x9690b3C713cF0D5d6077fEFf5Ae0B1eC43B4e1bB",
+        "token0": {
+          "symbol": "Dogma",
+          "id": "0x9E349fD9D1b8f94069d58e5F7b0c6338BbA03F40",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Dogma 888",
+          "id": "0xCD02ED202938eA2F1470a5a65a7C22b756F6947f",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/SCHI",
+        "poolID": "0x940b36501dA8B6b1E56D992dfBB53C0bBf444600",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "SCHI",
+          "id": "0x9707723A2fCF6E8353CbaeBCFB9fE258a15055B9",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "Dogma 888/UNI-V2",
+        "poolID": "0x7f4eF1ca8C67625614FAc85DFfcCff5C7f779df9",
+        "token0": {
+          "symbol": "Dogma 888",
+          "id": "0xCD02ED202938eA2F1470a5a65a7C22b756F6947f",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "UNI-V2",
+          "id": "0xf85ca32C434E1031E0E9Da1D2580B82e8Ac14F6B",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/BLP",
+        "poolID": "0x7d878824139a89612cfaEa0E018139b36948a4D8",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "BLP",
+          "id": "0x6632040Af3ba1A6e32DC7FbA2bfF8d0Aa106BF8f",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "BANANA/BLP",
+        "poolID": "0x9901c326b9285A8AB158AcC7e8D90d82529e57f7",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BLP",
+          "id": "0x6632040Af3ba1A6e32DC7FbA2bfF8d0Aa106BF8f",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WIKA/stMATIC",
+        "poolID": "0xfEFC6c3CA71466FD84B9905ba8F413fE0aa76D5A",
+        "token0": {
+          "symbol": "WIKA",
+          "id": "0x15E3ba30D5a6043289EAda61780065dB77f2077C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "stMATIC",
+          "id": "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/TRA",
+        "poolID": "0x21E6Ca4d6377C93B359bCb34a1876f6D33846d6c",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "TRA",
+          "id": "0x6fC515aCe1daf8Fb5d01635BCe5d361BA4e44Ab1",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WSPP/DOGIRA",
+        "poolID": "0xA8b00c4b64Cb12De2ad3086Aff1A518cE0aB40Ea",
+        "token0": {
+          "symbol": "WSPP",
+          "id": "0x46D502Fac9aEA7c5bC7B13C8Ec9D02378C33D36F",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DOGIRA",
+          "id": "0xdDa40cdfe4A0090f42Ff49f264A831402ADB801A",
+          "decimals": 9
+        }
+      },
+      {
+        "ticker": "BANANA/144",
+        "poolID": "0x854595345D4CDBB82803E75cB2160f9eF4a20241",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "144",
+          "id": "0xbd1698D4C610dD7a02207879d9cae8c969401330",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/Smini",
+        "poolID": "0xDaB77ce11c6ca6ABCE8A8482bd2D61d987Eca82B",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "Smini",
+          "id": "0x871F5Ec4bd2e065Fd0cB7Ef1553a2F5DD6E9a454",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/GHST",
+        "poolID": "0xfC31dDA3d94078559b7fF877d9e38d20e4355512",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "GHST",
+          "id": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "TBD/WMATIC",
+        "poolID": "0x0754B0056a14f57198D471adBb3A443bf8C08540",
+        "token0": {
+          "symbol": "TBD",
+          "id": "0x0BA16aFafebF996D8c41F4FeEB60B4f69e160Da8",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "LINK/144",
+        "poolID": "0x9221879CB7d80df3B4e73C0741899D34e15Ea272",
+        "token0": {
+          "symbol": "LINK",
+          "id": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "144",
+          "id": "0xbd1698D4C610dD7a02207879d9cae8c969401330",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "clownADA/LT",
+        "poolID": "0x3d39895Ea2Cd4473660C800e1baA089939DF8De3",
+        "token0": {
+          "symbol": "clownADA",
+          "id": "0x3d14342DB27Ae9f5Cf74f0075e971b5a3aAF969a",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "LT",
+          "id": "0xa1b572a71E114C949DE0bB9671b1622a060b0a55",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/WSG",
+        "poolID": "0x7623c9322d8Dbd4eb2E68eB35A281483AC690879",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WSG",
+          "id": "0x3C1BB39bb696B443a1D80BB2b3a3d950Ba9DEE87",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "CGG/cAPEX",
+        "poolID": "0x2E08d6d79856cBE04762E4AB0e2C1653E5d9dB9a",
+        "token0": {
+          "symbol": "CGG",
+          "id": "0x2Ab4f9aC80F33071211729e45Cfc346C1f8446d5",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "cAPEX",
+          "id": "0xbbe6CEFBDe3CcA47b52dacD5D218E7A6939452e9",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "TBD/USDC",
+        "poolID": "0xF69881779F27dbF7C8443161903041F7Db6DA652",
+        "token0": {
+          "symbol": "TBD",
+          "id": "0x0BA16aFafebF996D8c41F4FeEB60B4f69e160Da8",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/BLOK",
+        "poolID": "0xb443b53BfCdD96714cBA31D662c53EDc8d00E186",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BLOK",
+          "id": "0x229b1b6C23ff8953D663C4cBB519717e323a0a84",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "BANANA/cAPEX",
+        "poolID": "0x7c89374D27b894E8A6dd790F6CEdc4ad13efD5B9",
+        "token0": {
+          "symbol": "BANANA",
+          "id": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "cAPEX",
+          "id": "0xbbe6CEFBDe3CcA47b52dacD5D218E7A6939452e9",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "SLi/USDT",
+        "poolID": "0x766e3E7D61EB52e774c22b451eABD4B975DeBC56",
+        "token0": {
+          "symbol": "SLi",
+          "id": "0xaBCc2d69431F0A4CE29Cd13bf4a85981aAdFf2E3",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/LAFA",
+        "poolID": "0x03dF450a84A57E0cb5C6592d5f954a859eeCfA58",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "LAFA",
+          "id": "0x378b82cb09fFaee34b52503235AB2b58A09d7334",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "ECG/BOOK",
+        "poolID": "0xED9EcbCc04dF7Befc3Df924546467a5E047B6360",
+        "token0": {
+          "symbol": "ECG",
+          "id": "0x3050731a7Ab18D05eAa5E01D66DF33E04444e72c",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "BOOK",
+          "id": "0x8192759Bf7f247cC92F74E39B3A4225516624fC1",
+          "decimals": 8
+        }
+      },
+      {
+        "ticker": "USDC/HLH",
+        "poolID": "0x82F4b15Ba71845FA8C86CF18DA849545A5734D9e",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "HLH",
+          "id": "0x9D939E22D4a50025CDDAc3d26F9485e49F95D074",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/HLH",
+        "poolID": "0x2DDd41fbc7dC3F908Dd71F435B4059E665311Bc5",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "HLH",
+          "id": "0x9D939E22D4a50025CDDAc3d26F9485e49F95D074",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/DSC",
+        "poolID": "0x0f7c1c6EaaC06e338f01a3307f6Ea03925Ab6e3B",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DSC",
+          "id": "0xC0EedC8885a9C30016542734b22d7D23399c9bB7",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "XBNCH/USDT",
+        "poolID": "0xA876A2BdAEa1F2183954Ebe1003f7EE2879B599e",
+        "token0": {
+          "symbol": "XBNCH",
+          "id": "0x8177DD1F0082BD4eb1E55a2932Cc92EC90ac0D7A",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "ECG/USDT",
+        "poolID": "0x371eD1dC91d9D299CBd0Ea1d2987010Cd53Bc2FF",
+        "token0": {
+          "symbol": "ECG",
+          "id": "0x3050731a7Ab18D05eAa5E01D66DF33E04444e72c",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "SHIB/144",
+        "poolID": "0xA631cbf12Af93a84738fB4f6c612219D19A53975",
+        "token0": {
+          "symbol": "SHIB",
+          "id": "0x6f8a06447Ff6FcF75d803135a7de15CE88C1d4ec",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "144",
+          "id": "0xbd1698D4C610dD7a02207879d9cae8c969401330",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WBTC/BTB",
+        "poolID": "0x4BE3700C93b879B115bf0e35d69FBEA86bF464cA",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "BTB",
+          "id": "0x3fE93409171873C45388ef80B3D0C14EEe929108",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/BGEM",
+        "poolID": "0xDa94b4061290C0c180fC1BCC3D4724bCBa9CFA5c",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "BGEM",
+          "id": "0x1386617A1Bb2A6AA712AB3616bCAF1211152D1e8",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WOMBAT/USDC",
+        "poolID": "0x20D4c6f341a7c87B1944D456d8674849Ca1001aE",
+        "token0": {
+          "symbol": "WOMBAT",
+          "id": "0x0C9c7712C83B3C70e7c5E11100D33D9401BdF9dd",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      }
+    ]
+  }
+]
