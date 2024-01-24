@@ -1,0 +1,44 @@
+2024-01-19T12:41:00.593] [ERROR] default - [39mError: execution reverted ([no data present; likely require(false) occurred (action="estimateGas", data="0x", reason="require(false)", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d6070000000000000000000000001b02da8cb0d097eb8d57a175b88c7d8b479975060000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000053e0bca35ec356bd5dddfebbd1fc0fd03fabad39000000000000000000000000000000000000000000000000009c3c7d4c70762e0000000000000000000000000000000000000000000000000008609dac29562a00000000000000000000000000000000000000000000000000085a910ba4e3f1", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0x95142498886E95939aFefe44461dcEfcCdeee684" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv3/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv3/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv3/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv3/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv3/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x',
+  reason: 'require(false)',
+  transaction: {
+    to: '0x95142498886E95939aFefe44461dcEfcCdeee684',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d6070000000000000000000000001b02da8cb0d097eb8d57a175b88c7d8b479975060000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000053e0bca35ec356bd5dddfebbd1fc0fd03fabad39000000000000000000000000000000000000000000000000009c3c7d4c70762e0000000000000000000000000000000000000000000000000008609dac29562a00000000000000000000000000000000000000000000000000085a910ba4e3f1',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'execution reverted (no data present; likely require(false) occurred',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: Transaction reverted: function selector was not recognized and there's no fallback function",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3404,
+      jsonrpc: '2.0'
+    }
+  }
+}
+Trace: CONSOLE TRACE:
+    at fetchGasPrice (/mnt/c/code/polybotv3/scripts/v2/modules/fetchGasPrice.ts:80:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async gasVprofit (/mnt/c/code/polybotv3/scripts/v2/modules/gasVprofit.ts:34:19)
+    at async rollDamage (/mnt/c/code/polybotv3/scripts/v2/modules/damage.ts:56:24)
+2024-01-19T12:41:00.730] [ERROR] default - [>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-19T12:41:00.732] [ERROR] default - [>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-19T12:41:00.734] [INFO] default - [39mrequire(false)
+2024-01-19T12:41:00.736] [ERROR] default - [>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-19T12:41:00.736] [ERROR] default - [>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2024-01-19T12:41:00.737] [ERROR] default - [{

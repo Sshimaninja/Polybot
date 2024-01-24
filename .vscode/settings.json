@@ -1,0 +1,7 @@
+{
+  "dotenv.enableAutocloaking": false,
+  "solidity.compileUsingRemoteVersion": "v0.8.19+commit.a1b79de6",
+  "solidity.defaultCompiler": "localFile",
+  "solidity.compileUsingLocalVersion": "d:\\CODE\\arbitrage\\polybot-live\\polybotv3\\soljson-v0.8.19+commit.7dd6d404.js",
+  "solidity.linter": "solium"
+}
