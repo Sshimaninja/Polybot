@@ -1,5 +1,5 @@
 import { Contract, ethers } from 'ethers'
-import { provider, flashwallet } from '../../../constants/environment'
+import { provider, wallet } from '../../../constants/environment'
 import {
     deployedMap,
     gasTokens,
@@ -28,12 +28,14 @@ export async function checkBal(
     const erctoken1 = new ethers.Contract(token1, IERC20, provider)
     const wmatictoken = new ethers.Contract(gasTokens.WMATIC, IERC20, provider)
 
-    const walletbalance0 = await erctoken0.balanceOf(flashwallet)
-    const walletbalance1 = await erctoken1.balanceOf(flashwallet)
-    const walletbalanceMatic = await wmatictoken.balanceOf(flashwallet)
+    const walletbalance0 = await erctoken0.balanceOf(await wallet.getAddress())
+    const walletbalance1 = await erctoken1.balanceOf(await wallet.getAddress())
+    const walletbalanceMatic = await wmatictoken.balanceOf(
+        await wallet.getAddress()
+    )
 
     console.log('New wallet balance: ')
-    console.log('Wallet: ' + flashwallet)
+    console.log('Wallet: ' + wallet.getAddress())
     console.log(
         'Wallet balance token0: ' +
             fu(walletbalance0, token0dec) +
@@ -60,7 +62,9 @@ export async function checkGasBal(): Promise<bigint> {
         IERC20,
         provider
     )
-    const walletbalanceMatic = await wmatictoken.balanceOf(flashwallet)
+    const walletbalanceMatic = await wmatictoken.balanceOf(
+        await wallet.getAddress()
+    )
     // console.log("Wallet Balance Matic: " + fu(walletbalanceMatic, 18) + " " + "MATIC")
     return walletbalanceMatic
 }

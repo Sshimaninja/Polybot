@@ -1,1 +1,1 @@
-export const pendingTransactions: { [poolAddress: string]: boolean } = {};
+export const pendingTransactions: { [poolAddress: string]: boolean } = {}

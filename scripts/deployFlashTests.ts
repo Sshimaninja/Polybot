@@ -1,9 +1,7 @@
 import { ethers as eh, run, network } from 'hardhat'
 import { ContractFactory, Typed, ethers } from 'ethers'
 import { config as dotEnvConfig } from 'dotenv'
-import { Environment } from '../constants/environment'
-
-const env = new Environment()
+import { provider, signer } from '../constants/environment'
 
 if (process.env.NODE_ENV === 'test') {
     dotEnvConfig({ path: '.env.test' })
@@ -15,7 +13,7 @@ if (process.env.NODE_ENV === 'test') {
 
 async function main() {
     try {
-        const deployer = (await env.getWallet()).signer
+        const deployer = signer
         const owner = await deployer.getAddress()
 
         console.log(
@@ -23,9 +21,7 @@ async function main() {
         )
 
         // Get balance of deployer account
-        const balanceDeployer = await env.provider.getBalance(
-            deployer.getAddress()
-        )
+        const balanceDeployer = await provider.getBalance(deployer.getAddress())
 
         console.log('Account balance:', balanceDeployer.toString())
 

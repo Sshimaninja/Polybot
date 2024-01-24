@@ -1,9 +1,9 @@
-// import { BigNumber as BN } from "bignumber.js";
+import { BigNumber as BN } from 'bignumber.js'
 /**
  * bignumber.js handles decimals; ethers.js can't
- * @param amountIn 
- * @param reserveIn 
- * @param reserveOut 
+ * @param amountIn
+ * @param reserveIn
+ * @param reserveOut
  * @returns Local calculation of amounts in/out in BN (bignnumber.js)
  */
 // import { BN as BN } from "bignumber.js";
@@ -15,29 +15,41 @@
 //     amountOut = numerator / denominator;
 // }
 
-export async function getAmountsOut(amountIn: BN | undefined, reserveIn: BN | undefined, reserveOut: BN | undefined): Promise<BN> {
+export async function getAmountsOut(
+    amountIn: BN | undefined,
+    reserveIn: BN | undefined,
+    reserveOut: BN | undefined
+): Promise<BN> {
     if (amountIn === undefined) {
-        return BN(0);
+        return BN(0)
     }
     if (amountIn.isZero()) {
-        return BN(0);
+        return BN(0)
     }
-    if (reserveIn === undefined || reserveOut === undefined || reserveIn.isZero() || reserveOut.isZero()) {
-        return BN(0);
+    if (
+        reserveIn === undefined ||
+        reserveOut === undefined ||
+        reserveIn.isZero() ||
+        reserveOut.isZero()
+    ) {
+        return BN(0)
     }
-    const amountInWithFee = amountIn.multipliedBy(997);
-    const numerator = amountInWithFee.multipliedBy(reserveOut);
-    const denominator = reserveIn.multipliedBy(1000).plus(amountInWithFee);
-    return numerator.div(denominator);
+    const amountInWithFee = amountIn.multipliedBy(997)
+    const numerator = amountInWithFee.multipliedBy(reserveOut)
+    const denominator = reserveIn.multipliedBy(1000).plus(amountInWithFee)
+    return numerator.div(denominator)
 }
 
-export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN) {
-    const numerator = reserveIn.multipliedBy(amountOut).multipliedBy(BN(1000));
-    const denominator = reserveOut.minus(amountOut).multipliedBy(BN(997));
+export async function getAmountsIn(
+    amountOut: BN,
+    reserveIn: BN,
+    reserveOut: BN
+) {
+    const numerator = reserveIn.multipliedBy(amountOut).multipliedBy(BN(1000))
+    const denominator = reserveOut.minus(amountOut).multipliedBy(BN(997))
     //this used to be plus 1, but it was probably causing errors since it was a hack to deal with javascript bignumber rounding errors when using ethers.js
-    return (numerator.div(denominator));
+    return numerator.div(denominator)
 }
-
 
 // export async function getAmountsIO(
 //     amountIn: BN,
@@ -65,7 +77,6 @@ export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN)
 //     return (numerator.div(denominator)).add(BN(1));
 // }
 
-
 // export async function getAmountsIO(
 //     amountIn: BN,
 //     aReserve0: BN,
@@ -82,12 +93,6 @@ export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN)
 //     return { amountOutA, amountOutB, amountInA, amountInB }
 // }
 
-
-
-
-
-
-
 // export async function getAmountsInx(amountOut: BN, reserveIn: BN, reserveOut: BN) {
 //     let numerator = reserveIn.multipliedBy(amountOut).multipliedBy(1000);
 //     let denominator = reserveOut.sub(amountOut).multipliedBy(997);
@@ -101,10 +106,7 @@ export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN)
 //     amountIn = (numerator / denominator).add(1);
 // }
 
-
-
 //reference solidity code
-
 
 // // given an input amount of an asset and pair reserves, returns the maximum output amount of the other asset
 // function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) internal pure returns(uint amountOut) {
@@ -115,8 +117,6 @@ export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN)
 // //         uint denominator = reserveIn.multipliedBy(1000).add(amountInWithFee);
 // //     amountOut = numerator / denominator;
 // // }
-
-
 
 // export async function priceImpact(pool: Pool) {
 //     // Get the reserves of token0 and token1 in the Uniswap pool

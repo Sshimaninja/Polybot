@@ -1,7 +1,7 @@
 import { ethers, Contract } from 'ethers'
-import { wallet } from '../../../constants/environment'
+import { wallet, provider } from '../../../constants/environment'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
-import { logger } from '../../../constants/environment'
+import { logger } from '../../../constants/logger'
 import {
     GasToken,
     gasTokens,
@@ -19,7 +19,6 @@ export async function getgasPoolForTrade(
     trade: BoolTrade
 ): Promise<{ gasPool: Contract; gasTokenSymbol: string } | undefined> {
     const gasTokenAddresses = Object.values(gasTokens)
-
     for (const token in gasTokenAddresses) {
         try {
             // console.log(gasTokenAddresses[address])

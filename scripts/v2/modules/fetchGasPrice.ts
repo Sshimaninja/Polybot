@@ -1,7 +1,6 @@
-import { provider } from '../../../constants/environment'
 import { BoolTrade, GAS, GasData } from '../../../constants/interfaces'
 import { tradeLogs } from './tradeLog'
-import { logger } from '../../../constants/environment'
+import { logger } from '../../../constants/logger'
 import { fu, pu } from '../../modules/convertBN'
 
 /**
