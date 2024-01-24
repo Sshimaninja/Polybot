@@ -1,5 +1,5 @@
 import { control } from './scripts/v2/control'
-import { Environment } from './constants/environment'
+import { provider } from './constants/environment'
 import { getGasData } from './scripts/v2/modules/getPolygonGasPrices'
 import fs from 'fs'
 import path from 'path'
@@ -7,7 +7,6 @@ import { FactoryPair } from './constants/interfaces'
 import { logger } from './constants/logger'
 import { telegramInfo } from './scripts//v2/modules/notify'
 
-const env = new Environment()
 async function main() {
     // // Set up Telegram message
     const message = `Polybot V2 Started: ${Date.now()}`
@@ -35,7 +34,7 @@ async function main() {
 
     const pairList = await dataFeed()
 
-    env.provider.on('block', async (blockNumber: any) => {
+    provider.on('block', async (blockNumber: any) => {
         if (blockNumber === null || undefined) return
         logger.info('New block received: Block # ' + blockNumber)
         try {

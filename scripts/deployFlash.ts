@@ -1,15 +1,13 @@
 import { ethers as eh, run, network } from 'hardhat'
 require('dotenv').config()
-import { Environment } from '../constants/environment'
+import { provider, signer } from '../constants/environment'
 
 // npx hardhat run --network localhost scripts/deployFlashMulti.ts
 // npx hardhat run --network localhost scripts/deployFlashDirect.ts; npx hardhat run--network localhost scripts/deployFlashMulti.ts
 async function main() {
     try {
-        const env = new Environment()
-        const deployer = (await env.getWallet()).signer
+        const deployer = signer
         const owner = await deployer.getAddress()
-        const provider = env.provider
 
         console.log(
             'Deploying contracts with the account: ' + deployer.getAddress()

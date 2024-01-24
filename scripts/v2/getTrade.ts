@@ -12,7 +12,12 @@ import {
 import { abi as IFactory } from '@uniswap/v2-core/build/IUniswapV2Factory.json'
 import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
-import { Environment, env } from '../../constants/environment'
+import {
+    provider,
+    wallet,
+    flashMulti,
+    flashDirect,
+} from '../../constants/environment'
 import { Prices } from './modules/prices'
 import { getK } from './modules/getK'
 import { BoolTrade } from '../../constants/interfaces'
@@ -104,9 +109,6 @@ export class Trade {
     async getTrade() {
         const dir = await this.direction()
         const A = dir.dir == 'A' ? true : false
-        const flashMulti = (await env.getContracts()).flashMulti
-        const flashDirect = (await env.getContracts()).flashDirect
-        const wallet = (await env.getWallet()).wallet
         const size = A
             ? await this.getSize(this.calc1, this.calc0)
             : await this.getSize(this.calc0, this.calc1)
@@ -116,7 +118,7 @@ export class Trade {
 
         const trade: BoolTrade = {
             ID: A ? this.match.poolAID : this.match.poolBID,
-            block: await env.provider.getBlockNumber(),
+            block: await provider.getBlockNumber(),
             direction: dir.dir,
             type: 'filtered',
             ticker: this.match.token0.symbol + '/' + this.match.token1.symbol,
@@ -126,22 +128,14 @@ export class Trade {
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A
-                    ? new Contract(
-                          this.pair.factoryB_id,
-                          IFactory,
-                          env.provider
-                      )
-                    : new Contract(
-                          this.pair.factoryA_id,
-                          IFactory,
-                          env.provider
-                      ),
+                    ? new Contract(this.pair.factoryB_id, IFactory, provider)
+                    : new Contract(this.pair.factoryA_id, IFactory, provider),
                 router: A
-                    ? new Contract(this.pair.routerB_id, IRouter, env.provider)
-                    : new Contract(this.pair.routerA_id, IRouter, env.provider),
+                    ? new Contract(this.pair.routerB_id, IRouter, provider)
+                    : new Contract(this.pair.routerA_id, IRouter, provider),
                 pool: A
-                    ? new Contract(this.match.poolBID, IPair, env.provider)
-                    : new Contract(this.match.poolAID, IPair, env.provider),
+                    ? new Contract(this.match.poolBID, IPair, provider)
+                    : new Contract(this.match.poolAID, IPair, provider),
                 reserveIn: A
                     ? this.price1.reserves.reserveIn
                     : this.price0.reserves.reserveIn,
@@ -177,17 +171,13 @@ export class Trade {
             target: {
                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
                 factory: A
-                    ? new Contract(
-                          this.pair.factoryA_id,
-                          IFactory,
-                          env.provider
-                      )
+                    ? new Contract(this.pair.factoryA_id, IFactory, provider)
                     : new Contract(this.pair.factoryB_id, IFactory, wallet),
                 router: A
-                    ? new Contract(this.pair.routerA_id, IRouter, env.provider)
+                    ? new Contract(this.pair.routerA_id, IRouter, provider)
                     : new Contract(this.pair.routerB_id, IRouter, wallet),
                 pool: A
-                    ? new Contract(this.match.poolAID, IPair, env.provider)
+                    ? new Contract(this.match.poolAID, IPair, provider)
                     : new Contract(this.match.poolBID, IPair, wallet),
                 reserveIn: A
                     ? this.price0.reserves.reserveIn

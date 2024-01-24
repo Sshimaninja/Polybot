@@ -1,21 +1,25 @@
-import { BigNumber as BN } from "bignumber.js";
+import { BigNumber as BN } from 'bignumber.js'
 /**
- * 
- * @param reserveIn 
- * @param reserveOut 
- * @param targetPrice 
- * @param slippageTolerance 
+ *
+ * @param reserveIn
+ * @param reserveOut
+ * @param targetPrice
+ * @param slippageTolerance
  * @returns maximum trade size for a given pair, taking into account slippage
  */
-
 
 /*
 
 */
-export async function getMaxTokenIn(reserveIn: BN, slippageTolerance: BN): Promise<BN> {
-	const maxTokenIn = reserveIn.multipliedBy(BN(1).plus(slippageTolerance)).minus(reserveIn);
-	//1000 * 1.002 = 1002 - 1000 = 2
-	return maxTokenIn
+export async function getMaxTokenIn(
+    reserveIn: BN,
+    slippageTolerance: BN
+): Promise<BN> {
+    const maxTokenIn = reserveIn
+        .multipliedBy(BN(1).plus(slippageTolerance))
+        .minus(reserveIn)
+    //1000 * 1.002 = 1002 - 1000 = 2
+    return maxTokenIn
 }
 
 /*
@@ -29,9 +33,14 @@ export async function getMaxTokenIn(reserveIn: BN, slippageTolerance: BN): Promi
 - maxToken1Out = reserveOut - targetReserves = 1580000 - 1576840 = 3160
 */
 
-export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Promise<BN> {
-	const maxTokenOut = reserveOut.multipliedBy(BN(1).minus(slippageTolerance)).minus(reserveOut);
-	return maxTokenOut
+export async function getMaxTokenOut(
+    reserveOut: BN,
+    slippageTolerance: BN
+): Promise<BN> {
+    const maxTokenOut = reserveOut
+        .multipliedBy(BN(1).minus(slippageTolerance))
+        .minus(reserveOut)
+    return maxTokenOut
 }
 
 /*
@@ -44,23 +53,32 @@ export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Pro
 - checkMath = 1580000 + 79000 = 1659000
  */
 
-
-export async function tradeToPrice(reserveIn: BN, reserveOut: BN, targetPrice: BN, slippageTolerance: BN): Promise<BN> {
-	//targetPrice 0.520670400977951207 + 0.519935327393096545 = 1.040605728371047752 / 2 = 0.520302864185523876
-	const currentPrice = reserveOut.div(reserveIn); // 64133 / 123348 = 0.51993546713363816194830884975841
-	const diff = targetPrice.minus(currentPrice); // 0.520302864185523876 - 0.51993546713363816194830884975841 = 0.00036739705188571405169115024159
-	if (targetPrice.gt(currentPrice)) {
-		console.log('[tradeToPrice]: targetPrice must be lower than currentPrice or else tradeSize will be negative');
-		console.log('[tradeToPrice]: currentPrice: ', currentPrice.toFixed(6), 'targetPrice: ', targetPrice.toFixed(6));
-	}
-	// Calculate the maximum trade size that would result in a slippage equal to slippageTolerance
-	let tradeSize = diff.multipliedBy(reserveIn); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
-	const maxTradeSize = await getMaxTokenIn(reserveOut, slippageTolerance); // 123348 * 0.002 = 246.696
-	if (tradeSize.gt(maxTradeSize)) {
-		return tradeSize // 45.285714285714285714285714285714
-	} else {
-		return maxTradeSize // 246.696
-	}
-
+export async function tradeToPrice(
+    reserveIn: BN,
+    reserveOut: BN,
+    targetPrice: BN,
+    slippageTolerance: BN
+): Promise<BN> {
+    //targetPrice 0.520670400977951207 + 0.519935327393096545 = 1.040605728371047752 / 2 = 0.520302864185523876
+    const currentPrice = reserveOut.div(reserveIn) // 64133 / 123348 = 0.51993546713363816194830884975841
+    const diff = targetPrice.minus(currentPrice) // 0.520302864185523876 - 0.51993546713363816194830884975841 = 0.00036739705188571405169115024159
+    if (targetPrice.gt(currentPrice)) {
+        console.log(
+            '[tradeToPrice]: targetPrice must be lower than currentPrice or else tradeSize will be negative'
+        )
+        console.log(
+            '[tradeToPrice]: currentPrice: ',
+            currentPrice.toFixed(6),
+            'targetPrice: ',
+            targetPrice.toFixed(6)
+        )
+    }
+    // Calculate the maximum trade size that would result in a slippage equal to slippageTolerance
+    let tradeSize = diff.multipliedBy(reserveIn) // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
+    const maxTradeSize = await getMaxTokenIn(reserveOut, slippageTolerance) // 123348 * 0.002 = 246.696
+    if (tradeSize.gt(maxTradeSize)) {
+        return tradeSize // 45.285714285714285714285714285714
+    } else {
+        return maxTradeSize // 246.696
+    }
 }
-
