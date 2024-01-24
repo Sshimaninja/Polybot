@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
 import { BigNumber as BN } from 'bignumber.js'
-import { logger } from '../../../constants/environment'
+import { logger } from '../../../constants/logger'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 // import { abi as IPool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
 import { wallet } from '../../../constants/environment'

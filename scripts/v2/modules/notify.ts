@@ -1,4 +1,4 @@
-import { logger } from '../../../constants/environment'
+import { logger } from '../../../constants/logger'
 import { BoolTrade, Profit } from '../../../constants/interfaces'
 import { tradeLogs } from './tradeLog'
 import TelegramBot from 'node-telegram-bot-api'

@@ -1,8 +1,7 @@
-import { wallet, provider } from '../../../constants/environment'
 import { BoolTrade, TxData, V2Tx, TxGas } from '../../../constants/interfaces'
 import { sendTx } from './sendTx'
 import { pu, fu, BN2BigInt } from '../../modules/convertBN'
-import { slippageTolerance } from '../../v3/control'
+import { slippageTolerance } from '../../v2/control'
 export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
     let slippageJS = BN2BigInt(slippageTolerance, 18)
     let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS
