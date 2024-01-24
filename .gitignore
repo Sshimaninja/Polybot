@@ -1,0 +1,16 @@
+node_modules
+.env
+.env.live
+.env.test
+coverage
+coverage.json
+typechain
+typechain-types
+
+#Hardhat files
+cache
+bin
+NOTES
+flashit.log
+DATASAMPLE*
+pairs.json

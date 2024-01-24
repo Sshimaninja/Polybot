@@ -1,0 +1,219 @@
+[
+  {
+    "exchange": "QUICK",
+    "factoryID": "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
+    "routerID": "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+    "pairs": [
+      {
+        "ticker": "USDC/WETH",
+        "poolID": "0x853Ee4b2A13f8a742d64C8F088bE7bA2131f670d",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WETH/DAI",
+        "poolID": "0x4A35582a710E1F4b2030A3F826DA20BfB6703C09",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/USDC",
+        "poolID": "0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/USDT",
+        "poolID": "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "DAI/USDT",
+        "poolID": "0x59153f27eeFE07E5eCE4f9304EBBa1DA6F53CA88",
+        "token0": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/DAI",
+        "poolID": "0xf04adBF75cDFc5eD26eeA4bbbb991DB002036Bdd",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/DAI",
+        "poolID": "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/USDT",
+        "poolID": "0x2cF7252e74036d1Da831d11089D326296e64a728",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "UNI/USDT",
+        "poolID": "0xf6c9aeb821A732284c4914b34F1b090b5Cc82DA3",
+        "token0": {
+          "symbol": "UNI",
+          "id": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/QUICK",
+        "poolID": "0x019ba0325f1988213D448b3472fA1cf8D07618d7",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "QUICK",
+          "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "QUICK/UNI",
+        "poolID": "0x4B4C614b9219397c02296f6F4e2351259840B3C7",
+        "token0": {
+          "symbol": "QUICK",
+          "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "UNI",
+          "id": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/WETH",
+        "poolID": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WETH/QUICK",
+        "poolID": "0x1Bd06B96dd42AdA85fDd0795f3B4A79DB914ADD5",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "QUICK",
+          "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/CHAIN",
+        "poolID": "0xA54E44c7bfBCd2cf756Af6fE9A112D782968fdd4",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "CHAIN",
+          "id": "0xd55fCe7CDaB84d84f2EF3F99816D765a2a94a509",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/QUICK",
+        "poolID": "0x1F1E4c845183EF6d50E9609F16f6f9cAE43BC9Cb",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "QUICK",
+          "id": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+          "decimals": 18
+        }
+      }
+    ]
+  }
+]

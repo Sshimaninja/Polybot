@@ -1,0 +1,132 @@
+[
+  {
+    "exchangeA": "JET",
+    "factoryA_id": "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
+    "routerA_id": "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
+    "exchangeB": "QUICK",
+    "factoryB_id": "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
+    "routerB_id": "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+    "matches": [
+      {
+        "ticker": "WMATIC/USDT",
+        "poolAID": "0x101640e107C4a72DeC79826768C239F1eB48cc85",
+        "poolBID": "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/WETH",
+        "poolAID": "0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF",
+        "poolBID": "0x853Ee4b2A13f8a742d64C8F088bE7bA2131f670d",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/USDC",
+        "poolAID": "0x5E58e0CeD3a272CAeb8bA00F4A4C2805Df6BE495",
+        "poolBID": "0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WETH/DAI",
+        "poolAID": "0xE4eB4261A4852c09055a6A94e2f7E8289425F0Ef",
+        "poolBID": "0x4A35582a710E1F4b2030A3F826DA20BfB6703C09",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/WETH",
+        "poolAID": "0x951E38875a93df95bbd24fe31f409b7933B35BED",
+        "poolBID": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "USDC/USDT",
+        "poolAID": "0x20BF018FDDBa3b352f3d913FE1c81b846fE0F490",
+        "poolBID": "0x2cF7252e74036d1Da831d11089D326296e64a728",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/DAI",
+        "poolAID": "0x4A53119dd905fD39ccC532C68e69505dfB47fc2C",
+        "poolBID": "0xf04adBF75cDFc5eD26eeA4bbbb991DB002036Bdd",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/DAI",
+        "poolAID": "0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c",
+        "poolBID": "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      }
+    ]
+  }
+]

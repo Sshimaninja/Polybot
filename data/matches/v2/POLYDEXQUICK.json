@@ -1,0 +1,87 @@
+[
+  {
+    "exchangeA": "POLYDEX",
+    "factoryA_id": "0x5BdD1CD910e3307582F213b33699e676E61deaD9",
+    "routerA_id": "0xBd13225f0a45BEad8510267B4D6a7c78146Be459",
+    "exchangeB": "QUICK",
+    "factoryB_id": "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
+    "routerB_id": "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+    "matches": [
+      {
+        "ticker": "WMATIC/USDC",
+        "poolAID": "0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6",
+        "poolBID": "0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/DAI",
+        "poolAID": "0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F4091080635",
+        "poolBID": "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "DAI",
+          "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/USDT",
+        "poolAID": "0xB2B39B54a82aEDcab018Eb601e8FCD19bC6Ec8Ab",
+        "poolBID": "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/WETH",
+        "poolAID": "0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711",
+        "poolBID": "0x853Ee4b2A13f8a742d64C8F088bE7bA2131f670d",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WMATIC/WETH",
+        "poolAID": "0xb7D81710549551cd3BcAb4F116602700D85abFD1",
+        "poolBID": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      }
+    ]
+  }
+]
