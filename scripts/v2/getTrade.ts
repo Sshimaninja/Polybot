@@ -42,7 +42,7 @@ import { ProfitCalculator } from './modules/ProfitCalcs'
  *
  */
 export class Trade {
-    trade: BoolTrade | undefined
+    // trade: BoolTrade
     pair: FactoryPair
     match: TradePair
     price0: Prices
@@ -59,6 +59,7 @@ export class Trade {
         price1: Prices,
         slip: BN,
         gasData: GasData
+        // trade: BoolTrade
     ) {
         this.pair = pair
         this.price0 = price0
