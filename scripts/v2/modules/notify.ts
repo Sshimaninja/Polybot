@@ -5,8 +5,8 @@ import TelegramBot from 'node-telegram-bot-api'
 import { config as dotEnvConfig } from 'dotenv'
 dotEnvConfig()
 
-const TELEGRAM_BOT_TOKEN = process.env.telegramApiKey
-const TELEGRAM_CHAT_ID = process.env.telegramChatId
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID
 
 export async function telegramInfo(message: string): Promise<void> {
     try {
@@ -26,7 +26,7 @@ export async function telegramInfo(message: string): Promise<void> {
             console.log('Telegram message sent: ' + sent)
         }
     } catch (error: any) {
-        logger.error('TELEGRAM ERROR: ' + error.message)
+        logger.error('TELEGRAM ERROR [telegramInfo()]: ' + error.message)
         return
     }
 }
@@ -56,7 +56,7 @@ export async function notify(trade: BoolTrade, profit: Profit) {
             console.log('Telegram message sent: ' + sent)
         }
     } catch (error: any) {
-        logger.error('TELEGRAM ERROR: ' + error.message)
+        logger.error('TELEGRAM ERROR [notify()]: ' + error.message)
         return
     }
 }
