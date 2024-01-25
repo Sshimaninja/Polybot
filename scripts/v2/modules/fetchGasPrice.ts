@@ -2,6 +2,7 @@ import { BoolTrade, GAS, GasData } from '../../../constants/interfaces'
 import { tradeLogs } from './tradeLog'
 import { logger } from '../../../constants/logger'
 import { fu, pu } from '../../modules/convertBN'
+import { ethers } from 'ethers'
 
 /**
  * @param trade
@@ -30,23 +31,25 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // const swapFunctionSignature = 'swap(uint256,uint256,address,bytes)';
     // const swapFunctionSelector = ethers.id(swapFunctionSignature).substring(0, 10);
 
-    // Get the contract ABI
-    const loanContractABI = trade.loanPool.pool.swap()
-    const targetContactABI = trade.target.pool.swap()
+    // // Get the contract ABI
+    // const loanContractABI = trade.loanPool.pool.getFunction('swap')
+    // const targetContactABI = trade.target.pool.getFunction('swap')
 
-    const loanContractAddress = await trade.loanPool.pool.getAddress()
-    const targetContractAddress = await trade.target.pool.getAddress()
+    // const loanContractAddress = await trade.loanPool.pool.getAddress()
+    // const targetContractAddress = await trade.target.pool.getAddress()
 
-    console.log('loanContractABI Length: ', loanContractABI)
-    console.log('loanContractID: ', loanContractAddress)
-    console.log('targetContractABI: ', targetContactABI)
-    console.log('targetContractID: ', targetContractAddress)
+    // console.log('loanContractABI: ', loanContractABI)
+    // console.log('loanContractID: ', loanContractAddress)
+    // console.log('targetContractABI: ', targetContactABI)
+    // console.log('targetContractID: ', targetContractAddress)
     // Check if the swap function exists in the contract ABI
     // const swapFunctionExists = pairContractABI.some(
     // 	(func) => ethers.id(func.name + '(' + func.inputs.map(i => i.type).join(',') + ')').substring(0, 10) === swapFunctionSelector
     // );
 
     // console.log('Swap function exists:', swapFunctionExists);
+
+    // Print out the function signatures of the flash contracts
 
     if (trade.direction != undefined) {
         console.log('EstimatingGas for trade: ' + trade.ticker + '...')

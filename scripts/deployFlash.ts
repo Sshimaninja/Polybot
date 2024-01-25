@@ -1,4 +1,5 @@
-import { ethers as eh, run, network } from 'hardhat'
+import { ethers as he, run, network } from 'hardhat'
+import { ethers } from 'ethers'
 require('dotenv').config()
 import { provider, signer } from '../constants/environment'
 
@@ -18,7 +19,9 @@ async function main() {
 
         console.log('Account balance:', balanceDeployer.toString())
 
-        const flashMulti = await eh.getContractFactory('flashMulti')
+        const flashMulti = await he.getContractFactory(
+            'contracts/v2/flashMulti.sol:flashMulti'
+        )
         // const flashDirect = await ethers.getContractFactory(
         // 	'flashDirect'
         // );

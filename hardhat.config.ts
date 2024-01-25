@@ -1,17 +1,12 @@
 import { HardhatUserConfig, task } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox'
-import { config as dotEnvConfig } from 'dotenv'
-
+import { config as dotenvConfig } from 'dotenv'
 import '@typechain/hardhat'
 import '@nomicfoundation/hardhat-ethers'
 import '@nomicfoundation/hardhat-chai-matchers'
 import '@nomicfoundation/hardhat-verify'
 
-if (process.env.NODE_ENV === 'test') {
-    dotEnvConfig({ path: '.env.test' })
-} else {
-    dotEnvConfig({ path: '.env.live' })
-}
+dotenvConfig({ path: `.env.${process.env.NODE_ENV}` })
 
 module.exports = {
     paths: {
@@ -55,20 +50,6 @@ module.exports = {
                     },
                 },
             },
-
-            // // Override the Uniswap V2 contracts to use Solidity 0.6.9
-            // overrides: {
-            //   "contracts/v3/*.sol": {
-            //     version: "0.8.0",
-            //     settings: {
-            //       optimizer: {
-            //         enabled: true,
-            //         runs: 200
-            //       },
-            //     },
-            //   },
-            // },
-            // },
         ],
     },
 
@@ -90,12 +71,12 @@ module.exports = {
                 initialBaseBalance: '1000000000000000000000000000', // 1000000000 ETH in wei
             },
         },
-        localhost: {
-            url: 'http://127.0.0.1:8545/',
-            accounts: 'remote',
-        },
+        // localhost: {
+        //     url: 'http://127.0.0.1:8545/',
+        //     accounts: 'remote',
+        // },
         polygon: {
-            url: 'https://polygon-mainnet.infura.io/v3/d4003610616e45549765c2945a2f335b',
+            url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-',
             // url: `wss://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
             accounts: [process.env.PRIVATE_KEY],
             chainID: 137,

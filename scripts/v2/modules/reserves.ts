@@ -6,6 +6,7 @@ import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { wallet } from '../../../constants/environment'
 import { ReservesData, Pair, TradePair } from '../../../constants/interfaces'
 import { BigInt2BN, fu } from '../../modules/convertBN'
+import { provider } from '../../../constants/provider'
 /**
  * @description
  * This class returns an array of an array of reserves for an array of pairs.
@@ -33,7 +34,7 @@ export class Reserves {
         const poolIDs = await this.getPoolIDs(match)
         const reserves: ReservesData[] = []
         for (const poolID of poolIDs) {
-            let Pair = new ethers.Contract(poolID, IPair, wallet)
+            let Pair = new ethers.Contract(poolID, IPair, provider)
             if (
                 (await Pair.getAddress()) !=
                 '0x0000000000000000000000000000000000000000'

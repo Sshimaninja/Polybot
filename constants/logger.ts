@@ -1,6 +1,4 @@
-import { Logger } from 'log4js'
 import { configure, getLogger } from 'log4js'
-import { config as dotEnvConfig } from 'dotenv'
 
 configure({
     appenders: {
@@ -13,10 +11,4 @@ configure({
 })
 
 export const logger = getLogger()
-logger.level = 'debug' // You can set this to whatever level you want
-
-if (process.env.NODE_ENV === 'test') {
-    dotEnvConfig({ path: '.env.test' })
-} else {
-    dotEnvConfig({ path: '.env.live' })
-}
+logger.level = 'all' // You can set this to whatever level you want
