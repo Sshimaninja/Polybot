@@ -3,6 +3,7 @@ import { tradeLogs } from './tradeLog'
 import { logger } from '../../../constants/logger'
 import { fu, pu } from '../../modules/convertBN'
 import { ethers } from 'ethers'
+import { walledAddress } from '../../../constants/environment'
 
 /**
  * @param trade
@@ -64,7 +65,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.tokenOut.id,
                 trade.target.tradeSize,
                 trade.target.amountOut,
-                trade.loanPool.amountRepay
+                trade.loanPool.amountRepay,
+                { from: walledAddress }
             )
         } catch (error: any) {
             const data = await tradeLogs(trade)

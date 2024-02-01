@@ -48,6 +48,7 @@ export class Environment {
 export const env = new Environment()
 export const wallet = env.getWallet().wallet
 export const signer = env.getWallet().signer
+export const walledAddress = wallet.address
 export const provider = p
 export const flashMulti = env.getContracts().flashMulti
 export const flashDirect = env.getContracts().flashDirect
