@@ -11643,3 +11643,1296 @@
   }
 }
 [2024-01-25T19:14:27.519] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: WMATIC/COLLAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:09.201] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: ETELEGRAM: 404 Not Found
+[2024-02-01T10:32:13.295] [INFO] default - New block received: Block # 52996185
+[2024-02-01T10:32:13.315] [INFO] default - New block received: Block # 52996186
+[2024-02-01T10:32:13.319] [INFO] default - New block received: Block # 52996187
+[2024-02-01T10:32:13.321] [INFO] default - New block received: Block # 52996188
+[2024-02-01T10:32:17.930] [INFO] default - New block received: Block # 52996189
+[2024-02-01T10:32:17.944] [INFO] default - New block received: Block # 52996190
+[2024-02-01T10:32:22.295] [INFO] default - New block received: Block # 52996191
+[2024-02-01T10:32:25.407] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.408] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.408] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996191,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002327',
+    priceOut: '429.64809844',
+    reservesIn: '15140.730497 USDC',
+    reservesOut: '6505186.6708161 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.85764108 KOM',
+      simpleMulti: '119.85781251 KOM',
+      getAmountsOut: '119.13863462 KOM',
+      getAmountsIn: '119.85668286 KOM'
+    },
+    amountOut: '119.13863462 KOM',
+    amountOutToken0for1: '0.277970 USDC',
+    amountRepay: '119.13863462 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849326907452202031486017',
+    uniswapkPosT: '9849327445200297359070708',
+    uniswapKPositive: true,
+    profit: '0.65259705 KOM',
+    profperc: '0.54477865%'
+  }
+}
+[2024-02-01T10:32:25.408] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.409] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.409] [ERROR] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.509] [TRACE] default - TRACE:
+[2024-02-01T10:32:25.509] [TRACE] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.512] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.512] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.512] [INFO] default - Error: Only owner can call this function
+[2024-02-01T10:32:25.513] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.513] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.513] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996191,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002327',
+    priceOut: '429.64809844',
+    reservesIn: '15140.730497 USDC',
+    reservesOut: '6505186.6708161 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.85764108 KOM',
+      simpleMulti: '119.85781251 KOM',
+      getAmountsOut: '119.13863462 KOM',
+      getAmountsIn: '119.85668286 KOM'
+    },
+    amountOut: '119.13863462 KOM',
+    amountOutToken0for1: '0.277970 USDC',
+    amountRepay: '119.13863462 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849326907452202031486017',
+    uniswapkPosT: '9849327445200297359070708',
+    uniswapKPositive: true,
+    profit: '0.65259705 KOM',
+    profperc: '0.54477865%'
+  }
+}
+[2024-02-01T10:32:25.513] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.513] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.514] [ERROR] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.514] [TRACE] default - TRACE:
+[2024-02-01T10:32:25.514] [TRACE] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.515] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.516] [INFO] default - Error: Only owner can call this function
+[2024-02-01T10:32:25.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.516] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996191,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002327',
+    priceOut: '429.64809844',
+    reservesIn: '15140.730497 USDC',
+    reservesOut: '6505186.6708161 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.85764108 KOM',
+      simpleMulti: '119.85781251 KOM',
+      getAmountsOut: '119.13863462 KOM',
+      getAmountsIn: '119.85668286 KOM'
+    },
+    amountOut: '119.13863462 KOM',
+    amountOutToken0for1: '0.277970 USDC',
+    amountRepay: '119.13863462 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849326907452202031486017',
+    uniswapkPosT: '9849327445200297359070708',
+    uniswapKPositive: true,
+    profit: '0.65259705 KOM',
+    profperc: '0.54477865%'
+  }
+}
+[2024-02-01T10:32:25.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.517] [ERROR] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.518] [TRACE] default - TRACE:
+[2024-02-01T10:32:25.519] [TRACE] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.520] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.520] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.520] [INFO] default - Error: Only owner can call this function
+[2024-02-01T10:32:25.520] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.521] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.521] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996191,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002327',
+    priceOut: '429.64809844',
+    reservesIn: '15140.730497 USDC',
+    reservesOut: '6505186.6708161 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.85764108 KOM',
+      simpleMulti: '119.85781251 KOM',
+      getAmountsOut: '119.13863462 KOM',
+      getAmountsIn: '119.85668286 KOM'
+    },
+    amountOut: '119.13863462 KOM',
+    amountOutToken0for1: '0.277970 USDC',
+    amountRepay: '119.13863462 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849326907452202031486017',
+    uniswapkPosT: '9849327445200297359070708',
+    uniswapKPositive: true,
+    profit: '0.65259705 KOM',
+    profperc: '0.54477865%'
+  }
+}
+[2024-02-01T10:32:25.522] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.522] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.522] [ERROR] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.522] [TRACE] default - TRACE:
+[2024-02-01T10:32:25.523] [TRACE] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 3405,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:25.524] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.524] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:25.524] [INFO] default - Error: Only owner can call this function
+[2024-02-01T10:32:29.405] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.405] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.406] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996191,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002327',
+    priceOut: '429.64809844',
+    reservesIn: '15140.730497 USDC',
+    reservesOut: '6505186.6708161 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.85764108 KOM',
+      simpleMulti: '119.85781251 KOM',
+      getAmountsOut: '119.13863462 KOM',
+      getAmountsIn: '119.85668286 KOM'
+    },
+    amountOut: '119.13863462 KOM',
+    amountOutToken0for1: '0.277970 USDC',
+    amountRepay: '119.13863462 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849326907452202031486017',
+    uniswapkPosT: '9849327445200297359070708',
+    uniswapKPositive: true,
+    profit: '0.65259705 KOM',
+    profperc: '0.54477865%'
+  }
+}
+[2024-02-01T10:32:29.406] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.406] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.407] [ERROR] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 4448,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:29.408] [TRACE] default - TRACE:
+[2024-02-01T10:32:29.408] [TRACE] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 4448,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:29.409] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.410] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.410] [INFO] default - Error: Only owner can call this function
+[2024-02-01T10:32:29.410] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.410] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.411] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996191,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002327',
+    priceOut: '429.64809844',
+    reservesIn: '15140.730497 USDC',
+    reservesOut: '6505186.6708161 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.85764108 KOM',
+      simpleMulti: '119.85781251 KOM',
+      getAmountsOut: '119.13863462 KOM',
+      getAmountsIn: '119.85668286 KOM'
+    },
+    amountOut: '119.13863462 KOM',
+    amountOutToken0for1: '0.277970 USDC',
+    amountRepay: '119.13863462 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849326907452202031486017',
+    uniswapkPosT: '9849327445200297359070708',
+    uniswapKPositive: true,
+    profit: '0.65259705 KOM',
+    profperc: '0.54477865%'
+  }
+}
+[2024-02-01T10:32:29.411] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.411] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.411] [ERROR] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 4448,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:29.412] [TRACE] default - TRACE:
+[2024-02-01T10:32:29.412] [TRACE] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 4448,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:29.414] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.414] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:29.415] [INFO] default - Error: Only owner can call this function
+[2024-02-01T10:32:31.116] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:31.116] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:31.117] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996191,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002327',
+    priceOut: '429.64809844',
+    reservesIn: '15140.730497 USDC',
+    reservesOut: '6505186.6708161 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.85764108 KOM',
+      simpleMulti: '119.85781251 KOM',
+      getAmountsOut: '119.13863462 KOM',
+      getAmountsIn: '119.85668286 KOM'
+    },
+    amountOut: '119.13863462 KOM',
+    amountOutToken0for1: '0.277970 USDC',
+    amountRepay: '119.13863462 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849326907452202031486017',
+    uniswapkPosT: '9849327445200297359070708',
+    uniswapKPositive: true,
+    profit: '0.65259705 KOM',
+    profperc: '0.54477865%'
+  }
+}
+[2024-02-01T10:32:31.119] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:31.119] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:31.120] [ERROR] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 4756,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:31.122] [TRACE] default - TRACE:
+[2024-02-01T10:32:31.122] [TRACE] default - Error: execution reverted: "Error: Only owner can call this function" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000", reason="Error: Only owner can call this function", transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert={ "args": [ "Error: Only owner can call this function" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000',
+  reason: 'Error: Only owner can call this function',
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c61f2126'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'Error: Only owner can call this function' ]
+  },
+  shortMessage: 'execution reverted: "Error: Only owner can call this function"',
+  info: {
+    error: {
+      code: 3,
+      message: 'execution reverted: Error: Only owner can call this function',
+      data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000284572726f723a204f6e6c79206f776e65722063616e2063616c6c20746869732066756e6374696f6e000000000000000000000000000000000000000000000000'
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 4756,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:32:31.125] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:31.125] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:32:31.125] [INFO] default - Error: Only owner can call this function
+[2024-02-01T10:52:59.846] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: ETELEGRAM: 404 Not Found
+[2024-02-01T10:53:05.695] [INFO] default - New block received: Block # 52996742
+[2024-02-01T10:53:09.848] [INFO] default - New block received: Block # 52996743
+[2024-02-01T10:53:09.866] [INFO] default - New block received: Block # 52996744
+[2024-02-01T10:53:09.871] [INFO] default - New block received: Block # 52996745
+[2024-02-01T10:53:11.175] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:11.175] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:11.175] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996745,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002331',
+    priceOut: '429.08338869',
+    reservesIn: '15150.730497 USDC',
+    reservesOut: '6500926.78283991 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.70010569 KOM',
+      simpleMulti: '119.70027690 KOM',
+      getAmountsOut: '118.98204570 KOM',
+      getAmountsIn: '119.69915019 KOM'
+    },
+    amountOut: '118.98204570 KOM',
+    amountOutToken0for1: '0.278336 USDC',
+    amountRepay: '118.98204570 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849378966753672070573527',
+    uniswapkPosT: '9849379504154079396959640',
+    uniswapKPositive: true,
+    profit: '0.80918597 KOM',
+    profperc: '0.67549683%'
+  }
+}
+[2024-02-01T10:53:11.177] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:11.178] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:11.178] [ERROR] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 825,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:11.268] [TRACE] default - TRACE:
+[2024-02-01T10:53:11.269] [TRACE] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 825,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:11.272] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:11.273] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:11.273] [INFO] default - null
+[2024-02-01T10:53:17.885] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.886] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.887] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996750,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002331',
+    priceOut: '429.08338869',
+    reservesIn: '15150.730497 USDC',
+    reservesOut: '6500926.78283991 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.70010569 KOM',
+      simpleMulti: '119.70027690 KOM',
+      getAmountsOut: '118.98204570 KOM',
+      getAmountsIn: '119.69915019 KOM'
+    },
+    amountOut: '118.98204570 KOM',
+    amountOutToken0for1: '0.278336 USDC',
+    amountRepay: '118.98204570 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849378966753672070573527',
+    uniswapkPosT: '9849379504154079396959640',
+    uniswapKPositive: true,
+    profit: '0.80918597 KOM',
+    profperc: '0.67549683%'
+  }
+}
+[2024-02-01T10:53:17.888] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.888] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.889] [ERROR] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 2537,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:17.890] [TRACE] default - TRACE:
+[2024-02-01T10:53:17.891] [TRACE] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 2537,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:17.893] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.894] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.894] [INFO] default - null
+[2024-02-01T10:53:17.895] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.895] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.895] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996750,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002331',
+    priceOut: '429.08338869',
+    reservesIn: '15150.730497 USDC',
+    reservesOut: '6500926.78283991 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.70010569 KOM',
+      simpleMulti: '119.70027690 KOM',
+      getAmountsOut: '118.98204570 KOM',
+      getAmountsIn: '119.69915019 KOM'
+    },
+    amountOut: '118.98204570 KOM',
+    amountOutToken0for1: '0.278336 USDC',
+    amountRepay: '118.98204570 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849378966753672070573527',
+    uniswapkPosT: '9849379504154079396959640',
+    uniswapKPositive: true,
+    profit: '0.80918597 KOM',
+    profperc: '0.67549683%'
+  }
+}
+[2024-02-01T10:53:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.896] [ERROR] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 2537,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:17.897] [TRACE] default - TRACE:
+[2024-02-01T10:53:17.898] [TRACE] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 2537,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:17.899] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.899] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:17.900] [INFO] default - null
+[2024-02-01T10:53:18.422] [INFO] default - New block received: Block # 52996746
+[2024-02-01T10:53:18.425] [INFO] default - New block received: Block # 52996747
+[2024-02-01T10:53:18.428] [INFO] default - New block received: Block # 52996748
+[2024-02-01T10:53:18.431] [INFO] default - New block received: Block # 52996749
+[2024-02-01T10:53:18.434] [INFO] default - New block received: Block # 52996750
+[2024-02-01T10:53:18.619] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:18.620] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:18.620] [ERROR] default - {
+  id: '0x0295e3d4c632D4A021886fd4a4c9cb06Bd6778Ae',
+  block: 52996750,
+  trade: 'multi',
+  ticker: 'USDC/KOM',
+  direction: 'B',
+  tradeSize: '0.278133 USDC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '0.002331',
+    priceOut: '429.08338869',
+    reservesIn: '15150.730497 USDC',
+    reservesOut: '6500926.78283991 KOM',
+    repaysObj: {
+      direct: '0.278967 USDC',
+      directInTokenOut: '119.70010569 KOM',
+      simpleMulti: '119.70027690 KOM',
+      getAmountsOut: '118.98204570 KOM',
+      getAmountsIn: '119.69915019 KOM'
+    },
+    amountOut: '118.98204570 KOM',
+    amountOutToken0for1: '0.278336 USDC',
+    amountRepay: '118.98204570 KOM'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '0.002287',
+    priceOut: '437.20103164',
+    reservesIn: '46.355487 USDC',
+    reservesOut: '20266.66673878 KOM',
+    amountOutToken0for1: '0.271573 USDC',
+    amountOut: '119.79123167 KOM'
+  },
+  result: {
+    uniswapkPreT: '9849378966753672070573527',
+    uniswapkPosT: '9849379504154079396959640',
+    uniswapKPositive: true,
+    profit: '0.80918597 KOM',
+    profperc: '0.67549683%'
+  }
+}
+[2024-02-01T10:53:18.622] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:18.624] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:18.624] [ERROR] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 2647,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:18.627] [TRACE] default - TRACE:
+[2024-02-01T10:53:18.628] [TRACE] default - Error: missing revert data (action="estimateGas", data=null, reason=null, transaction={ "data": "0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a", "from": "0xAae6F269e52E00cf1ae10786b11681020C0d14C6", "to": "0xF6FAe5203F178F46fa0D62B1a652713874fC7209" }, invocation=null, revert=null, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: null,
+  reason: null,
+  transaction: {
+    to: '0xF6FAe5203F178F46fa0D62B1a652713874fC7209',
+    data: '0xde60dce4000000000000000000000000cf083be4164828f00cae704ec15a36d711491284000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000002791bca1f2de4661ed88a30c99a7a9449aa84174000000000000000000000000c004e2318722ea2b15499d6375905d75ee5390b80000000000000000000000000000000000000000000000000000000000043e7500000000000000000000000000000000000000000000000000000002ca02e9df00000000000000000000000000000000000000000000000000000002c530319a',
+    from: '0xAae6F269e52E00cf1ae10786b11681020C0d14C6'
+  },
+  invocation: null,
+  revert: null,
+  shortMessage: 'missing revert data',
+  info: {
+    error: { code: -32000, message: 'execution reverted' },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 2647,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-02-01T10:53:18.630] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:18.631] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/KOM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T10:53:18.631] [INFO] default - null

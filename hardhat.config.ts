@@ -7,7 +7,9 @@ import '@nomicfoundation/hardhat-chai-matchers'
 import '@nomicfoundation/hardhat-verify'
 
 dotenvConfig({ path: `.env.${process.env.NODE_ENV}` })
-
+console.log(
+    `>>>>>>>>>>>>>>>>>>>>> (hardhat.config.ts) process.env.NODE_ENV: ${process.env.NODE_ENV} `
+)
 module.exports = {
     paths: {
         sources: './contracts/v2',
