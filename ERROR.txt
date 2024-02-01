@@ -1,0 +1,390 @@
+[2024-02-01T17:23:42.266] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.267] [ERROR] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+[2024-02-01T17:23:42.268] [TRACE] default - TRACE:
+[2024-02-01T17:23:42.268] [TRACE] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+Trace: CONSOLE TRACE:
+    at fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:112:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30)
+[2024-02-01T17:23:42.269] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.270] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.270] [INFO] default - undefined
+[2024-02-01T17:23:42.270] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.271] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.271] [ERROR] default - {
+  id: '0x68ccE7049013ca8df91CD512ceFEe8FC0bb8d926',
+  block: 51502380,
+  trade: 'multi',
+  ticker: 'WMATIC/LINK',
+  direction: 'B',
+  tradeSize: '0.43976605217879600 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '18.645507928241152632',
+    priceOut: '0.053632220899992982',
+    reservesIn: '950.270183961974049860 WMATIC',
+    reservesOut: '50.965100420925560800 LINK',
+    repaysObj: {
+      direct: '0.44108535033533230 WMATIC',
+      directInTokenOut: '0.2365638694493534 LINK',
+      simpleMulti: '0.2365638694493534 LINK',
+      getAmountsOut: '0.2351378825798641 LINK',
+      getAmountsIn: '0.2365550183090908 LINK'
+    },
+    amountOut: '0.2351378825798641 LINK',
+    amountOutToken0for1: '0.43832747492611030 WMATIC',
+    amountRepay: '0.2351378825798641 LINK'
+  },
+  target: {
+    exchange: 'SUSHI',
+    priceIn: '18.476227717542402689',
+    priceOut: '0.054123602246498725',
+    reservesIn: '135.420295375001146050 WMATIC',
+    reservesOut: '7.329434202979932900 LINK',
+    amountOutToken0for1: '0.43422870985796190 WMATIC',
+    amountOut: '0.2358030128207402 LINK'
+  },
+  result: {
+    uniswapkPreT: '48430615352633413784195291639191497142962',
+    uniswapkPosT: '48430621888311103705148909052595372910250',
+    uniswapKPositive: true,
+    profit: '0.6651302408761 LINK',
+    profperc: '0.2820702894842733%'
+  }
+}
+[2024-02-01T17:23:42.271] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.272] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.274] [ERROR] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+[2024-02-01T17:23:42.275] [TRACE] default - TRACE:
+[2024-02-01T17:23:42.275] [TRACE] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+Trace: CONSOLE TRACE:
+    at fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:112:21)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30)
+[2024-02-01T17:23:42.276] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.276] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:42.277] [INFO] default - undefined
+
+
+
+
+
+
+[2024-02-01T17:23:58.064] [TRACE] default - TRACE:
+[2024-02-01T17:23:58.065] [TRACE] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+[2024-02-01T17:23:58.066] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.066] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.067] [INFO] default - undefined
+[2024-02-01T17:23:58.067] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.067] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.067] [ERROR] default - {
+  id: '0x68ccE7049013ca8df91CD512ceFEe8FC0bb8d926',
+  block: 51502386,
+  trade: 'multi',
+  ticker: 'WMATIC/LINK',
+  direction: 'B',
+  tradeSize: '0.43976605217879600 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '18.645507928241152632',
+    priceOut: '0.053632220899992982',
+    reservesIn: '950.270183961974049860 WMATIC',
+    reservesOut: '50.965100420925560800 LINK',
+    repaysObj: {
+      direct: '0.44108535033533230 WMATIC',
+      directInTokenOut: '0.2365638694493534 LINK',
+      simpleMulti: '0.2365638694493534 LINK',
+      getAmountsOut: '0.2351378825798641 LINK',
+      getAmountsIn: '0.2365550183090908 LINK'
+    },
+    amountOut: '0.2351378825798641 LINK',
+    amountOutToken0for1: '0.43832747492611030 WMATIC',
+    amountRepay: '0.2351378825798641 LINK'
+  },
+  target: {
+    exchange: 'SUSHI',
+    priceIn: '18.476227717542402689',
+    priceOut: '0.054123602246498725',
+    reservesIn: '135.420295375001146050 WMATIC',
+    reservesOut: '7.329434202979932900 LINK',
+    amountOutToken0for1: '0.43422870985796190 WMATIC',
+    amountOut: '0.2358030128207402 LINK'
+  },
+  result: {
+    uniswapkPreT: '48430615352633413784195291639191497142962',
+    uniswapkPosT: '48430621888311103705148909052595372910250',
+    uniswapKPositive: true,
+    profit: '0.6651302408761 LINK',
+    profperc: '0.2820702894842733%'
+  }
+}
+[2024-02-01T17:23:58.068] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.068] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.068] [ERROR] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+[2024-02-01T17:23:58.071] [TRACE] default - TRACE:
+[2024-02-01T17:23:58.081] [TRACE] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+[2024-02-01T17:23:58.082] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.083] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:23:58.083] [INFO] default - undefined
+[2024-02-01T17:24:01.162] [INFO] default - New block received: Block # 51502387
+[2024-02-01T17:24:01.197] [INFO] default - params: 
+[2024-02-01T17:24:01.200] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:24:01.200] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:24:01.201] [ERROR] default - {
+  id: '0x68ccE7049013ca8df91CD512ceFEe8FC0bb8d926',
+  block: 51502387,
+  trade: 'multi',
+  ticker: 'WMATIC/LINK',
+  direction: 'B',
+  tradeSize: '0.43976605217879600 WMATIC',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '18.645507928241152632',
+    priceOut: '0.053632220899992982',
+    reservesIn: '950.270183961974049860 WMATIC',
+    reservesOut: '50.965100420925560800 LINK',
+    repaysObj: {
+      direct: '0.44108535033533230 WMATIC',
+      directInTokenOut: '0.2365638694493534 LINK',
+      simpleMulti: '0.2365638694493534 LINK',
+      getAmountsOut: '0.2351378825798641 LINK',
+      getAmountsIn: '0.2365550183090908 LINK'
+    },
+    amountOut: '0.2351378825798641 LINK',
+    amountOutToken0for1: '0.43832747492611030 WMATIC',
+    amountRepay: '0.2351378825798641 LINK'
+  },
+  target: {
+    exchange: 'SUSHI',
+    priceIn: '18.476227717542402689',
+    priceOut: '0.054123602246498725',
+    reservesIn: '135.420295375001146050 WMATIC',
+    reservesOut: '7.329434202979932900 LINK',
+    amountOutToken0for1: '0.43422870985796190 WMATIC',
+    amountOut: '0.2358030128207402 LINK'
+  },
+  result: {
+    uniswapkPreT: '48430615352633413784195291639191497142962',
+    uniswapkPosT: '48430621888311103705148909052595372910250',
+    uniswapKPositive: true,
+    profit: '0.6651302408761 LINK',
+    profperc: '0.2820702894842733%'
+  }
+}
+[2024-02-01T17:24:01.201] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:24:01.201] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:24:01.202] [ERROR] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+[2024-02-01T17:24:01.204] [TRACE] default - TRACE:
+[2024-02-01T17:24:01.205] [TRACE] default - TypeError: overflow (argument="value", value=43976605217879600, code=INVALID_ARGUMENT, version=6.10.0)
+    at makeError (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:687:21)
+    at assert (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:715:25)
+    at assertArgument (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:727:5)
+    at getBigInt (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/utils/maths.ts:100:27)
+    at NumberCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/number.ts:36:30)
+    at /mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:64:19
+    at Array.forEach (<anonymous>)
+    at pack (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/array.ts:47:12)
+    at TupleCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/coders/tuple.ts:62:20)
+    at AbiCoder.encode (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:195:15)
+    at Interface._encodeParams (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:795:31)
+    at Interface.encodeFunctionData (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/abi/interface.ts:884:18)
+    at populateTransaction (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:298:38)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async AsyncFunction.estimateGas (/mnt/c/code/polybotv2/node_modules/ethers/src.ts/contract/contract.ts:325:41)
+    at async fetchGasPrice (/mnt/c/code/polybotv2/scripts/v2/modules/fetchGasPrice.ts:82:27)
+    at async gasVprofit (/mnt/c/code/polybotv2/scripts/v2/modules/gasVprofit.ts:42:28)
+    at async rollDamage (/mnt/c/code/polybotv2/scripts/v2/modules/damage.ts:60:30) {
+  code: 'INVALID_ARGUMENT',
+  argument: 'value',
+  value: 43976605217879600,
+  shortMessage: 'overflow'
+}
+[2024-02-01T17:24:01.209] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:24:01.209] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-01T17:24:01.209] [INFO] default - undefined

@@ -3,7 +3,8 @@ import { tradeLogs } from './tradeLog'
 import { logger } from '../../../constants/logger'
 import { fu, pu } from '../../modules/convertBN'
 import { ethers } from 'ethers'
-import { walledAddress } from '../../../constants/environment'
+import { provider, walletAddress } from '../../../constants/environment'
+import { abi as IflashMulti } from '../../../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
 
 /**
  * @param trade
@@ -24,50 +25,45 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // console.log('maxFeeString: ', maxFeeString)
 
     const maxPriorityFee = BigInt(Math.trunc(maxPriorityFeeGasData * 10 ** 9))
-    // console.log('maxPriorityFeeString: ', maxPriorityFeeString)
+    // console.log('maxPriorityFeeString: ', maxPriorityFeeString
 
-    // console.log('maxPriorityFee: ', maxPriorityFee)
-
-    // // Calculate the function selector
-    // const swapFunctionSignature = 'swap(uint256,uint256,address,bytes)';
-    // const swapFunctionSelector = ethers.id(swapFunctionSignature).substring(0, 10);
-
-    // // Get the contract ABI
-    // const loanContractABI = trade.loanPool.pool.getFunction('swap')
-    // const targetContactABI = trade.target.pool.getFunction('swap')
-
-    // const loanContractAddress = await trade.loanPool.pool.getAddress()
-    // const targetContractAddress = await trade.target.pool.getAddress()
-
-    // console.log('loanContractABI: ', loanContractABI)
-    // console.log('loanContractID: ', loanContractAddress)
-    // console.log('targetContractABI: ', targetContactABI)
-    // console.log('targetContractID: ', targetContractAddress)
-    // Check if the swap function exists in the contract ABI
-    // const swapFunctionExists = pairContractABI.some(
-    // 	(func) => ethers.id(func.name + '(' + func.inputs.map(i => i.type).join(',') + ')').substring(0, 10) === swapFunctionSelector
-    // );
-
-    // console.log('Swap function exists:', swapFunctionExists);
-
-    // Print out the function signatures of the flash contracts
+    let gasEstimate = BigInt(30000000)
 
     if (trade.direction != undefined) {
         console.log('EstimatingGas for trade: ' + trade.ticker + '...')
-        let gasEstimate: bigint
         try {
-            //'override' error possibly too many args sent to contract? Or somethind to do with estimateGas not being able to properly create BigInts object.
-            gasEstimate = await trade.flash.flashSwap.estimateGas(
-                await trade.loanPool.factory.getAddress(),
-                await trade.loanPool.router.getAddress(),
-                await trade.target.router.getAddress(),
-                trade.tokenIn.id,
-                trade.tokenOut.id,
-                trade.target.tradeSize,
-                trade.target.amountOut,
-                trade.loanPool.amountRepay,
-                { from: walledAddress }
-            )
+            // logger.info('params: ', p)
+            // const flashAddress = await trade.flash.getAddress()
+            // logger.info('trade.flash Address: ', flashAddress)
+            // logger.info('env.flash   address: ', process.env.FLASH_MULTI)
+            // const flashFunction = trade.flash.flashSwap
+            // logger.info('flashFunction: ', flashFunction)
+            // console.log('trade.flash:', trade.flash)
+
+            // const flashSwapFunction = await trade.flash.flashSwap.getFunction()
+            gasEstimate = await trade.flash.flashSwap.estimateGas({
+                loanFactory: await trade.loanPool.factory.getAddress(),
+                loanRouter: await trade.loanPool.router.getAddress(),
+                recipientRouter: await trade.target.router.getAddress(),
+                token0ID: trade.tokenIn.id,
+                token1ID: trade.tokenOut.id,
+                amount0In: trade.target.tradeSize,
+                amount1Out: trade.target.amountOut,
+                amountToRepay: trade.loanPool.amountRepay,
+            })
+            console.log('>>>>>>>>>>gasEstimate: ', gasEstimate)
+            // gasEstimate = await trade.flash.estimateGas('flashSwap', [
+            //     {
+            //         loanFactory: await trade.loanPool.factory.getAddress(),
+            //         loanRouter: await trade.loanPool.router.getAddress(),
+            //         recipientRouter: await trade.target.router.getAddress(),
+            //         token0ID: trade.tokenIn.id,
+            //         token1ID: trade.tokenOut.id,
+            //         amount0In: trade.target.tradeSize,
+            //         amount1Out: trade.target.amountOut,
+            //         amountToRepay: trade.loanPool.amountRepay,
+            //     },
+            // ])
         } catch (error: any) {
             const data = await tradeLogs(trade)
             logger.error(
@@ -93,12 +89,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             logger.error(
                 `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`
             )
-            gasEstimate = pu('300000', 18)
             logger.info(error.reason)
             return {
                 gasEstimate,
                 tested: false,
-                gasPrice: BigInt(150 + 60 * 300000),
+                gasPrice: BigInt(150n + 60n * gasEstimate),
                 maxFee,
                 maxPriorityFee,
             }
@@ -142,9 +137,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             ` <<<<<<<<<<<<<<<<<<<<<<<<<< `
         )
         return {
-            gasEstimate: BigInt(300000),
+            gasEstimate,
             tested: false,
-            gasPrice: BigInt(150 + 60 * 300000),
+            gasPrice: BigInt(150n + 60n * gasEstimate),
             maxFee: maxFee,
             maxPriorityFee: maxPriorityFee,
         }

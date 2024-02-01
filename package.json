@@ -65,7 +65,6 @@
         "v2DeployLive": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deployFlash.ts",
         "hhnode": "cross-env NODE_ENV=test npx hardhat node",
         "arbSim": "npx hardhat run --network localhost test/arbSim.ts",
-        "deployContracts": "cross-env NODE_ENV=test npx hardhat run --network polygon scripts/deployFlash.ts",
         "get2": "npx ts-node utils/dexdata/V2/allPairsCtrl",
         "get3": "npx ts-node utils/dexdata/V3/getPools",
         "match2": "npx ts-node utils/dexdata/V2/matchPairsCtrl",

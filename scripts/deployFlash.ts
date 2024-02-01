@@ -1,10 +1,17 @@
-import { ethers as he, run, network } from 'hardhat'
-import { ethers } from 'ethers'
-require('dotenv').config()
+import { ethers as eh, run, network } from 'hardhat'
+import { ContractFactory, Typed, ethers } from 'ethers'
+import { config as dotEnvConfig } from 'dotenv'
 import { provider, signer } from '../constants/environment'
 
-// npx hardhat run --network localhost scripts/deployFlashMulti.ts
-// npx hardhat run --network localhost scripts/deployFlashDirect.ts; npx hardhat run--network localhost scripts/deployFlashMulti.ts
+if (process.env.NODE_ENV === 'test') {
+    dotEnvConfig({ path: '.env.test' })
+} else {
+    dotEnvConfig({ path: '.env.live' })
+}
+
+//TODO: CONVERT TO LIVE DEPLOYMENTS
+// npx hardhat run --network localhost scripts/deployFlashTests.ts
+
 async function main() {
     try {
         const deployer = signer
@@ -19,59 +26,67 @@ async function main() {
 
         console.log('Account balance:', balanceDeployer.toString())
 
-        const flashMulti = await he.getContractFactory(
-            'contracts/v2/flashMulti.sol:flashMulti'
-        )
-        // const flashDirect = await ethers.getContractFactory(
-        // 	'flashDirect'
-        // );
-        console.log('Deploying flashMulti to ' + network.name + '...')
-        const flashmulti = await flashMulti.deploy(owner)
-        // console.log('Deploying flashDirect to ' + network.name + '...')
-        // const flashdirect = await flashDirect.deploy(owner);
-        console.log('awaiting flashMulti.deployed()...')
-        await flashmulti.waitForDeployment()
-        // console.log("awaiting flashDirect.deployed()...")
-        // await flashdirect.waitForDeployment();
+        const flashMultiTest = await eh.getContractFactory('flashMultiTest')
+        const flashDirectTest = await eh.getContractFactory('flashDirectTest')
+        console.log('Deploying flashMultiTest to ' + network.name + '...')
+        const flashmultitest = await flashMultiTest.deploy(owner)
+        console.log('Deploying flashDirectTest to ' + network.name + '...')
+        const flashdirecttest = await flashDirectTest.deploy(owner)
+        console.log('awaiting flashMultiTest.deployed()...')
+        await flashmultitest.waitForDeployment() //.deployed();
+        console.log('awaiting flashDirectTest.deployed()...')
+        await flashdirecttest.waitForDeployment()
         console.log(
-            "Contract 'flashMulti' deployed: " + (await flashmulti.getAddress())
+            "Contract 'flashMultiTest' deployed: " +
+                (await flashmultitest.getAddress())
         )
-        // console.log("Contract 'flashDirect' deployed: " + flashdirect.getAddress());
-
-        if (network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) {
-            await flashmulti.waitForDeployment()
-            await verify(flashmulti.getAddress(), [owner])
-        } else if (network.config.chainId === 31337) {
-            console.log('Not verified: Network is Hardhat')
+        console.log(
+            "Contract 'flashDirectTest' deployed: " +
+                (await flashdirecttest.getAddress())
+        )
+        const flashMultiTestID = await flashmultitest.getAddress()
+        const flashDirectTestID = await flashdirecttest.getAddress()
+        if (
+            flashDirectTestID !== process.env.FLASH_MULTI ||
+            flashMultiTestID !== process.env.FLASH_DIRECT
+        ) {
+            console.log(
+                'Contract address does not match .env file. Please update .env file with new contract address.'
+            )
         }
-        const checkOwnerMultiFunction = flashmulti.getFunction('checkOwner')
+
+        // if ((network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) || (network.config.chainId === 80001 && process.env.MUMBAISCAN_API_KEY)) {
+        // 	await flashmultitest.deployTransaction.wait(12);
+        // 	// verify(flashmultitest.getAddress(), [owner]);
+
+        // } else if (network.config.chainId === 31337) {
+        // 	console.log("Verification failed: Network is Hardhat");
+        // } else {
+        const checkOwnerMultiFunction = flashmultitest.getFunction('checkOwner')
         const checkOwnerMulti = await checkOwnerMultiFunction()
         console.log(checkOwnerMulti)
-        // const checkOwnerDirect = await flashdirect.checkOwner();
-        // console.log(checkOwnerDirect)
-
-        async function verify(contractAddress: any, args: any) {
-            console.log(
-                'Verifying contract: ' +
-                    contractAddress +
-                    ' with args: ' +
-                    JSON.stringify(args) +
-                    '. Please wait...'
-            )
-            try {
-                await run('verify:verify', {
-                    address: contractAddress,
-                    constructorArguments: args,
-                })
-            } catch (error: any) {
-                if (error.message.includes('already verified')) {
-                    console.log('Contract already verified')
-                } else {
-                    console.log('Error: ' + error.message)
-                }
-            }
-        }
+        const checkOwnerDirectFunction =
+            flashdirecttest.getFunction('checkOwner')
+        const checkOwnerDirect = await checkOwnerDirectFunction()
+        console.log(checkOwnerDirect)
+        // }
+        // async function verify(contractAddress: any, args: any) {
+        // 	console.log("Verifying contract: " + contractAddress + "./Please wait...");
+        // 	try {
+        // 		await run("verify:verify", {
+        // 			address: contractAddress,
+        // 			constructorArguments: args,
+        // 		})
+        // 	} catch (error: any) {
+        // 		if (error.message.includes("already verified")) {
+        // 			console.log("Contract already verified");
+        // 		} else {
+        // 			console.log("Error: " + error.message);
+        // 		}
+        // 	};
+        // }
     } catch (error: any) {
+        console.log('Error in deployFlashTests.ts: ' + error.message)
         console.log(error.message)
     }
 }
