@@ -17,7 +17,8 @@ async function main() {
         const owner = await deployer.getAddress()
 
         console.log(
-            'Deploying contracts with the account: ' + deployer.getAddress()
+            'Deploying contracts with the account: ' +
+                (await deployer.getAddress())
         )
 
         // Get balance of deployer account
@@ -43,8 +44,8 @@ async function main() {
             "Contract 'flashDirectTest' deployed: " +
                 (await flashdirecttest.getAddress())
         )
-        const flashMultiTestID = flashmultitest.getAddress().toString()
-        const flashDirectTestID = flashdirecttest.getAddress().toString()
+        const flashMultiTestID = await flashmultitest.getAddress()
+        const flashDirectTestID = await flashdirecttest.getAddress()
         if (
             flashDirectTestID !== process.env.FLASH_MULTI ||
             flashMultiTestID !== process.env.FLASH_DIRECT

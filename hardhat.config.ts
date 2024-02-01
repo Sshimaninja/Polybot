@@ -78,9 +78,9 @@ module.exports = {
         //     accounts: 'remote',
         // },
         polygon: {
-            url: 'https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-',
+            url: 'http://65.109.125.21:8545',
             // url: `wss://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
-            accounts: [process.env.PRIVATE_KEY],
+            // accounts: [process.env.PRIVATE_KEY],
             chainID: 137,
         },
     },

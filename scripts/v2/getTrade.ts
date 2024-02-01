@@ -14,9 +14,9 @@ import { abi as IRouter } from '@uniswap/v2-periphery/build/IUniswapV2Router02.j
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import {
     provider,
-    wallet,
     flashMulti,
     flashDirect,
+    env,
 } from '../../constants/environment'
 import { Prices } from './modules/prices'
 import { getK } from './modules/getK'
@@ -125,7 +125,7 @@ export class Trade {
             ticker: this.match.token0.symbol + '/' + this.match.token1.symbol,
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
-            flash: flashMulti, // This has to be set initially, but must be changed later per type.
+            flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type.
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A
@@ -173,13 +173,13 @@ export class Trade {
                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
                 factory: A
                     ? new Contract(this.pair.factoryA_id, IFactory, provider)
-                    : new Contract(this.pair.factoryB_id, IFactory, wallet),
+                    : new Contract(this.pair.factoryB_id, IFactory, provider),
                 router: A
                     ? new Contract(this.pair.routerA_id, IRouter, provider)
-                    : new Contract(this.pair.routerB_id, IRouter, wallet),
+                    : new Contract(this.pair.routerB_id, IRouter, provider),
                 pool: A
                     ? new Contract(this.match.poolAID, IPair, provider)
-                    : new Contract(this.match.poolBID, IPair, wallet),
+                    : new Contract(this.match.poolBID, IPair, provider),
                 reserveIn: A
                     ? this.price0.reserves.reserveIn
                     : this.price1.reserves.reserveIn,

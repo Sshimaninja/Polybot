@@ -2,13 +2,16 @@ import { config as dotenvConfig } from 'dotenv'
 import { ethers } from 'ethers'
 dotenvConfig({ path: `.env.${process.env.NODE_ENV}` })
 
-export const provider = new ethers.JsonRpcProvider(
-    'http://65.109.125.21:8545',
-    undefined,
-    {
-        staticNetwork: true,
-    }
+console.log(
+    'CURRENT RPC SETTINGS: ',
+    'NODE_ENV: ',
+    process.env.NODE_ENV,
+    'RPC: ',
+    process.env.RPC
 )
+export const provider = new ethers.JsonRpcProvider(process.env.RPC, undefined, {
+    staticNetwork: true,
+})
 
 export async function checkProvider() {
     const check = await provider.getBlock('latest')

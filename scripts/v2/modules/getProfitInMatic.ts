@@ -5,7 +5,7 @@ import { getAmountsOut } from './getAmountsIOLocal'
 import { gasTokens } from '../../../constants/addresses'
 import { wallet, provider } from '../../../constants/environment'
 import { logger } from '../../../constants/logger'
-import { getgasPoolForTrade } from './gasPoolTools'
+import { getGasPoolForTrade } from './gasPoolTools'
 require('dotenv').config()
 /**
  * @description
@@ -50,7 +50,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
         return maticProfit
     }
 
-    let g = await getgasPoolForTrade(trade)
+    let g = await getGasPoolForTrade(trade)
 
     if (g == undefined) {
         let maticProfit = {
@@ -85,7 +85,7 @@ export async function getProfitInMatic(trade: BoolTrade): Promise<MaticProfit> {
             '/WMATIC'
         )
 
-        logger.info('gaspool.getAddress(): ', gasPool.getAddress())
+        logger.info('gasPool.getAddress(): ', await gasPool.getAddress())
 
         const token0 = await gasPool.token0()
         const token1 = await gasPool.token1()
