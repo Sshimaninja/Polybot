@@ -41,22 +41,33 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             // console.log('trade.flash:', trade.flash)
 
             // const flashSwapFunction = await trade.flash.flashSwap.getFunction()
-            gasEstimate = await trade.flash.flashSwap.estimateGas({
-                loanFactory: await trade.loanPool.factory.getAddress(),
-                loanRouter: await trade.loanPool.router.getAddress(),
-                recipientRouter: await trade.target.router.getAddress(),
-                token0ID: trade.tokenIn.id,
-                token1ID: trade.tokenOut.id,
-                amount0In: trade.target.tradeSize,
-                amount1Out: trade.target.amountOut,
-                amountToRepay: trade.loanPool.amountRepay,
-            })
+
+            gasEstimate = await trade.flash.estimateGas('flashSwap', [
+                trade.loanPool.factory.address,
+                trade.target.router.address,
+                trade.tokenIn.id,
+                trade.tokenOut.id,
+                trade.target.tradeSize,
+                trade.target.amountOut,
+                trade.loanPool.amountRepay,
+            ])
+
+            // gasEstimate = await trade.flash.flashSwap.estimateGas({
+            //     loanFactory: await trade.loanPool.factory.getAddress(),
+            //     loanRouter: await trade.loanPool.router.getAddress(),
+            //     targetRouter: await trade.target.router.getAddress(),
+            //     token0ID: trade.tokenIn.id,
+            //     token1ID: trade.tokenOut.id,
+            //     amount0In: trade.target.tradeSize,
+            //     amount1Out: trade.target.amountOut,
+            //     amountToRepay: trade.loanPool.amountRepay,
+            // })
             console.log('>>>>>>>>>>gasEstimate: ', gasEstimate)
             // gasEstimate = await trade.flash.estimateGas('flashSwap', [
             //     {
             //         loanFactory: await trade.loanPool.factory.getAddress(),
             //         loanRouter: await trade.loanPool.router.getAddress(),
-            //         recipientRouter: await trade.target.router.getAddress(),
+            //         targetRouter: await trade.target.router.getAddress(),
             //         token0ID: trade.tokenIn.id,
             //         token1ID: trade.tokenOut.id,
             //         amount0In: trade.target.tradeSize,
