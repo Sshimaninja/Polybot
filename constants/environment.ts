@@ -39,8 +39,8 @@ export class Environment {
         }
         let flashMulti: ethers.Contract
         let flashDirect: ethers.Contract
-        flashMulti = new ethers.Contract(flashMultiID, IflashMulti, provider)
-        flashDirect = new ethers.Contract(flashDirectID, IflashDirect, provider)
+        flashMulti = new ethers.Contract(flashMultiID, IflashMulti, signer)
+        flashDirect = new ethers.Contract(flashDirectID, IflashDirect, signer)
         return { flashMulti, flashDirect }
     }
 }
