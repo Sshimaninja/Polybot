@@ -63,15 +63,14 @@
         "v2BotLive": "cross-env NODE_ENV=live npx ts-node index",
         "v2DeployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/deployFlashTests.ts",
         "v2DeployLive": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deployFlash.ts",
-        "start:node": "npx hardhat node",
-        "startTests": "concurrently --kill-others \"npm:wait:node\" \"npm:start:node\" \"npm:v2DeployTest\"",
+        "hhnode": "cross-env NODE_ENV=test npx hardhat node",
         "arbSim": "npx hardhat run --network localhost test/arbSim.ts",
-        "deployContracts": "npx hardhat run --network polygon scripts/deployFlash.ts",
+        "deployContracts": "cross-env NODE_ENV=test npx hardhat run --network polygon scripts/deployFlash.ts",
         "get2": "npx ts-node utils/dexdata/V2/allPairsCtrl",
         "get3": "npx ts-node utils/dexdata/V3/getPools",
         "match2": "npx ts-node utils/dexdata/V2/matchPairsCtrl",
         "match3": "npx ts-node utils/dexdata/V3/matchPools",
         "test": "mocha",
-        "dev": "cross-env NODE_ENV=development tsnd --respawn --debug ./index.ts"
+        "dev": "cross-env NODE_ENV=test tsnd --respawn --debug ./index.ts"
     }
 }
