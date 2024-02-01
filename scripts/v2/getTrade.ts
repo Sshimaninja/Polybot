@@ -118,7 +118,9 @@ export class Trade {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
 
         const trade: BoolTrade = {
-            ID: A ? this.match.poolAID : this.match.poolBID,
+            ID: A
+                ? this.match.poolAID + this.match.poolBID
+                : this.match.poolBID + this.match.poolAID,
             block: await provider.getBlockNumber(),
             direction: dir.dir,
             type: 'filtered',

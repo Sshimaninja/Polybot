@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('colors')
+import fs from 'fs'
 import { BigNumber as BN } from 'bignumber.js'
 import { Prices } from './modules/prices'
 import { FactoryPair, TradePair } from '../../constants/interfaces'
@@ -9,6 +10,14 @@ import { gasVprofit } from './modules/gasVprofit'
 import { Reserves } from './modules/reserves'
 import { tradeLogs } from './modules/tradeLog'
 import { rollDamage } from './modules/damage'
+let filteredTrades: string[]
+try {
+    filteredTrades = JSON.parse(fs.readFileSync('filtered.json', 'utf-8'))
+} catch (error: any) {
+    console.log('Error reading filtered.json: ' + error.message)
+    filteredTrades = []
+}
+
 /*
 TODO:
 */
@@ -28,6 +37,20 @@ export async function control(data: FactoryPair[], gasData: any) {
 
     for (const pair of data) {
         for (const match of pair.matches) {
+            if (
+                filteredTrades.includes(match.poolAID + match.poolBID) ||
+                filteredTrades.includes(match.poolBID + match.poolAID)
+            ) {
+                console.log(
+                    'Trade filtered:',
+                    match.ticker,
+                    'on ',
+                    pair.exchangeA + pair.exchangeB,
+                    'filtered out. Skipping...'
+                )
+                return
+            }
+
             const r = new Reserves(match)
             const reserves = await r.getReserves(match)
 
@@ -48,6 +71,10 @@ export async function control(data: FactoryPair[], gasData: any) {
                     gasData
                 )
                 const trade = await t.getTrade()
+
+                if (trade.type === 'filtered') {
+                    fs.writeFileSync('filtered.json', JSON.stringify(trade.ID))
+                }
 
                 const dataPromise = tradeLogs(trade)
                 const rollPromise = rollDamage(trade)
