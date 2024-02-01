@@ -484,3 +484,8 @@
 [2024-02-01T20:22:44.097] [INFO] default - New block received: Block # 51500334
 [2024-02-01T20:22:48.632] [INFO] default - New block received: Block # 51500335
 [2024-02-01T20:22:48.634] [INFO] default - New block received: Block # 51500336
+[2024-02-01T22:00:16.435] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: ETELEGRAM: 404 Not Found
+[2024-02-01T22:01:38.947] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: ETELEGRAM: 404 Not Found
+[2024-02-01T22:08:37.232] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: ETELEGRAM: 404 Not Found
+[2024-02-01T22:10:22.182] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: ETELEGRAM: 404 Not Found
+[2024-02-01T22:11:25.717] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: ETELEGRAM: 404 Not Found
