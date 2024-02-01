@@ -1,7 +1,7 @@
 import { ethers } from 'ethers'
 import { config as dotenvConfig } from 'dotenv'
-import { abi as IflashMulti } from '../artifacts/contracts/v2/flashMulti.sol/flashMulti.json'
-import { abi as IflashDirect } from '../artifacts/contracts/v2/flashDirect.sol/flashDirect.json'
+import { abi as IflashMulti } from '../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
+import { abi as IflashDirect } from '../artifacts/contracts/v2/flashDirectTest.sol/flashDirectTest.json'
 import { provider as p, checkProvider } from './provider'
 export const dotenv = dotenvConfig({
     path: `.env.${process.env.NODE_ENV == 'test' ? 'test' : 'live'}`,
@@ -48,7 +48,7 @@ export class Environment {
 export const env = new Environment()
 export const wallet = env.getWallet().wallet
 export const signer = env.getWallet().signer
-export const walledAddress = wallet.address
+export const walletAddress = wallet.address
 export const provider = p
 export const flashMulti = env.getContracts().flashMulti
 export const flashDirect = env.getContracts().flashDirect

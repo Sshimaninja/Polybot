@@ -10,7 +10,7 @@ interface IUniswapV2Callee {
     ) external;
 }
 
-contract flashMulti is IUniswapV2Callee {
+contract flashMultiTest is IUniswapV2Callee {
     address owner;
     IUniswapV2Pair pair;
     using SafeMath for uint256;
