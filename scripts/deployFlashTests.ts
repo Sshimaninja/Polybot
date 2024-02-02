@@ -1,6 +1,6 @@
 import { ContractFactory, Typed, ethers } from 'ethers'
 import { config as dotEnvConfig } from 'dotenv'
-import { provider, wallet, signer } from '../constants/provider'
+import { provider, wallet, signer } from '..//constants/provider'
 import {
     abi as flashMultiTestAbi,
     bytecode as flashMultiTestBytecode,

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { provider } from '../../../constants/environment'
+import { provider } from '../../../constants/provider'
 import { GasData } from '../../../constants/interfaces'
 /**
  *

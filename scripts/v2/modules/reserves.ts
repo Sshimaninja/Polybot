@@ -3,10 +3,9 @@ import { BigNumber as BN } from 'bignumber.js'
 import { logger } from '../../../constants/logger'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 // import { abi as IPool } from '@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json';
-import { wallet } from '../../../constants/environment'
+import { wallet, provider } from '../../../constants/provider'
 import { ReservesData, Pair, TradePair } from '../../../constants/interfaces'
 import { BigInt2BN, fu } from '../../modules/convertBN'
-import { provider } from '../../../constants/provider'
 /**
  * @description
  * This class returns an array of an array of reserves for an array of pairs.

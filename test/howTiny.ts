@@ -1,5 +1,5 @@
 import { abi as ITiny } from '../artifacts/contracts/v2/tiny.sol/Tiny.json'
-import { provider } from '../constants/provider'
+import { provider } from '..//constants/provider'
 import { ethers } from 'ethers'
 export async function howTiny() {
     const tiny = new ethers.Contract(
