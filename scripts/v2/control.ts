@@ -12,10 +12,12 @@ import { tradeLogs } from './modules/tradeLog'
 import { rollDamage } from './modules/damage'
 let filteredTrades: string[]
 try {
-    filteredTrades = JSON.parse(fs.readFileSync('filtered.json', 'utf-8'))
+    const data = JSON.parse(fs.readFileSync('./filtered.json', 'utf-8'))
+    filteredTrades = Array.isArray(JSON.parse(data)) ? JSON.parse(data) : []
 } catch (error: any) {
     console.log('Error reading filtered.json: ' + error.message)
     filteredTrades = []
+    fs.writeFileSync('./filtered.json', JSON.stringify(filteredTrades))
 }
 
 /*
@@ -41,13 +43,13 @@ export async function control(data: FactoryPair[], gasData: any) {
                 filteredTrades.includes(match.poolAID + match.poolBID) ||
                 filteredTrades.includes(match.poolBID + match.poolAID)
             ) {
-                console.log(
-                    'Trade filtered:',
-                    match.ticker,
-                    'on ',
-                    pair.exchangeA + pair.exchangeB,
-                    'filtered out. Skipping...'
-                )
+                // console.log(
+                //     'Trade filtered:',
+                //     match.ticker,
+                //     'on ',
+                //     pair.exchangeA + pair.exchangeB,
+                //     'filtered out. Skipping...'
+                // )
                 return
             }
 
@@ -73,7 +75,11 @@ export async function control(data: FactoryPair[], gasData: any) {
                 const trade = await t.getTrade()
 
                 if (trade.type === 'filtered') {
-                    fs.writeFileSync('filtered.json', JSON.stringify(trade.ID))
+                    filteredTrades.push(trade.ID)
+                    fs.writeFileSync(
+                        './filtered.json',
+                        JSON.stringify(trade.ID)
+                    )
                 }
 
                 const dataPromise = tradeLogs(trade)

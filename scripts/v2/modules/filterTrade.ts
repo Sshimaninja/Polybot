@@ -33,7 +33,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.loanPool.exchange,
-                ': No trade.'
+                ': No trade.',
+                'reserves: ',
+                trade.loanPool.reserveInBN.toFixed(trade.tokenIn.decimals)
             )
             return undefined
         }
@@ -43,7 +45,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.target.exchange,
-                ': No trade.'
+                ': No trade.',
+                'reserves: ',
+                trade.target.reserveInBN.toFixed(trade.tokenIn.decimals)
             )
             return undefined
         }
@@ -55,7 +59,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.loanPool.exchange,
-                ': No trade.'
+                ': No trade.',
+                'WBTC reserves: ',
+                trade.loanPool.reserveOutBN.toFixed(trade.tokenOut.decimals)
             )
             return undefined
         }
@@ -65,7 +71,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.target.exchange,
-                ': No trade.'
+                ': No trade.',
+                'WBTC reserves: ',
+                trade.target.reserveOutBN.toFixed(trade.tokenOut.decimals)
             )
             return undefined
         }
@@ -77,7 +85,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.loanPool.exchange,
-                ': No trade.'
+                ': No trade.',
+                'reserves: ',
+                trade.loanPool.reserveInBN.toFixed(trade.tokenIn.decimals)
             )
             return undefined
         }
@@ -87,7 +97,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.target.exchange,
-                ': No trade.'
+                ': No trade.',
+                'reserves: ',
+                trade.target.reserveInBN.toFixed(trade.tokenIn.decimals)
             )
             return undefined
         }
@@ -99,7 +111,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.loanPool.exchange,
-                ': No trade.'
+                ': No trade.',
+                'reserves: ',
+                trade.loanPool.reserveOutBN.toFixed(trade.tokenOut.decimals)
             )
             return undefined
         }
@@ -109,7 +123,9 @@ export async function filterTrade(
                 trade.ticker,
                 ' ',
                 trade.target.exchange,
-                ': No trade.'
+                ': No trade.',
+                'reserves: ',
+                trade.target.reserveOutBN.toFixed(trade.tokenOut.decimals)
             )
             return undefined
         }

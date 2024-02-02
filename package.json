@@ -63,6 +63,8 @@
         "v2BotLive": "cross-env NODE_ENV=live npx ts-node index",
         "v2DeployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/deployFlashTests.ts",
         "v2DeployLive": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deployFlash.ts",
+        "deployTinyTest": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deployTiny.ts",
+        "howTiny": "cross-env NODE_ENV=live ts-node test/howTiny.ts",
         "hhnode": "cross-env NODE_ENV=test npx hardhat node",
         "arbSim": "npx hardhat run --network localhost test/arbSim.ts",
         "get2": "npx ts-node utils/dexdata/V2/allPairsCtrl",
