@@ -1,5 +1,5 @@
 import { control } from './scripts/v2/control'
-import { provider } from './constants/provider'
+import { provider } from './/constants/provider'
 import { getGasData } from './scripts/v2/modules/getPolygonGasPrices'
 import fs from 'fs'
 import path from 'path'

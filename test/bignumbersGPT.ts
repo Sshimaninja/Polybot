@@ -1,7 +1,8 @@
-import { provider } from '../constants/environment'
-import { FixedNumber, utils, Contract } from 'ethers'
+import { provider } from '../constants/provider'
+import { FixedNumber, Contract } from 'ethers'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { BigNumber as BN } from 'bignumber.js'
+import { fu } from '../scripts/modules/convertBN'
 
 async function main() {
     const Pair0 = new Contract(

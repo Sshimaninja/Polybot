@@ -1,7 +1,7 @@
 import { ethers as eh, run, network } from 'hardhat'
 import { ContractFactory, Typed, ethers } from 'ethers'
 import { config as dotEnvConfig } from 'dotenv'
-import { provider, signer } from '../constants/environment'
+import { provider, signer } from '..//constants/provider'
 
 if (process.env.NODE_ENV === 'test') {
     dotEnvConfig({ path: '.env.test' })

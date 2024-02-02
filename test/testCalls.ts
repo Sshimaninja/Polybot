@@ -6,7 +6,7 @@
 // import { uniswapFactory, deployedMap } from '../constants/addresses'
 // import { Token } from '@uniswap/sdk-core'
 // const addrUtils = deployedMap.UTILS
-// import { signer, provider } from '../constants/environment'
+// import { signer, provider } from '../constants/provider'
 
 // const UTILS = new ethers.Contract(addrUtils, IUtils, signer) //because includes an support math function that its required
 

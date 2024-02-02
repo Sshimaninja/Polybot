@@ -3,7 +3,7 @@ import { BoolTrade } from '../../../constants/interfaces'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { getAmountsOut } from './getAmountsIOLocal'
 import { gasTokens } from '../../../constants/addresses'
-import { wallet, provider } from '../../../constants/environment'
+import { wallet, provider } from '../../../constants/provider'
 import { logger } from '../../../constants/logger'
 import { getGasPoolForTrade } from './gasPoolTools'
 require('dotenv').config()

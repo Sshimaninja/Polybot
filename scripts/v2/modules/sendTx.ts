@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { wallet, provider } from '../../../constants/environment'
+import { wallet, provider } from '../../../constants/provider'
 import { logger } from '../../../constants/logger'
 export async function sendTx(
     tx: any
