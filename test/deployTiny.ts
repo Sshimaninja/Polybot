@@ -1,6 +1,6 @@
 import { ethers } from 'hardhat'
 import { config as dotenvConfig } from 'dotenv'
-import { provider, wallet, signer } from '..//constants/provider'
+import { provider, wallet, signer } from '../constants/provider'
 dotenvConfig({ path: `.env.${process.env.NODE_ENV}` })
 import {
     abi as ITiny,

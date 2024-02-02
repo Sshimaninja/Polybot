@@ -1,10 +1,10 @@
 import { ContractFactory, Typed, ethers } from 'ethers'
 import { config as dotEnvConfig } from 'dotenv'
-import { provider, signer } from '..//constants/provider'
+import { provider, signer } from '../../constants/provider'
 import {
     abi as flashMultiTestAbi,
     bytecode as flashMultiTestBytecode,
-} from '../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
+} from '../../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
 
 dotEnvConfig({ path: `.env.${process.env.NODE_ENV}` })
 async function main() {
