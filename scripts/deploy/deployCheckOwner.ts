@@ -1,11 +1,11 @@
 import { ethers } from 'hardhat'
 import { config as dotEnvConfig } from 'dotenv'
-import { wallet } from '../constants/provider'
+import { wallet } from '../../constants/provider'
 dotEnvConfig({ path: `.env.${process.env.NODE_ENV}` })
 import {
     abi as IcheckOwner,
     bytecode,
-} from '../artifacts/contracts/v2/checkOwner.sol/isItMine.json'
+} from '../../artifacts/contracts/v2/checkOwner.sol/isItMine.json'
 
 const checkOwnerFactory = new ethers.ContractFactory(
     IcheckOwner,
