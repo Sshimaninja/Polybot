@@ -67,7 +67,7 @@ export class Reserves {
                     console.error(
                         'Error (getReserves(' + poolID + ')): ' + error
                     )
-                    logger.error(error)
+                    // logger.error(error)
                     return reserves
                 }
             } else {
