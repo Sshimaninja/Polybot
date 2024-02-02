@@ -28,7 +28,7 @@ async function main() {
                 console.error('Data:', data)
             }
         })
-        console.log(pairList)
+        // console.log(pairList)
         return pairList
     }
 
@@ -42,14 +42,21 @@ async function main() {
             await Promise.all(
                 pairList.map(async (pairList: any) => {
                     await control(pairList, gasData)
+                    console.log('Pairlist loop complete. New loop starting...')
                 })
             )
         } catch (error: any) {
-            //Verbose:
-            logger.error(`PROVIDER ERROR: ${error.stack}`)
-            //Concise:
-            // logger.error("PROVIDER ERROR: " + error.message);
-            return
+            if (error.code === 'ECONNRESET') {
+                console.log(
+                    'PROVIDER ERROR: ECONNRESET: Connection reset by peer. Retrying.'
+                )
+            } else {
+                //Verbose:
+                logger.error(`PROVIDER ERROR: ${error.stack}`)
+                //Concise:
+                // logger.error("PROVIDER ERROR: " + error.message);
+                // return
+            }
         }
     })
 }
