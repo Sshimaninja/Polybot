@@ -1,11 +1,16 @@
 import { signer, wallet } from '../constants/provider'
-import { flashMulti } from '../constants/environment'
-import { abi as IFlash } from '../artifacts/contracts/v2/flashMulti.sol/flashMulti.json'
-import { deployedMap } from '../constants/addresses'
-import { provider } from '..//constants/provider'
+import { abi as IcheckOwner } from '../artifacts/contracts/v2/checkOwner.sol/isItMine.json'
+import { provider } from '../constants/provider'
 import { ethers } from 'ethers'
-async function checkOwner() {
-    const owner = await flashMulti.checkOwner()
+
+const checkOwnerContract = new ethers.Contract(
+    '0x8DcE8FB00f04A7EE9fEB498cEf86f410de83CA89',
+    IcheckOwner,
+    provider
+)
+
+export async function checkOwner() {
+    const owner = await checkOwnerContract.checkOwner()
     console.log(owner)
 }
 checkOwner()

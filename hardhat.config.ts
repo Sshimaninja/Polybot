@@ -69,7 +69,8 @@ module.exports = {
                 // blockNumber: 52015625, //WMATIC/PAW trade to troubleshoot.
             },
             accounts: {
-                accounts: [process.env.PRIVATE_KEY],
+                accounts:
+                    'ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80',
                 initialBaseBalance: '1000000000000000000000000000', // 1000000000 ETH in wei
             },
         },
