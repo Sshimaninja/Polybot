@@ -34,7 +34,7 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 
-export const slippageTolerance = BN(0.006)
+export const slippageTolerance = BN(0.02)
 
 export async function control(data: FactoryPair[], gasData: any) {
     const promises: any[] = []
