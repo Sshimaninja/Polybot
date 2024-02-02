@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 contract tiny {
-    function howTiny() public view returns (string memory) {
+    function howTiny() public pure returns (string memory) {
         return 'so tiny';
     }
 }

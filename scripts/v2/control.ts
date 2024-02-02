@@ -10,7 +10,9 @@ import { gasVprofit } from './modules/gasVprofit'
 import { Reserves } from './modules/reserves'
 import { tradeLogs } from './modules/tradeLog'
 import { rollDamage } from './modules/damage'
+
 let filteredTrades: string[]
+
 try {
     const data = JSON.parse(fs.readFileSync('./filtered.json', 'utf-8'))
     filteredTrades = Array.isArray(JSON.parse(data)) ? JSON.parse(data) : []

@@ -2,10 +2,7 @@ import { BoolTrade, GAS, GasData } from '../../../constants/interfaces'
 import { tradeLogs } from './tradeLog'
 import { logger } from '../../../constants/logger'
 import { fu, pu } from '../../modules/convertBN'
-import { ethers } from 'ethers'
-// import { provider, walletAddress } from '../../../constants/provider'
-import { provider } from '../../..//constants/provider'
-import { abi as IflashMulti } from '../../../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
+import { fixEstimateGas } from './fixEstimateGas'
 
 /**
  * @param trade
@@ -33,16 +30,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     if (trade.direction != undefined) {
         console.log('EstimatingGas for trade: ' + trade.ticker + '...')
         try {
-            // logger.info('params: ', p)
-            // const flashAddress = await trade.flash.getAddress()
-            // logger.info('trade.flash Address: ', flashAddress)
-            // logger.info('env.flash   address: ', process.env.FLASH_MULTI)
-            const flashFunction = trade.flash.flashSwap
-            logger.info('flashFunction: ', flashFunction)
-            // console.log('trade.flash:', trade.flash)
-
-            // const flashSwapFunction = await trade.flash.flashSwap.getFunction()
-            logger.info('>>>>>>>PROVIDER: ', provider)
+            const fix = await fixEstimateGas(trade)
+            console.log(fix)
 
             gasEstimate = await trade.flash.flashSwap.estimateGas(
                 trade.loanPool.factory,
