@@ -29,6 +29,10 @@ contract flashDirectTest is IUniswapV2Callee {
         return owner;
     }
 
+    receive() external payable {}
+
+    fallback() external payable {}
+
     function flashSwap(
         address loanFactory,
         address loanRouter,

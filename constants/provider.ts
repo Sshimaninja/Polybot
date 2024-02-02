@@ -20,7 +20,12 @@ export const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
 export const signer = wallet.connect(provider)
 
 export async function checkProvider() {
+    // console.log('Ready?: ', provider.ready)
     const check = await provider.getBlock('latest')
-    console.log('CHECK PROVIDER: ', check)
+    const num = await provider.getBlockNumber()
+    const fee = await provider.getFeeData()
+    console.log('CHECK PROVIDER: ')
+    console.log('BLOCKNUMER: ', num)
+    console.log('FEES: ', fee)
 }
 checkProvider()

@@ -1,5 +1,6 @@
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
+import 'hardhat/console.sol';
 
 interface IUniswapV2Callee {
     function uniswapV2Call(
@@ -27,6 +28,10 @@ contract flashMultiTest is IUniswapV2Callee {
         return owner;
     }
 
+    receive() external payable {}
+
+    fallback() external payable {}
+
     function flashSwap(
         address loanFactory,
         address loanRouter,
@@ -37,6 +42,16 @@ contract flashMultiTest is IUniswapV2Callee {
         uint256 amount1Out,
         uint256 amountToRepay
     ) external {
+        console.log('flashSwap entered');
+        console.log('loanFactory: ', loanFactory);
+        console.log('loanRouter: ', loanRouter);
+        console.log('recipientRouter: ', recipientRouter);
+        console.log('token0ID: ', token0ID);
+        console.log('token1ID: ', token1ID);
+        console.log('amount0In: ', amount0In);
+        console.log('amount1Out: ', amount1Out);
+        console.log('amountToRepay: ', amountToRepay);
+
         require(
             msg.sender == address(owner),
             'Error: Only owner can call this function'
@@ -52,44 +67,47 @@ contract flashMultiTest is IUniswapV2Callee {
             amount1Out,
             amountToRepay
         );
-        IERC20(token0ID).approve(address(pair), amount0In);
+        console.log('flashSwap data encoded');
         require(
             amount0In > 0,
             'Error: Invalid amount0In: amount0In must be greater than 0'
         );
-        pair.swap(
-            amount0In, // Requested borrow of token0
-            0, // Borrow of token1
-            address(this), // Address to send swap callback to
-            data // Encoded data for callback
+        require(
+            IERC20(token0ID).approve(address(pair), amount0In),
+            'Error: Approval for token0 failed'
         );
+
+        console.log('pair.swap parameters:');
+        console.log('amount0In: ', amount0In);
+        console.log('amount1Out: ', 0);
+        console.log('address(this): ', address(this));
+        console.log('data');
+        console.log('attempting to call pair.swap on ', address(pair));
+        pair.swap(amount0In, 0, address(this), data);
     }
 
     function uniswapV2Call(
         address sender,
-        uint256 amount0,
-        uint256 amount1,
+        uint amount0,
+        uint amount1,
         bytes calldata data
     ) external override {
+        console.log('uniswapV2Call entered');
+        require(msg.sender == address(pair), 'uniswapV2Call not pair');
+        require(sender == address(this), 'uniswapV2Call not sender');
+        require(amount0 == 0 || amount1 == 0, 'Error: Invalid amounts');
+        console.log('uniswapV2Call passed checks');
         address[] memory path = new address[](2);
         (
-            address loanFactory,
             address loanRouter,
             address recipientRouter,
             uint256 amount1Out,
             uint256 amount1Repay
-        ) = abi.decode(data, (address, address, address, uint256, uint256));
+        ) = abi.decode(data, (address, address, uint256, uint256));
 
         //This only works because we are only requesting then swapping one token
         path[0] = IUniswapV2Pair(msg.sender).token0();
         path[1] = IUniswapV2Pair(msg.sender).token1();
-        pair = IUniswapV2Pair(
-            IUniswapV2Factory(loanFactory).getPair(path[0], path[1])
-        );
-
-        require(msg.sender == address(pair), 'Error: Unauthorized');
-        require(sender == address(this), 'Error: Not sender');
-        require(amount0 == 0 || amount1 == 0, 'Error: Invalid amounts');
 
         IERC20 token1 = IERC20(path[1]);
 
@@ -101,6 +119,7 @@ contract flashMultiTest is IUniswapV2Callee {
             recipientRouter,
             path
         );
+        console.log('amountOut: ', amountOut);
         token1.transfer(owner, token1.balanceOf(address(this)));
     }
 
@@ -112,6 +131,7 @@ contract flashMultiTest is IUniswapV2Callee {
         address recipientRouter,
         address[] memory path
     ) public returns (uint256 amountOut) {
+        console.log('getAmounts entered');
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
         uint256 deadline = block.number + 10;
@@ -126,7 +146,9 @@ contract flashMultiTest is IUniswapV2Callee {
                 address(this),
                 deadline
             )[1];
-
+        console.log('amountOut exact:::::: ', amountOut);
+        console.log('amountRepay:::::::::: ', repay[0]);
+        console.log('amountRepay expected: ', amount1Repay);
         token1.approve(msg.sender, repay[0]);
         token1.transferFrom(address(this), msg.sender, repay[0]);
     }
@@ -136,6 +158,7 @@ contract flashMultiTest is IUniswapV2Callee {
         address loanRouter,
         address[] memory path
     ) internal view returns (uint256[] memory repay) {
+        console.log('getRepay entered');
         // Reverse path and check the amount of token1 needed from swapExactTokensForTokens to repay the loan
         path[0] = IUniswapV2Pair(msg.sender).token1();
         path[1] = IUniswapV2Pair(msg.sender).token0();
