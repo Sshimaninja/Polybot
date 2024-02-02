@@ -3,7 +3,8 @@ import { tradeLogs } from './tradeLog'
 import { logger } from '../../../constants/logger'
 import { fu, pu } from '../../modules/convertBN'
 import { ethers } from 'ethers'
-import { provider, walletAddress } from '../../../constants/environment'
+// import { provider, walletAddress } from '../../../constants/environment'
+import { provider } from '../../../constants/provider'
 import { abi as IflashMulti } from '../../../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
 
 /**
@@ -36,38 +37,29 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             // const flashAddress = await trade.flash.getAddress()
             // logger.info('trade.flash Address: ', flashAddress)
             // logger.info('env.flash   address: ', process.env.FLASH_MULTI)
-            // const flashFunction = trade.flash.flashSwap
-            // logger.info('flashFunction: ', flashFunction)
+            const flashFunction = trade.flash.flashSwap
+            logger.info('flashFunction: ', flashFunction)
             // console.log('trade.flash:', trade.flash)
 
             // const flashSwapFunction = await trade.flash.flashSwap.getFunction()
+            logger.info('>>>>>>>PROVIDER: ', provider)
 
-            gasEstimate = await trade.flash.estimateGas('flashSwap', [
-                trade.loanPool.factory.address,
-                trade.target.router.address,
+            gasEstimate = await trade.flash.flashSwap.estimateGas(
+                trade.loanPool.factory,
+                trade.loanPool.router,
+                trade.target.router,
                 trade.tokenIn.id,
                 trade.tokenOut.id,
                 trade.target.tradeSize,
                 trade.target.amountOut,
-                trade.loanPool.amountRepay,
-            ])
-
-            // gasEstimate = await trade.flash.flashSwap.estimateGas({
-            //     loanFactory: await trade.loanPool.factory.getAddress(),
-            //     loanRouter: await trade.loanPool.router.getAddress(),
-            //     targetRouter: await trade.target.router.getAddress(),
-            //     token0ID: trade.tokenIn.id,
-            //     token1ID: trade.tokenOut.id,
-            //     amount0In: trade.target.tradeSize,
-            //     amount1Out: trade.target.amountOut,
-            //     amountToRepay: trade.loanPool.amountRepay,
-            // })
+                trade.loanPool.amountRepay
+            )
             console.log('>>>>>>>>>>gasEstimate: ', gasEstimate)
             // gasEstimate = await trade.flash.estimateGas('flashSwap', [
             //     {
             //         loanFactory: await trade.loanPool.factory.getAddress(),
             //         loanRouter: await trade.loanPool.router.getAddress(),
-            //         targetRouter: await trade.target.router.getAddress(),
+            //         recipientRouter: await trade.target.router.getAddress(),
             //         token0ID: trade.tokenIn.id,
             //         token1ID: trade.tokenOut.id,
             //         amount0In: trade.target.tradeSize,

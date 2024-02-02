@@ -12,27 +12,15 @@ console.log(
 export const provider = new ethers.JsonRpcProvider(process.env.RPC, undefined, {
     staticNetwork: true,
 })
+if (process.env.PRIVATE_KEY === undefined) {
+    throw new Error('No private key set in .env file')
+}
+export const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider)
+
+export const signer = wallet.connect(provider)
 
 export async function checkProvider() {
     const check = await provider.getBlock('latest')
     console.log('CHECK PROVIDER: ', check)
 }
 checkProvider()
-// export const provider = new ethers.AbstractProvider(process.env.RPC)
-
-// export function provider(): Promise<ethers.Provider> {
-//     try {
-//         const provider = new ethers.AbstractProvider(
-//             process.env.RPC,
-//             undefined,
-//             {
-//                 staticNetwork: true,
-//             }
-//         )
-//         return provider
-//     } catch (error: any) {
-//         console.log('Provider: ', error)
-//     }
-// }
-
-// provider()

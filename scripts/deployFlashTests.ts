@@ -1,95 +1,60 @@
-import { ethers as eh, run, network } from 'hardhat'
 import { ContractFactory, Typed, ethers } from 'ethers'
 import { config as dotEnvConfig } from 'dotenv'
-import { provider, signer } from '../constants/environment'
+import { provider, wallet, signer } from '../constants/provider'
+import {
+    abi as flashMultiTestAbi,
+    bytecode as flashMultiTestBytecode,
+} from '../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
 
 if (process.env.NODE_ENV === 'test') {
     dotEnvConfig({ path: '.env.test' })
 } else {
     dotEnvConfig({ path: '.env.live' })
 }
-
-// npx hardhat run --network localhost scripts/deployFlashTests.ts
-
 async function main() {
     try {
         const deployer = signer
         const owner = await deployer.getAddress()
 
-        console.log(
-            'Deploying contracts with the account: ' +
-                (await deployer.getAddress())
-        )
+        console.log('Deploying contracts with the account: ', owner)
 
         // Get balance of deployer account
-        const balanceDeployer = await provider.getBalance(deployer.getAddress())
+        const balanceDeployer = await provider.getBalance(owner)
 
         console.log('Account balance:', balanceDeployer.toString())
 
-        const flashMultiTest = await eh.getContractFactory('flashMultiTest')
-        const flashDirectTest = await eh.getContractFactory('flashDirectTest')
-        console.log('Deploying flashMultiTest to ' + network.name + '...')
-        const flashmultitest = await flashMultiTest.deploy(owner)
-        console.log('Deploying flashDirectTest to ' + network.name + '...')
-        const flashdirecttest = await flashDirectTest.deploy(owner)
+        const FlashMultiTestFactory = new ethers.ContractFactory(
+            flashMultiTestAbi,
+            flashMultiTestBytecode,
+            deployer
+        )
+        console.log('Deploying flashMultiTest to ...')
+        const flashmultitest = await FlashMultiTestFactory.deploy(owner)
         console.log('awaiting flashMultiTest.deployed()...')
-        await flashmultitest.waitForDeployment() //.deployed();
-        console.log('awaiting flashDirectTest.deployed()...')
-        await flashdirecttest.waitForDeployment()
+        await flashmultitest.waitForDeployment()
+        const flashMultiTestAddress = await flashmultitest.getAddress()
         console.log(
-            "Contract 'flashMultiTest' deployed: " +
-                (await flashmultitest.getAddress())
+            "Contract 'flashMultiTest' deployed: " + flashMultiTestAddress
         )
         console.log(
-            "Contract 'flashDirectTest' deployed: " +
-                (await flashdirecttest.getAddress())
+            "Contract 'flashMultiTest' deployed:",
+            flashMultiTestAddress
         )
-        const flashMultiTestID = await flashmultitest.getAddress()
-        const flashDirectTestID = await flashdirecttest.getAddress()
-        if (
-            flashDirectTestID !== process.env.FLASH_MULTI ||
-            flashMultiTestID !== process.env.FLASH_DIRECT
-        ) {
+
+        if (flashMultiTestAddress !== process.env.FLASH_MULTI) {
             console.log(
                 'Contract address does not match .env file. Please update .env file with new contract address.'
             )
         }
+        const checkOwnerMulti = flashmultitest.getFunction('checkOwner')
 
-        // if ((network.config.chainId === 137 && process.env.POLYGONSCAN_APIKEY) || (network.config.chainId === 80001 && process.env.MUMBAISCAN_API_KEY)) {
-        // 	await flashmultitest.deployTransaction.wait(12);
-        // 	// verify(flashmultitest.getAddress(), [owner]);
-
-        // } else if (network.config.chainId === 31337) {
-        // 	console.log("Verification failed: Network is Hardhat");
-        // } else {
-        const checkOwnerMultiFunction = flashmultitest.getFunction('checkOwner')
-        const checkOwnerMulti = await checkOwnerMultiFunction()
-        console.log(checkOwnerMulti)
-        const checkOwnerDirectFunction =
-            flashdirecttest.getFunction('checkOwner')
-        const checkOwnerDirect = await checkOwnerDirectFunction()
-        console.log(checkOwnerDirect)
-        // }
-        // async function verify(contractAddress: any, args: any) {
-        // 	console.log("Verifying contract: " + contractAddress + "./Please wait...");
-        // 	try {
-        // 		await run("verify:verify", {
-        // 			address: contractAddress,
-        // 			constructorArguments: args,
-        // 		})
-        // 	} catch (error: any) {
-        // 		if (error.message.includes("already verified")) {
-        // 			console.log("Contract already verified");
-        // 		} else {
-        // 			console.log("Error: " + error.message);
-        // 		}
-        // 	};
-        // }
+        const checkOwner = await checkOwnerMulti()
+        console.log(checkOwner)
     } catch (error: any) {
-        console.log('Error in deployFlashTests.ts: ' + error.message)
-        console.log(error.message)
+        console.log('Error in deployFlashTests.ts:', error.message)
     }
 }
+
 main().catch((error) => {
     console.error(error)
     process.exitCode = 1
