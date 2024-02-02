@@ -3,8 +3,8 @@ import { tradeLogs } from './tradeLog'
 import { logger } from '../../../constants/logger'
 import { fu, pu } from '../../modules/convertBN'
 import { ethers } from 'ethers'
-// import { provider, walletAddress } from '../../../constants/environment'
-import { provider } from '../../../constants/provider'
+// import { provider, walletAddress } from '../../../constants/provider'
+import { provider } from '../../..//constants/provider'
 import { abi as IflashMulti } from '../../../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json'
 
 /**

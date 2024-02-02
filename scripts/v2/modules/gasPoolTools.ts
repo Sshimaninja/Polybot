@@ -1,5 +1,5 @@
 import { ethers, Contract } from 'ethers'
-import { provider } from '../../../constants/environment'
+import { provider } from '../../../constants/provider'
 import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { logger } from '../../../constants/logger'
 import {
