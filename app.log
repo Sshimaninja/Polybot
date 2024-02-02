@@ -12171,3 +12171,32 @@
   code: 'ECONNRESET',
   syscall: 'read'
 }
+[2024-02-02T20:08:46.947] [INFO] default - New block received: Block # 51501564
+[2024-02-02T20:08:46.970] [INFO] default - New block received: Block # 51501565
+[2024-02-02T20:08:53.017] [INFO] default - New block received: Block # 51501566
+[2024-02-02T20:08:59.067] [INFO] default - New block received: Block # 51501567
+[2024-02-02T20:16:46.406] [INFO] default - New block received: Block # 51501795
+[2024-02-02T20:16:46.431] [INFO] default - New block received: Block # 51501796
+[2024-02-02T20:16:50.985] [INFO] default - New block received: Block # 51501797
+[2024-02-02T20:16:58.676] [INFO] default - New block received: Block # 51501798
+[2024-02-02T20:16:58.784] [INFO] default - New block received: Block # 51501799
+[2024-02-02T20:17:11.630] [INFO] default - New block received: Block # 51501800
+[2024-02-02T20:17:11.645] [INFO] default - New block received: Block # 51501801
+[2024-02-02T20:17:28.449] [INFO] default - New block received: Block # 51501802
+[2024-02-02T20:17:28.464] [INFO] default - New block received: Block # 51501803
+[2024-02-02T20:17:28.484] [INFO] default - New block received: Block # 51501804
+[2024-02-02T20:17:28.498] [INFO] default - New block received: Block # 51501805
+[2024-02-02T20:17:40.863] [INFO] default - New block received: Block # 51501806
+[2024-02-02T20:17:41.203] [INFO] default - New block received: Block # 51501807
+[2024-02-02T20:17:41.370] [INFO] default - New block received: Block # 51501808
+[2024-02-02T20:18:01.831] [INFO] default - New block received: Block # 51501809
+[2024-02-02T20:18:01.841] [INFO] default - New block received: Block # 51501810
+[2024-02-02T20:18:01.846] [INFO] default - New block received: Block # 51501811
+[2024-02-02T20:18:01.854] [INFO] default - New block received: Block # 51501812
+[2024-02-02T20:18:17.990] [INFO] default - New block received: Block # 51501813
+[2024-02-02T20:18:17.998] [INFO] default - New block received: Block # 51501814
+[2024-02-02T20:18:18.077] [INFO] default - New block received: Block # 51501815
+[2024-02-02T20:18:18.084] [INFO] default - New block received: Block # 51501816
+[2024-02-02T20:18:28.137] [INFO] default - New block received: Block # 51501817
+[2024-02-02T20:18:28.171] [INFO] default - New block received: Block # 51501818
+[2024-02-02T20:18:28.324] [INFO] default - New block received: Block # 51501819

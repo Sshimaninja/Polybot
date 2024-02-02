@@ -38,7 +38,7 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 
-export const slippageTolerance = BN(0.02)
+export const slippageTolerance = BN(0.0002)
 
 export async function control(data: FactoryPair[], gasData: any) {
     const promises: any[] = []
@@ -109,6 +109,11 @@ export async function control(data: FactoryPair[], gasData: any) {
             console.log('Error in swap.ts: ' + error.message)
         })
     } catch (error: any) {
+        if (error.code === 'ECONNRESET') {
+            console.log(
+                'CONTROL ERROR: ECONNRESET: Connection reset by peer. Retrying.'
+            )
+        }
         console.log('Error in control.ts: ' + error.message)
     }
 }
