@@ -56,7 +56,8 @@
         "hardhat": "^2.19.4",
         "jsonstream": "^1.0.3",
         "JSONStream": "^1.3.5",
-        "node-telegram-bot-api": "^0.63.0"
+        "node-telegram-bot-api": "^0.63.0",
+        "solc": "^0.8.24"
     },
     "scripts": {
         "v2BotTest": "cross-env NODE_ENV=test npx ts-node index",

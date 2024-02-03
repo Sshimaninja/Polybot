@@ -175,13 +175,14 @@ export class Trade {
             profit: 0n,
             profitPercent: 0n,
         };
-        const amountOut = await getAmountsOut(
+
+        trade.target.amountOut = await getAmountsOut(
             trade.target.tradeSize, // token0 in given
             trade.target.reserveIn, // token0 in
             trade.target.reserveOut,
         ); // token1 max out
 
-        trade.target.amountOut = await this.calc0.subSlippage(amountOut, trade.tokenOut.decimals);
+        // trade.target.amountOut = await this.calc0.subSlippage(trade.target.amountOut, trade.tokenOut.decimals);
 
         const filteredTrade = await filterTrade(trade);
         if (filteredTrade == undefined) {

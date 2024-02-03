@@ -76,6 +76,9 @@ contract flashMulti is IUniswapV2Callee {
 
         uint256 amountOut = getAmounts(amount0, amount1Repay, amount1Out, loanRouter, recipientRouter, path);
         token1.transfer(owner, token1.balanceOf(address(this)));
+
+        // Revert if the transfer fails
+        require(token1.balanceOf(address(this)) == 0, "Error: Transfer failed due to token1 balance not being 0");
     }
 
     function getAmounts(
@@ -101,6 +104,9 @@ contract flashMulti is IUniswapV2Callee {
 
         token1.approve(msg.sender, repay[0]);
         token1.transferFrom(address(this), msg.sender, repay[0]);
+
+        // Revert if the transfer fails
+        require(token1.balanceOf(address(this)) == 0, "Error: Transfer failed");
     }
 
     function getRepay(
