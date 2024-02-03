@@ -1,16 +1,31 @@
-# TODO: Update to ES2020 BigInt
 
-## ethers.parseUnits() example in BigInt:
+# A uniswap V2 clone-agnostic arbitrage bot
 
-	const baseValue = BigInt(10) ** BigInt(18);
-	const humanReadableNumber = BigInt("10000");
+This bot is set for use on a private node on Polygon network.
 
-	const result = humanReadableNumber * baseValue;
+It is set to use Uniswap V2 flash swaps for liquidity across all assets on all exchanges across the network. You can use DeFi Llama to find more UniswapV2 clones. 
 
-	console.log(result.toString()); // Print the result as a string
+The current database (/data/v2/matches/) has plenty, but you can run the scipts below to fetch new pairs and filter out dead pairs by volume and timestamp of last trade in each pool.
+
+The bot prefers a private node because proprietary RPCs rate limit and the bot has no rate limit set. This makes trades faster for chains on which you have unrestricted access to a node.
+
+Unless you have access to a private RPC for every chain you want to run it on, a rate limit should be set somewhere. 
+
+The bot is designed as a basic framework for defi arbitrage trades, and over time, more DeFi protocols should be added to increase opportunities (Balancer, Aave, Kyber, etc.)
+
+# Issues:
+
+The bot runs and parses all data, but there are still some blocks to clear before it actually sends transactions. 
+
+Current issues can be manually copied to ERROR.txt from app.log for ease of viewing as the logs are long.
 
 # Commands: 
 
+After installing, you should 'apt-get update' & 'npm install'.
+
+I've provided '.env.test' and '.env.live' examples, for which variables need to be set for live/vs test environments as needed. 
+
+Test wallet keys can be generated using 'npm run hhnode' which will start a node and create a log for the node output.
 
 # Testing operations (detailed below):
 
@@ -106,15 +121,15 @@ borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
 
 
 
-# TODO: Make Univ2 clone contracts, but change name to Jetswap, so I can arb them.
+###### TODO: Make Univ2 clone contracts, but change name to Jetswap, so I can arb them.
 
 
 
-# Ideas:
+###### Ideas:
 Price difference between assets could be used as a 'slippage' parameter, to limit trade sizes to available profit, in-line with the 'optimal arbitrage 2' problem. (Though this may already be the effective result of the tradeToPrice function.)
 
 
-# References:
+###### References:
 # In depth study on Uniswap Markets particularly, including 'Optimal Arbitrage' algos:
 https://arxiv.org/pdf/1911.03380.pdf
 Breakdown of 'Optimal arbitrage in Uniswap':
@@ -142,18 +157,20 @@ if
 (Rα − ∆α)(Rβ + γ∆β) = k
 
 
-# General article on matrix/graph Arbitrage:
+###### General article on matrix/graph Arbitrage:
 https://github.com/ccyanxyz/uniswap-arbitrage-analysis
 Note: According to the 'Optimal arbitrage in Uniswap' article, this is completely pointless, as on any robust market like Uniswap, the fees destroy the marginal profits arbitrage is constrained to.
 
 
 
+###### ethers.parseUnits() example in BigInt:
 
-# Working branches:
-3ab36d5
+	const baseValue = BigInt(10) ** BigInt(18);
+	const humanReadableNumber = BigInt("10000");
 
+	const result = humanReadableNumber * baseValue;
 
-
+	console.log(result.toString()); // Print the result as a string
 
 
 
@@ -187,7 +204,7 @@ PercentImpact = intImpact * 100
 
 
 
-# Helfpul stuff:
+###### Helfpul stuff:
 
 regex to get rid of script/hardhat bumf:
 ^(.*Mined empty block range #)(.*)$
