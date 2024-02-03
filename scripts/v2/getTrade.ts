@@ -247,8 +247,6 @@ export class Trade {
 
         trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
 
-        // const check = await checkTrade(trade);
-
         // return trade;
         return trade;
     }

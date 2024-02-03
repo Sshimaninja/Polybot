@@ -129,12 +129,12 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
             return undefined;
         }
     }
-    const validTrade = await checkTrade(trade);
-    if (validTrade) {
-        return trade;
-    } else {
-        console.log("[filteredTrade]: Invalid trade. No trade.");
-        return undefined;
-    }
+    // const validTrade = await checkTrade(trade);
+    // if (validTrade) {
+    //     return trade;
+    // } else {
+    //     console.log("[filteredTrade]: Invalid trade. No trade.");
+    //     return undefined;
+    // }
     return trade;
 }
