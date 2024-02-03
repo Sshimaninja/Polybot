@@ -1,8 +1,8 @@
-import { BoolTrade, GAS, GasData } from '../../../constants/interfaces'
-import { tradeLogs } from './tradeLog'
-import { logger } from '../../../constants/logger'
-import { fu, pu } from '../../modules/convertBN'
-import { fixEstimateGas } from './fixEstimateGas'
+import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
+import { tradeLogs } from "./tradeLog";
+import { logger } from "../../../constants/logger";
+import { fu, pu } from "../../modules/convertBN";
+import { fixEstimateGas } from "./fixEstimateGas";
 
 /**
  * @param trade
@@ -13,25 +13,25 @@ import { fixEstimateGas } from './fixEstimateGas'
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // Commented out for now to elimiate from testing & debugging:
 
-    const maxFeeGasData = trade.gasData.fast.maxFee //150 is placeholder until gasData works.
+    const maxFeeGasData = trade.gasData.fast.maxFee; //150 is placeholder until gasData works.
     // console.log('maxFeeGasData: ', maxFeeGasData)
 
-    const maxPriorityFeeGasData = trade.gasData.fast.maxPriorityFee //60 is placeholder until gasData works.
+    const maxPriorityFeeGasData = trade.gasData.fast.maxPriorityFee; //60 is placeholder until gasData works.
     // console.log('maxPriorityFeeGasData: ', maxPriorityFeeGasData)
 
-    const maxFee = BigInt(Math.trunc(maxFeeGasData * 10 ** 9))
+    const maxFee = BigInt(Math.trunc(maxFeeGasData * 10 ** 9));
     // console.log('maxFeeString: ', maxFeeString)
 
-    const maxPriorityFee = BigInt(Math.trunc(maxPriorityFeeGasData * 10 ** 9))
+    const maxPriorityFee = BigInt(Math.trunc(maxPriorityFeeGasData * 10 ** 9));
     // console.log('maxPriorityFeeString: ', maxPriorityFeeString
 
-    let gasEstimate = BigInt(30000000)
+    let gasEstimate = BigInt(30000000);
 
     if (trade.direction != undefined) {
-        console.log('EstimatingGas for trade: ' + trade.ticker + '...')
+        console.log("EstimatingGas for trade: " + trade.ticker + "...");
         try {
-            const fix = await fixEstimateGas(trade)
-            console.log(fix)
+            const fix = await fixEstimateGas(trade);
+            console.log(fix);
 
             gasEstimate = await trade.flash.flashSwap.estimateGas(
                 trade.loanPool.factory,
@@ -41,9 +41,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.tokenOut.id,
                 trade.target.tradeSize,
                 trade.target.amountOut,
-                trade.loanPool.amountRepay
-            )
-            console.log('>>>>>>>>>>gasEstimate: ', gasEstimate)
+                trade.loanPool.amountRepay,
+            );
+            console.log(">>>>>>>>>>gasEstimate: ", gasEstimate);
             // gasEstimate = await trade.flash.estimateGas('flashSwap', [
             //     {
             //         loanFactory: await trade.loanPool.factory.getAddress(),
@@ -57,38 +57,38 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             //     },
             // ])
         } catch (error: any) {
-            const data = await tradeLogs(trade)
+            const data = await tradeLogs(trade);
             logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`
-            )
+                `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+            );
             logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`
-            )
-            logger.error(data)
+                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>TRADE DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+            );
+            logger.error(data);
             logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`
-            )
+                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END TRADE DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+            );
             logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`
-            )
-            logger.error(error)
-            logger.trace('TRACE:')
-            logger.trace(error)
-            console.trace('CONSOLE TRACE:')
+                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>ERROR DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+            );
+            logger.error(error);
+            logger.trace("TRACE:");
+            logger.trace(error);
+            console.trace("CONSOLE TRACE:");
             logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`
-            )
+                `>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END ERROR DATA: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+            );
             logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`
-            )
-            logger.info(error.reason)
+                `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+            );
+            logger.info(error.reason);
             return {
                 gasEstimate,
                 tested: false,
                 gasPrice: BigInt(150n + 60n * gasEstimate),
                 maxFee,
                 maxPriorityFee,
-            }
+            };
         }
         // Helpful for figuring out how to determine and display gas prices:
         const gasLogs = {
@@ -98,43 +98,36 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             maxPriorityFee: fu(maxPriorityFee, 18),
             gasLimit: fu(gasEstimate, 18),
             gasEstimateTimesMaxFee: fu(gasEstimate * maxFee, 18),
-            gasEstimateTimesMaxPriorityFee: fu(
-                gasEstimate * maxPriorityFee,
-                18
-            ),
-            gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(
-                gasEstimate * (maxFee + maxPriorityFee),
-                18
-            ),
+            gasEstimateTimesMaxPriorityFee: fu(gasEstimate * maxPriorityFee, 18),
+            gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(gasEstimate * (maxFee + maxPriorityFee), 18),
             gasEstimateTimesMaxFeePlusMaxPriorityFeeTimes10: fu(
                 (gasEstimate * (maxFee + maxPriorityFee) + maxFee) * BigInt(10),
-                18
+                18,
             ),
-        }
-        console.log(gasLogs)
-        const gasPrice =
-            (gasEstimate * (maxFee + maxPriorityFee) + maxFee) * BigInt(10)
-        console.log(gasLogs)
-        console.log(fu(gasPrice, 18))
+        };
+        console.log(gasLogs);
+        const gasPrice = (gasEstimate * (maxFee + maxPriorityFee) + maxFee) * BigInt(10);
+        console.log(gasLogs);
+        console.log(fu(gasPrice, 18));
         return {
             gasEstimate,
             tested: true,
             gasPrice,
             maxFee: maxFee,
             maxPriorityFee: maxPriorityFee,
-        }
+        };
     } else {
         console.log(
             `>>>>>>>>>>>>>>>>>>>>> (fetchGasPrice) Trade direction undefined: ${trade.ticker} `,
-            ` <<<<<<<<<<<<<<<<<<<<<<<<<< `
-        )
+            ` <<<<<<<<<<<<<<<<<<<<<<<<<< `,
+        );
         return {
             gasEstimate,
             tested: false,
             gasPrice: BigInt(150n + 60n * gasEstimate),
             maxFee: maxFee,
             maxPriorityFee: maxPriorityFee,
-        }
+        };
     }
 }
 
