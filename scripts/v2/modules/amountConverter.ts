@@ -74,6 +74,9 @@ export class AmountConverter {
         const slippage = amount.times(this.slip);
         const adjAmountBN = amount.minus(slippage);
         const adjAmountJS = pu(adjAmountBN.toFixed(decimals), decimals);
+        // 12000 * 0.005 = 60
+        // 12000 - 60 = 11940
+        //
         return adjAmountJS;
     }
 

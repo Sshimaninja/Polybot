@@ -21,7 +21,7 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 let filteredTrades: string[]; // Array to store filtered trades
-export const slippageTolerance = BN(0.06);
+export const slippageTolerance = BN(0.005);
 
 export async function control(data: FactoryPair[], gasData: any) {
     const promises: any[] = [];
