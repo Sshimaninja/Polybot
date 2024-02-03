@@ -34,8 +34,8 @@ export class ProfitCalculator {
 
     async getDirectProfit(this: any): Promise<Profcalcs> {
         try {
-            const repays = await this.repays.direct(this.calc, this.trade);
-            const profit = BigInt(this.trade.target.amountOut - repays.directInTokenOut);
+            const repays = this.repays;
+            const profit = BigInt(this.trade.target.amountOut - repays.direct.directInTokenOut);
             const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
             const profitPercent =
                 profit > 0n && this.trade.target.amountOut > 0

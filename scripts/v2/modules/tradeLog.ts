@@ -17,24 +17,17 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 reservesIn: fu(trade.loanPool.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
                 reservesOut: fu(trade.loanPool.reserveOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                 repaysObj: {
-                    direct:
-                        fu(trade.loanPool.repays.direct.direct, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+                    direct: fu(trade.loanPool.repays.direct, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
                     directInTokenOut:
-                        fu(trade.loanPool.repays.direct.directInTokenOut, trade.tokenOut.decimals) +
+                        fu(trade.loanPool.repays.directInTokenOut, trade.tokenOut.decimals) +
                         " " +
                         trade.tokenOut.symbol,
                     simpleMulti:
-                        fu(trade.loanPool.repays.multi.simpleMulti, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
+                        fu(trade.loanPool.repays.simpleMulti, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                     getAmountsOut:
-                        fu(trade.loanPool.repays.multi.getAmountsOut, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
+                        fu(trade.loanPool.repays.getAmountsOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                     getAmountsIn:
-                        fu(trade.loanPool.repays.multi.getAmountsIn, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
+                        fu(trade.loanPool.repays.getAmountsIn, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                 },
                 amountOut: fu(trade.loanPool.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                 amountOutToken0for1:
