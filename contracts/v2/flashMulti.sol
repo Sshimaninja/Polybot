@@ -2,17 +2,12 @@
 pragma solidity ^0.8.19;
 
 interface IUniswapV2Callee {
-    function uniswapV2Call(
-        address sender,
-        uint amount0,
-        uint amount1,
-        bytes calldata
-    ) external;
+    function uniswapV2Call(address sender, uint amount0, uint amount1, bytes calldata) external;
 }
 
 contract flashMulti is IUniswapV2Callee {
-    address owner;
-    IUniswapV2Pair pair;
+    address public owner;
+    IUniswapV2Pair public pair;
     using SafeMath for uint256;
 
     event log(string message);
@@ -23,9 +18,17 @@ contract flashMulti is IUniswapV2Callee {
         owner = _owner;
     }
 
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Error: Only owner can call this function");
+        _;
+    }
+
     function checkOwner() public view returns (address) {
         return owner;
     }
+
+    fallback() external payable {}
+    receive() external payable {}
 
     function flashSwap(
         address loanFactory,
@@ -36,28 +39,13 @@ contract flashMulti is IUniswapV2Callee {
         uint256 amount0In,
         uint256 amount1Out,
         uint256 amountToRepay
-    ) external {
-        require(
-            msg.sender == address(owner),
-            'Error: Only owner can call this function'
-        );
-        pair = IUniswapV2Pair(
-            IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID)
-        );
-        require(address(pair) != address(0), 'Error: Pair does not exist');
-        bytes memory data = abi.encode(
-            loanFactory,
-            loanRouter,
-            recipientRouter,
-            amount1Out,
-            amountToRepay
-        );
+    ) external onlyOwner {
+        pair = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID));
+        require(address(pair) != address(0), "Error: Pair does not exist");
+        bytes memory data = abi.encode(loanFactory, loanRouter, recipientRouter, amount1Out, amountToRepay);
 
         IERC20(token0ID).approve(address(pair), amount0In);
-        require(
-            amount0In > 0,
-            'Error: Invalid amount0In: amount0In must be greater than 0'
-        );
+        require(amount0In > 0, "Error: Invalid amount0In: amount0In must be greater than 0");
         pair.swap(
             amount0In, // Requested borrow of token0
             0, // Borrow of token1
@@ -66,12 +54,7 @@ contract flashMulti is IUniswapV2Callee {
         );
     }
 
-    function uniswapV2Call(
-        address sender,
-        uint256 amount0,
-        uint256 amount1,
-        bytes calldata data
-    ) external override {
+    function uniswapV2Call(address sender, uint256 amount0, uint256 amount1, bytes calldata data) external override {
         address[] memory path = new address[](2);
         (
             address loanFactory,
@@ -84,23 +67,14 @@ contract flashMulti is IUniswapV2Callee {
         //This only works because we are only requesting then swapping one token
         path[0] = IUniswapV2Pair(msg.sender).token0();
         path[1] = IUniswapV2Pair(msg.sender).token1();
-        pair = IUniswapV2Pair(
-            IUniswapV2Factory(loanFactory).getPair(path[0], path[1])
-        );
-        require(msg.sender == address(pair), 'Error: Unauthorized');
-        require(sender == address(this), 'Error: Not sender');
-        require(amount0 == 0 || amount1 == 0, 'Error: Invalid amounts');
+        pair = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(path[0], path[1]));
+        require(msg.sender == address(pair), "Error: Unauthorized");
+        require(sender == address(this), "Error: Not sender");
+        require(amount0 == 0 || amount1 == 0, "Error: Invalid amounts");
 
         IERC20 token1 = IERC20(path[1]);
 
-        uint256 amountOut = getAmounts(
-            amount0,
-            amount1Repay,
-            amount1Out,
-            loanRouter,
-            recipientRouter,
-            path
-        );
+        uint256 amountOut = getAmounts(amount0, amount1Repay, amount1Out, loanRouter, recipientRouter, path);
         token1.transfer(owner, token1.balanceOf(address(this)));
     }
 
@@ -117,15 +91,13 @@ contract flashMulti is IUniswapV2Callee {
         uint256 deadline = block.number + 10;
         uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
         token0.approve(address(recipientRouter), loanAmount);
-        amountOut = IUniswapV2Router02(address(recipientRouter))
-        // swap exactly loanAmount token0 for minimum amount1Repay token1
-            .swapExactTokensForTokens(
-                loanAmount,
-                amount1Out,
-                path,
-                address(this),
-                deadline
-            )[1];
+        amountOut = IUniswapV2Router02(address(recipientRouter)).swapExactTokensForTokens(
+            loanAmount,
+            amount1Out,
+            path,
+            address(this),
+            deadline
+        )[1];
 
         token1.approve(msg.sender, repay[0]);
         token1.transferFrom(address(this), msg.sender, repay[0]);
@@ -149,28 +121,17 @@ contract flashMulti is IUniswapV2Callee {
 }
 
 interface IUniswapV2Factory {
-    function getPair(
-        address tokenA,
-        address tokenB
-    ) external view returns (address pair);
+    function getPair(address tokenA, address tokenB) external view returns (address pair);
 }
 
 interface IUniswapV2Pair {
-    function swap(
-        uint amount0Out,
-        uint amount1Out,
-        address to,
-        bytes calldata
-    ) external;
+    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata) external;
 
     function token0() external view returns (address);
 
     function token1() external view returns (address);
 
-    function getReserves()
-        external
-        view
-        returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);
+    function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);
 }
 
 interface IUniswapV2Library {
@@ -178,10 +139,7 @@ interface IUniswapV2Library {
         address factory,
         address tokenA,
         address tokenB
-    )
-        external
-        view
-        returns (uint112 reserveA, uint112 reserveB, uint32 blockTimestampLast);
+    ) external view returns (uint112 reserveA, uint112 reserveB, uint32 blockTimestampLast);
 
     function getAmountsIn(
         address factory,
@@ -195,16 +153,9 @@ interface IERC20 {
 
     function balanceOf(address account) external view returns (uint256);
 
-    function transfer(
-        address recipient,
-        uint256 amount
-    ) external returns (bool);
+    function transfer(address recipient, uint256 amount) external returns (bool);
 
-    function transferFrom(
-        address sender,
-        address recipient,
-        uint256 amount
-    ) external returns (bool);
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
 }
 
 interface IUniswapV2Router02 {
@@ -224,27 +175,21 @@ interface IUniswapV2Router02 {
         uint deadline
     ) external returns (uint[] memory amounts);
 
-    function getAmountsOut(
-        uint amountIn,
-        address[] memory path
-    ) external view returns (uint[] memory amounts);
+    function getAmountsOut(uint amountIn, address[] memory path) external view returns (uint[] memory amounts);
 
-    function getAmountsIn(
-        uint amountOut,
-        address[] memory path
-    ) external view returns (uint[] memory amounts);
+    function getAmountsIn(uint amountOut, address[] memory path) external view returns (uint[] memory amounts);
 }
 
 library SafeMath {
     function add(uint x, uint y) internal pure returns (uint z) {
-        require((z = x + y) >= x, 'ds-math-add-overflow');
+        require((z = x + y) >= x, "ds-math-add-overflow");
     }
 
     function sub(uint x, uint y) internal pure returns (uint z) {
-        require((z = x - y) <= x, 'ds-math-sub-underflow');
+        require((z = x - y) <= x, "ds-math-sub-underflow");
     }
 
     function mul(uint x, uint y) internal pure returns (uint z) {
-        require(y == 0 || (z = x * y) / y == x, 'ds-math-mul-overflow');
+        require(y == 0 || (z = x * y) / y == x, "ds-math-mul-overflow");
     }
 }
