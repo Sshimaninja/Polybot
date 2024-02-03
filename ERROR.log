@@ -1,0 +1,61 @@
+
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH
+
+  console.log:
+    Contract flashMultiTest Entered
+    Owner:  0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+    Loan Factory:  0x477ce834ae6b7ab003cce4bc4d8697763ff456fa
+    Loan Router:  0x94930a328162957ff1dd48900af67b5439336cbd
+    Recipient Router:  0x1b02da8cb0d097eb8d57a175b88c7d8b47997506
+    Token0:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Token1:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    Amount0In:  951376421
+    Amount1Out:  945011152
+    AmountToRepay:  808162798
+    amount0In requested:  951376421
+    amount1Out expected:  945011152
+    Contract Balance Before Swap:  0
+    Pair address:  0x97b4f2797cc903d76f9b8ff41a94286f0b16198e
+    Data encoded
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    loanFactory:  0x94930a328162957ff1dd48900af67b5439336cbd
+    Uniswap K Before Swap:  27859933453118362200
+    LoanPool address:  0x97b4f2797cc903d76f9b8ff41a94286f0b16198e
+    Target address:  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+    msg.sender address:  0x97b4f2797cc903d76f9b8ff41a94286f0b16198e
+    Amount0 requested:  951376421
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0xc2132d05d31c914a87c6611c10748aeb04b58e8f
+    New token0 balance (loaned)::::::::::::::::::  951376421
+    Approving recipientRouter to trade token0
+    Approved to trade  951376421  of token0 on recipientRouter
+    balance Token0:  951376421
+    balance Token1:  0
+    getAmounts Entered
+    Loan Amount:           951376421
+    Amount1Repay:          808162798
+    Amount1Out:            945011152
+    Repayment calculated:  1163395905
+    Repayment expected:    808162798
+    Swapping  951376421  token0 for token1
+    MINIMUM Amount1 expected:  945011152
+
+  Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2Router: EXPIRED'
+      at <UnrecognizedContract>.<unknown> (0x1b02da8cb0d097eb8d57a175b88c7d8b47997506)
+      at flashMultiTest.getAmounts (contracts/v2/flashMultiTest.sol:147)
+      at <UnrecognizedContract>.<unknown> (0x97b4f2797cc903d76f9b8ff41a94286f0b16198e)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:63)
+      at async EthModule._estimateGasAction (/mnt/c/code/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/mnt/c/code/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/mnt/c/code/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/mnt/c/code/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/mnt/c/code/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 4)
+      at async Server.JsonRpcHandler.handleHttp (/mnt/c/code/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)
