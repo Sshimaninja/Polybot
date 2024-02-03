@@ -30,8 +30,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     if (trade.direction != undefined) {
         console.log("EstimatingGas for trade: " + trade.ticker + "...");
         try {
-            const fix = await fixEstimateGas(trade);
-            console.log(fix);
+            // const fix = await fixEstimateGas(trade);
+            // console.log(fix);
 
             gasEstimate = await trade.flash.flashSwap.estimateGas(
                 trade.loanPool.factory,

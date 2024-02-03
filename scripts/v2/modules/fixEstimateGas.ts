@@ -12,32 +12,25 @@ export async function fixEstimateGas(trade: BoolTrade) {
     // const flashFunction = trade.flash.flashSwap
     // logger.info('flashFunction: ', flashFunction)
     // // console.log('trade.flash:', trade.flash)
-
     // const swapFunctionSignature = 'swap(uint256,uint256,address,bytes)'
     // const swapFunctionHash = ethers.keccak256(
     //     ethers.toUtf8Bytes(swapFunctionSignature)
     // )
     // const swapFunctionSelector = swapFunctionHash.substring(0, 10)
-
     // const flashContractInterface = new ethers.Interface(IflashMulti)
     // if (flashContractInterface == undefined) {
     //     console.log('flashContractInterface is undefined')
     // }
-
     // // Get the FunctionFragment object
     // const flashFragment = flashContractInterface.getFunction('flashSwap')
     // const flashSelector = flashFragment ? flashFragment.selector : undefined
-
     // // const id = ethers.id(flashSelector)
-
     // // Get the function selector
     // logger.info('Function fragment: ', flashFragment)
     // logger.info('Function selector: ', flashSelector)
-
     // const flashSwapFunction = await trade.flash.flashSwap.getFunction()
-
-    const owner = await trade.flash.checkOwner();
-    const walletAddress = signer.address;
-    logger.info("Owner: ", owner);
-    logger.info("wallet address: ", walletAddress);
+    // const owner = await trade.flash.checkOwner();
+    // const walletAddress = signer.address;
+    // logger.info("Owner: ", owner);
+    // logger.info("wallet address: ", walletAddress);
 }
