@@ -127,15 +127,11 @@ export class Trade {
                     ? this.price1.priceOutBN.toFixed(this.match.token1.decimals)
                     : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
                 repays: {
-                    direct: {
-                        direct: 0n,
-                        directInTokenOut: 0n,
-                    },
-                    multi: {
-                        simpleMulti: 0n,
-                        getAmountsOut: 0n,
-                        getAmountsIn: 0n,
-                    },
+                    direct: 0n,
+                    directInTokenOut: 0n,
+                    simpleMulti: 0n,
+                    getAmountsOut: 0n,
+                    getAmountsIn: 0n,
                     repay: 0n,
                 },
                 amountRepay: 0n,
@@ -226,7 +222,7 @@ export class Trade {
                 ? "direct"
                 : "No Profit (Error in profitCalcs)";
 
-        trade.loanPool.amountRepay = trade.type === "multi" ? repays.repay : repays.direct.direct;
+        trade.loanPool.amountRepay = trade.type === "multi" ? repays.repay : repays.direct;
 
         trade.loanPool.repays = repays;
 

@@ -219,8 +219,11 @@ export interface PoolsV3 {
 }
 
 export interface Repays {
-    direct: { direct: bigint; directInTokenOut: bigint };
-    multi: { simpleMulti: bigint; getAmountsOut: bigint; getAmountsIn: bigint };
+    direct: bigint;
+    directInTokenOut: bigint;
+    simpleMulti: bigint;
+    getAmountsOut: bigint;
+    getAmountsIn: bigint;
     repay: bigint;
 }
 export interface V3Repays {
