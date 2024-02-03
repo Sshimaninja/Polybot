@@ -80,7 +80,8 @@ export class Trade {
         // use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
         const maxIn = await target.getMaxTokenIn();
         const bestSize = toPrice < maxIn ? toPrice : maxIn;
-        const safeReserves = (loan.reserves.reserveIn * 1000n) / 800n;
+        const safeReserves = (loan.reserves.reserveIn * 800n) / 1000n;
+        //473 * 800 / 1000 = 378.4
         const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
         // const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
         // console.log(msg);
