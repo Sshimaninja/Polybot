@@ -129,10 +129,11 @@ contract flashMultiTest is IUniswapV2Callee {
         uint256[] memory repay = getRepay(loanAmount, loanRouter, path);
         console.log("Repayment calculated::::: ", repay[0]);
         console.log("Repayment expected::::::: ", amount1Repay);
-        console.log("Swapping ", loanAmount, " token0 for token1");
         console.log("MINIMUM Amount1 expected: ", amount1Out);
+        console.log("Swapping ", loanAmount, " token0 for token1");
         amountOut = IUniswapV2Router02(address(recipientRouter)).swapExactTokensForTokens(
-            // swap exactly loanAmount token0 for minimum amount1Repay token1
+            // hardhat: I'm getting less than the expected amountOut. Why?
+            // Perhaps I should add the fee to the amountOutMin
             loanAmount,
             repay[0],
             path,
