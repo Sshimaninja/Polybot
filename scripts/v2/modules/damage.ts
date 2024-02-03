@@ -47,7 +47,7 @@ export async function rollDamage(trade: BoolTrade) {
 
     if (
         trade.profit > 0n &&
-        trade.k.uniswapKPositive &&
+        // trade.k.uniswapKPositive &&
         trade.loanPool.reserveInBN.gt(BN(1)) &&
         trade.loanPool.reserveOutBN.gt(BN(1)) &&
         trade.target.reserveInBN.gt(BN(1)) &&
