@@ -8,18 +8,7 @@ import { Trade } from "./getTrade";
 import { Reserves } from "./modules/reserves";
 import { tradeLogs } from "./modules/tradeLog";
 import { rollDamage } from "./modules/damage";
-
-let filteredTrades: string[];
-
-try {
-    const data = JSON.parse(fs.readFileSync("./filtered.json", "utf-8"));
-    filteredTrades = Array.isArray(JSON.parse(data)) ? JSON.parse(data) : [];
-} catch (error: any) {
-    console.log("Error reading filtered.json: ", error.message, "Creating new filtered.json...");
-    filteredTrades = [];
-    fs.writeFileSync("./filtered.json", JSON.stringify(filteredTrades));
-}
-
+// import { filterMatches } from "./filterMatches";
 /*
 TODO:
 */
@@ -31,7 +20,7 @@ TODO:
  * It loops through all pairs, and all matches, and executes the flash swaps.
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
-
+let filteredTrades: string[]; // Array to store filtered trades
 export const slippageTolerance = BN(0.06);
 
 export async function control(data: FactoryPair[], gasData: any) {
@@ -39,20 +28,6 @@ export async function control(data: FactoryPair[], gasData: any) {
     try {
         for (const pair of data) {
             for (const match of pair.matches) {
-                if (
-                    filteredTrades.includes(match.poolAID + match.poolBID) ||
-                    filteredTrades.includes(match.poolBID + match.poolAID)
-                ) {
-                    // console.log(
-                    //     'Trade filtered:',
-                    //     match.ticker,
-                    //     'on ',
-                    //     pair.exchangeA + pair.exchangeB,
-                    //     'filtered out. Skipping...'
-                    // )
-                    return;
-                }
-
                 const r = new Reserves(match);
                 const reserves = await r.getReserves(match);
 
@@ -67,10 +42,8 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const t = new Trade(pair, match, p0, p1, slippageTolerance, gasData);
                     const trade = await t.getTrade();
 
-                    if (trade.type === "filtered") {
-                        filteredTrades.push(trade.ID);
-                        fs.writeFileSync("./filtered.json", JSON.stringify(filteredTrades));
-                    }
+                    // This filter was too strong, resulting in 0 matches to trade. Needs refined.
+                    // const filtered = filterMatches(filteredTrades)
 
                     const dataPromise = tradeLogs(trade);
                     const rollPromise = rollDamage(trade);

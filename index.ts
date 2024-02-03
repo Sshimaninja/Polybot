@@ -42,7 +42,7 @@ async function main() {
             await Promise.all(
                 pairList.map(async (pairList: any) => {
                     await control(pairList, gasData);
-                    console.log("Pairlist loop complete. New loop starting...");
+                    // console.log("Pairlist loop complete. New loop starting...");
                 }),
             );
         } catch (error: any) {
