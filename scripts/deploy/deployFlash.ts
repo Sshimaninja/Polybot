@@ -19,7 +19,7 @@ async function main() {
         console.log("Owner address: ", ownerAddress);
         const FlashMultiFactory = new ethers.ContractFactory(flashMultiAbi, flashMultiBytecode, signer);
         console.log("Deploying flashMulti to ...");
-        const flashmulti = await FlashMultiFactory.deploy(ownerAddress);
+        const flashmulti = await FlashMultiFactory.deploy(signer);
         console.log("awaiting flashMulti.deployed()...");
         await flashmulti.waitForDeployment();
         const flashMultiAddress = await flashmulti.getAddress();

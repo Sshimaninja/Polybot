@@ -7,11 +7,9 @@ coverage.json
 typechain
 typechain-types
 
-#Hardhat files
 cache
 bin
 NOTES
-flashit.log
 DATASAMPLE*
 pairs.json
 filtered.json
