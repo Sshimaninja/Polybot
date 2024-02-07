@@ -8,7 +8,7 @@
 // import { Prices } from "./prices";
 // import { getK } from "./getK";
 // import { BoolTrade } from "../../../constants/interfaces"
-// import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+// import { getAmountsIn, getAmountsOut } from "./getAmountsIOJS";
 // /**
 //  * @description
 //  * Class to determine trade direction
@@ -139,4 +139,3 @@
 //         return trade;
 //     }
 // }
-
