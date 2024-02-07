@@ -10,13 +10,15 @@ import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
 import { BoolTrade } from "../../constants/interfaces";
 import { PopulateRepays } from "./modules/populateRepays";
-import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
+// import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
 import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { checkTrade } from "./modules/checkTrade";
 import { logger } from "../../constants/logger";
 import { ProfitCalculator } from "./modules/ProfitCalcs";
+import { getAmountsOut, getAmountsIn } from "./modules/getAmountsIOJS";
+// import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmountsIOBN";
 
 /**
  * @description
@@ -177,9 +179,15 @@ export class Trade {
         };
 
         trade.target.amountOut = await getAmountsOut(
-            trade.target.tradeSize, // token0 in given
-            trade.target.reserveIn, // token0 in
-            trade.target.reserveOut,
+            await trade.target.router.getAddress(), // token0 in given
+            trade.target.tradeSize, // token0 in
+            [trade.tokenIn.id, trade.tokenOut.id],
+        ); // token1 max out
+
+        trade.loanPool.amountOut = await getAmountsOut(
+            await trade.loanPool.router.getAddress(), // token0 in given
+            trade.target.tradeSize, // token0 in
+            [trade.tokenIn.id, trade.tokenOut.id],
         ); // token1 max out
 
         // trade.target.amountOut = await this.calc0.subSlippage(trade.target.amountOut, trade.tokenOut.decimals);
@@ -204,15 +212,42 @@ export class Trade {
         // subtract the result from amountOut to get profit
         // The below will be either in token0 or token1, depending on the trade type.
         // Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
-        trade.loanPool.amountOut = await getAmountsOut(
-            trade.target.tradeSize,
-            trade.loanPool.reserveIn,
-            trade.loanPool.reserveOut,
-        );
+
+        // const amountOutJS = await getAmountOutJS(await trade.target.router.getAddress(), trade.target.tradeSize, [
+        //     trade.tokenIn.id,
+        //     trade.tokenOut.id,
+        // ]);
+        // const amountInJS = await getAmountInJs(await trade.loanPool.router.getAddress(), trade.target.amountOut, [
+        //     trade.tokenIn.id,
+        //     trade.tokenOut.id,
+        // ]);
+        // const amountOutBN = await getAmountOutBN(
+        //     BN(fu(trade.target.tradeSize, trade.tokenIn.decimals)),
+        //     BN(fu(trade.target.reserveIn, trade.tokenIn.decimals)),
+        //     BN(fu(trade.target.reserveOut, trade.tokenOut.decimals)),
+        // );
+        // const amountInBN = await getAmountInBN(
+        //     BN(fu(trade.target.tradeSize, trade.tokenIn.decimals)),
+        //     BN(fu(trade.target.reserveIn, trade.tokenIn.decimals)),
+        //     BN(fu(trade.target.reserveOut, trade.tokenOut.decimals)),
+        // );
+
+        // CHECKING AMOUNTS AS THEY ARE DIFFERENT FROM WHAT THE CONTRACT RETURNS
+        // const allAmouts = {
+        //     amountOutLocal: fu(trade.target.amountOut, trade.tokenOut.decimals),
+        //     amountOutEVM: fu(amountOutJS[1], trade.tokenOut.decimals),
+        //     amountOutBN: amountOutBN.toFixed(trade.tokenOut.decimals),
+        //     amountInLocal: fu(trade.loanPool.amountRepay, trade.tokenIn.decimals),
+        //     amountInEVM: fu(amountInJS[0], trade.tokenIn.decimals),
+        //     amountInBN: amountInBN.toFixed(trade.tokenIn.decimals),
+        // };
+        // logger.info(">>>>>>>>>>>>CHECK AMOUNTSOUT::::::::::::::");
+        // // logger.info(allAmouts);
+
         trade.loanPool.amountOutToken0for1 = await getAmountsOut(
-            trade.target.amountOut,
-            trade.loanPool.reserveOut,
-            trade.loanPool.reserveIn,
+            await trade.loanPool.router.getAddress(),
+            trade.loanPool.amountOut,
+            [trade.tokenOut.id, trade.tokenOut.id],
         );
 
         trade.type =
@@ -227,9 +262,9 @@ export class Trade {
         trade.loanPool.repays = repays;
 
         trade.target.amountOutToken0for1 = await getAmountsOut(
+            await trade.target.router.getAddress(),
             trade.target.amountOut,
-            trade.target.reserveOut,
-            trade.target.reserveIn,
+            [trade.tokenOut.id, trade.tokenIn.id],
         );
 
         trade.profit = trade.type === "multi" ? multi.profit : direct.profit;
