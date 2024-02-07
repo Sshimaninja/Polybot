@@ -1,7 +1,7 @@
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, Repays, BoolTrade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
-import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+import { getAmountsIn, getAmountsOut } from "./getAmountsIOJS";
 import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
 
 export class PopulateRepays {
@@ -54,16 +54,16 @@ export class PopulateRepays {
 
         const repayByGetAmountsOut = await getAmountsOut(
             // getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
+            await this.trade.loanPool.router.getAddress(),
             this.trade.target.tradeSize,
-            this.trade.loanPool.reserveIn,
-            this.trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
+            [this.trade.tokenIn.id, this.trade.tokenOut.id], // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
         );
 
         const repayByGetAmountsIn = await getAmountsIn(
             //Will output tokenIn.
+            await this.trade.loanPool.router.getAddress(),
             this.trade.target.tradeSize,
-            this.trade.loanPool.reserveOut, // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
-            this.trade.loanPool.reserveIn,
+            [this.trade.tokenOut.id, this.trade.tokenIn.id], // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
         );
 
         const repays: Repays = {
