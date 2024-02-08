@@ -22,7 +22,7 @@ export async function telegramInfo(message: string): Promise<void> {
             console.log("Telegram message sent: " + sent);
         }
     } catch (error: any) {
-        logger.error("TELEGRAM ERROR [telegramInfo()]: " + error.message);
+        logger.error("TELEGRAM ERROR [telegramInfo()]: " + error);
         return;
     }
 }
@@ -30,9 +30,10 @@ export async function telegramInfo(message: string): Promise<void> {
 export async function notify(trade: BoolTrade, profit: Profit) {
     let logs = await tradeLogs(trade);
     const message =
-        `Trade ${trade.ticker} on ${trade.loanPool.exchange + trade.target.exchange} is ongoing. Projected profit: ${
-            profit.profit
-        } MATIC equivalent. \n\n` + ` ${JSON.stringify(logs.data)}`;
+        `Trade ${trade.ticker} on ${
+            trade.loanPool.exchange + trade.target.exchange
+        } is ongoing. Projected profit: ${profit.profit} MATIC equivalent. \n\n` +
+        ` ${JSON.stringify(logs.data)}`;
     try {
         if (!TELEGRAM_BOT_TOKEN) {
             throw new Error("Telegram bot token not found in environment variables");

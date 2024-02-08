@@ -5,19 +5,26 @@ import {
     abi as flashMultiAbi,
     bytecode as flashMultiBytecode,
 } from "../../artifacts/contracts/v2/flashMulti.sol/flashMulti.json";
+import {
+    abi as flashSingleAbi,
+    bytecode as flashSingleBytecode,
+} from "../../artifacts/contracts/v2/flashSingle.sol/flashSingle.json";
 
 dotEnvConfig({ path: `.env.${process.env.NODE_ENV}` });
-async function main() {
+async function deployMulti() {
     try {
-        console.log("Deploying contracts with the account: ", signer);
+        console.log("Deploying flashMulti with the account: ", signer);
 
         // Get balance of deployer account
         const balanceDeployer = await provider.getBalance(signer);
 
         console.log("Account balance:", balanceDeployer.toString());
-        const ownerAddress = await signer.getAddress();
-        console.log("Owner address: ", ownerAddress);
-        const FlashMultiFactory = new ethers.ContractFactory(flashMultiAbi, flashMultiBytecode, signer);
+
+        const FlashMultiFactory = new ethers.ContractFactory(
+            flashMultiAbi,
+            flashMultiBytecode,
+            signer,
+        );
         console.log("Deploying flashMulti to ...");
         const flashmulti = await FlashMultiFactory.deploy(signer);
         console.log("awaiting flashMulti.deployed()...");
@@ -38,7 +45,7 @@ async function main() {
     }
 }
 
-main().catch((error) => {
+deployMulti().catch((error) => {
     console.error(error);
     process.exitCode = 1;
 });
