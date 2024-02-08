@@ -49,8 +49,8 @@ export async function importantSafetyChecks(trade: BoolTrade): Promise<boolean> 
         rPost: trade.target.reserveIn * trade.target.reserveOut * 1000n ** 2n,
     };
     if (k.kPost < k.rPost) {
-        console.log("No Trade: K: ", trade.ticker, " ", trade.target.exchange);
-        console.log(k);
+        // console.log("No Trade: K: ", trade.ticker, " ", trade.target.exchange);
+        // console.log(k);
         return false;
     }
     return true;
