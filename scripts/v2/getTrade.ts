@@ -12,12 +12,12 @@ import {
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { flashMulti, flashDirect } from "../../constants/environment";
+import { flashMulti, flashSingle } from "../../constants/environment";
 import { provider, wallet } from "../..//constants/provider";
 import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
 import { BoolTrade } from "../../constants/interfaces";
-import { PopulateRepays } from "./modules/populateRepays";
+import { PopulateRepays } from "./modules/getRepays";
 // import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
 import { AmountConverter } from "./modules/amountConverter";
 import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertBN";
@@ -115,7 +115,7 @@ export class Trade {
             ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
-            flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type. Likely to be flashMulti uneless other protocols are added for direct swaps.
+            flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type. Likely to be flashMulti uneless other protocols are added for single swaps.
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A
@@ -141,14 +141,13 @@ export class Trade {
                 priceOut: A
                     ? this.price1.priceOutBN.toFixed(this.match.token1.decimals)
                     : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
+                amountOut: 0n,
                 repays: {
-                    direct: { directIn: 0n, directOut: 0n },
+                    single: { singleIn: 0n, singleOut: 0n },
                     multi: 0n,
                     repay: 0n,
                 },
                 amountRepay: 0n,
-                amountOutToken0for1: 0n,
-                amountOut: 0n,
             },
             target: {
                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
@@ -205,12 +204,12 @@ export class Trade {
             [trade.tokenIn.id, trade.tokenOut.id],
         ); // token1 max out
 
-        // trade.target.amountOut = await this.calc0.subSlippage(trade.target.amountOut, trade.tokenOut.decimals);
+        // trade.target.amountOut = await this.calc0.subSlippage(
+        //     trade.target.amountOut,
+        //     trade.tokenOut.decimals,
+        // );
+        // console.log("trade.target.amountOut minus slippage: ", trade.target.amountOut);
 
-        const filteredTrade = await filterTrade(trade);
-        if (filteredTrade == undefined) {
-            return trade;
-        }
         //TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
         // Define repay & profit for each trade type:
         const r = new PopulateRepays(trade, this.calc0);
@@ -218,31 +217,36 @@ export class Trade {
         const p = new ProfitCalculator(trade, this.calc0, repays);
 
         const multi = await p.getMultiProfit();
-        const direct = await p.getDirectProfit();
+        const single = await p.getSingleProfit();
 
         // subtract the result from amountOut to get profit
         // The below will be either in token0 or token1, depending on the trade type.
         // Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 
+        const filteredTrade = await filterTrade(trade);
+        // if (filteredTrade == undefined) {
+        //     return trade;
+        // }
+        //TODO: CHANGE 'SINGLE' TO 'SINGLE' to reflect uniswap docs.
         trade.type =
-            multi.profit > direct.profit
+            multi.profit > single.profit
                 ? "multi"
-                : direct.profit > multi.profit
-                ? "direct"
-                : "No Profit (Error in profitCalcs)";
+                : single.profit > multi.profit
+                ? "single"
+                : "No Profit: multi: " + multi.profit + " single: " + single.profit;
 
         trade.loanPool.amountRepay =
-            trade.type === "multi" ? repays.multi : repays.direct.directOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
+            trade.type === "multi" ? repays.multi : repays.single.singleOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
 
         trade.loanPool.repays = repays;
 
-        trade.profit = trade.type === "multi" ? multi.profit : direct.profit;
+        trade.profit = trade.type === "multi" ? multi.profit : single.profit;
 
         trade.profitPercent =
             trade.type == "multi"
                 ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
                 : pu(
-                      direct.profitPercent.toFixed(trade.tokenOut.decimals),
+                      single.profitPercent.toFixed(trade.tokenOut.decimals),
                       trade.tokenOut.decimals,
                   );
 
@@ -254,7 +258,7 @@ export class Trade {
             this.calc0,
         );
 
-        trade.flash = trade.type === "multi" ? flashMulti : flashDirect;
+        trade.flash = trade.type === "multi" ? flashMulti : flashSingle;
 
         // return trade;
         return trade;

@@ -11,11 +11,11 @@ import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.j
  */
 
 export async function getAmountsOut(router: Contract, amountIn: bigint, path: string[]) {
-    var amountReceived = await router.getAmountsOut(router, amountIn, path);
+    var amountReceived = await router.getAmountsOut(amountIn, path);
     return amountReceived[1];
 }
 
 export async function getAmountsIn(router: Contract, amountOut: bigint, path: string[]) {
-    var amountRequired = await router.getAmountsIn(router, amountOut, path);
+    var amountRequired = await router.getAmountsIn(amountOut, path);
     return amountRequired[0];
 }

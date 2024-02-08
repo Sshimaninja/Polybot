@@ -36,7 +36,7 @@ async function main() {
 
     provider.on("block", async (blockNumber: any) => {
         if (blockNumber === null || undefined) return;
-        logger.info("New block received: Block # " + blockNumber);
+        console.log("New block received: Block # " + blockNumber);
         try {
             const gasData = await getGasData();
             await Promise.all(

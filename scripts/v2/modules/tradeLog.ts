@@ -24,37 +24,32 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     " " +
                     trade.tokenOut.symbol,
                 repaysObj: {
-                    directIn:
-                        fu(trade.loanPool.repays.direct.directIn, trade.tokenIn.decimals) +
+                    single:
+                        fu(trade.loanPool.repays.single.singleIn, trade.tokenIn.decimals) +
                         " " +
                         trade.tokenIn.symbol,
-                    directOut:
-                        fu(trade.loanPool.repays.direct.directOut, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
+                    // singleOut:
+                    //     fu(trade.loanPool.repays.single.singleOut, trade.tokenOut.decimals) +
+                    //     " " +
+                    //     trade.tokenOut.symbol,
                     multi:
                         fu(trade.loanPool.repays.multi, trade.tokenOut.decimals) +
                         " " +
                         trade.tokenOut.symbol,
                 },
-                amountOut:
-                    fbi(trade.loanPool.amountOut, trade.tokenOut.decimals) +
+                // amountOut:
+                //     fbi(trade.loanPool.amountOut, trade.tokenOut.decimals) +
+                //     " " +
+                //     trade.tokenOut.symbol,
+                amountRepay:
+                    fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
-                amountOutToken0for1:
-                    fu(trade.loanPool.amountOutToken0for1, trade.tokenIn.decimals) +
-                    " " +
-                    trade.tokenIn.symbol,
-                amountRepay:
-                    trade.type === "multi"
-                        ? fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) +
-                          " " +
-                          trade.tokenOut.symbol
-                        : trade.type === "direct"
-                        ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) +
-                          " " +
-                          trade.tokenIn.symbol
-                        : "error",
+                // : trade.type === "single"
+                // ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) +
+                //   " " +
+                //   trade.tokenIn.symbol
+                // : "no trade",
             },
             target: {
                 exchange: trade.target.exchange,

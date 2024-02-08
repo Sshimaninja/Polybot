@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
   "contractName": "IUniswapV2Pair",
-  "sourceName": "contracts/v2/flashDirectTest.sol",
+  "sourceName": "contracts/v2/flashSingleTest.sol",
   "abi": [
     {
       "inputs": [
