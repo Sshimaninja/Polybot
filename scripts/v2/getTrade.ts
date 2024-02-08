@@ -1,6 +1,14 @@
 import { BigNumber as BN } from "bignumber.js";
 import { ethers, Contract } from "ethers";
-import { Amounts, FactoryPair, GasData, Pair, Profcalcs, Repays, TradePair } from "../../constants/interfaces";
+import {
+    Amounts,
+    FactoryPair,
+    GasData,
+    Pair,
+    Profcalcs,
+    Repays,
+    TradePair,
+} from "../../constants/interfaces";
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
@@ -93,13 +101,17 @@ export class Trade {
     async getTrade() {
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
-        const size = A ? await this.getSize(this.calc1, this.calc0) : await this.getSize(this.calc0, this.calc1);
+        const size = A
+            ? await this.getSize(this.calc1, this.calc0)
+            : await this.getSize(this.calc0, this.calc1);
 
         //TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
 
         const trade: BoolTrade = {
-            ID: A ? this.match.poolAID + this.match.poolBID : this.match.poolBID + this.match.poolAID,
+            ID: A
+                ? this.match.poolAID + this.match.poolBID
+                : this.match.poolBID + this.match.poolAID,
             block: await provider.getBlockNumber(),
             direction: dir.dir,
             type: "filtered",
@@ -119,9 +131,13 @@ export class Trade {
                     ? new Contract(this.match.poolBID, IPair, provider)
                     : new Contract(this.match.poolAID, IPair, provider),
                 reserveIn: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
-                reserveInBN: A ? this.price1.reserves.reserveInBN : this.price0.reserves.reserveInBN,
+                reserveInBN: A
+                    ? this.price1.reserves.reserveInBN
+                    : this.price0.reserves.reserveInBN,
                 reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
-                reserveOutBN: A ? this.price1.reserves.reserveOutBN : this.price0.reserves.reserveOutBN,
+                reserveOutBN: A
+                    ? this.price1.reserves.reserveOutBN
+                    : this.price0.reserves.reserveOutBN,
                 priceIn: A
                     ? this.price1.priceInBN.toFixed(this.match.token0.decimals)
                     : this.price0.priceInBN.toFixed(this.match.token0.decimals),
@@ -152,9 +168,13 @@ export class Trade {
                     ? new Contract(this.match.poolAID, IPair, provider)
                     : new Contract(this.match.poolBID, IPair, provider),
                 reserveIn: A ? this.price0.reserves.reserveIn : this.price1.reserves.reserveIn,
-                reserveInBN: A ? this.price0.reserves.reserveInBN : this.price1.reserves.reserveInBN,
+                reserveInBN: A
+                    ? this.price0.reserves.reserveInBN
+                    : this.price1.reserves.reserveInBN,
                 reserveOut: A ? this.price0.reserves.reserveOut : this.price1.reserves.reserveOut,
-                reserveOutBN: A ? this.price0.reserves.reserveOutBN : this.price1.reserves.reserveOutBN,
+                reserveOutBN: A
+                    ? this.price0.reserves.reserveOutBN
+                    : this.price1.reserves.reserveOutBN,
                 priceIn: A
                     ? this.price0.priceInBN.toFixed(this.match.token0.decimals)
                     : this.price1.priceInBN.toFixed(this.match.token0.decimals),
@@ -172,7 +192,8 @@ export class Trade {
                 uniswapKPositive: false,
             },
             gasData: this.gasData,
-            differenceTokenOut: dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
+            differenceTokenOut:
+                dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
             differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
             profit: 0n,
             profitPercent: 0n,
@@ -247,7 +268,7 @@ export class Trade {
         trade.loanPool.amountOutToken0for1 = await getAmountsOut(
             await trade.loanPool.router.getAddress(),
             trade.loanPool.amountOut,
-            [trade.tokenOut.id, trade.tokenOut.id],
+            [trade.tokenOut.id, trade.tokenIn.id],
         );
 
         trade.type =
@@ -272,7 +293,10 @@ export class Trade {
         trade.profitPercent =
             trade.type == "multi"
                 ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
-                : pu(direct.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals);
+                : pu(
+                      direct.profitPercent.toFixed(trade.tokenOut.decimals),
+                      trade.tokenOut.decimals,
+                  );
 
         trade.k = await getK(
             trade.type,
