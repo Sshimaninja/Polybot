@@ -13,69 +13,44 @@ export class PopulateRepays {
         this.trade = trade;
         this.calc = calc;
         this.repays = {
-            direct: 0n,
-            directInTokenOut: 0n,
-            simpleMulti: 0n,
-            getAmountsOut: 0n,
-            getAmountsIn: 0n,
+            direct: { directIn: 0n, directOut: 0n },
+            multi: 0n,
             repay: 0n,
         };
     }
-
-    /*
-	I have to send back only the amount of token1 needed to repay the amount of token0 I was loaned.
-	Thus I need to calculate the exact amount of token1 that tradeSize in tokenOut represents on loanPool, 
-	and subtract it from recipient.amountOut before sending it back
-	*/
-    // const postReserveIn = this.trade.loanPool.reserveIn.sub(this.trade.target.tradeSize); // I think this is only relevant for uniswap K calcs
     async getRepays(): Promise<Repays> {
-        const repayDirect = await this.calc.addFee(this.trade.target.tradeSize);
-        // const directRepayLoanPoolInTokenOut = await getAmountsOut(
-        // 	this.trade.target.tradeSize,
-        // 	this.trade.loanPool.reserveIn, //
-        // 	this.trade.loanPool.reserveOut
-        // );
+        const directRepayTokenIn = await this.calc.addFee(this.trade.target.tradeSize);
+        const getDirect = async (): Promise<{ directIn: bigint; directOut: bigint }> => {
+            const repayinTokenOut = await this.trade.loanPool.router.getAmountsIn(
+                this.trade.loanPool.router,
+                this.trade.target.tradeSize,
+                [this.trade.tokenOut.id, this.trade.tokenIn.id],
+            );
+            const directRepay = {
+                directIn: directRepayTokenIn, // Only usable if you can find another trade/pool elsewhere that will give you the exact amount of tokenIn you need to repay. TODO: IMPLEMENT THIS (TRIANGULAR ARBITRAGE)
+                directOut: repayinTokenOut[0],
+            };
+            return directRepay;
+        };
 
-        //get loanPool conversion of tradeSize in terms of tokenOut
-        const repayDirectBN = BigInt2BN(repayDirect, this.trade.tokenIn.decimals);
-        const directRepayLoanPoolInTokenOutBN = repayDirectBN.multipliedBy(BN(this.trade.loanPool.priceOut));
-        const directRepayLoanPoolInTokenOut = BN2BigInt(directRepayLoanPoolInTokenOutBN, this.trade.tokenOut.decimals);
-        // const directRepayLoanPoolInTokenOutWithFee = await this.calc.addFee(directRepayLoanPoolInTokenOut);
-
-        const ts = BigInt2BN(this.trade.target.tradeSize, this.trade.tokenIn.decimals);
-        const tradeSizeInTermsOfTokenOutOnLoanPool = ts.multipliedBy(BN(this.trade.loanPool.priceOut));
-
-        const simpleBN = tradeSizeInTermsOfTokenOutOnLoanPool.multipliedBy(1.003); // 0.3% fee
-        const simple = BN2BigInt(simpleBN, this.trade.tokenOut.decimals);
-
-        // this.trade.target.tradeSize
-        // 	.mul(this.trade.loanPool.reserveOut.div(this.trade.loanPool.reserveIn))// will never work with ethers.js BigInt because of rounding down.
-        // const simple = await calc.addFee(tradeSizeInTermsOfTokenOutOnLoanPool)
-
-        const repayByGetAmountsOut = await getAmountsOut(
-            // getAmountsOut is used here, but you can also use getAmountsIn, as they can achieve similar results by switching reserves.
-            await this.trade.loanPool.router.getAddress(),
-            this.trade.target.tradeSize,
-            [this.trade.tokenIn.id, this.trade.tokenOut.id], // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
-        );
-
-        const repayByGetAmountsIn = await getAmountsIn(
-            //Will output tokenIn.
-            await this.trade.loanPool.router.getAddress(),
-            this.trade.target.tradeSize,
-            [this.trade.tokenOut.id, this.trade.tokenIn.id], // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
-        );
+        const getMulti = async (): Promise<bigint> => {
+            const repayByGetAmountsIn = await this.trade.loanPool.router.getAmountsIn(
+                //Will output tokenIn.
+                this.trade.loanPool.router,
+                this.trade.target.tradeSize,
+                [this.trade.tokenOut.id, this.trade.tokenIn.id], // <= Will return in terms of this reserve. If this is reserveIn, will return in terms of tokenIn. If this is reserveOut, will return in terms of tokenOut.
+            );
+            console.log("repayByGetAmountsIn: " + repayByGetAmountsIn);
+            return repayByGetAmountsIn[0];
+        };
+        const direct = await getDirect();
+        const multi = await getMulti();
 
         const repays: Repays = {
-            direct: repayDirect,
-            directInTokenOut: directRepayLoanPoolInTokenOut,
-            simpleMulti: simple,
-            getAmountsOut: repayByGetAmountsOut,
-            getAmountsIn: repayByGetAmountsIn,
+            direct: direct,
+            multi: multi,
             //SET YOUR CHOICE HERE:
-            //getAmountsOut is wrong and forces a trade, but it is okay for testing at least.
-            //getAmountsIn is the recommended choice, but it does not yield trades often enough to test.
-            repay: repayByGetAmountsIn,
+            repay: multi,
         };
         return repays;
     }
