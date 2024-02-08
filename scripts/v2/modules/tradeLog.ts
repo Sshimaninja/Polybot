@@ -1,5 +1,5 @@
 import { BoolTrade } from "../../../constants/interfaces";
-import { BigInt2BN, fu } from "../../modules/convertBN";
+import { BigInt2BN, fbi, fu } from "../../modules/convertBN";
 
 export async function tradeLogs(trade: BoolTrade): Promise<any> {
     try {
@@ -29,7 +29,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     getAmountsIn:
                         fu(trade.loanPool.repays.getAmountsIn, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                 },
-                amountOut: fu(trade.loanPool.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
+                amountOut: fbi(trade.loanPool.amountOut, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
                 amountOutToken0for1:
                     fu(trade.loanPool.amountOutToken0for1, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
                 amountRepay:
@@ -62,6 +62,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
         return data;
     } catch (error: any) {
         console.log("Error in tradeLog.ts: " + error.message);
+        console.log(error)
         return { data: "error" };
     }
 }

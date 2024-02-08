@@ -50,7 +50,9 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     promises.push(dataPromise, rollPromise);
                 } else {
-                    console.log("Reserves not found for " + match.poolAID + " and " + match.poolBID) +
+                    console.log(
+                        "Reserves not found for " + match.poolAID + " and " + match.poolBID,
+                    ) +
                         " reserves: " +
                         reserves;
                 }
@@ -65,5 +67,6 @@ export async function control(data: FactoryPair[], gasData: any) {
             console.log("CONTROL ERROR: ECONNRESET: Connection reset by peer. Retrying.");
         }
         console.log("Error in control.ts: " + error.message);
+        console.log(error);
     }
 }
