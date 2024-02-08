@@ -1,5 +1,6 @@
 // import {  utils as u } from 'ethers'
 import { BigNumber as BN } from "bignumber.js";
+import { ethers } from "ethers";
 /**
  * Converts BigInt to bignumber.js BigInt and vice versa.
  */
@@ -17,23 +18,26 @@ export function fbi(bigint: bigint, decimals: number): string {
     return str.slice(0, index) + "." + str.slice(index);
 }
 
-export function fu(value: bigint, decimals: number): string {
-    let divisor = BigInt(Math.pow(10, decimals));
-    let integerPart = Number(value / divisor);
-    let decimalPart = Number(value % divisor);
-    return `${integerPart}.${decimalPart}`;
-}
+// export function fu(value: bigint, decimals: number): string {
+//     let divisor = BigInt(Math.pow(10, decimals));
+//     let integerPart = Number(value / divisor);
+//     let decimalPart = Number(value % divisor);
+//     return `${integerPart}.${decimalPart}`;
+// }
 
-export function pu(bn: string, decimals: number): bigint {
-    try {
-        const [whole, fraction = ""] = bn.split(".");
-        const base = BigInt(10) ** BigInt(decimals);
-        return BigInt(whole) * base + (fraction ? BigInt(fraction.padEnd(decimals, "0")) : 0n);
-    } catch (error: any) {
-        console.log("convertBN: pu: ", error.message);
-        return 0n;
-    }
-}
+export const fu = ethers.formatUnits
+export const pu = ethers.parseUnits
+
+// export function pu(bn: string, decimals: number): bigint {
+//     try {
+//         const [whole, fraction = ""] = bn.split(".");
+//         const base = BigInt(10) ** BigInt(decimals);
+//         return BigInt(whole) * base + (fraction ? BigInt(fraction.padEnd(decimals, "0")) : 0n);
+//     } catch (error: any) {
+//         console.log("convertBN: pu: ", error.message);
+//         return 0n;
+//     }
+// }
 
 export function BigInt2BN(bn: bigint, decimals: number): BN {
     try {

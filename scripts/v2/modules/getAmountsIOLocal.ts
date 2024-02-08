@@ -5,16 +5,20 @@
  * @param reserveOut
  * @returns amountOut from amountIn
  */
-export async function getAmountsOut(amountIn: bigint, reserveIn: bigint, reserveOut: bigint): Promise<bigint> {
-    // amountIn * 997
-    const amountInWithFee = amountIn * 997n;
-    // (amountInwithFee) * reserveOut
-    const numerator = amountInWithFee * reserveOut;
-    // (reserveIn * 1000) + (amountInwithFee)
-    const denominator = reserveIn * 1000n + amountInWithFee;
-    // (amountInwithFee * reserveOut) / (reserveIn + amountInwithFee)
-    const amountOut = numerator / denominator;
-    return amountOut;
+export async function getAmountsOut(
+  amountIn: bigint,
+  reserveIn: bigint,
+  reserveOut: bigint
+): Promise<bigint> {
+  // amountIn * 997
+  const amountInWithFee = amountIn * 997n;
+  // (amountInwithFee) * reserveOut
+  const numerator = amountInWithFee * reserveOut;
+  // (reserveIn * 1000) + (amountInwithFee)
+  const denominator = reserveIn * 1000n + amountInWithFee;
+  // (amountInwithFee * reserveOut) / (reserveIn + amountInwithFee)
+  const amountOut = numerator / denominator;
+  return amountOut;
 }
 /**
  * Local calculation of amounts in/out
@@ -25,18 +29,26 @@ export async function getAmountsOut(amountIn: bigint, reserveIn: bigint, reserve
  */
 //amountIn = amountOut * reserveIn / reserveOut - amountOut
 //
-export async function getAmountsIn(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<bigint> {
-    // reserveIn * amountOut
-    const numerator = amountOut * reserveIn * 1000n;
-    const denominator = reserveOut * 997n + amountOut * 1000n;
-    return numerator / denominator;
+export async function getAmountsIn(
+  amountOut: bigint,
+  reserveIn: bigint,
+  reserveOut: bigint
+): Promise<bigint> {
+  // reserveIn * amountOut
+  const numerator = amountOut * reserveIn * 1000n;
+  const denominator = reserveOut * 997n + amountOut * 1000n;
+  return numerator / denominator;
 }
 
-export async function getAmountsInJS(amountOut: bigint, reserveIn: bigint, reserveOut: bigint): Promise<bigint> {
-    // reserveIn * amountOut
-    const numerator = amountOut * reserveIn * 1000n;
-    const denominator = reserveOut * 997n + amountOut * 1000n;
-    return numerator / denominator;
+export async function getAmountsInJS(
+  amountOut: bigint,
+  reserveIn: bigint,
+  reserveOut: bigint
+): Promise<bigint> {
+  // reserveIn * amountOut
+  const numerator = amountOut * reserveIn * 1000n;
+  const denominator = reserveOut * 997n + amountOut * 1000n;
+  return numerator / denominator;
 }
 
 //from https://github.com/Uniswap/v2-periphery/blob/master/contracts/libraries/UniswapV2Library.sol

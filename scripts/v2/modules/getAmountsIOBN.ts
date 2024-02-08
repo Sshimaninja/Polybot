@@ -16,30 +16,39 @@ import { BigNumber as BN } from "bignumber.js";
 // }
 
 export async function getAmountsOut(
-    amountIn: BN | undefined,
-    reserveIn: BN | undefined,
-    reserveOut: BN | undefined,
+  amountIn: BN | undefined,
+  reserveIn: BN | undefined,
+  reserveOut: BN | undefined
 ): Promise<BN> {
-    if (amountIn === undefined) {
-        return BN(0);
-    }
-    if (amountIn.isZero()) {
-        return BN(0);
-    }
-    if (reserveIn === undefined || reserveOut === undefined || reserveIn.isZero() || reserveOut.isZero()) {
-        return BN(0);
-    }
-    const amountInWithFee = amountIn.multipliedBy(997);
-    const numerator = amountInWithFee.multipliedBy(reserveOut);
-    const denominator = reserveIn.multipliedBy(1000).plus(amountInWithFee);
-    return numerator.div(denominator);
+  if (amountIn === undefined) {
+    return BN(0);
+  }
+  if (amountIn.isZero()) {
+    return BN(0);
+  }
+  if (
+    reserveIn === undefined ||
+    reserveOut === undefined ||
+    reserveIn.isZero() ||
+    reserveOut.isZero()
+  ) {
+    return BN(0);
+  }
+  const amountInWithFee = amountIn.multipliedBy(997);
+  const numerator = amountInWithFee.multipliedBy(reserveOut);
+  const denominator = reserveIn.multipliedBy(1000).plus(amountInWithFee);
+  return numerator.div(denominator);
 }
 
-export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN) {
-    const numerator = reserveIn.multipliedBy(amountOut).multipliedBy(BN(1000));
-    const denominator = reserveOut.minus(amountOut).multipliedBy(BN(997));
-    //this used to be plus 1, but it was probably causing errors since it was a hack to deal with javascript bignumber rounding errors when using ethers.js
-    return numerator.div(denominator);
+export async function getAmountsIn(
+  amountOut: BN,
+  reserveIn: BN,
+  reserveOut: BN
+) {
+  const numerator = reserveIn.multipliedBy(amountOut).multipliedBy(BN(1000));
+  const denominator = reserveOut.minus(amountOut).multipliedBy(BN(997));
+  //this used to be plus 1, but it was probably causing errors since it was a hack to deal with javascript bignumber rounding errors when using ethers.js
+  return numerator.div(denominator);
 }
 
 // export async function getAmountsIO(
