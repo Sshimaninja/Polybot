@@ -218,10 +218,17 @@ export interface PoolsV3 {
     feeTier: number;
 }
 
+export interface swap {
+    amount0Out: bigint;
+    amount1Out: bigint;
+    to: string;
+    data: string;
+}
+
 export interface Repays {
-    direct: {
-        directIn: bigint;
-        directOut: bigint;
+    single: {
+        singleIn: bigint;
+        singleOut: bigint;
     };
     multi: bigint;
     repay: bigint;
@@ -330,10 +337,9 @@ export interface BoolTrade {
         reserveOutBN: BN;
         priceIn: string;
         priceOut: string;
+        amountOut: bigint;
         repays: Repays;
         amountRepay: bigint;
-        amountOut: bigint;
-        amountOutToken0for1: bigint;
     };
     target: {
         exchange: string;

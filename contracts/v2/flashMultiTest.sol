@@ -57,7 +57,13 @@ contract flashMultiTest is IUniswapV2Callee {
             "Error: Invalid amounts0 or amounts1: amount0In or amount1Out must be greater than 0"
         );
 
-        bytes memory data = abi.encode(loanFactory, loanRouter, recipientRouter, amount1Out, amountToRepay);
+        bytes memory data = abi.encode(
+            loanFactory,
+            loanRouter,
+            recipientRouter,
+            amount1Out,
+            amountToRepay
+        );
         console.log("Data encoded");
         IERC20(token0ID).approve(address(pair), amount0In);
         pair.swap(
@@ -72,7 +78,12 @@ contract flashMultiTest is IUniswapV2Callee {
         console.log("New Owner Balance (Token1)::::", IERC20(token1ID).balanceOf(owner));
     }
 
-    function uniswapV2Call(address sender, uint256 amount0, uint256 amount1, bytes calldata data) external override {
+    function uniswapV2Call(
+        address sender,
+        uint256 amount0,
+        uint256 amount1,
+        bytes calldata data
+    ) external override {
         console.log("uniswapV2Call Entered");
         address[] memory path = new address[](2);
         console.log("Decoding Loan Data");
@@ -107,7 +118,14 @@ contract flashMultiTest is IUniswapV2Callee {
         console.log("Approved to trade ", amount0, " of token0 on recipientRouter");
         console.log("balance Token0::::::::::::: ", token0.balanceOf(address(this)));
         console.log("balance Token1::::::::::::: ", token1.balanceOf(address(this)));
-        uint256 amountOut = getAmounts(amount0, amount1Repay, amount1Out, loanRouter, recipientRouter, path);
+        uint256 amountOut = getAmounts(
+            amount0,
+            amount1Repay,
+            amount1Out,
+            loanRouter,
+            recipientRouter,
+            path
+        );
         console.log("Amount out after repayment: ", amountOut);
         console.log("New balance of token1:::::: ", token1.balanceOf(address(this)));
         token1.transfer(owner, token1.balanceOf(address(this)));
@@ -190,7 +208,10 @@ interface IUniswapV2Pair {
 
     function token1() external view returns (address);
 
-    function getReserves() external view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);
+    function getReserves()
+        external
+        view
+        returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);
 }
 
 interface IUniswapV2Library {
@@ -214,7 +235,11 @@ interface IERC20 {
 
     function transfer(address recipient, uint256 amount) external returns (bool);
 
-    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) external returns (bool);
 }
 
 interface IUniswapV2Router02 {
@@ -234,9 +259,15 @@ interface IUniswapV2Router02 {
         uint deadline
     ) external returns (uint[] memory amounts);
 
-    function getAmountsOut(uint amountIn, address[] memory path) external view returns (uint[] memory amounts);
+    function getAmountsOut(
+        uint amountIn,
+        address[] memory path
+    ) external view returns (uint[] memory amounts);
 
-    function getAmountsIn(uint amountOut, address[] memory path) external view returns (uint[] memory amounts);
+    function getAmountsIn(
+        uint amountOut,
+        address[] memory path
+    ) external view returns (uint[] memory amounts);
 }
 
 library SafeMath {

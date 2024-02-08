@@ -1,16 +1,10 @@
-import {
-    getAmountsIn as getAmountsInJS,
-    getAmountsOut as getAmountOutJS,
-} from "../v2/modules/getAmountsIOJS";
-import {
-    getAmountsIn as getAmountsInBN,
-    getAmountsOut as getAmountsOutBN,
-} from "../v2/modules/getAmountsIOBN";
-import { getAmountsIn, getAmountsOut } from "../v2/modules/getAmountsIOLocal";
-import { BoolTrade } from "../../constants/interfaces";
+import { getAmountsIn as getAmountsInJS, getAmountsOut as getAmountOutJS } from "./getAmountsIOJS";
+import { getAmountsIn as getAmountsInBN, getAmountsOut as getAmountsOutBN } from "./getAmountsIOBN";
+import { getAmountsIn, getAmountsOut } from "./getAmountsIOLocal";
+import { BoolTrade } from "../../../constants/interfaces";
 import { BigNumber as BN } from "bignumber.js";
-import { logger } from "../../constants/logger";
-import { fu } from "../modules/convertBN";
+import { logger } from "../../../constants/logger";
+import { fu } from "../../modules/convertBN";
 
 export async function debugAmounts(trade: BoolTrade) {
     const amountOutJS = await getAmountOutJS(trade.target.router, trade.target.tradeSize, [

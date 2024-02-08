@@ -6,9 +6,9 @@ import {
     bytecode as flashMultiTestBytecode,
 } from "../../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json";
 import {
-    abi as flashDirectTestAbi,
-    bytecode as flashDirectTestBytecode,
-} from "../../artifacts/contracts/v2/flashDirectTest.sol/flashDirectTest.json";
+    abi as flashSingleTestAbi,
+    bytecode as flashSingleTestBytecode,
+} from "../../artifacts/contracts/v2/flashSingleTest.sol/flashSingleTest.json";
 
 dotEnvConfig({ path: `.env.${process.env.NODE_ENV}` });
 async function deployMulti() {
@@ -45,32 +45,32 @@ async function deployMulti() {
 
         console.log(checkOwnerMulti);
 
-        console.log("Deploying flashDirect with the account: ", signer);
+        console.log("Deploying flashSingle with the account: ", signer);
 
-        const FlashDirectTestFactory = new ethers.ContractFactory(
-            flashDirectTestAbi,
-            flashDirectTestBytecode,
+        const FlashSingleTestFactory = new ethers.ContractFactory(
+            flashSingleTestAbi,
+            flashSingleTestBytecode,
             signer,
         );
-        console.log("Deploying flashDirectTest to ...");
-        const flashdirecttest = await FlashDirectTestFactory.deploy(signer);
-        console.log("awaiting flashDirectTest.deployed()...");
-        await flashdirecttest.waitForDeployment();
-        const flashDirectTestAddress = await flashdirecttest.getAddress();
-        console.log("Contract 'flashDirectTest' deployed: " + flashDirectTestAddress);
-        if (flashDirectTestAddress !== process.env.FLASH_MULTI) {
+        console.log("Deploying flashSingleTest to ...");
+        const flashsingletest = await FlashSingleTestFactory.deploy(signer);
+        console.log("awaiting flashSingleTest.deployed()...");
+        await flashsingletest.waitForDeployment();
+        const flashSingleTestAddress = await flashsingletest.getAddress();
+        console.log("Contract 'flashSingleTest' deployed: " + flashSingleTestAddress);
+        if (flashSingleTestAddress !== process.env.FLASH_SINGLE) {
             console.log(
                 "Contract address does not match .env file. Please update .env file with new contract address.",
             );
         }
-        const flashDirectContract = new ethers.Contract(
-            flashDirectTestAddress,
-            flashDirectTestAbi,
+        const flashSingleContract = new ethers.Contract(
+            flashSingleTestAddress,
+            flashSingleTestAbi,
             provider,
         );
-        const checkOwnerDirect = await flashDirectContract.checkOwner();
+        const checkOwnerSingle = await flashSingleContract.checkOwner();
 
-        console.log(checkOwnerDirect);
+        console.log(checkOwnerSingle);
     } catch (error: any) {
         console.log("Error in deployFlashTests.ts:", error.message);
     }
