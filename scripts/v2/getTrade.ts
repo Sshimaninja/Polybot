@@ -99,15 +99,12 @@ export class Trade {
     }
 
     async getTrade() {
+        //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const size = A
             ? await this.getSize(this.calc1, this.calc0)
             : await this.getSize(this.calc0, this.calc1);
-
-        //TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
-        //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
-
         const trade: BoolTrade = {
             ID: A
                 ? this.match.poolAID + this.match.poolBID
@@ -118,7 +115,7 @@ export class Trade {
             ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
             tokenIn: this.match.token0,
             tokenOut: this.match.token1,
-            flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type.
+            flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type. Likely to be flashMulti uneless other protocols are added for direct swaps.
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A
@@ -145,11 +142,8 @@ export class Trade {
                     ? this.price1.priceOutBN.toFixed(this.match.token1.decimals)
                     : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
                 repays: {
-                    direct: 0n,
-                    directInTokenOut: 0n,
-                    simpleMulti: 0n,
-                    getAmountsOut: 0n,
-                    getAmountsIn: 0n,
+                    direct: { directIn: 0n, directOut: 0n },
+                    multi: 0n,
                     repay: 0n,
                 },
                 amountRepay: 0n,
@@ -200,13 +194,13 @@ export class Trade {
         };
 
         trade.target.amountOut = await getAmountsOut(
-            await trade.target.router.getAddress(), // token0 in given
+            trade.target.router, // token0 in given
             trade.target.tradeSize, // token0 in
             [trade.tokenIn.id, trade.tokenOut.id],
         ); // token1 max out
 
         trade.loanPool.amountOut = await getAmountsOut(
-            await trade.loanPool.router.getAddress(), // token0 in given
+            trade.loanPool.router, // token0 in given
             trade.target.tradeSize, // token0 in
             [trade.tokenIn.id, trade.tokenOut.id],
         ); // token1 max out
@@ -217,59 +211,18 @@ export class Trade {
         if (filteredTrade == undefined) {
             return trade;
         }
-
+        //TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
         // Define repay & profit for each trade type:
         const r = new PopulateRepays(trade, this.calc0);
         const repays = await r.getRepays();
         const p = new ProfitCalculator(trade, this.calc0, repays);
 
         const multi = await p.getMultiProfit();
-        // console.log('multi: ')
-        // console.log(multi)
         const direct = await p.getDirectProfit();
-        // console.log('direct: ')
-        // console.log(direct)
 
         // subtract the result from amountOut to get profit
         // The below will be either in token0 or token1, depending on the trade type.
         // Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
-
-        // const amountOutJS = await getAmountOutJS(await trade.target.router.getAddress(), trade.target.tradeSize, [
-        //     trade.tokenIn.id,
-        //     trade.tokenOut.id,
-        // ]);
-        // const amountInJS = await getAmountInJs(await trade.loanPool.router.getAddress(), trade.target.amountOut, [
-        //     trade.tokenIn.id,
-        //     trade.tokenOut.id,
-        // ]);
-        // const amountOutBN = await getAmountOutBN(
-        //     BN(fu(trade.target.tradeSize, trade.tokenIn.decimals)),
-        //     BN(fu(trade.target.reserveIn, trade.tokenIn.decimals)),
-        //     BN(fu(trade.target.reserveOut, trade.tokenOut.decimals)),
-        // );
-        // const amountInBN = await getAmountInBN(
-        //     BN(fu(trade.target.tradeSize, trade.tokenIn.decimals)),
-        //     BN(fu(trade.target.reserveIn, trade.tokenIn.decimals)),
-        //     BN(fu(trade.target.reserveOut, trade.tokenOut.decimals)),
-        // );
-
-        // CHECKING AMOUNTS AS THEY ARE DIFFERENT FROM WHAT THE CONTRACT RETURNS
-        // const allAmouts = {
-        //     amountOutLocal: fu(trade.target.amountOut, trade.tokenOut.decimals),
-        //     amountOutEVM: fu(amountOutJS[1], trade.tokenOut.decimals),
-        //     amountOutBN: amountOutBN.toFixed(trade.tokenOut.decimals),
-        //     amountInLocal: fu(trade.loanPool.amountRepay, trade.tokenIn.decimals),
-        //     amountInEVM: fu(amountInJS[0], trade.tokenIn.decimals),
-        //     amountInBN: amountInBN.toFixed(trade.tokenIn.decimals),
-        // };
-        // logger.info(">>>>>>>>>>>>CHECK AMOUNTSOUT::::::::::::::");
-        // // logger.info(allAmouts);
-
-        trade.loanPool.amountOutToken0for1 = await getAmountsOut(
-            await trade.loanPool.router.getAddress(),
-            trade.loanPool.amountOut,
-            [trade.tokenOut.id, trade.tokenIn.id],
-        );
 
         trade.type =
             multi.profit > direct.profit
@@ -278,15 +231,10 @@ export class Trade {
                 ? "direct"
                 : "No Profit (Error in profitCalcs)";
 
-        trade.loanPool.amountRepay = trade.type === "multi" ? repays.repay : repays.direct;
+        trade.loanPool.amountRepay =
+            trade.type === "multi" ? repays.multi : repays.direct.directOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
 
         trade.loanPool.repays = repays;
-
-        trade.target.amountOutToken0for1 = await getAmountsOut(
-            await trade.target.router.getAddress(),
-            trade.target.amountOut,
-            [trade.tokenOut.id, trade.tokenIn.id],
-        );
 
         trade.profit = trade.type === "multi" ? multi.profit : direct.profit;
 

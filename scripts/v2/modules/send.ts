@@ -1,36 +1,51 @@
-import { BoolTrade, TxData, V2Tx, TxGas } from '../../../constants/interfaces'
-import { sendTx } from './sendTx'
-import { pu, fu, BN2BigInt } from '../../modules/convertBN'
-import { slippageTolerance } from '../../v2/control'
+import { BoolTrade, TxData, V2Tx, TxGas } from "../../../constants/interfaces";
+import { sendTx } from "./sendTx";
+import { pu, fu, BN2BigInt } from "../../modules/convertBN";
+import { slippageTolerance } from "../../v2/control";
+import { logger } from "../../../constants/logger";
 export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
-    let slippageJS = BN2BigInt(slippageTolerance, 18)
-    let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS
+    let slippageJS = BN2BigInt(slippageTolerance, 18);
+    let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS;
     // POSSIBLE REVERT CONDITIONS:
     // amountOut too high (calculated without slippageTolerance)
     // amountRepay too low (calculated without subtracting extra for slippageTolerance)
+    // DEBUG:
+
+    const txLog = {
+        loanFactory: trade.loanPool.factory,
+        loanRouter: trade.loanPool.router,
+        targetRouter: trade.target.router,
+        tokenInId: trade.tokenIn.id,
+        tokenOutId: trade.tokenOut.id,
+        tradeSize: trade.target.tradeSize,
+        amountOut: amountOut,
+        repay: trade.loanPool.amountRepay,
+    };
+    logger.info(txLog);
+
     let tx: V2Tx = await trade.flash.flashSwap(
-        await trade.loanPool.factory.getAddress(),
-        await trade.loanPool.router.getAddress(),
-        await trade.target.router.getAddress(),
+        trade.loanPool.factory,
+        trade.loanPool.router,
+        trade.target.router,
         trade.tokenIn.id,
         trade.tokenOut.id,
         trade.target.tradeSize,
         amountOut,
-        trade.loanPool.amountRepay
-    )
+        trade.loanPool.amountRepay,
+    );
     try {
-        const t = await sendTx(tx)
+        const t = await sendTx(tx);
         if (t !== undefined) {
-            await t.wait(30)
+            await t.wait(30);
             return {
                 txResponse: t,
                 pendingID: trade.ID,
-            }
+            };
         } else {
             return {
                 txResponse: t,
                 pendingID: null,
-            }
+            };
         }
     } catch (error: any) {
         // if (error.message.includes("transaction underpriced")) {
@@ -51,9 +66,7 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
         // 			pendingID: trade.ID,
         // 		}
         // } else {
-        console.log(
-            '[send.ts]:Transaction send(tx) failed. Error: ' + error.message
-        )
+        console.log("[send.ts]:Transaction send(tx) failed. Error: " + error.message);
         // return {
         // 	txResponse: newTx,
         // 	pendingID: null,
@@ -63,5 +76,5 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
     return {
         txResponse: undefined,
         pendingID: null,
-    }
+    };
 }

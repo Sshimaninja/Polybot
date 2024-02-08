@@ -7,7 +7,9 @@ import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-verify";
 
 dotenvConfig({ path: `.env.${process.env.NODE_ENV}` });
-console.log(`>>>>>>>>>>>>>>>>>>>>> (hardhat.config.ts) process.env.NODE_ENV: ${process.env.NODE_ENV} `);
+console.log(
+    `>>>>>>>>>>>>>>>>>>>>> (hardhat.config.ts) process.env.NODE_ENV: ${process.env.NODE_ENV} `,
+);
 module.exports = {
     paths: {
         sources: "./contracts/v2",
@@ -56,6 +58,7 @@ module.exports = {
     defaultNetwork: "polygon",
     networks: {
         hardhat: {
+            chainId: 1337,
             mining: {
                 auto: true,
                 interval: 2000,
@@ -72,12 +75,12 @@ module.exports = {
                 initialBaseBalance: "1000000000000000000000000000", // 1000000000 ETH in wei
             },
         },
-        // localhost: {
-        //     url: 'http://127.0.0.1:8545/',
-        //     accounts: 'remote',
-        // },
+        localhost: {
+            url: "http://127.0.0.1:8545/",
+            accounts: "remote",
+        },
         polygon: {
-            url: "http://65.109.125.21:8545",
+            url: "http://65.109.125.21:8544",
             // url: `wss://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
             // accounts: [process.env.PRIVATE_KEY],
             chainID: 137,
