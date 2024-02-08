@@ -12,7 +12,7 @@
 //     ) external;
 // }
 
-// contract flashDirect is IUniswapV2Callee {
+// contract flashSingle is IUniswapV2Callee {
 //     address owner;
 //     IUniswapV2Pair pair;
 //     using SafeMath for uint256;
@@ -36,10 +36,10 @@
 //         address token0ID,
 //         address token1ID,
 //         uint256 amountIn, // tradeSize in tokenIn
-//         uint256 amountOut, // amountOutMin in tokenOut (flashDirect) (should == recipient amountOut)
-//         uint256 amountToRepay // amountRepay in tokenIn (flashDirect)
+//         uint256 amountOut, // amountOutMin in tokenOut (flashSingle) (should == recipient amountOut)
+//         uint256 amountToRepay // amountRepay in tokenIn (flashSingle)
 //     ) external {
-//         emit log('Contract flashDirectTest Entered');
+//         emit log('Contract flashSingleTest Entered');
 //         require(
 //             msg.sender == address(owner),
 //             'Error: Only owner can call this function'

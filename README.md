@@ -45,7 +45,7 @@ You can change forked block in hardhat-config.ts.
 
 # To deploy test contracts on localhost hardhat polygon fork:
 In test, package.json commands set NODE_ENV=test and runs bot against localhost. Without specifying environment to cross-env, the bot will not recognize a provider.
-All logs can be found at ~/app.json. Overwritten each run.
+All logs can be found at ~/logs/app.logs Overwritten each run.
 
 	npm run v2DeployTest
 

@@ -35,12 +35,12 @@ export class ProfitCalculator {
         }
     }
 
-    async getDirectProfit(): Promise<Profcalcs> {
+    async getSingleProfit(): Promise<Profcalcs> {
         try {
             const repays = this.repays;
             const profit =
-                this.trade.target.amountOut > repays.direct.directOut
-                    ? this.trade.target.amountOut - repays.direct.directOut
+                this.trade.target.amountOut > repays.single.singleOut
+                    ? this.trade.target.amountOut - repays.single.singleOut
                     : 0n;
             const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
             const profitPercent =
@@ -52,7 +52,7 @@ export class ProfitCalculator {
             const profCalcs = { profit, profitPercent };
             return profCalcs;
         } catch (error: any) {
-            console.log("Error in getDirectProfit: " + error.trace);
+            console.log("Error in getSingleProfit: " + error.trace);
             console.log(error);
             return { profit: 0n, profitPercent: BN(0) };
         }

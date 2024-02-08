@@ -4,23 +4,24 @@ import { pu, fu, BN2BigInt } from "../../modules/convertBN";
 import { slippageTolerance } from "../../v2/control";
 import { logger } from "../../../constants/logger";
 export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
-    let slippageJS = BN2BigInt(slippageTolerance, 18);
-    let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS;
+    // let slippageJS = BN2BigInt(slippageTolerance, 18);
+    // let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS;
     // POSSIBLE REVERT CONDITIONS:
     // amountOut too high (calculated without slippageTolerance)
     // amountRepay too low (calculated without subtracting extra for slippageTolerance)
     // DEBUG:
 
     const txLog = {
-        loanFactory: trade.loanPool.factory,
-        loanRouter: trade.loanPool.router,
-        targetRouter: trade.target.router,
+        loanFactory: await trade.loanPool.factory.getAddress(),
+        loanRouter: await trade.loanPool.router.getAddress(),
+        targetRouter: await trade.target.router.getAddress(),
         tokenInId: trade.tokenIn.id,
         tokenOutId: trade.tokenOut.id,
         tradeSize: trade.target.tradeSize,
-        amountOut: amountOut,
+        amountOut: trade.target.amountOut,
         repay: trade.loanPool.amountRepay,
     };
+    logger.info("====TRANSACTION PARAMS=== ");
     logger.info(txLog);
 
     let tx: V2Tx = await trade.flash.flashSwap(
@@ -30,7 +31,7 @@ export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
         trade.tokenIn.id,
         trade.tokenOut.id,
         trade.target.tradeSize,
-        amountOut,
+        trade.target.amountOut,
         trade.loanPool.amountRepay,
     );
     try {
