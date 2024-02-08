@@ -12,7 +12,7 @@ interface IUniswapV2Callee {
     ) external;
 }
 
-contract flashMultiTestNew is IUniswapV2Callee {
+contract flashMultiTest is IUniswapV2Callee {
     address owner;
     IUniswapV2Pair pair;
     using SafeMath for uint256;
@@ -100,14 +100,11 @@ contract flashMultiTestNew is IUniswapV2Callee {
         require(_amount0 == 0 || _amount1 == 0, "Error: Invalid amounts");
         IERC20 token0 = IERC20(path[0]);
         IERC20 token1 = IERC20(path[1]);
-        console.log("Amount0 requested: ", _amount0);
-        console.log("Token0 address: ", path[0]);
-        console.log("Amount1 expected: ", _amount1);
-        console.log("Token1 address: ", path[1]);
-        console.log(
-            "New token0 balance (loaned):::::::::::::::::: ",
-            token0.balanceOf(address(this))
-        );
+        console.log("Amount0 requested::::::::::: ", _amount0);
+        console.log("Token0 address:::::::::::::: ", path[0]);
+        console.log("Amount1 expected:::::::::::: ", _amount1);
+        console.log("Token1 address:::::::::::::: ", path[1]);
+        console.log("New token0 balance (loaned): ", token0.balanceOf(address(this)));
 
         // in this strategy, profit is token1
         (uint256[] memory swap, uint256[] memory repay) = getAmounts(
@@ -119,17 +116,15 @@ contract flashMultiTestNew is IUniswapV2Callee {
             targetRouter
         );
 
-        console.log("getAmounts results: ");
-        console.log("swap[0]: ", swap[0]);
-        console.log("swap[1]: ", swap[1]);
-        console.log("repay[0] ", repay[0]);
-        console.log("repay[1] ", repay[1]);
+        console.log("____________FINAL RESULTS____________ ");
+        console.log("swap[0]Out::::::::::::::::::: ", swap[0]);
+        console.log("swap[1]In:::::::::::::::::::: ", swap[1]);
         console.log("Final balances: ");
-        console.log("Token0: ", token0.balanceOf(address(this)));
-        console.log("Token1: ", token1.balanceOf(address(this)));
+        console.log("Token0::::::::::::::::::::::: ", token0.balanceOf(address(this)));
+        console.log("Token1::::::::::::::::::::::: ", token1.balanceOf(address(this)));
         console.log("Approving profit transfer.");
         token1.approve(address(address(this)), token1.balanceOf(address(this)));
-        console.log("Approved");
+        console.log("Approved. Sending profit to owner: ");
         token1.transfer(owner, token1.balanceOf(address(this)));
         console.log("Transferred token1 to owner");
     }
@@ -150,13 +145,13 @@ contract flashMultiTestNew is IUniswapV2Callee {
         repay = new uint256[](2);
 
         console.log("Token balances: ");
-        console.log("Token0: ", token0.balanceOf(address(this)));
-        console.log("Token1: ", token1.balanceOf(address(this)));
+        console.log("Token0:::::::::::::::::::::: ", token0.balanceOf(address(this)));
+        console.log("Token1:::::::::::::::::::::: ", token1.balanceOf(address(this)));
 
         /*
 		This seems to function correctly. Might be good to test on another block or live data.
 		*/
-        console.log("__________swapExactTokensForTokens_______________");
+        console.log("____________swapExactTokensForTokens_______________");
         token0.approve(targetRouter, _amount0);
         //https://docs.uniswap.org/contracts/v2/reference/smart-contracts/router-02
         swap = IUniswapV2Router02(targetRouter).swapExactTokensForTokens(
@@ -167,11 +162,11 @@ contract flashMultiTestNew is IUniswapV2Callee {
             deadline
         );
         console.log("Swap complete");
-        console.log("swap[0](token0): ", swap[0]);
-        console.log("swap[1](token1): ", swap[1]);
+        console.log("swap[0](token0Out)::::::::: ", swap[0]);
+        console.log("swap[1](token1In):::::::::: ", swap[1]);
         console.log("Token balances: ");
-        console.log("Token0: ", token0.balanceOf(address(this)));
-        console.log("Token1: ", token1.balanceOf(address(this)));
+        console.log("Token0::::::::::::::::::::: ", token0.balanceOf(address(this)));
+        console.log("Token1::::::::::::::::::::: ", token1.balanceOf(address(this)));
 
         console.log("_______________getAmountsIn___________________");
         //reverse the path to find how much token1 is needed to repay token0 loan.
@@ -200,8 +195,8 @@ contract flashMultiTestNew is IUniswapV2Callee {
         token1.transfer(address(pair), getRepay[0]);
         console.log("Repay complete");
         console.log("Token balances: ");
-        console.log("Token0: ", IERC20(path[0]).balanceOf(address(this)));
-        console.log("Token1: ", IERC20(path[1]).balanceOf(address(this)));
+        console.log("Token0::::::::::::::::::: ", IERC20(path[0]).balanceOf(address(this)));
+        console.log("Token1::::::::::::::::::: ", IERC20(path[1]).balanceOf(address(this)));
     }
 }
 

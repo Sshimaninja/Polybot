@@ -1,76 +1,932 @@
-
-
 >>>>>>>>>>>>>>>>>>>>> (hardhat.config.ts) process.env.NODE_ENV: test 
-Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
-
-Accounts
-========
-
-WARNING: These accounts, and their private keys, are publicly known.
-Any funds sent to them on Mainnet or any other live network WILL BE LOST.
-
-Account #0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (10000 ETH)
-Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
-
-Account #1: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 (10000 ETH)
-Private Key: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
-
-Account #2: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC (10000 ETH)
-Private Key: 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a
-
-Account #3: 0x90F79bf6EB2c4f870365E785982E1f101E93b906 (10000 ETH)
-Private Key: 0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6
-
-Account #4: 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65 (10000 ETH)
-Private Key: 0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a
-
-Account #5: 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc (10000 ETH)
-Private Key: 0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba
-
-Account #6: 0x976EA74026E726554dB657fA54763abd0C3a0aa9 (10000 ETH)
-Private Key: 0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564e
-
-Account #7: 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955 (10000 ETH)
-Private Key: 0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356
-
-Account #8: 0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f (10000 ETH)
-Private Key: 0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97
-
-Account #9: 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720 (10000 ETH)
-Private Key: 0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6
-
-Account #10: 0xBcd4042DE499D14e55001CcbB24a551F3b954096 (10000 ETH)
-Private Key: 0xf214f2b2cd398c806f84e317254e0f0b801d0643303237d97a22a48e01628897
-
-Account #11: 0x71bE63f3384f5fb98995898A86B02Fb2426c5788 (10000 ETH)
-Private Key: 0x701b615bbdfb9de65240bc28bd21bbc0d996645a3dd57e7b12bc2bdf6f192c82
-
-Account #12: 0xFABB0ac9d68B0B445fB7357272Ff202C5651694a (10000 ETH)
-Private Key: 0xa267530f49f8280200edf313ee7af6b827f2a8bce2897751d06a843f644967b1
-
-Account #13: 0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec (10000 ETH)
-Private Key: 0x47c99abed3324a2707c28affff1267e45918ec8c3f20b8aa892e8b065d2942dd
-
-Account #14: 0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097 (10000 ETH)
-Private Key: 0xc526ee95bf44d8fc405a158bb884d9d1238d99f0612e9f33d006bb0789009aaa
-
-Account #15: 0xcd3B766CCDd6AE721141F452C550Ca635964ce71 (10000 ETH)
-Private Key: 0x8166f546bab6da521a8369cab06c5d2b9e46670292d85c875ee9ec20e84ffb61
-
-Account #16: 0x2546BcD3c84621e976D8185a91A922aE77ECEc30 (10000 ETH)
-Private Key: 0xea6c44ac03bff858b476bba40716402b03e41b8e97e276d1baec7c37d42484a0
-
-Account #17: 0xbDA5747bFD65F08deb54cb465eB87D40e51B197E (10000 ETH)
-Private Key: 0x689af8efa8c651a91ad287602527f3af2fe9f6501a7ac4b061667b5a93e037fd
-
-Account #18: 0xdD2FD4581271e230360230F9337D5c0430Bf44C0 (10000 ETH)
-Private Key: 0xde9be858da4a475276426320d5e9262ecfc3ba460bfac56360bfa6c4c28b4ee0
-
-Account #19: 0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199 (10000 ETH)
-Private Key: 0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e
-
-WARNING: These accounts, and their private keys, are publicly known.
-Any funds sent to them on Mainnet or any other live network WILL BE LOST.
-
-Mined empty block #53054773 with base fee 2899360517
+Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/Accounts
+========WARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.Account #0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 (10000 ETH)
+Private Key: 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80Account #1: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 (10000 ETH)
+Private Key: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690dAccount #2: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC (10000 ETH)
+Private Key: 0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365aAccount #3: 0x90F79bf6EB2c4f870365E785982E1f101E93b906 (10000 ETH)
+Private Key: 0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6Account #4: 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65 (10000 ETH)
+Private Key: 0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926aAccount #5: 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc (10000 ETH)
+Private Key: 0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffbaAccount #6: 0x976EA74026E726554dB657fA54763abd0C3a0aa9 (10000 ETH)
+Private Key: 0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564eAccount #7: 0x14dC79964da2C08b23698B3D3cc7Ca32193d9955 (10000 ETH)
+Private Key: 0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356Account #8: 0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f (10000 ETH)
+Private Key: 0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97Account #9: 0xa0Ee7A142d267C1f36714E4a8F75612F20a79720 (10000 ETH)
+Private Key: 0x2a871d0798f97d79848a013d4936a73bf4cc922c825d33c1cf7073dff6d409c6Account #10: 0xBcd4042DE499D14e55001CcbB24a551F3b954096 (10000 ETH)
+Private Key: 0xf214f2b2cd398c806f84e317254e0f0b801d0643303237d97a22a48e01628897Account #11: 0x71bE63f3384f5fb98995898A86B02Fb2426c5788 (10000 ETH)
+Private Key: 0x701b615bbdfb9de65240bc28bd21bbc0d996645a3dd57e7b12bc2bdf6f192c82Account #12: 0xFABB0ac9d68B0B445fB7357272Ff202C5651694a (10000 ETH)
+Private Key: 0xa267530f49f8280200edf313ee7af6b827f2a8bce2897751d06a843f644967b1Account #13: 0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec (10000 ETH)
+Private Key: 0x47c99abed3324a2707c28affff1267e45918ec8c3f20b8aa892e8b065d2942ddAccount #14: 0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097 (10000 ETH)
+Private Key: 0xc526ee95bf44d8fc405a158bb884d9d1238d99f0612e9f33d006bb0789009aaaAccount #15: 0xcd3B766CCDd6AE721141F452C550Ca635964ce71 (10000 ETH)
+Private Key: 0x8166f546bab6da521a8369cab06c5d2b9e46670292d85c875ee9ec20e84ffb61Account #16: 0x2546BcD3c84621e976D8185a91A922aE77ECEc30 (10000 ETH)
+Private Key: 0xea6c44ac03bff858b476bba40716402b03e41b8e97e276d1baec7c37d42484a0Account #17: 0xbDA5747bFD65F08deb54cb465eB87D40e51B197E (10000 ETH)
+Private Key: 0x689af8efa8c651a91ad287602527f3af2fe9f6501a7ac4b061667b5a93e037fdAccount #18: 0xdD2FD4581271e230360230F9337D5c0430Bf44C0 (10000 ETH)
+Private Key: 0xde9be858da4a475276426320d5e9262ecfc3ba460bfac56360bfa6c4c28b4ee0Account #19: 0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199 (10000 ETH)
+Private Key: 0xdf57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656eWARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.Mined empty block #53054773 with base fee 2899360517
 Mined empty block range #53054773 to #53054774
+eth_chainId
+eth_getBlockByNumber
+eth_getBalance
+eth_blockNumber
+eth_getTransactionCount
+eth_gasPrice
+eth_maxPriorityFeePerGas - Method not supported
+eth_estimateGas
+eth_sendRawTransaction
+  Contract deployment: flashMultiTest
+  Contract address:    0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Transaction:         0x30436cc59c5e20db44f9a20b5d49bc0b08ec96328987d874c60b200d70f3d5ba
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1892203 of 1892203
+  Block #53054775:     0xe92a863fccf6a82994190fecda089ecb04a6343cc97cd5ac3cd6223834350859eth_getTransactionReceipt
+Mined empty block #53054776 with base fee 1977347998
+Mined empty block range #53054776 to #53054777
+eth_blockNumber
+eth_getTransactionReceipt
+eth_accounts
+eth_call
+  Contract call:       flashMultiTest#checkOwner
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797eth_getTransactionCount
+eth_estimateGas
+eth_getBlockByNumber
+eth_gasPrice
+eth_maxPriorityFeePerGas - Method not supported
+eth_sendRawTransaction
+  Contract deployment: flashSingleTest
+  Contract address:    0xf5971713619e7622e82f329a3f46b7280e781c58
+  Transaction:         0x380c673e6f2cffa46091fa9b9ab9abab55a0a6bbdefb457f77468975dd0f8fe6
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            1951658 of 1951658
+  Block #53054778:     0xb674e7661447e0d87a441d664afdfbf12f7f6cc93826f71364e112585f251565eth_getTransactionReceipt
+Mined empty block #53054779 with base fee 1349290587
+Mined empty block range #53054779 to #53054780
+eth_blockNumber
+eth_getTransactionReceipt
+eth_call
+  Contract call:       flashSingleTest#checkOwner
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xf5971713619e7622e82f329a3f46b7280e781c58Mined empty block #53054781 with base fee 1033050606
+Mined empty block range #53054781 to #53054782
+Mined empty block range #53054781 to #53054783
+Mined empty block range #53054781 to #53054784
+eth_chainId
+eth_getBlockByNumber
+eth_blockNumber
+eth_gasPrice
+eth_maxPriorityFeePerGas - Method not supported
+Mined empty block #53054785 with base fee 605555300
+Mined empty block range #53054785 to #53054786
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054787 with base fee 463628277
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054788 with base fee 405674743
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054789 with base fee 354965401
+eth_blockNumber
+eth_blockNumber
+eth_getBlockByNumber
+eth_blockNumber
+Mined empty block #53054790 with base fee 310594726
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054791 with base fee 271770386
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054792 with base fee 237799088
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054793 with base fee 208074202
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054794 with base fee 182064927
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber (2)
+Mined empty block #53054795 with base fee 159306812
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054796 with base fee 139393461
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054797 with base fee 121969279
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054798 with base fee 106723120
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 69)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)Mined empty block #53054799 with base fee 93382730
+eth_getBlockByNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+Mined empty block #53054800 with base fee 81709889
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054801 with base fee 71496153
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+Mined empty block #53054802 with base fee 62559134
+eth_blockNumber
+eth_estimateGas
+eth_getTransactionCount
+Mined empty block #53054803 with base fee 54739243
+eth_blockNumber
+eth_estimateGas
+eth_blockNumber
+eth_estimateGas
+eth_getBlockByNumber
+eth_gasPrice
+eth_maxPriorityFeePerGas - Method not supported
+eth_blockNumber
+Mined empty block #53054804 with base fee 47896838
+eth_blockNumber
+eth_getTransactionCount
+eth_blockNumber
+eth_blockNumber
+eth_sendRawTransaction
+  Contract call:       flashMultiTest#flashSwap
+  Transaction:         0x974913caa5b7a8b362c7bfd8f2f7d77197d90949c59be0fc1c684ece9f8a49c9
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH
+  Gas used:            390413 of 455989
+  Block #53054805:     0xf8933fc075b1dde972f550b6dd59e38611a306c54d98445cd44990c604d06312  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  2950
+    amountOut expected:  13717338134021061
+    Contract Balance Before Swap:  0
+    Pair address:  0xb20e03cc86c0d74bf06cd6f31c57cf7c7ba90bed
+    Data encoded
+    2950  of token0 approved for swap
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xb20e03cc86c0d74bf06cd6f31c57cf7c7ba90bed
+    msg.sender address:  0xb20e03cc86c0d74bf06cd6f31c57cf7c7ba90bed
+    Amount0 requested:  2950
+    Token0 address:  0x2791bca1f2de4661ed88a30c99a7a9449aa84174
+    Amount1 expected:  0
+    Token1 address:  0x4c19ddeebaf84ca3a255730295ad9d824d4ff51f
+    New token0 balance (loaned)::::::::::::::::::  2950
+    Token balances: 
+    Token0:  2950
+    Token1:  0
+    __________swapExactTokensForTokens_______________
+    Swap complete
+    swap[0](token0):  2950
+    swap[1](token1):  13717338134021061
+    Token balances: 
+    Token0:  0
+    Token1:  13717338134021061
+    _______________getAmountsIn___________________
+    getRepay0 (token1Required):  13374729730175230
+    calc'd amountRepay:::::::::  13374729730175230
+    Approving loanRouter to spend token1
+    Approved
+    Repay complete
+    Token balances: 
+    Token0:  342608403845831
+    Token1:  0
+    getAmounts results: 
+    swap[0]:  2950
+    swap[1]:  13717338134021061
+    repay[0]  0
+    repay[1]  0
+    Final balances: 
+    Token0:  0
+    Token1:  342608403845831
+    Approving profit transfer.
+    Approved
+    Transferred token1 to owner
+    New Contract Balance (Token0): 0
+    New Contract Balance (Token1): 0
+    New Owner Balance (Token0): 0
+    New Owner Balance (Token1): 342608403845831eth_sendRawTransaction  Nonce too low. Expected nonce to be 2363 but got 2362.eth_estimateGas
+Mined empty block #53054806 with base fee 36807369
+eth_getBlockByNumber
+eth_gasPrice
+eth_maxPriorityFeePerGas - Method not supported
+eth_blockNumber
+eth_sendRawTransaction  Nonce too low. Expected nonce to be 2363 but got 2362.eth_newFilter
+eth_blockNumber
+eth_sendRawTransaction  Nonce too low. Expected nonce to be 2363 but got 2362.eth_sendRawTransaction  Nonce too low. Expected nonce to be 2363 but got 2362.eth_getFilterChanges
+eth_blockNumber
+Mined empty block #53054807 with base fee 32206448
+eth_blockNumber
+eth_getFilterChanges
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 48)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054808 with base fee 28180642
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054809 with base fee 24658062
+eth_blockNumber
+eth_getFilterChanges
+Mined empty block #53054810 with base fee 21575805
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054811 with base fee 18878830
+eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054812 with base fee 16518977
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054813 with base fee 14454105
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 23)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)Mined empty block #53054814 with base fee 12647342
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054815 with base fee 11066425
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054816 with base fee 9683122
+eth_estimateGas
+eth_getBlockByNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_estimateGas
+Mined empty block #53054817 with base fee 8472732
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+Mined empty block #53054818 with base fee 7413641
+eth_getTransactionCount
+eth_blockNumber
+eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054819 with base fee 6486936
+eth_getBlockByNumber
+eth_gasPrice
+eth_maxPriorityFeePerGas - Method not supported
+eth_blockNumber
+eth_estimateGas
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  9167330623801537
+    amountOut expected:  24062805473980407
+    Contract Balance Before Swap:  0
+    Pair address:  0x8b5cabe368a2933959069d23ba6613fbcf79021a
+    Data encoded
+    9167330623801537  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8b5cabe368a2933959069d23ba6613fbcf79021a)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 52)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)eth_blockNumber
+eth_sendRawTransaction
+  Contract call:       flashMultiTest#flashSwap
+  Transaction:         0xef215cade335247fe8cb45de2c9cc286bbd03390f66907164e9f945199490d2c
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH
+  Gas used:            342525 of 408086
+  Block #53054820:     0xa04c72e92d320f867d29845314913a7750bd46b7f46dd205e1a297e51e8e3e38  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  71450575222165937
+    amountOut expected:  5569
+    Contract Balance Before Swap:  0
+    Pair address:  0xc9b02b8d52e5d34bec0e0a3cacc0ba39480907fc
+    Data encoded
+    71450575222165937  of token0 approved for swap
+    uniswapV2Call Entered
+    Decoding Loan Data
+    Loan Data Decoded
+    Pair address:  0xc9b02b8d52e5d34bec0e0a3cacc0ba39480907fc
+    msg.sender address:  0xc9b02b8d52e5d34bec0e0a3cacc0ba39480907fc
+    Amount0 requested:  71450575222165937
+    Token0 address:  0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270
+    Amount1 expected:  0
+    Token1 address:  0xaa404804ba583c025fa64c9a276a6127ceb355c6
+    New token0 balance (loaned)::::::::::::::::::  71450575222165937
+    Token balances: 
+    Token0:  71450575222165937
+    Token1:  0
+    __________swapExactTokensForTokens_______________
+    Swap complete
+    swap[0](token0):  71450575222165937
+    swap[1](token1):  5569
+    Token balances: 
+    Token0:  0
+    Token1:  5569
+    _______________getAmountsIn___________________
+    getRepay0 (token1Required):  5507
+    calc'd amountRepay:::::::::  5507
+    Approving loanRouter to spend token1
+    Approved
+    Repay complete
+    Token balances: 
+    Token0:  62
+    Token1:  0
+    getAmounts results: 
+    swap[0]:  71450575222165937
+    swap[1]:  5569
+    repay[0]  0
+    repay[1]  0
+    Final balances: 
+    Token0:  0
+    Token1:  62
+    Approving profit transfer.
+    Approved
+    Transferred token1 to owner
+    New Contract Balance (Token0): 0
+    New Contract Balance (Token1): 0
+    New Owner Balance (Token0): 0
+    New Owner Balance (Token1): 62eth_sendRawTransaction  Nonce too low. Expected nonce to be 2364 but got 2363.eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+Mined empty block #53054821 with base fee 4982763
+eth_blockNumber
+eth_sendRawTransaction  Nonce too low. Expected nonce to be 2364 but got 2363.eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054822 with base fee 4359918
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 65)eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+Mined empty block #53054823 with base fee 3814929
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054824 with base fee 3338063
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+Mined empty block #53054825 with base fee 2920806
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+eth_blockNumber
+Mined empty block #53054826 with base fee 2555706
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054827 with base fee 2236243
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 27)eth_estimateGas
+Mined empty block #53054828 with base fee 1956713
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getBlockByNumber
+eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+Mined empty block #53054829 with base fee 1712124
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  27377060853039312
+    amountOut expected:  109844364530
+    Contract Balance Before Swap:  0
+    Pair address:  0xa5760194138b90622af5fc4e99ce3a6d2c816c6a
+    Data encoded
+    27377060853039312  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'ApeSwap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0xa5760194138b90622af5fc4e99ce3a6d2c816c6a)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 58)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 17)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)Mined empty block #53054830 with base fee 1498109
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  9167330623801537
+    amountOut expected:  24062805473980407
+    Contract Balance Before Swap:  0
+    Pair address:  0x8b5cabe368a2933959069d23ba6613fbcf79021a
+    Data encoded
+    9167330623801537  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8b5cabe368a2933959069d23ba6613fbcf79021a)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 38)Mined empty block #53054831 with base fee 1310846
+eth_blockNumber
+eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054832 with base fee 1146991
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+Mined empty block #53054833 with base fee 1003618
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 70)eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054834 with base fee 878166
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054835 with base fee 768396
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054836 with base fee 672347
+eth_estimateGas
+eth_estimateGas (2)
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054837 with base fee 588304
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 24)eth_blockNumber
+eth_blockNumber
+Mined empty block #53054838 with base fee 514766
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054839 with base fee 450421
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  9167330623801537
+    amountOut expected:  24062805473980407
+    Contract Balance Before Swap:  0
+    Pair address:  0x8b5cabe368a2933959069d23ba6613fbcf79021a
+    Data encoded
+    9167330623801537  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8b5cabe368a2933959069d23ba6613fbcf79021a)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 68)eth_estimateGas
+eth_blockNumber
+eth_getFilterChanges
+Mined empty block #53054840 with base fee 394119
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 49)eth_estimateGas
+eth_blockNumber
+Mined empty block #53054841 with base fee 344855
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+Mined empty block #53054842 with base fee 301749
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054843 with base fee 264031
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 86)Mined empty block #53054844 with base fee 231028
+eth_estimateGas
+eth_estimateGas (2)
+eth_blockNumber
+Mined empty block #53054845 with base fee 202150
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054846 with base fee 176882
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 97)eth_blockNumber
+eth_blockNumber
+Mined empty block #53054847 with base fee 154772
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 79)eth_estimateGas
+eth_blockNumber
+eth_estimateGas
+Mined empty block #53054848 with base fee 135426
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054849 with base fee 118498
+eth_estimateGas
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054850 with base fee 103686
+eth_blockNumber
+eth_getFilterChanges
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+Mined empty block #53054851 with base fee 90726
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_getBlockByNumber
+eth_blockNumber
+eth_estimateGas
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  27377060853039312
+    amountOut expected:  109844364530
+    Contract Balance Before Swap:  0
+    Pair address:  0xa5760194138b90622af5fc4e99ce3a6d2c816c6a
+    Data encoded
+    27377060853039312  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'ApeSwap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0xa5760194138b90622af5fc4e99ce3a6d2c816c6a)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 67)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)eth_blockNumber
+eth_getFilterChanges
+Mined empty block #53054852 with base fee 79386
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+Mined empty block #53054853 with base fee 69463
+eth_blockNumber
+eth_blockNumber
+eth_blockNumber
+eth_estimateGas
+  Contract call:       flashMultiTest#flashSwap
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  To:                  0xe28a1b108b07c9cfa4636165ee7ca3927ee17797
+  Value:               0 ETH  console.log:
+    Contract flashMultiTest Entered
+    amountIn requested:  216855891079822025
+    amountOut expected:  171198466476608928913
+    Contract Balance Before Swap:  0
+    Pair address:  0x8a1b5473217c878cf2937a54166a033ea13178b2
+    Data encoded
+    216855891079822025  of token0 approved for swap  Error: VM Exception while processing transaction: reverted with reason string 'Jetswap: INSUFFICIENT_INPUT_AMOUNT'
+      at <UnrecognizedContract>.<unknown> (0x8a1b5473217c878cf2937a54166a033ea13178b2)
+      at flashMultiTest.flashSwap (contracts/v2/flashMultiTest.sol:64)
+      at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+      at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+      at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+      at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+      at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+      at async Promise.all (index 21)
+      at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)eth_blockNumber
+eth_blockNumber
+eth_getFilterChanges
+Mined empty block #53054854 with base fee 60781
+eth_blockNumber
+eth_blockNumber
+Mined empty block #53054855 with base fee 53184

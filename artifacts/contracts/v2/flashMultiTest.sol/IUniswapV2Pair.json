@@ -4,29 +4,6 @@
   "sourceName": "contracts/v2/flashMultiTest.sol",
   "abi": [
     {
-      "inputs": [],
-      "name": "getReserves",
-      "outputs": [
-        {
-          "internalType": "uint112",
-          "name": "reserve0",
-          "type": "uint112"
-        },
-        {
-          "internalType": "uint112",
-          "name": "reserve1",
-          "type": "uint112"
-        },
-        {
-          "internalType": "uint32",
-          "name": "blockTimestampLast",
-          "type": "uint32"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "inputs": [
         {
           "internalType": "uint256",
@@ -45,7 +22,7 @@
         },
         {
           "internalType": "bytes",
-          "name": "",
+          "name": "data",
           "type": "bytes"
         }
       ],

@@ -65,7 +65,7 @@
         },
         {
           "internalType": "address[]",
-          "name": "",
+          "name": "path",
           "type": "address[]"
         },
         {
