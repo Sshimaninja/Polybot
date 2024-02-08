@@ -234,7 +234,7 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
     // }
     const safe = await importantSafetyChecks(trade);
     if (!safe) {
-        console.log("[filteredTrade]: Important safety checks failed. No trade.");
+        // console.log("[filteredTrade]: Important safety checks failed. No trade.");
         return undefined;
     }
     return trade;
