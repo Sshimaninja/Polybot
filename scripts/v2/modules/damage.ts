@@ -54,14 +54,21 @@ export async function rollDamage(trade: BoolTrade) {
         trade.target.reserveOutBN.gt(BN(1))
     ) {
         const log = await tradeLogs(trade);
-        console.log(log);
+        // logger.info(log);
         // compare profit vs gas cost
         // logger.info(await data)// debug
         const actualProfit = await gasVprofit(trade);
 
         // If profit is greater than gas cost, execute trade
         if (BN(actualProfit.profit).gt(0)) {
-            logger.info("Profitable trade found on " + trade.ticker + "!");
+            logger.info(
+                "====================" +
+                    "Profitable trade found on " +
+                    trade.ticker +
+                    "!" +
+                    "====================",
+            );
+            logger.info(log);
             logger.info(
                 "Profit: ",
                 actualProfit.profit.toString(),
@@ -69,6 +76,9 @@ export async function rollDamage(trade: BoolTrade) {
                 fu(actualProfit.gas.gasPrice, 18),
                 "Flash Type: ",
                 trade.type,
+            );
+            logger.info(
+                "====================" + "Trade Data " + trade.ticker + "====================",
             );
             pendingTrades.push(newTx);
             // Execute trade
@@ -82,13 +92,19 @@ export async function rollDamage(trade: BoolTrade) {
 
         // If profit is less than gas cost, return
         if (BN(actualProfit.profit).lte(0)) {
-            console.log("<<<<<<<<<<<<No Trade After gasVprofit: " + trade.ticker + " [ gas > profit ] >>>>>>>>>>>>");
+            console.log(
+                "<<<<<<<<<<<<No Trade After gasVprofit: " +
+                    trade.ticker +
+                    " [ gas > profit ] >>>>>>>>>>>>",
+            );
             return;
         }
 
         // If profit is undefined, return
         if (actualProfit.profit == undefined) {
-            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>Profit is undefined: error in gasVProfit<<<<<<<<<<<<<<<<<<<<<<<<");
+            console.log(
+                ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Profit is undefined: error in gasVProfit<<<<<<<<<<<<<<<<<<<<<<<<",
+            );
             return;
         }
 
