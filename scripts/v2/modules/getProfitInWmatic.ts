@@ -79,24 +79,32 @@ export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit>
 
     // IF NEITHER TOKEN IS WMATIC, CHECK FOR A WMATIC POOL ON OTHER EXCHANGES.
     let exchanges = Object.values(uniswapV2Factory);
-    exchanges.find(async (f) => {
+    for (let f of exchanges) {
         let factory = new Contract(f, IUniswapV2Factory, provider);
 
         let pair = {
             pair: await factory.getPair(trade.tokenOut.id, wmatic),
             token: trade.tokenOut.id,
         };
-        if (!pair) {
+        if (!pair.pair) {
             pair = {
                 pair: await factory.getPair(trade.tokenIn.id, wmatic),
                 token: trade.tokenIn.id,
             };
         }
-        if (pair) {
-            let routerID = Object.keys(uniswapV2Router).find((key) => uniswapV2Router[key] === f);
+        if (pair.pair) {
+            // find routerID using matching factory key (not property) from uniswapV2Factory:
+            let factoryKey = Object.keys(uniswapV2Factory).find(
+                (key) => uniswapV2Factory[key] === f,
+            );
+            if (!factoryKey) {
+                throw new Error("Factory: " + f + " not found in uniswapV2Factory");
+            }
+            let routerID = uniswapV2Router[factoryKey];
             if (!routerID) {
                 throw new Error("Router not found for factory: " + f);
             }
+
             let router = new Contract(routerID, IUniswapv2Router02, provider);
             let pool = new Contract(pair.pair, IPair, provider);
             let amountsOut = await getAmountsOut(router, trade.tokenProfit, [pair.token, wmatic]);
@@ -104,6 +112,7 @@ export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit>
             let gasRouter = router;
             let gasPool = pool;
             wmaticProfit = { profitInWMATIC, gasRouter, gasPool };
+            logger.info("gasPool found for trade: ", trade.ticker, "gasRouter: ", factoryKey);
             logger.info(
                 "[getProfitInWmatic]: profitInWMATIC: " +
                     fu(profitInWMATIC, 18) +
@@ -116,13 +125,12 @@ export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit>
                 return wmaticProfit;
             }
         }
-    });
-
+    }
     console.log("Searching for gasPool using gasTokens (getGasPoolForTrade)...");
 
     // IF NO WMATIC POOL IS FOUND, CHECK FOR A GASPOOL.
     exchanges.find(async (f) => {
-        for (let address of Object.values(gasTokens)) {
+        for (let address of Object.keys(gasTokens)) {
             if (address == trade.tokenIn.id || address == trade.tokenOut.id) {
                 let factory = new Contract(f, IUniswapV2Factory, provider);
                 let pair = {
@@ -187,13 +195,11 @@ export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit>
 // export type RouterMap = { [protocol: string]: string };
 
 // export const uniswapV2Router: RouterMap = {
-//     // UNI: "0x7a250d5630b4caeaf5c20e6585a6e1ef6c992400",
 //     SUSHI: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
 //     QUICK: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
 //     APE: "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
 //     JET: "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
 //     POLYDEX: "0xBd13225f0a45BEad8510267B4D6a7c78146Be459",
-//     // FRAX: "0xE52D0337904D4D0519EF7487e707268E1DB6495F", // FRAX decided to get fancy so I can't use their contracts unless I give them special TLC.
 //     MMF: "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
 //     CAT: "0x94930a328162957FF1dd48900aF67B5439336cBD",
 // };
@@ -219,7 +225,6 @@ export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit>
 //     APE: "0xCf083Be4164828f00cAE704EC15a36D711491284",
 //     JET: "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
 //     POLYDEX: "0x5BdD1CD910e3307582F213b33699e676E61deaD9",
-//     // FRAX: "0x54F454D747e037Da288dB568D4121117EAb34e79", // FRAX decided to get fancy so I can't use their contracts unless I give them special TLC.
 //     MMF: "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
 //     CAT: "0x477Ce834Ae6b7aB003cCe4BC4d8697763FF456FA",
 // };
