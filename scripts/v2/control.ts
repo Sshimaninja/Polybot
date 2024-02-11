@@ -4,7 +4,7 @@ import fs from "fs";
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from "./modules/prices";
 import { FactoryPair, TradePair } from "../../constants/interfaces";
-import { Trade } from "./getTrade";
+import { Trade } from "./Trade";
 import { Reserves } from "./modules/reserves";
 import { tradeLogs } from "./modules/tradeLog";
 import { rollDamage } from "./modules/damage";
