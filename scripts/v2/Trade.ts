@@ -13,7 +13,7 @@ import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { flashMulti, flashSingle } from "../../constants/environment";
-import { provider, wallet } from "../..//constants/provider";
+import { provider, wallet } from "../../constants/provider";
 import { Prices } from "./modules/prices";
 import { getK } from "./modules/getK";
 import { BoolTrade } from "../../constants/interfaces";
@@ -185,10 +185,13 @@ export class Trade {
                 uniswapKPositive: false,
             },
             gasData: this.gasData,
+            gasPool: undefined,
+            gasRouter: undefined,
             differenceTokenOut:
                 dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
             differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
-            profit: 0n,
+            tokenProfit: 0n,
+            wmaticProfit: 0n,
             profitPercent: 0n,
         };
 
@@ -242,7 +245,7 @@ export class Trade {
 
         trade.loanPool.repays = repays;
 
-        trade.profit = trade.type === "multi" ? multi.profit : single.profit;
+        trade.tokenProfit = trade.type === "multi" ? multi.profit : single.profit;
 
         trade.profitPercent =
             trade.type == "multi"
