@@ -17,6 +17,12 @@ export interface TxData {
     pendingID: string | null;
 }
 
+export interface WmaticProfit {
+    profitInWMATIC: bigint;
+    gasRouter: Contract | undefined;
+    gasPool: Contract | undefined;
+}
+
 export interface V2Params {
     loanFactory: string;
     targetRouter: string;
@@ -358,8 +364,11 @@ export interface BoolTrade {
     };
     k: K;
     gasData: GasData;
+    gasPool: Contract | undefined;
+    gasRouter: Contract | undefined;
     differenceTokenOut: string;
     differencePercent: string;
-    profit: bigint;
+    tokenProfit: bigint;
+    wmaticProfit: bigint;
     profitPercent: bigint;
 }

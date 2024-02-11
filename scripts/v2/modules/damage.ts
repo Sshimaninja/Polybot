@@ -45,7 +45,7 @@ export async function rollDamage(trade: BoolTrade) {
     // console.log(await tradeLogs(trade)); //debug
 
     if (
-        trade.profit > 0n &&
+        trade.tokenProfit > 0n &&
         // trade.k.uniswapKPositive //&&
         trade.loanPool.reserveInBN.gt(BN(1)) &&
         trade.loanPool.reserveOutBN.gt(BN(1)) &&
