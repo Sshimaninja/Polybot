@@ -14,8 +14,16 @@ if (process.env.FLASH_MULTI === undefined || process.env.FLASH_SINGLE === undefi
     throw new Error("No contract address set in .env file");
 }
 export const zero: string = "0x0000000000000000000000000000000000000000";
-export const MATIC = new ethers.Contract("0x0000000000000000000000000000000000001010", IERC20, provider);
-
+export const MATIC = new ethers.Contract(
+    "0x0000000000000000000000000000000000001010",
+    IERC20,
+    provider,
+);
+export const wmatic = new ethers.Contract(
+    "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    IERC20,
+    provider,
+);
 export const flashMultiID = process.env.FLASH_MULTI;
 export const flashSingleID = process.env.FLASH_SINGLE;
 

@@ -26,6 +26,8 @@ This along with gasVProfit integration from master seems to be the source of the
 
 eveything works now, but further integration introduces a lot of changes and needs done carefully to pinpont the issue.
 
+I suspect estimateGas is the issue, but I'm not sure yet.
+
 */
 
 export async function rollDamage(trade: BoolTrade) {
