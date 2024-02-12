@@ -24,6 +24,8 @@ import { fu, pu } from "../../modules/convertBN";
  * @returns wmaticProfit{profitInWMATIC: bigint, gasPool: Contract}
  */
 
+// TODO: This function is messy/ugly but it works (finally). Refactor into a Class.
+
 export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit> {
     const wmatic: string = gasTokens.WMATIC;
     let wmaticProfit: WmaticProfit;
