@@ -228,7 +228,6 @@ export class Trade {
         // The below will be either in token0 or token1, depending on the trade type.
         // Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 
-        const filteredTrade = await filterTrade(trade);
         // if (filteredTrade == undefined) {
         //     return trade;
         // }
@@ -264,6 +263,7 @@ export class Trade {
         );
 
         trade.flash = trade.type === "multi" ? flashMulti : flashSingle;
+        await filterTrade(trade);
 
         // return trade;
         return trade;

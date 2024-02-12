@@ -1,2 +1,1 @@
-# clean hh.logs:
 eth_call\n\s*Contract call:\s*<UnrecognizedContract>\n\s*From:\s*0x[0-9a-f]{40}\n\s*To:\s*0x[0-9a-f]{40}
