@@ -18,6 +18,16 @@ import { fu } from "../../modules/convertBN";
 var pendingTrades: PendingTx[] = [];
 console.log(pendingTrades); //debug
 
+/*
+
+currently in a tx ready state. (though not profitable, but that's not current issue)
+
+This along with gasVProfit integration from master seems to be the source of the issue with completing the contract for estimateGas and tx.
+
+eveything works now, but further integration introduces a lot of changes and needs done carefully to pinpont the issue.
+
+*/
+
 export async function rollDamage(trade: BoolTrade) {
     // const profpercBN = BN(fu(trade.profitPercent, trade.tokenOut.decimals))
 
@@ -45,12 +55,8 @@ export async function rollDamage(trade: BoolTrade) {
     // console.log(await tradeLogs(trade)); //debug
 
     if (
-        trade.tokenProfit > 0n &&
+        trade.tokenProfit > 0n //&&
         // trade.k.uniswapKPositive //&&
-        trade.loanPool.reserveInBN.gt(BN(1)) &&
-        trade.loanPool.reserveOutBN.gt(BN(1)) &&
-        trade.target.reserveInBN.gt(BN(1)) &&
-        trade.target.reserveOutBN.gt(BN(1))
     ) {
         const log = await tradeLogs(trade);
         const actualProfit = await gasVprofit(trade);
