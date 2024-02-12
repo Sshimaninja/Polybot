@@ -9,6 +9,7 @@ import {
     GasToken,
     uniswapV2Factory,
     uniswapV2Router,
+    FactoryMap,
 } from "../../../constants/addresses";
 import { wallet, provider } from "../../../constants/provider";
 import { logger } from "../../../constants/logger";
@@ -26,6 +27,9 @@ import { fu, pu } from "../../modules/convertBN";
 export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit> {
     const wmatic: string = gasTokens.WMATIC;
     let wmaticProfit: WmaticProfit;
+    let exchanges = Object.values(uniswapV2Factory);
+    let exchangesChecked: string[] = [];
+
     // let profitInWMATIC: bigint;
     // let gasRouter: Contract;
     // let gasPool: Contract;`1
@@ -78,92 +82,80 @@ export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit>
     );
 
     // IF NEITHER TOKEN IS WMATIC, CHECK FOR A WMATIC POOL ON OTHER EXCHANGES.
-    let exchanges = Object.values(uniswapV2Factory);
-    for (let f of exchanges) {
-        let factory = new Contract(f, IUniswapV2Factory, provider);
+    async function findWmaticPool(
+        exchange: string,
+    ): Promise<{ router: Contract; pool: Contract; pair: any } | undefined> {
+        for (let f of exchanges) {
+            let factory = new Contract(f, IUniswapV2Factory, provider);
 
-        let pair = {
-            pair: await factory.getPair(trade.tokenOut.id, wmatic),
-            token: trade.tokenOut.id,
-        };
-        if (!pair.pair) {
-            pair = {
-                pair: await factory.getPair(trade.tokenIn.id, wmatic),
-                token: trade.tokenIn.id,
+            let pair = {
+                pair: await factory.getPair(trade.tokenOut.id, wmatic),
+                token: trade.tokenOut.id,
             };
-        }
-        if (pair.pair) {
-            // find routerID using matching factory key (not property) from uniswapV2Factory:
-            let factoryKey = Object.keys(uniswapV2Factory).find(
-                (key) => uniswapV2Factory[key] === f,
-            );
-            if (!factoryKey) {
-                throw new Error("Factory: " + f + " not found in uniswapV2Factory");
-            }
-            let routerID = uniswapV2Router[factoryKey];
-            if (!routerID) {
-                throw new Error("Router not found for factory: " + f);
-            }
-
-            let router = new Contract(routerID, IUniswapv2Router02, provider);
-            let pool = new Contract(pair.pair, IPair, provider);
-            let amountsOut = await getAmountsOut(router, trade.tokenProfit, [pair.token, wmatic]);
-            let profitInWMATIC = amountsOut[1];
-            let gasRouter = router;
-            let gasPool = pool;
-            wmaticProfit = { profitInWMATIC, gasRouter, gasPool };
-            logger.info("gasPool found for trade: ", trade.ticker, "gasRouter: ", factoryKey);
-            logger.info(
-                "[getProfitInWmatic]: profitInWMATIC: " +
-                    fu(profitInWMATIC, 18) +
-                    " gasRouter: " +
-                    (await gasRouter.getAddress()) +
-                    " gasPool: " +
-                    (await gasPool.getAddress()),
-            );
-            if (amountsOut[1] > pu("0.1", 18)) {
-                return wmaticProfit;
-            }
-        }
-    }
-    console.log("Searching for gasPool using gasTokens (getGasPoolForTrade)...");
-
-    // IF NO WMATIC POOL IS FOUND, CHECK FOR A GASPOOL.
-    exchanges.find(async (f) => {
-        for (let address of Object.keys(gasTokens)) {
-            if (address == trade.tokenIn.id || address == trade.tokenOut.id) {
-                let factory = new Contract(f, IUniswapV2Factory, provider);
-                let pair = {
-                    pair: await factory.getPair(trade.tokenOut.id, address),
-                    token: trade.tokenOut.id,
+            if (!pair.pair) {
+                pair = {
+                    pair: await factory.getPair(trade.tokenIn.id, wmatic),
+                    token: trade.tokenIn.id,
                 };
-                if (!pair) {
-                    pair = {
-                        pair: await factory.getPair(trade.tokenIn.id, address),
-                        token: trade.tokenIn.id,
-                    };
+            }
+            if (pair.pair) {
+                // find routerID using matching factory key (not property) from uniswapV2Factory:
+                let factoryKey = Object.keys(uniswapV2Factory).find(
+                    (key) => uniswapV2Factory[key] === f,
+                );
+                if (!factoryKey) {
+                    throw new Error("Factory: " + f + " not found in uniswapV2Factory");
                 }
-                if (pair) {
-                    let routerID = Object.keys(uniswapV2Router).find(
-                        (key) => uniswapV2Router[key] === f,
+                let routerID = uniswapV2Router[factoryKey];
+                console.log(
+                    "[getProfitInWmatic]: ticker: ",
+                    trade.ticker,
+                    " routerID: ",
+                    routerID,
+                    "factoryKey: ",
+                    f,
+                    "factory: ",
+                    f,
+                );
+                if (!routerID) {
+                    throw new Error("Router not found for factory: " + f);
+                }
+
+                let router = new Contract(routerID, IUniswapv2Router02, provider);
+                let pool = new Contract(pair.pair, IPair, provider);
+                return { router, pool, pair };
+            }
+        }
+        return undefined;
+    }
+
+    for (let exchange of exchanges) {
+        if (!exchangesChecked.includes(exchange)) {
+            const wmaticPool = await findWmaticPool(exchange);
+            if (wmaticPool) {
+                let amountsOut = await getAmountsOut(wmaticPool.router, trade.tokenProfit, [
+                    wmaticPool.pair.token,
+                    wmatic,
+                ]);
+                if (amountsOut === undefined) {
+                    logger.error(
+                        "AmountsOut not found for trade: " +
+                            trade.ticker +
+                            " on exchange: " +
+                            exchange,
                     );
-                    if (!routerID) {
-                        throw new Error("Router not found for factory: " + f);
-                    }
-                    let router = new Contract(routerID, IUniswapv2Router02, provider);
-                    let pool = new Contract(pair.pair, IPair, provider);
-                    let amountsOut = await getAmountsOut(router, trade.tokenProfit, [
-                        pair.token,
-                        address,
-                        wmatic,
-                    ]);
-                    let profitInWMATIC = amountsOut[2];
-                    let gasRouter = router;
-                    let gasPool = pool;
+                    exchangesChecked.push(exchange);
+                }
+                if (amountsOut === undefined) {
+                    let profitInWMATIC = amountsOut[1];
+                    let profitStr = fu(profitInWMATIC, 18);
+                    let gasRouter = wmaticPool.router;
+                    let gasPool = wmaticPool.pool;
                     wmaticProfit = { profitInWMATIC, gasRouter, gasPool };
+                    logger.info("gasPool found for trade: ", trade.ticker, "gasRouter: ");
                     logger.info(
                         "[getProfitInWmatic]: profitInWMATIC: " +
-                            fu(profitInWMATIC, 18) +
+                            profitStr +
                             " gasRouter: " +
                             (await gasRouter.getAddress()) +
                             " gasPool: " +
@@ -174,9 +166,58 @@ export async function getProfitInWMATIC(trade: BoolTrade): Promise<WmaticProfit>
                     }
                 }
             }
-        }
-    });
+            console.log("Searching for gasPool using gasTokens (getGasPoolForTrade)...");
 
+            // IF NO WMATIC POOL IS FOUND, CHECK FOR A GASPOOL.
+            exchanges.find(async (f) => {
+                for (let address of Object.keys(gasTokens)) {
+                    if (address == trade.tokenIn.id || address == trade.tokenOut.id) {
+                        let factory = new Contract(f, IUniswapV2Factory, provider);
+                        let pair = {
+                            pair: await factory.getPair(trade.tokenOut.id, address),
+                            token: trade.tokenOut.id,
+                        };
+                        if (!pair) {
+                            pair = {
+                                pair: await factory.getPair(trade.tokenIn.id, address),
+                                token: trade.tokenIn.id,
+                            };
+                        }
+                        if (pair) {
+                            let routerID = Object.keys(uniswapV2Router).find(
+                                (key) => uniswapV2Router[key] === f,
+                            );
+                            if (!routerID) {
+                                throw new Error("Router not found for factory: " + f);
+                            }
+                            let router = new Contract(routerID, IUniswapv2Router02, provider);
+                            let pool = new Contract(pair.pair, IPair, provider);
+                            let amountsOut = await getAmountsOut(router, trade.tokenProfit, [
+                                pair.token,
+                                address,
+                                wmatic,
+                            ]);
+                            let profitInWMATIC = amountsOut[2];
+                            let gasRouter = router;
+                            let gasPool = pool;
+                            wmaticProfit = { profitInWMATIC, gasRouter, gasPool };
+                            logger.info(
+                                "[getProfitInWmatic]: profitInWMATIC: " +
+                                    fu(profitInWMATIC, 18) +
+                                    " gasRouter: " +
+                                    (await gasRouter.getAddress()) +
+                                    " gasPool: " +
+                                    (await gasPool.getAddress()),
+                            );
+                            if (amountsOut[1] > pu("0.1", 18)) {
+                                return wmaticProfit;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
     console.log(
         "Token has no value in WMATIC: ",
         trade.ticker,
