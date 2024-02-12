@@ -224,6 +224,11 @@ export interface PoolsV3 {
     feeTier: number;
 }
 
+export interface GasPool {
+    ticker: string;
+    address: string;
+    liquidity: bigint;
+}
 export interface swap {
     amount0Out: bigint;
     amount1Out: bigint;
