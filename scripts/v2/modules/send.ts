@@ -3,7 +3,7 @@ import { sendTx } from "./sendTx";
 import { pu, fu, BN2BigInt } from "../../modules/convertBN";
 import { slippageTolerance } from "../../v2/control";
 import { logger } from "../../../constants/logger";
-export async function send(trade: BoolTrade, gasObj: TxGas): Promise<TxData> {
+export async function send(trade: BoolTrade): Promise<TxData> {
     // let slippageJS = BN2BigInt(slippageTolerance, 18);
     // let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS;
     // POSSIBLE REVERT CONDITIONS:
