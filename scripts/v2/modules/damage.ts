@@ -1,5 +1,5 @@
 import { BoolTrade, PendingTx } from "../../../constants/interfaces";
-import { gasVprofit } from "./gasVprofit";
+import { trueProfit } from "./trueProfit";
 import { execute } from "./execute";
 import { BigNumber as BN } from "bignumber.js";
 import { tradeLogs } from "./tradeLog";
@@ -17,18 +17,6 @@ import { fu } from "../../modules/convertBN";
 
 var pendingTrades: PendingTx[] = [];
 console.log(pendingTrades); //debug
-
-/*
-
-currently in a tx ready state. (though not profitable, but that's not current issue)
-
-This along with gasVProfit integration from master seems to be the source of the issue with completing the contract for estimateGas and tx.
-
-eveything works now, but further integration introduces a lot of changes and needs done carefully to pinpont the issue.
-
-I suspect estimateGas is the issue, but I'm not sure yet.
-
-*/
 
 export async function rollDamage(trade: BoolTrade) {
     // const profpercBN = BN(fu(trade.profitPercent, trade.tokenOut.decimals))
@@ -57,13 +45,13 @@ export async function rollDamage(trade: BoolTrade) {
     // console.log(await tradeLogs(trade)); //debug
 
     if (
-        trade.tokenProfit > 0n //&&
-        // trade.k.uniswapKPositive //&&
+        trade.profits.profitToken > 0n &&
+        trade.k.uniswapKPositive //&&
     ) {
         const log = await tradeLogs(trade);
-        const actualProfit = await gasVprofit(trade);
+        trade = await trueProfit(trade);
         // If profit is greater than gas cost, execute trade
-        if (BN(actualProfit.profit).gt(0)) {
+        if (trade.profits.profitWMATIC > trade.gas.gasPrice) {
             logger.info(
                 "====================" +
                     "Profitable trade found on " +
@@ -74,9 +62,9 @@ export async function rollDamage(trade: BoolTrade) {
             logger.info(log);
             logger.info(
                 "Profit: ",
-                actualProfit.profit.toString(),
+                fu(trade.profits.profitWMATIC, 18),
                 "Gas Cost: ",
-                fu(actualProfit.gas.gasPrice, 18),
+                fu(trade.gas.gasPrice, 18),
                 "Flash Type: ",
                 trade.type,
             );
@@ -85,7 +73,7 @@ export async function rollDamage(trade: BoolTrade) {
             );
             pendingTrades.push(newTx);
             // Execute trade
-            const x = await execute(trade, actualProfit);
+            const x = await execute(trade);
             // if execute returns either txresponse or undefined, remove it from pendingTrades:
             if (x.txResponse || x.txResponse == undefined) {
                 pendingTrades = pendingTrades.filter((tx) => tx.ID !== trade.ID);
@@ -94,17 +82,23 @@ export async function rollDamage(trade: BoolTrade) {
         }
 
         // If profit is less than gas cost, return
-        if (BN(actualProfit.profit).lte(0)) {
+        if (trade.profits.profitWMATIC < trade.gas.gasPrice) {
             console.log(
-                "<<<<<<<<<<<<No Trade After gasVprofit: " +
+                "<<<<<<<<<<<<No Trade After trueProfit: " +
                     trade.ticker +
-                    " [ gas > profit ] >>>>>>>>>>>>",
+                    " [ gas " +
+                    fu(trade.gas.gasPrice, 18) +
+                    " > profit: " +
+                    fu(trade.profits.profitWMATIC, 18) +
+                    " tokenOut profit: " +
+                    trade.tokenOut.symbol,
+                fu(trade.profits.profitToken, trade.tokenOut.decimals) + " ] >>>>>>>>>>>>",
             );
             return;
         }
 
         // If profit is undefined, return
-        if (actualProfit.profit == undefined) {
+        if (trade.profits.profitWMATIC == undefined) {
             console.log(
                 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Profit is undefined: error in gasVProfit<<<<<<<<<<<<<<<<<<<<<<<<",
             );

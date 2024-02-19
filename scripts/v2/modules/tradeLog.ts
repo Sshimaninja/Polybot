@@ -75,9 +75,12 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 uniswapkPosT: trade.k.uniswapKPost > 0n ? trade.k.uniswapKPost.toString() : 0,
                 uniswapKPositive: trade.k.uniswapKPositive,
                 // loanCostPercent: fu((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
-                tokenProfit: fu(trade.tokenProfit, trade.tokenOut.decimals) + " " + trade.tokenOut.symbol,
-                wmaticProfit: fu(trade.wmaticProfit, 18) + " WMATIC",
-                profperc: fu(trade.profitPercent, trade.tokenOut.decimals) + "%",
+                tokenProfit:
+                    fu(trade.profits.profitToken, trade.tokenOut.decimals) +
+                    " " +
+                    trade.tokenOut.symbol,
+                wmaticProfit: fu(trade.profits.profitWMATIC, 18) + " WMATIC",
+                profperc: fu(trade.profits.profitPercent, trade.tokenOut.decimals) + "%",
             },
         };
 

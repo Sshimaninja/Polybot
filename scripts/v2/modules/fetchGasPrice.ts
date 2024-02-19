@@ -13,16 +13,16 @@ import { fixEstimateGas } from "./fixEstimateGas";
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // Commented out for now to elimiate from testing & debugging:
 
-    const maxFeeGasData = trade.gasData.fast.maxFee; //150 is placeholder until gasData works.
+    const maxFeeGasData = trade.gas.maxFee; //150 is placeholder until gasData works.
     // console.log('maxFeeGasData: ', maxFeeGasData)
 
-    const maxPriorityFeeGasData = trade.gasData.fast.maxPriorityFee; //60 is placeholder until gasData works.
+    const maxPriorityFeeGasData = trade.gas.maxPriorityFee; //60 is placeholder until gasData works.
     // console.log('maxPriorityFeeGasData: ', maxPriorityFeeGasData)
 
-    const maxFee = BigInt(Math.trunc(maxFeeGasData * 10 ** 9));
-    // console.log('maxFeeString: ', maxFeeString)
+    // const maxFee = BigInt(Math.trunc(maxFeeGasData * 10 ** 9));
+    // // console.log('maxFeeString: ', maxFeeString)
 
-    const maxPriorityFee = BigInt(Math.trunc(maxPriorityFeeGasData * 10 ** 9));
+    // const maxPriorityFee = BigInt(Math.trunc(maxPriorityFeeGasData * 10 ** 9));
     // console.log('maxPriorityFeeString: ', maxPriorityFeeString
 
     let gasEstimate = BigInt(30000000);
@@ -43,34 +43,34 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.target.amountOut,
                 trade.loanPool.amountRepay,
             );
-            console.log(">>>>>>>>>>gasEstimate: ", gasEstimate);
+            console.log(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
             // Helpful for figuring out how to determine and display gas prices:
-            const gasLogs = {
-                gasEstimate: gasEstimate,
-                gasPrice: fu(maxFee + maxPriorityFee * BigInt(10), 18),
-                maxFee: fu(maxFee, 18),
-                maxPriorityFee: fu(maxPriorityFee, 18),
-                gasLimit: fu(gasEstimate, 18),
-                gasEstimateTimesMaxFee: fu(gasEstimate * maxFee, 18),
-                gasEstimateTimesMaxPriorityFee: fu(gasEstimate * maxPriorityFee, 18),
-                gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(
-                    gasEstimate * (maxFee + maxPriorityFee),
-                    18,
-                ),
-                gasEstimateTimesMaxFeePlusMaxPriorityFeeTimes10: fu(
-                    (gasEstimate * (maxFee + maxPriorityFee) + maxFee) * BigInt(10),
-                    18,
-                ),
-            };
-            const gasPrice = (gasEstimate * (maxFee + maxPriorityFee) + maxFee) * BigInt(10);
-            console.log("GASLOGS: ", gasLogs);
+            // const gasLogs = {
+            //     gasEstimate: gasEstimate,
+            //     gasPrice: fu(maxFee + maxPriorityFee * BigInt(10), 18),
+            //     maxFee: fu(maxFee, 18),
+            //     maxPriorityFee: fu(maxPriorityFee, 18),
+            //     gasLimit: fu(gasEstimate, 18),
+            //     gasEstimateTimesMaxFee: fu(gasEstimate * maxFee, 18),
+            //     gasEstimateTimesMaxPriorityFee: fu(gasEstimate * maxPriorityFee, 18),
+            //     gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(
+            //         gasEstimate * (maxFee + maxPriorityFee),
+            //         18,
+            //     ),
+            //     gasEstimateTimesMaxFeePlusMaxPriorityFeeTimes10: fu(
+            //         (gasEstimate * (maxFee + maxPriorityFee) + maxFee) * BigInt(10),
+            //         18,
+            //     ),
+            // };
+            const gasPrice = gasEstimate * trade.gas.maxFee;
+            console.log("GASLOGS: ", gasPrice);
             console.log("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
             return {
                 gasEstimate,
                 tested: true,
                 gasPrice,
-                maxFee: maxFee,
-                maxPriorityFee: maxPriorityFee,
+                maxFee: trade.gas.maxFee,
+                maxPriorityFee: trade.gas.maxPriorityFee,
             };
         } catch (error: any) {
             const data = await tradeLogs(trade);
@@ -80,9 +80,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             return {
                 gasEstimate,
                 tested: false,
-                gasPrice: BigInt(150n + 60n * gasEstimate),
-                maxFee,
-                maxPriorityFee,
+                gasPrice: trade.gas.gasPrice,
+                maxFee: maxFeeGasData,
+                maxPriorityFee: maxPriorityFeeGasData,
             };
         }
     } else {
@@ -90,8 +90,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             gasEstimate,
             tested: false,
             gasPrice: BigInt(150n + 60n * gasEstimate),
-            maxFee: maxFee,
-            maxPriorityFee: maxPriorityFee,
+            maxFee: maxFeeGasData,
+            maxPriorityFee: maxPriorityFeeGasData,
         };
     }
 }

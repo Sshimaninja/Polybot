@@ -27,12 +27,12 @@ export async function telegramInfo(message: string): Promise<void> {
     }
 }
 
-export async function notify(trade: BoolTrade, profit: Profit) {
+export async function notify(trade: BoolTrade) {
     let logs = await tradeLogs(trade);
     const message =
         `Trade ${trade.ticker} on ${
             trade.loanPool.exchange + trade.target.exchange
-        } is ongoing. Projected profit: ${profit.profit} MATIC equivalent. \n\n` +
+        } is ongoing. Projected profit: ${trade.profits.profitWMATIC} MATIC equivalent. \n\n` +
         ` ${JSON.stringify(logs.data)}`;
     try {
         if (!TELEGRAM_BOT_TOKEN) {

@@ -17,11 +17,11 @@ export interface TxData {
     pendingID: string | null;
 }
 
-export interface WmaticProfit {
-    profitInWMATIC: bigint;
-    gasRouter: Contract | undefined;
-    gasPool: Contract | undefined;
-}
+// export interface WmaticProfit {
+//     profitInWMATIC: bigint;
+//     gasRouter: Contract | undefined;
+//     gasPool: Contract | undefined;
+// }
 
 export interface V2Params {
     loanFactory: string;
@@ -135,11 +135,9 @@ export interface PoolState {
     priceOutBN: BN;
 }
 export interface Profit {
-    profit: string;
-    gasEstimate: bigint;
-    gasCost: bigint;
-    gasPool: string;
-    gas: GAS;
+    profitToken: bigint;
+    profitWMATIC: bigint;
+    gasData: GasData;
 }
 export interface Amounts {
     maxIn: bigint;
@@ -280,6 +278,13 @@ export interface Difference {
 }
 
 export interface GasData {
+    gasPrice: bigint;
+    gasEstimate: bigint;
+    maxFee: bigint;
+    maxPriorityFee: bigint;
+}
+
+export interface PolygonGasData {
     safeLow: {
         maxPriorityFee: number;
         maxFee: number;
@@ -367,13 +372,19 @@ export interface BoolTrade {
         amountOut: bigint;
         amountOutToken0for1: bigint;
     };
+    gas: GasData;
     k: K;
-    gasData: GasData;
-    gasPool: Contract | undefined;
-    gasRouter: Contract | undefined;
     differenceTokenOut: string;
     differencePercent: string;
-    tokenProfit: bigint;
-    wmaticProfit: bigint;
+    profits: TradeProfit;
+}
+
+export interface TradeGas {
+    gasData: GasData;
+}
+
+export interface TradeProfit {
+    profitToken: bigint;
+    profitWMATIC: bigint;
     profitPercent: bigint;
 }

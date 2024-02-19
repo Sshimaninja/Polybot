@@ -1,15 +1,11 @@
-import { Contract, ethers } from 'ethers'
-import { provider, wallet } from '../../../constants/provider'
-import {
-    deployedMap,
-    gasTokens,
-    uniswapV2Factory,
-} from '../../../constants/addresses'
-import { abi as IPair } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
-import { abi as IERC20 } from '@uniswap/v2-periphery/build/IERC20.json'
-import { fetchGasPrice } from './fetchGasPrice'
-import { fu } from '../../modules/convertBN'
-require('dotenv').config()
+import { Contract, ethers } from "ethers";
+import { provider, wallet } from "../../../constants/provider";
+import { deployedMap, gasTokens, uniswapV2Factory } from "../../../constants/addresses";
+import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
+import { abi as IERC20 } from "@uniswap/v2-periphery/build/IERC20.json";
+import { fetchGasPrice } from "./fetchGasPrice";
+import { fu } from "../../modules/convertBN";
+require("dotenv").config();
 /**
  * checks gas token balance of the flashwallet
  * @param token0
@@ -22,35 +18,21 @@ export async function checkBal(
     token0: string,
     token0dec: number,
     token1: string,
-    token1dec: number
+    token1dec: number,
 ) {
-    const erctoken0 = new ethers.Contract(token0, IERC20, provider)
-    const erctoken1 = new ethers.Contract(token1, IERC20, provider)
-    const wmatictoken = new ethers.Contract(gasTokens.WMATIC, IERC20, provider)
+    const erctoken0 = new ethers.Contract(token0, IERC20, provider);
+    const erctoken1 = new ethers.Contract(token1, IERC20, provider);
+    const wmatictoken = new ethers.Contract(gasTokens.WMATIC, IERC20, provider);
 
-    const walletbalance0 = await erctoken0.balanceOf(await wallet.getAddress())
-    const walletbalance1 = await erctoken1.balanceOf(await wallet.getAddress())
-    const walletbalanceMatic = await wmatictoken.balanceOf(
-        await wallet.getAddress()
-    )
+    const walletbalance0 = await erctoken0.balanceOf(await wallet.getAddress());
+    const walletbalance1 = await erctoken1.balanceOf(await wallet.getAddress());
+    const walletbalanceMatic = await wmatictoken.balanceOf(await wallet.getAddress());
 
-    console.log('New wallet balance: ')
-    console.log('Wallet: ' + wallet.getAddress())
-    console.log(
-        'Wallet balance token0: ' +
-            fu(walletbalance0, token0dec) +
-            ' Asset:  ' +
-            token0
-    )
-    console.log(
-        'Wallet balance token1: ' +
-            fu(walletbalance1, token1dec) +
-            ' Asset:  ' +
-            token1
-    )
-    console.log(
-        'Wallet Balance Matic: ' + fu(walletbalanceMatic, 18) + ' ' + 'MATIC'
-    )
+    console.log("New wallet balance: ");
+    console.log("Wallet: " + (await wallet.getAddress()));
+    console.log("Wallet balance token0: " + fu(walletbalance0, token0dec) + " Asset:  " + token0);
+    console.log("Wallet balance token1: " + fu(walletbalance1, token1dec) + " Asset:  " + token1);
+    console.log("Wallet Balance Matic: " + fu(walletbalanceMatic, 18) + " " + "MATIC");
     // console.log("Block Number: " + (await provider.getBlockNumber()))
     // console.log("Contract balance: " + contractbalance.toString() + " " + deployedMap.flashTest)
 }
@@ -58,13 +40,11 @@ export async function checkBal(
 
 export async function checkGasBal(): Promise<bigint> {
     const wmatictoken = new ethers.Contract(
-        '0x0000000000000000000000000000000000001010',
+        "0x0000000000000000000000000000000000001010",
         IERC20,
-        provider
-    )
-    const walletbalanceMatic = await wmatictoken.balanceOf(
-        await wallet.getAddress()
-    )
+        provider,
+    );
+    const walletbalanceMatic = await wmatictoken.balanceOf(await wallet.getAddress());
     // console.log("Wallet Balance Matic: " + fu(walletbalanceMatic, 18) + " " + "MATIC")
-    return walletbalanceMatic
+    return walletbalanceMatic;
 }
