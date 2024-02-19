@@ -179,20 +179,20 @@ export class Trade {
                 amountOutToken0for1: 0n,
                 amountOut: 0n,
             },
+            gas: this.gasData,
             k: {
                 uniswapKPre: 0n,
                 uniswapKPost: 0n,
                 uniswapKPositive: false,
             },
-            gasData: this.gasData,
-            gasPool: undefined,
-            gasRouter: undefined,
             differenceTokenOut:
                 dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
             differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
-            tokenProfit: 0n,
-            wmaticProfit: 0n,
-            profitPercent: 0n,
+            profits: {
+                profitToken: 0n,
+                profitWMATIC: 0n,
+                profitPercent: 0n,
+            },
         };
 
         trade.target.amountOut = await getAmountsOut(
@@ -244,9 +244,9 @@ export class Trade {
 
         trade.loanPool.repays = repays;
 
-        trade.tokenProfit = trade.type === "multi" ? multi.profit : single.profit;
+        trade.profits.profitToken = trade.type === "multi" ? multi.profit : single.profit;
 
-        trade.profitPercent =
+        trade.profits.profitPercent =
             trade.type == "multi"
                 ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
                 : pu(

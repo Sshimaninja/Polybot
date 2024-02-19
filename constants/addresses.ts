@@ -14,8 +14,8 @@ export type RouterMap = { [protocol: string]: string };
 
 export const uniswapV2Router: RouterMap = {
     // UNI: "0x7a250d5630b4caeaf5c20e6585a6e1ef6c992400",
-    SUSHI: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
     QUICK: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+    SUSHI: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
     APE: "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
     JET: "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
     POLYDEX: "0xBd13225f0a45BEad8510267B4D6a7c78146Be459",
@@ -37,6 +37,40 @@ export const uniswapV2Factory: FactoryMap = {
     // FRAX: "0x54F454D747e037Da288dB568D4121117EAb34e79", // FRAX decided to get fancy so I can't use their contracts unless I give them special TLC.
     MMF: "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
     CAT: "0x477Ce834Ae6b7aB003cCe4BC4d8697763FF456FA",
+};
+
+export type ExchangeMap = { [protocol: string]: { factory: string; router: string } };
+
+export const uniswapV2Exchange: ExchangeMap = {
+    QUICK: {
+        factory: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
+        router: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
+    },
+    SUSHI: {
+        factory: "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
+        router: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
+    },
+    APE: {
+        factory: "0xCf083Be4164828f00cAE704EC15a36D711491284",
+        router: "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
+    },
+    JET: {
+        factory: "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
+        router: "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
+    },
+    POLYDEX: {
+        factory: "0x5BdD1CD910e3307582F213b33699e676E61deaD9",
+        router: "0xBd13225f0a45BEad8510267B4D6a7c78146Be459",
+    },
+    // FRAX: {factory: "0x54F454D747e037Da288dB568D4121117EAb34e79",}, // FRAX decided to get fancy so I can't use their contracts unless I give them special TLC.
+    MMF: {
+        factory: "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
+        router: "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
+    },
+    CAT: {
+        factory: "0x477Ce834Ae6b7aB003cCe4BC4d8697763FF456FA",
+        router: "0x94930a328162957FF1dd48900aF67B5439336cBD",
+    },
 };
 
 // UNISWAP V3:
@@ -95,5 +129,10 @@ export const gasTokens: GasToken = {
     USDC: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     USDT: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
     DAI: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+    AAVE: "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+    miMATIC: "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+    LINK: "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
     WBTC: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+    GHST: "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+    GHO: "0x0943745ef1623750a4a19709672a87eb48e6b912",
 };
