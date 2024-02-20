@@ -38,36 +38,36 @@ export class Trade {
     // trade: BoolTrade
     pair: FactoryPair;
     match: TradePair;
-    price0: Prices;
-    price1: Prices;
+    reservesA: Prices;
+    reservesB: Prices;
     slip: BN;
     gasData: GasData;
-    calc0: AmountConverter;
-    calc1: AmountConverter;
+    calcA: AmountConverter;
+    calcB: AmountConverter;
 
     constructor(
         pair: FactoryPair,
         match: TradePair,
-        price0: Prices,
-        price1: Prices,
+        reservesA: Prices,
+        reservesB: Prices,
         slip: BN,
         gasData: GasData,
         // trade: BoolTrade
     ) {
         this.pair = pair;
-        this.price0 = price0;
-        this.price1 = price1;
+        this.reservesA = reservesA;
+        this.reservesB = reservesB;
         this.match = match;
         this.slip = slip;
         this.gasData = gasData;
         // Pass in the opposing pool's priceOut as target
-        this.calc0 = new AmountConverter(price0, match, this.price1.priceOutBN);
-        this.calc1 = new AmountConverter(price1, match, this.price0.priceOutBN);
+        this.calcA = new AmountConverter(reservesA, match, this.reservesB.priceOutBN);
+        this.calcB = new AmountConverter(reservesB, match, this.reservesA.priceOutBN);
     }
 
     async direction() {
-        const A = this.price0.priceOutBN;
-        const B = this.price1.priceOutBN;
+        const A = this.reservesA.priceOutBN;
+        const B = this.reservesB.priceOutBN;
         const diff = A.lt(B) ? B.minus(A) : A.minus(B);
         const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100); // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
 
@@ -85,26 +85,15 @@ export class Trade {
         return { dir, diff, dperc };
     }
 
-    async getSize(loan: AmountConverter, target: AmountConverter): Promise<bigint> {
-        const toPrice = await target.tradeToPrice();
-        // use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-        const maxIn = await target.getMaxTokenIn();
-        const bestSize = toPrice < maxIn ? toPrice : maxIn;
-        const safeReserves = (loan.reserves.reserveIn * 990n) / 1000n;
-        //473 * 800 / 1000 = 378.4
-        const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
-        // const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
-        // console.log(msg);
-        return size;
-    }
+    async getSize() {}
 
     async getTrade() {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const size = A
-            ? await this.getSize(this.calc1, this.calc0)
-            : await this.getSize(this.calc0, this.calc1);
+            ? await this.getSize(this.calcB, this.calcA)
+            : await this.getSize(this.calcA, this.calcB);
         const trade: BoolTrade = {
             ID: A
                 ? this.match.poolAID + this.match.poolBID
@@ -127,20 +116,24 @@ export class Trade {
                 pool: A
                     ? new Contract(this.match.poolBID, IPair, provider)
                     : new Contract(this.match.poolAID, IPair, provider),
-                reserveIn: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
+                reserveIn: A
+                    ? this.reservesB.reserves.reserveIn
+                    : this.reservesA.reserves.reserveIn,
                 reserveInBN: A
-                    ? this.price1.reserves.reserveInBN
-                    : this.price0.reserves.reserveInBN,
-                reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
+                    ? this.reservesB.reserves.reserveInBN
+                    : this.reservesA.reserves.reserveInBN,
+                reserveOut: A
+                    ? this.reservesB.reserves.reserveOut
+                    : this.reservesA.reserves.reserveOut,
                 reserveOutBN: A
-                    ? this.price1.reserves.reserveOutBN
-                    : this.price0.reserves.reserveOutBN,
+                    ? this.reservesB.reserves.reserveOutBN
+                    : this.reservesA.reserves.reserveOutBN,
                 priceIn: A
-                    ? this.price1.priceInBN.toFixed(this.match.token0.decimals)
-                    : this.price0.priceInBN.toFixed(this.match.token0.decimals),
+                    ? this.reservesB.priceInBN.toFixed(this.match.token0.decimals)
+                    : this.reservesA.priceInBN.toFixed(this.match.token0.decimals),
                 priceOut: A
-                    ? this.price1.priceOutBN.toFixed(this.match.token1.decimals)
-                    : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
+                    ? this.reservesB.priceOutBN.toFixed(this.match.token1.decimals)
+                    : this.reservesA.priceOutBN.toFixed(this.match.token1.decimals),
                 amountOut: 0n,
                 repays: {
                     single: { singleIn: 0n, singleOut: 0n },
@@ -160,20 +153,24 @@ export class Trade {
                 pool: A
                     ? new Contract(this.match.poolAID, IPair, provider)
                     : new Contract(this.match.poolBID, IPair, provider),
-                reserveIn: A ? this.price0.reserves.reserveIn : this.price1.reserves.reserveIn,
+                reserveIn: A
+                    ? this.reservesA.reserves.reserveIn
+                    : this.reservesB.reserves.reserveIn,
                 reserveInBN: A
-                    ? this.price0.reserves.reserveInBN
-                    : this.price1.reserves.reserveInBN,
-                reserveOut: A ? this.price0.reserves.reserveOut : this.price1.reserves.reserveOut,
+                    ? this.reservesA.reserves.reserveInBN
+                    : this.reservesB.reserves.reserveInBN,
+                reserveOut: A
+                    ? this.reservesA.reserves.reserveOut
+                    : this.reservesB.reserves.reserveOut,
                 reserveOutBN: A
-                    ? this.price0.reserves.reserveOutBN
-                    : this.price1.reserves.reserveOutBN,
+                    ? this.reservesA.reserves.reserveOutBN
+                    : this.reservesB.reserves.reserveOutBN,
                 priceIn: A
-                    ? this.price0.priceInBN.toFixed(this.match.token0.decimals)
-                    : this.price1.priceInBN.toFixed(this.match.token0.decimals),
+                    ? this.reservesA.priceInBN.toFixed(this.match.token0.decimals)
+                    : this.reservesB.priceInBN.toFixed(this.match.token0.decimals),
                 priceOut: A
-                    ? this.price0.priceOutBN.toFixed(this.match.token1.decimals)
-                    : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
+                    ? this.reservesA.priceOutBN.toFixed(this.match.token1.decimals)
+                    : this.reservesB.priceOutBN.toFixed(this.match.token1.decimals),
                 //TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
                 tradeSize: size,
                 amountOutToken0for1: 0n,
@@ -208,7 +205,7 @@ export class Trade {
         ); // token1 max out
 
         // // SUBTRACT SLIPPAGE FROM EXPECTED AMOUNTOUT. This is an attempt to offset 'INSUFFICIENT_OUTPUT_AMOUNT' errors.
-        // trade.target.amountOut = await this.calc0.subSlippage(
+        // trade.target.amountOut = await this.calcA.subSlippage(
         //     trade.target.amountOut,
         //     trade.tokenOut.decimals,
         // );
@@ -217,9 +214,9 @@ export class Trade {
 
         //TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
         // Define repay & profit for each trade type:
-        const r = new PopulateRepays(trade, this.calc0);
+        const r = new PopulateRepays(trade, this.calcA);
         const repays = await r.getRepays();
-        const p = new ProfitCalculator(trade, this.calc0, repays);
+        const p = new ProfitCalculator(trade, this.calcA, repays);
 
         const multi = await p.getMultiProfit();
         const single = await p.getSingleProfit();
@@ -259,7 +256,7 @@ export class Trade {
             trade.target.tradeSize,
             trade.loanPool.reserveIn,
             trade.loanPool.reserveOut,
-            this.calc0,
+            this.calcA,
         );
 
         trade.flash = trade.type === "multi" ? flashMulti : flashSingle;
