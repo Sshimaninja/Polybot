@@ -2,6 +2,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from "./tradeMath";
 import { Pair, ReservesData, TradePair } from "../../../constants/interfaces";
 import { Prices } from "./prices";
+import { getGasData } from "./getPolygonGasPrices";
 import { Token, Amounts } from "../../../constants/interfaces";
 import { getAmountsOut, getAmountsIn } from "./getAmountsIOLocal";
 import { HiLo, Difference } from "../../../constants/interfaces";
@@ -16,15 +17,13 @@ import { slippageTolerance } from "../../v2/control";
 export class AmountConverter {
     token0: Token;
     token1: Token;
-    reserves: ReservesData;
-    price: Prices;
-    targetPrice: BN;
+    loanPoolReserves: Prices;
+    targetReserves: Prices;
     slip: BN;
 
-    constructor(price: Prices, pair: TradePair, targetPrice: BN) {
-        this.reserves = price.reserves;
-        this.price = price;
-        this.targetPrice = targetPrice;
+    constructor(loanPoolReserves: Prices, targetReserves: Prices, pair: TradePair) {
+        this.loanPoolReserves = loanPoolReserves;
+        this.targetReserves = targetReserves;
         this.slip = slippageTolerance;
         this.token0 = pair.token0;
         this.token1 = pair.token1;
@@ -37,17 +36,51 @@ export class AmountConverter {
     // can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
     // can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
 
+    async calculateMostProfitableTrade(): Promise<bigint> {
+        // Calculate the current prices in both pools
+        // const targetPoolPrice = targetReserveOut.div(targetReserveIn);
+        // const loanPoolPrice = loanPoolReserveOut.div(loanPoolReserveIn);
+
+        // Calculate the price difference
+        const priceDifference = this.targetReserves.priceOutBN.minus(
+            this.loanPoolReserves.priceOutBN,
+        );
+
+        // Calculate the maximum trade size in the target pool
+        const maxTradeSizeTarget = await getMaxTokenIn(
+            this.targetReserves.reserves.reserveInBN,
+            slippageTolerance,
+        );
+
+        // Calculate the maximum trade size in the loan pool
+        const maxTradeSizeLoan = await getMaxTokenOut(
+            this.loanPoolReserves.reserves.reserveOutBN,
+            slippageTolerance,
+        );
+
+        // Calculate the potential profit for each trade size
+        const profitTarget = maxTradeSizeTarget.multipliedBy(priceDifference).minus(transactionFee);
+        const profitLoan = maxTradeSizeLoan.multipliedBy(priceDifference).minus(transactionFee);
+
+        // Choose the trade size that gives the highest profit
+        if (profitTarget.gt(profitLoan)) {
+            return maxTradeSizeTarget;
+        } else {
+            return maxTradeSizeLoan;
+        }
+    }
+
     async tradeToPrice(): Promise<bigint> {
         // this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
         // console.log({
-        // 	reservesInBN: this.reserves.reserveInBN.toString(),
-        // 	reserveOutBN: this.reserves.reserveOutBN.toString(),
+        // 	reservesInBN:this.targetReserves.reserveInBN.toString(),
+        // 	reserveOutBN:this.targetReserves.reserveOutBN.toString(),
         // 	targetPrice:  this.targetPrice,
         // 	slip: this.slip})
         const tradeSize = await tradeToPrice(
-            this.reserves.reserveInBN,
-            this.reserves.reserveOutBN,
-            this.targetPrice,
+            this.targetReserves.reserves.reserveInBN,
+            this.targetReserves.reserves.reserveOutBN,
+            this.loanPoolReserves.priceOutBN,
             this.slip,
         );
         // console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
@@ -57,14 +90,17 @@ export class AmountConverter {
     }
 
     async getMaxTokenIn(): Promise<bigint> {
-        const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.slip);
+        const maxTokenIn = await getMaxTokenIn(this.targetReserves.reserves.reserveInBN, this.slip);
         // console.log('maxTokenIn: ', maxTokenIn.toFixed(this.token0.decimals));//DEBUG
         const maxIn = pu(maxTokenIn.toFixed(this.token0.decimals), this.token0.decimals!);
         return maxIn;
     }
 
     async getMaxTokenOut(): Promise<bigint> {
-        const maxTokenOut = await getMaxTokenOut(this.reserves.reserveOutBN, this.slip);
+        const maxTokenOut = await getMaxTokenOut(
+            this.targetReserves.reserves.reserveOutBN,
+            this.slip,
+        );
         const maxOut = pu(maxTokenOut.toFixed(this.token1.decimals), this.token1.decimals!);
         return maxOut;
     }
