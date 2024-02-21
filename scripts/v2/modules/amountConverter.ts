@@ -2,14 +2,18 @@ import { BigNumber as BN } from "bignumber.js";
 import { getMaxToken0In, getMaxToken0Out, tradeToPrice } from "./tradeMath";
 import { Pair, ReservesData, TradePair } from "../../../constants/interfaces";
 import { Prices } from "./prices";
+import { abi as IUniswapV2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { getGasData } from "./getPolygonGasPrices";
 import { Token, Amounts } from "../../../constants/interfaces";
-import { getAmountsOut, getAmountsIn } from "./getAmountsIOLocal";
+import { getAmountsOut, getAmountsIn } from "./getAmountsIOBN"; // we can use local calcs because precision is not required for this estimation
+// import { getAmountsOut, getAmountsIn } from "./getAmountsIOJS";
 import { HiLo, Difference } from "../../../constants/interfaces";
 import { BN2BigInt, BigInt2BN, fu, pu } from "../../modules/convertBN";
 import { slippageTolerance } from "../../v2/control";
 import { provider } from "../../../constants/provider";
 import { logger } from "../../../constants/logger";
+import { ethers } from "hardhat";
+import { uniswapV2Router } from "../../../constants/addresses";
 
 /**
  * @description
@@ -17,13 +21,23 @@ import { logger } from "../../../constants/logger";
  * Target price is re-intitialized as the average of two prices.
  */
 export class AmountConverter {
+    // targetRouter: string;
+    // loanPoolRouter: string;
     tokenIn: Token;
     tokenOut: Token;
     low: Prices;
     high: Prices;
     slip: BN;
 
-    constructor(low: Prices, high: Prices, pair: TradePair) {
+    constructor(
+        // targetRouter: string,
+        // loanPoolRouter: string,
+        low: Prices,
+        high: Prices,
+        pair: TradePair,
+    ) {
+        // this.targetRouter = targetRouter;
+        // this.loanPoolRouter = loanPoolRouter;
         this.low = low;
         this.high = high;
         this.slip = slippageTolerance;
@@ -37,15 +51,49 @@ export class AmountConverter {
     // tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of tokenIn needed to reach that price
     // can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
     // can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
-    async txFees(n: BN) {
+    async protocolFee(n: BN) {
         let protocolFee = n.multipliedBy(0.003); // returns fee not price +/- fee.
-        logger.info("Transaction Fee: ", protocolFee.toFixed(this.tokenIn.decimals));
+        // logger.info("Transaction Fee: ", protocolFee.toFixed(this.tokenIn.decimals));
+        return protocolFee; //subtract this from amountOut
+    }
 
+    async gasFees(n: BN) {
         let g = await getGasData();
         let gas = fu(g.gasPrice, 18);
-        logger.info(gas, " in gas fees");
+        let gasBN = BN(gas);
+        let gasInTokenOut = await getAmountsOut(
+            gasBN,
+            this.high.reserves.reserveInBN,
+            this.high.reserves.reserveOutBN,
+        );
+        // let gasInTokenOutJS = await getAmountsOut(
+        //     new ethers.Contract(this.targetRouter, IUniswapV2Router02, provider),
+        //     g.gasPrice,
+        //     [this.tokenIn.id, this.tokenOut.id],
+        // // );
+        // logger.info(
+        //     "gasInTokenOut: ",
+        //     gasInTokenOutLocal.toFixed(this.tokenOut.decimals),
+        //     // "gasInTokenOut(Router): ",
+        //     // fu(gasInTokenOutJS, this.tokenOut.decimals),
+        //     " in ",
+        //     // this.tokenOut.symbol,
+        // );
+        // logger.info(gas, " in gas fees");
+        return BN(gasInTokenOut);
+    }
 
-        return protocolFee; //subtract this from amountOut
+    async txFees(n: BN) {
+        let gas = await this.gasFees(n);
+        let protocolFee = await this.protocolFee(n);
+        let txFees = gas.plus(protocolFee);
+        // logger.info(
+        //     "txFees in tokenOut: ",
+        //     txFees.toFixed(this.tokenOut.decimals),
+        //     " in ",
+        //     this.tokenOut.symbol,
+        // );
+        return txFees;
     }
 
     async calcMostProfitable(): Promise<BN> {
@@ -90,49 +138,52 @@ export class AmountConverter {
 
         maxInProfit = maxInProfit.minus(await this.txFees(maxInProfit));
         maxOutProfit = maxOutProfit.minus(await this.txFees(maxOutProfit));
-        logger.info(
-            "maxInProfit minus fees: ",
-            maxInProfit.toFixed(this.tokenIn.decimals),
-            this.tokenOut.symbol,
-        );
-        logger.info(
-            "maxOutProfit minus fees: ",
-            maxOutProfit.toFixed(this.tokenIn.decimals),
-            this.tokenOut.symbol,
-        );
-
-        if (maxInProfit.lt(0)) {
-            maxInProfit = BN(0);
-        }
-        if (maxOutProfit.lt(0)) {
-            maxOutProfit = BN(0);
-        }
-        if (maxInProfit.eq(0) && maxOutProfit.eq(0)) {
-            logger.info("No profitable trade found");
-            return BN(0);
-        }
-        let maxProfit = maxInProfit.gt(maxOutProfit) ? maxInProfit : maxOutProfit;
-        logger.info("Max Profit greater than zero: ", maxProfit.toFixed(this.tokenIn.decimals));
-        return maxProfit;
+        // logger.info(
+        //     "maxInProfit minus fees: ",
+        //     maxInProfit.toFixed(this.tokenIn.decimals),
+        //     this.tokenOut.symbol,
+        // );
+        // logger.info(
+        //     "maxOutProfit minus fees: ",
+        //     maxOutProfit.toFixed(this.tokenIn.decimals),
+        //     this.tokenOut.symbol,
+        // );
+        let potentialProfit = maxInProfit.gt(maxOutProfit) ? maxInProfit : maxOutProfit;
+        let tradeSize = maxInProfit.gt(maxOutProfit) ? maxToken0In : maxToken0Out;
+        // logger.info(
+        //     "Max tradeSize: ",
+        //     tradeSize.toFixed(this.tokenIn.decimals),
+        //     " potential Profit: ",
+        //     potentialProfit.toFixed(this.tokenOut.decimals),
+        // );
+        return tradeSize;
     }
 
     async getSize(): Promise<bigint> {
         let rawSize = await this.calcMostProfitable();
-        if (rawSize === undefined) {
-            return 0n;
+        let size: bigint = 0n;
+        if (rawSize.gt(BN(0))) {
+            logger.info("rawSize: ", rawSize.toFixed(this.tokenIn.decimals));
+
+            size = pu(rawSize.toFixed(this.tokenIn.decimals), this.tokenIn.decimals);
+            size = size < this.low.reserves.reserveIn ? size : this.low.reserves.reserveIn;
+            // logger.info(
+            //     "size: bigint: ",
+            //     size,
+            //     fu(size, this.tokenIn.decimals),
+            //     " in ",
+            //     this.tokenIn.symbol,
+            // );
+            // const toPrice = await this.tradeToPrice();
+            // use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
+            // const maxIn = await this.getMaxTokenIn();
+            // const bestSize = toPrice < maxIn ? toPrice : maxIn;
+
+            //473 * 800 / 1000 = 378.4
+            // const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
+            // const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
+            // console.log(msg);
         }
-        logger.info("rawSize: ", rawSize.toFixed(this.tokenIn.decimals));
-
-        let size = pu(rawSize.toFixed(this.tokenIn.decimals), this.tokenIn.decimals);
-        // const toPrice = await this.tradeToPrice();
-        // use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-        // const maxIn = await this.getMaxTokenIn();
-        // const bestSize = toPrice < maxIn ? toPrice : maxIn;
-
-        //473 * 800 / 1000 = 378.4
-        // const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
-        // const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
-        // console.log(msg);
         return size;
     }
 
