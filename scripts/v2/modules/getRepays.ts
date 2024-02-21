@@ -21,10 +21,10 @@ export class PopulateRepays {
     }
     async getRepays(): Promise<Repays> {
         const singleRepayTokenIn: bigint = await this.calc.addFee(this.trade.target.tradeSize);
-        logger.info("singleRepayTokenIn: " + singleRepayTokenIn + "loanPool"); // DEBUG
+        // logger.info("singleRepayTokenIn: " + singleRepayTokenIn + "loanPool"); // DEBUG
         const getSingle = async (): Promise<{ singleIn: bigint; singleOut: bigint }> => {
             const repayinTokenOut = await this.trade.loanPool.router.getAmountsIn(
-                singleRepayTokenIn, //reflects trade on another pool which adds 0.3% to the trade
+                this.trade.target.tradeSize, //reflects trade on another pool which adds 0.3% to the trade
                 [this.trade.tokenOut.id, this.trade.tokenIn.id],
             );
             const singleRepay = {
