@@ -7,12 +7,12 @@ import { logger } from "../../../constants/logger";
 
 export class PopulateRepays {
     trade: BoolTrade;
-    calc: AmountConverter;
+    // calc: AmountConverter;
     repays: Repays;
 
-    constructor(trade: BoolTrade, calc: AmountConverter) {
+    constructor(trade: BoolTrade) {
         this.trade = trade;
-        this.calc = calc;
+        // this.calc = calc;
         this.repays = {
             single: { singleIn: 0n, singleOut: 0n },
             multi: 0n,
@@ -20,7 +20,7 @@ export class PopulateRepays {
         };
     }
     async getRepays(): Promise<Repays> {
-        const singleRepayTokenIn: bigint = await this.calc.addFee(this.trade.target.tradeSize);
+        // const singleRepayTokenIn: bigint = await this.calc.addFee(this.trade.target.tradeSize);
         // logger.info("singleRepayTokenIn: " + singleRepayTokenIn + "loanPool"); // DEBUG
         const getSingle = async (): Promise<{ singleIn: bigint; singleOut: bigint }> => {
             const repayinTokenOut = await this.trade.loanPool.router.getAmountsIn(
@@ -28,7 +28,7 @@ export class PopulateRepays {
                 [this.trade.tokenOut.id, this.trade.tokenIn.id],
             );
             const singleRepay = {
-                singleIn: singleRepayTokenIn, // Only usable if you can find another trade/pool elsewhere that will give you the exact amount of tokenIn you need to repay. TODO: IMPLEMENT THIS (TRIANGULAR ARBITRAGE)
+                singleIn: (this.trade.target.tradeSize * 1003n) / 1000n, // Only usable if you can find another trade/pool elsewhere that will give you the exact amount of tokenIn you need to repay. TODO: IMPLEMENT THIS (TRIANGULAR ARBITRAGE)
                 singleOut: repayinTokenOut[0],
             };
             return singleRepay;
