@@ -61,8 +61,8 @@ export class Trade {
         this.slip = slip;
         this.gasData = gasData;
         // Pass in the opposing pool's priceOut as target
-        this.calcA = new AmountConverter(reservesA, match, this.reservesB.priceOutBN);
-        this.calcB = new AmountConverter(reservesB, match, this.reservesA.priceOutBN);
+        this.calcA = new AmountConverter(reservesA, reservesB, match);
+        this.calcB = new AmountConverter(reservesB, reservesA, match);
     }
 
     async direction() {
@@ -85,15 +85,11 @@ export class Trade {
         return { dir, diff, dperc };
     }
 
-    async getSize() {}
-
     async getTrade() {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
-        const size = A
-            ? await this.getSize(this.calcB, this.calcA)
-            : await this.getSize(this.calcA, this.calcB);
+        const size = A ? await this.calcB.getSize() : await this.calcA.getSize();
         const trade: BoolTrade = {
             ID: A
                 ? this.match.poolAID + this.match.poolBID
