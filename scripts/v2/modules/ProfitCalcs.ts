@@ -6,11 +6,11 @@ import { AmountConverter } from "./amountConverter";
 export class ProfitCalculator {
     repays: Repays;
     trade: BoolTrade;
-    calc: AmountConverter;
+    // calc: AmountConverter;
 
-    constructor(trade: BoolTrade, calc: AmountConverter, repays: Repays) {
+    constructor(trade: BoolTrade, /*calc: AmountConverter,*/ repays: Repays) {
         this.trade = trade;
-        this.calc = calc;
+        // this.calc = calc;
         this.repays = repays;
     }
 

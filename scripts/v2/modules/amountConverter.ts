@@ -166,7 +166,9 @@ export class AmountConverter {
             // logger.info("rawSize: ", rawSize.toFixed(this.tokenIn.decimals));
 
             size = pu(rawSize.toFixed(this.tokenIn.decimals), this.tokenIn.decimals);
+            size = size < this.low.reserves.reserveIn ? size : this.low.reserves.reserveIn;
             size = size < this.high.reserves.reserveIn ? size : this.high.reserves.reserveIn;
+            size = await this.addFee(size);
             // logger.info(
             //     "size: bigint: ",
             //     size,
