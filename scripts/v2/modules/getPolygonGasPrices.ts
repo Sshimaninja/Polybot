@@ -25,7 +25,7 @@ export async function getGasData(): Promise<GasData> {
     let ethersGasData: GasData = {
         gasPrice: 0n,
         gasEstimate: 400000n,
-        maxFee: ethersGas.maxFeePerGas != null ? ethersGas.maxFeePerGas : gasData.maxFee,
+        maxFee: ethersGas.maxFeePerGas != null ? ethersGas.maxFeePerGas : gasData.maxPriorityFee,
         maxPriorityFee:
             ethersGas.maxPriorityFeePerGas != null
                 ? ethersGas.maxPriorityFeePerGas
@@ -43,11 +43,12 @@ export async function getGasData(): Promise<GasData> {
         gasData = {
             gasEstimate: 400000n,
             gasPrice:
-                pu(Math.round(polygonGasData.fast.maxFee).toString(), "gwei") * gasData.gasEstimate, //ethersGasData.gasPrice,
+                pu(Math.round(polygonGasData.fast.maxPriorityFee).toString(), "gwei") *
+                gasData.gasEstimate, //ethersGasData.gasPrice,
             maxFee: pu(Math.round(polygonGasData.fast.maxFee).toString(), "gwei"),
             maxPriorityFee: pu(Math.round(polygonGasData.fast.maxPriorityFee).toString(), "gwei"),
         };
-        console.log("PolyGas: ", gasData);
+        // console.log("PolyGas: ", gasData);
         return gasData;
     }
     if (ethersGasData) {
