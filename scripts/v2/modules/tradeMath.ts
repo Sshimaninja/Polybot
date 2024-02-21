@@ -11,9 +11,8 @@ import { BigNumber as BN } from "bignumber.js";
 /*
 
 */
-export async function getMaxTokenIn(reserveIn: BN, slippageTolerance: BN): Promise<BN> {
+export async function getMaxToken0In(reserveIn: BN, slippageTolerance: BN): Promise<BN> {
     const maxTokenIn = reserveIn.multipliedBy(BN(1).plus(slippageTolerance)).minus(reserveIn);
-    //1000 * 1.002 = 1002 - 1000 = 2
     return maxTokenIn;
 }
 
@@ -28,8 +27,8 @@ export async function getMaxTokenIn(reserveIn: BN, slippageTolerance: BN): Promi
 - maxToken1Out = reserveOut - targetReserves = 1580000 - 1576840 = 3160
 */
 
-export async function getMaxTokenOut(reserveOut: BN, slippageTolerance: BN): Promise<BN> {
-    const maxTokenOut = reserveOut.multipliedBy(BN(1).minus(slippageTolerance)).minus(reserveOut);
+export async function getMaxToken0Out(reserveOut: BN, slippageTolerance: BN): Promise<BN> {
+    const maxTokenOut = reserveOut.multipliedBy(BN(1).minus(slippageTolerance)); //.minus(reserveOut); // (1580000 * 0.998) - 158000 = 3160
     return maxTokenOut;
 }
 
@@ -73,7 +72,7 @@ export async function tradeToPrice(
     }
     // Calculate the maximum trade size that would result in a slippage equal to slippageTolerance
     let tradeSize = diff.multipliedBy(reserveIn); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
-    const maxTradeSize = await getMaxTokenIn(reserveOut, slippageTolerance); // 123348 * 0.002 = 246.696
+    const maxTradeSize = await getMaxToken0In(reserveOut, slippageTolerance); // 123348 * 0.002 = 246.696
     if (tradeSize.lt(maxTradeSize)) {
         return tradeSize; // 45.285714285714285714285714285714
     } else {
@@ -81,35 +80,35 @@ export async function tradeToPrice(
     }
 }
 
-export async function calculateMostProfitableTrade(
-    targetPoolPrice: BN,
-    loanPoolPrice: BN,
-    targetReserveIn: BN,
-    loanPoolReserveOut: BN,
-    slippageTolerance: BN,
-    transactionFee: BN,
-): Promise<BN> {
-    // Calculate the current prices in both pools
-    // const targetPoolPrice = targetReserveOut.div(targetReserveIn);
-    // const loanPoolPrice = loanPoolReserveOut.div(loanPoolReserveIn);
+// export async function calculateMostProfitableTrade(
+//     targetPoolPrice: BN,
+//     loanPoolPrice: BN,
+//     targetReserveIn: BN,
+//     loanPoolReserveOut: BN,
+//     slippageTolerance: BN,
+//     transactionFee: BN,
+// ): Promise<BN> {
+//     // Calculate the current prices in both pools
+//     // const targetPoolPrice = targetReserveOut.div(targetReserveIn);
+//     // const loanPoolPrice = loanPoolReserveOut.div(loanPoolReserveIn);
 
-    // Calculate the price difference
-    const priceDifference = targetPoolPrice.minus(loanPoolPrice);
+//     // Calculate the price difference
+//     const priceDifference = targetPoolPrice.minus(loanPoolPrice);
 
-    // Calculate the maximum trade size in the target pool
-    const maxTradeSizeTarget = await getMaxTokenIn(targetReserveIn, slippageTolerance);
+//     // Calculate the maximum trade size in the target pool
+//     const maxTradeSizeTarget = await getMaxTokenIn(targetReserveIn, slippageTolerance);
 
-    // Calculate the maximum trade size in the loan pool
-    const maxTradeSizeLoan = await getMaxTokenOut(loanPoolReserveOut, slippageTolerance);
+//     // Calculate the maximum trade size in the loan pool
+//     const maxTradeSizeLoan = await getMaxTokenOut(loanPoolReserveOut, slippageTolerance);
 
-    // Calculate the potential profit for each trade size
-    const profitTarget = maxTradeSizeTarget.multipliedBy(priceDifference).minus(transactionFee);
-    const profitLoan = maxTradeSizeLoan.multipliedBy(priceDifference).minus(transactionFee);
+//     // Calculate the potential profit for each trade size
+//     const profitTarget = maxTradeSizeTarget.multipliedBy(priceDifference).minus(transactionFee);
+//     const profitLoan = maxTradeSizeLoan.multipliedBy(priceDifference).minus(transactionFee);
 
-    // Choose the trade size that gives the highest profit
-    if (profitTarget.gt(profitLoan)) {
-        return maxTradeSizeTarget;
-    } else {
-        return maxTradeSizeLoan;
-    }
-}
+//     // Choose the trade size that gives the highest profit
+//     if (profitTarget.gt(profitLoan)) {
+//         return maxTradeSizeTarget;
+//     } else {
+//         return maxTradeSizeLoan;
+//     }
+// }
