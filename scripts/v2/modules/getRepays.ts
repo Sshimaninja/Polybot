@@ -3,6 +3,7 @@ import { Profcalcs, Repays, BoolTrade } from "../../../constants/interfaces";
 import { AmountConverter } from "./amountConverter";
 import { getAmountsIn, getAmountsOut } from "./getAmountsIOJS";
 import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
+import { logger } from "../../../constants/logger";
 
 export class PopulateRepays {
     trade: BoolTrade;
@@ -20,6 +21,7 @@ export class PopulateRepays {
     }
     async getRepays(): Promise<Repays> {
         const singleRepayTokenIn: bigint = await this.calc.addFee(this.trade.target.tradeSize);
+        logger.info("singleRepayTokenIn: " + singleRepayTokenIn + "loanPool"); // DEBUG
         const getSingle = async (): Promise<{ singleIn: bigint; singleOut: bigint }> => {
             const repayinTokenOut = await this.trade.loanPool.router.getAmountsIn(
                 singleRepayTokenIn, //reflects trade on another pool which adds 0.3% to the trade
