@@ -163,7 +163,7 @@ export class AmountConverter {
         let rawSize = await this.calcMostProfitable();
         let size: bigint = 0n;
         if (rawSize.gt(BN(0))) {
-            logger.info("rawSize: ", rawSize.toFixed(this.tokenIn.decimals));
+            // logger.info("rawSize: ", rawSize.toFixed(this.tokenIn.decimals));
 
             size = pu(rawSize.toFixed(this.tokenIn.decimals), this.tokenIn.decimals);
             size = size < this.low.reserves.reserveIn ? size : this.low.reserves.reserveIn;
