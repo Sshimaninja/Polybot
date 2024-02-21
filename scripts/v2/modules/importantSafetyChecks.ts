@@ -18,7 +18,12 @@ export async function importantSafetyChecks(trade: BoolTrade): Promise<boolean> 
         return false;
     }
     if (swap.amount0Out > trade.target.reserveIn || swap.amount1Out > trade.target.reserveOut) {
-        console.log("INSUFFICIENT LIQUIDITY FOR TRADE: ", trade.ticker, " ", trade.target.exchange);
+        console.log(
+            "INSUFFICIENT LIQUIDITY FOR TRADE ON TARGET: ",
+            trade.ticker,
+            " ",
+            trade.target.exchange,
+        );
         return false;
     }
     let balance0 = trade.target.reserveIn;
