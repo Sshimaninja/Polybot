@@ -89,7 +89,7 @@ export class Trade {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
-        const size = A ? await this.calcB.getSize() : await this.calcA.getSize();
+        const size = A ? await this.calcA.getSize() : await this.calcB.getSize();
         const trade: BoolTrade = {
             ID: A
                 ? this.match.poolAID + this.match.poolBID
@@ -201,21 +201,22 @@ export class Trade {
         ); // token1 max out
 
         // // SUBTRACT SLIPPAGE FROM EXPECTED AMOUNTOUT. This is an attempt to offset 'INSUFFICIENT_OUTPUT_AMOUNT' errors.
-        // trade.target.amountOut = await this.calcA.subSlippage(
-        //     trade.target.amountOut,
-        //     trade.tokenOut.decimals,
-        // );
+        trade.target.amountOut = await this.calcA.subSlippage(
+            trade.target.amountOut,
+            trade.tokenOut.decimals,
+        );
 
         // console.log("trade.target.amountOut minus slippage: ", trade.target.amountOut);
 
         //TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
         // Define repay & profit for each trade type:
-        const r = new PopulateRepays(trade, this.calcA);
+
+        const r = new PopulateRepays(trade);
         const repays = await r.getRepays();
-        const p = new ProfitCalculator(trade, this.calcA, repays);
+        const p = new ProfitCalculator(trade, repays);
 
         const multi = await p.getMultiProfit();
-        const single = await p.getSingleProfit();
+        // const single = await p.getSingleProfit();
 
         // subtract the result from amountOut to get profit
         // The below will be either in token0 or token1, depending on the trade type.
@@ -224,28 +225,33 @@ export class Trade {
         // if (filteredTrade == undefined) {
         //     return trade;
         // }
-        //TODO: CHANGE 'SINGLE' TO 'SINGLE' to reflect uniswap docs.
-        trade.type =
-            multi.profit > single.profit
-                ? "multi"
-                : single.profit > multi.profit
-                ? "single"
-                : "No Profit: multi: " + multi.profit + " single: " + single.profit;
 
-        trade.loanPool.amountRepay =
-            trade.type === "multi" ? repays.multi : repays.single.singleOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
+        //FORCE MULTI TRADE FOR NOW:
+
+        trade.type = "multi";
+        // multi.profit > single.profit
+        //     ? "multi"
+        //     : single.profit > multi.profit
+        //     ? "single"
+        //     : "No Profit: multi: " + multi.profit + " single: " + single.profit;
+
+        trade.loanPool.amountRepay = repays.multi;
+        // trade.type === "multi" ? repays.multi : repays.single.singleOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
 
         trade.loanPool.repays = repays;
 
-        trade.profits.profitToken = trade.type === "multi" ? multi.profit : single.profit;
+        trade.profits.profitToken = multi.profit; // trade.type === "multi" ? multi.profit : single.profit;
 
-        trade.profits.profitPercent =
-            trade.type == "multi"
-                ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
-                : pu(
-                      single.profitPercent.toFixed(trade.tokenOut.decimals),
-                      trade.tokenOut.decimals,
-                  );
+        trade.profits.profitPercent = pu(
+            multi.profitPercent.toFixed(trade.tokenOut.decimals),
+            trade.tokenOut.decimals,
+        );
+        // trade.type == "multi"
+        //     ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
+        //     : pu(
+        //           single.profitPercent.toFixed(trade.tokenOut.decimals),
+        //           trade.tokenOut.decimals,
+        //       );
 
         trade.k = await getK(
             trade.type,
@@ -255,7 +261,7 @@ export class Trade {
             this.calcA,
         );
 
-        trade.flash = trade.type === "multi" ? flashMulti : flashSingle;
+        trade.flash = flashMulti; // trade.type === "multi" ? flashMulti : flashSingle;
         await filterTrade(trade);
 
         // return trade;
