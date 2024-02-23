@@ -50,6 +50,7 @@ export async function rollDamage(trade: BoolTrade) {
     ) {
         const log = await tradeLogs(trade);
         trade = await trueProfit(trade);
+        logger.info(">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ", trade.profits.profitWMATIC);
         // If profit is greater than gas cost, execute trade
         if (trade.profits.profitWMATIC > trade.gas.gasPrice) {
             logger.info(
