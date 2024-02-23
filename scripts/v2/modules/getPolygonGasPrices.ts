@@ -1,7 +1,7 @@
 import axios from "axios";
 import { provider } from "../../../constants/provider";
 import { GasData, PolygonGasData } from "../../../constants/interfaces";
-import { pu } from "../../modules/convertBN";
+import { fu, pu } from "../../modules/convertBN";
 /**
  *
  * @returns suggested gasData from polygon gas station, ballback to ethers.js gasData, fallback to default gasData
@@ -11,50 +11,49 @@ import { pu } from "../../modules/convertBN";
 export var gasMult = 9n * 10n ** 9n;
 
 export async function getGasData(): Promise<GasData> {
-    var gasData: GasData = {
-        gasPrice: 50000000001n,
-        gasEstimate: 50000000001n,
-        maxFee: 51193294404n,
-        maxPriorityFee: 34200000000n,
+    let gasData: GasData = {
+        gasEstimate: 400000n,
+        gasPrice: 0n,
+        maxFee: 0n,
+        maxPriorityFee: 0n,
     };
 
     const ethersGas = await provider.getFeeData();
+    const block = await provider.getBlock("latest");
+    let baseFee = block?.baseFeePerGas;
 
-    let ethersGasData = {
-        gasPrice: ethersGas.gasPrice != null ? ethersGas.gasPrice : gasData.gasPrice,
-        gasEstimate: ethersGas.gasPrice != null ? ethersGas.gasPrice : gasData.gasEstimate,
-        maxFee: ethersGas.maxFeePerGas != null ? ethersGas.maxFeePerGas : gasData.maxFee,
+    let ethersGasData: GasData = {
+        gasEstimate: 400000n,
+        gasPrice: 0n,
+        maxFee: ethersGas.maxFeePerGas != null ? ethersGas.maxFeePerGas : gasData.maxPriorityFee,
         maxPriorityFee:
             ethersGas.maxPriorityFeePerGas != null
                 ? ethersGas.maxPriorityFeePerGas
                 : gasData.maxPriorityFee,
     };
+    ethersGasData.gasPrice = ethersGasData.maxFee + ethersGasData.gasEstimate * baseFee!;
+    ethersGasData.gasPrice += gasMult;
     ethersGasData.maxFee += gasMult;
     ethersGasData.maxPriorityFee += gasMult;
-
-    // console.log("Ethers Gas Data: ", ethersGasData);
 
     const polygonGasData: PolygonGasData = (
         await axios.get("https://gasstation.polygon.technology/v2")
     ).data;
     if (polygonGasData) {
-        const polyGas = {
-            gasPrice: pu(
-                Math.round(polygonGasData.fast.maxFee * polygonGasData.estimatedBaseFee).toString(),
-                "gwei",
-            ), //ethersGasData.gasPrice,
-            gasEstimate: pu(Math.round(polygonGasData.estimatedBaseFee).toString(), "gwei"), //ethersGasData.gasPrice,
+        gasData = {
+            gasEstimate: 400000n,
+            gasPrice:
+                pu(Math.round(polygonGasData.fast.maxPriorityFee).toString(), "gwei") *
+                gasData.gasEstimate, //ethersGasData.gasPrice,
             maxFee: pu(Math.round(polygonGasData.fast.maxFee).toString(), "gwei"),
             maxPriorityFee: pu(Math.round(polygonGasData.fast.maxPriorityFee).toString(), "gwei"),
         };
-        // console.log("Polygon Gas Data: ", polygonGasData);
-        // console.log("PolyGas: ", polyGas);
-        return polyGas;
+        // console.log("PolyGas: ", gasData);
+        return gasData;
     }
     if (ethersGasData) {
-        return ethersGasData;
+        return gasData;
     }
     console.log("Error in getGasData: Using default gasData");
     return gasData;
 }
-getGasData();
