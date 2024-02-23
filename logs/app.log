@@ -1,0 +1,386 @@
+[2024-02-23T17:35:06.433] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-02-23T17:35:11.152] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:11.502] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:11.717] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:11.848] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:12.568] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:12.568] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:12.608] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:35:12.610] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.005348355922377742 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:35:12.610] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004587561908678657 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:35:12.610] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004399490335044583 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:35:13.596] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:13.596] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:13.641] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:35:13.647] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.005348355922377742 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:35:13.647] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004587561908678657 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:35:13.647] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004399490335044583 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:35:13.879] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.00011265592111168 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:35:14.484] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.00011265592111168 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:35:14.636] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:14.935] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:15.227] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:15.227] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:35:15.436] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:39.536] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-02-23T17:38:44.289] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:45.023] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:38:45.306] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:38:45.530] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:45.530] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:45.798] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:45.799] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:46.129] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:38:46.130] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000029025556869489 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:38:46.587] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:38:46.588] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:38:46.588] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000110137547966407 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:38:47.166] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:47.166] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:47.183] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:38:47.348] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:38:47.610] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:47.792] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:48.719] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:48.719] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:38:48.774] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:46.160] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-02-23T17:41:50.929] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:50.992] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:51.312] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:51.345] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:52.215] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:52.215] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:52.215] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:52.215] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:52.297] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:52.298] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:52.301] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:52.301] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:52.301] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:52.301] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:52.301] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003970171145302735 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:52.301] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003970171145302735 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:52.779] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:52.779] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:53.171] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:53.171] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:53.171] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:53.171] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:53.541] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:53.541] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:53.541] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:53.541] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:54.286] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:54.286] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:54.288] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:41:54.288] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:41:54.946] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:54.946] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:54.952] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:54.952] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:54.952] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:54.952] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:55.148] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.183] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.539] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:55.539] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:55.652] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.713] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:55.966] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:55.967] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:56.910] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:56.910] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:57.169] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:57.169] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:57.349] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:57.349] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:57.350] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:57.372] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:57.373] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:57.373] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:57.474] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:57.474] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:41:57.958] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:57.958] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:41:58.226] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:58.226] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:58.647] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:58.647] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:58.647] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:58.647] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:58.766] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:58.905] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.117] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.117] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.511] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.511] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.511] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.511] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.737] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.810] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:41:59.987] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:41:59.987] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:00.271] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:00.271] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:00.275] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:00.275] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:01.155] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:01.155] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:01.213] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:01.225] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:01.225] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:01.225] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:01.576] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:01.576] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:01.588] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:01.588] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:01.588] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:01.589] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:01.589] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:01.589] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:01.601] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:01.601] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:01.605] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:01.605] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:01.605] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:01.605] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:01.829] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:01.829] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:02.205] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.205] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.205] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.205] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.256] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:02.256] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:02.522] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.522] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.522] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.522] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:02.920] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:02.920] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:03.104] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.104] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.104] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.104] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.104] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.423] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.689] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.689] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.689] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.689] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.689] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.712] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:03.712] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:03.927] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:03.927] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:04.695] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:04.768] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:04.794] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:04.794] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:04.887] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:04.889] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:04.889] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:05.132] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.132] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.184] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:05.480] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.480] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.535] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:05.535] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:05.536] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:05.536] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:05.536] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:05.536] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:05.536] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003517238996226364 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:05.537] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:05.878] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.915] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.915] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.916] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:05.945] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:05.945] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:05.945] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:05.945] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:05.958] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:06.325] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:06.326] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:06.326] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:06.589] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:06.589] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:06.589] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:06.589] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:06.628] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:06.629] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:07.021] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:07.021] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:07.614] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.614] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.614] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.614] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.614] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.614] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.644] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.828] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:07.878] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:07.878] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:07.878] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:07.878] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003157229696083816 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:07.878] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:08.131] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:08.619] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:08.620] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:08.679] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:08.679] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:08.694] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:08.694] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:08.704] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:08.704] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:08.704] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:08.704] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:09.028] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.346] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.346] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.347] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.347] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.397] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:09.397] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:09.397] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:09.641] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.641] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.642] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.642] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.674] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:09.905] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.905] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:09.951] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:09.951] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:09.951] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:09.951] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:10.338] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:10.556] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:10.556] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:10.798] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:10.843] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:10.849] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:10.849] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:11.088] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.088] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.088] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.311] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.312] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.351] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:11.519] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.559] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.623] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.756] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.757] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:11.865] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:11.865] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:12.336] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:12.336] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:12.337] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:12.337] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:12.337] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:12.379] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:12.380] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:12.380] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:12.380] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:12.380] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:12.382] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003157229696083816 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:12.383] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003157229696083816 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:12.383] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:12.383] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:12.383] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:12.383] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:12.688] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:12.688] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:12.954] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:13.163] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.163] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.163] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.163] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.190] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:13.360] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.568] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.569] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.569] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.569] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:13.718] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:14.255] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:14.265] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:14.265] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028183792869569 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:14.384] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:14.384] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:14.754] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:14.820] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:14.820] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:14.821] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:14.821] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:14.919] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:14.933] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:14.933] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:15.362] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:15.362] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:15.364] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:15.364] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:15.364] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:15.417] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:15.417] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:15.418] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:15.590] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:16.142] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:16.203] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:16.203] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:16.215] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:16.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:16.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:16.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:16.501] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:16.523] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:16.523] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:16.523] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:16.523] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.004201662664411843 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:16.523] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003157229696083816 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:16.523] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003157229696083816 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:16.523] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:16.523] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.003585513014966381 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0x019011032a7ac3A87eE885B6c08467AC46ad11CD
+[2024-02-23T17:42:16.604] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:17.288] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.288] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.288] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/COLLAR ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.288] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.288] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.379] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000060073365442999 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LINK ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:17.896] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:18.529] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WETH/USDT Polydex: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:18.529] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/LIRA Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:18.609] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:18.609] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:18.620] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000409988631658943 gasRouter: 0x94930a328162957FF1dd48900aF67B5439336cBD gasPool: 0x40F011C74F7AEC28EE2845e39172474F229a4b42
+[2024-02-23T17:42:18.620] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028400645005116 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:19.367] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:19.367] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:19.414] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:19.414] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:19.414] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:19.414] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:19.414] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000028400645005116 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0x383Be588327216586e131E63592A2Dc976A16655
+[2024-02-23T17:42:20.063] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: LINK/WETH ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:20.063] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/SCHI ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:20.114] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:20.114] [INFO] default - Factory Key for Profit in WMATIC calculation: QUICK
+[2024-02-23T17:42:20.115] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000084695292498609 gasRouter: 0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:20.115] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:20.115] [INFO] default - [getProfitInWmatic]: profitInWMATIC: 0.000085389366155401 gasRouter: 0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506 gasPool: 0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c
+[2024-02-23T17:42:20.315] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-23T17:42:20.315] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC Meerkat: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
