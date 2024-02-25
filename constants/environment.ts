@@ -4,10 +4,13 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { abi as IflashMulti } from "../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json";
 import { abi as IflashSingle } from "../artifacts/contracts/v2/flashSingleTest.sol/flashSingleTest.json";
 import { provider, wallet, signer } from "./provider";
+import { BigNumber as BN } from "bignumber.js";
 import { logger } from "./logger";
 export const dotenv = dotenvConfig({
     path: `.env.${process.env.NODE_ENV == "test" ? "test" : "live"}`,
 });
+
+export let slip = BN(0.002);
 
 if (process.env.FLASH_MULTI === undefined || process.env.FLASH_SINGLE === undefined) {
     logger.error("No contract address set in .env file");

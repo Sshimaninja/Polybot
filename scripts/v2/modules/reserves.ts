@@ -40,9 +40,9 @@ export class Reserves {
                     if (reservesData === undefined) {
                         return reserves;
                     }
-                    const [reserveIn, reserveOut, blockTimestampLast] = reservesData;
-                    const reserveInBN = BigInt2BN(reserveIn, match.token0.decimals);
-                    const reserveOutBN = BigInt2BN(reserveOut, match.token1.decimals);
+                    const [reserveOut, reserveIn, blockTimestampLast] = reservesData;
+                    const reserveInBN = BigInt2BN(reserveIn, match.token1.decimals);
+                    const reserveOutBN = BigInt2BN(reserveOut, match.token0.decimals);
                     const reserveData: ReservesData = {
                         reserveIn,
                         reserveOut,

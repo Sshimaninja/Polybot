@@ -61,10 +61,10 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     fu(trade.target.reserveOut, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
-                amountOutToken0for1:
-                    fu(trade.target.amountOutToken0for1, trade.tokenIn.decimals) +
-                    " " +
-                    trade.tokenIn.symbol,
+                // amountOutToken0for1:
+                //     fu(trade.target.amountOutToken0for1, trade.tokenIn.decimals) +
+                //     " " +
+                //     trade.tokenIn.symbol,
                 amountOut:
                     fu(trade.target.amountOut, trade.tokenOut.decimals) +
                     " " +
