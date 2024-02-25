@@ -2,12 +2,13 @@ require("dotenv").config();
 require("colors");
 import fs from "fs";
 import { BigNumber as BN } from "bignumber.js";
-import { Prices } from "./modules/prices";
+import { Prices } from "./classes/Prices";
 import { FactoryPair, TradePair } from "../../constants/interfaces";
-import { Trade } from "./Trade";
+import { Trade } from "./classes/Trade";
 import { Reserves } from "./modules/reserves";
 import { tradeLogs } from "./modules/tradeLog";
 import { rollDamage } from "./modules/damage";
+import { slip } from "../../constants/environment";
 // import { filterMatches } from "./filterMatches";
 /*
 TODO:
@@ -21,7 +22,6 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 let filteredTrades: string[]; // Array to store filtered trades
-export const slippageTolerance = BN(0.002);
 
 export async function control(data: FactoryPair[], gasData: any) {
     const promises: any[] = [];
@@ -39,7 +39,7 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const p0 = new Prices(match.poolAID, reserves[0]);
                     const p1 = new Prices(match.poolBID, reserves[1]);
 
-                    const t = new Trade(pair, match, p0, p1, slippageTolerance, gasData);
+                    const t = new Trade(pair, match, p0, p1, slip, gasData);
                     const trade = await t.getTrade();
 
                     // This filter was too strong, resulting in 0 matches to trade. Needs refined.

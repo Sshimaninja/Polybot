@@ -1,14 +1,14 @@
-import { BoolTrade, TxData, V2Tx, TxGas } from "../../../constants/interfaces";
+import { BoolTrade, TxData, V2Tx, TxGas } from "../../../../constants/interfaces";
 import { sendTx } from "./sendTx";
-import { pu, fu, BN2BigInt } from "../../modules/convertBN";
-import { slippageTolerance } from "../../v2/control";
-import { logger } from "../../../constants/logger";
+import { pu, fu, BN2BigInt } from "../../../modules/convertBN";
+import { slip } from "../../../../constants/environment";
+import { logger } from "../../../../constants/logger";
 export async function send(trade: BoolTrade): Promise<TxData> {
-    // let slippageJS = BN2BigInt(slippageTolerance, 18);
+    // let slippageJS = BN2BigInt(slip, 18);
     // let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS;
     // POSSIBLE REVERT CONDITIONS:
-    // amountOut too high (calculated without slippageTolerance)
-    // amountRepay too low (calculated without subtracting extra for slippageTolerance)
+    // amountOut too high (calculated without slip)
+    // amountRepay too low (calculated without subtracting extra for slip)
     // DEBUG:
 
     const txLog = {

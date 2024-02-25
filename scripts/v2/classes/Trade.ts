@@ -8,25 +8,23 @@ import {
     Profcalcs,
     Repays,
     TradePair,
-} from "../../constants/interfaces";
+} from "../../../constants/interfaces";
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { flashMulti, flashSingle } from "../../constants/environment";
-import { provider, wallet } from "../../constants/provider";
-import { Prices } from "./modules/prices";
-import { getK } from "./modules/getK";
-import { BoolTrade } from "../../constants/interfaces";
-import { PopulateRepays } from "./modules/getRepays";
-// import { getAmountsIn, getAmountsOut } from "./modules/getAmountsIOLocal";
-import { AmountConverter } from "./modules/amountConverter";
-import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertBN";
-import { filterTrade } from "./modules/filterTrade";
-import { checkTrade } from "./modules/checkTrade";
-import { logger } from "../../constants/logger";
-import { ProfitCalculator } from "./modules/ProfitCalcs";
-import { getAmountsOut, getAmountsIn } from "./modules/getAmountsIOJS";
-// import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmountsIOBN";
+import { flashMulti, flashSingle } from "../../../constants/environment";
+import { provider, wallet } from "../../../constants/provider";
+import { Prices } from "./Prices";
+import { getK } from "../modules/tools/getK";
+import { BoolTrade } from "../../../constants/interfaces";
+import { PopulateRepays } from "./Repays";
+import { AmountConverter } from "./AmountConverter";
+import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../../modules/convertBN";
+import { filterTrade } from "../modules/filterTrade";
+import { logger } from "../../../constants/logger";
+import { ProfitCalculator } from "./ProfitCalcs";
+import { getAmountsOut, getAmountsIn } from "../modules/getAmounts/getAmountsIOJS";
+// import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmounts/getAmountsIOBN";
 
 /**
  * @description
@@ -100,6 +98,7 @@ export class Trade {
 
     async getTrade() {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
+        //TODO: SWITCH bot to trade from token1 to token0; token0 is more often WMATIC, which is easier to price.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const size = A
@@ -107,14 +106,14 @@ export class Trade {
             : await this.getSize(this.calc0, this.calc1);
         const trade: BoolTrade = {
             ID: A
-                ? this.match.poolAID + this.match.poolBID
-                : this.match.poolBID + this.match.poolAID,
+                ? this.match.poolBID + this.match.poolAID
+                : this.match.poolAID + this.match.poolBID,
             block: await provider.getBlockNumber(),
             direction: dir.dir,
             type: "filtered",
             ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
-            tokenIn: this.match.token0,
-            tokenOut: this.match.token1,
+            tokenIn: this.match.token1,
+            tokenOut: this.match.token0,
             flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type. Likely to be flashMulti uneless other protocols are added for single swaps.
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
@@ -136,11 +135,11 @@ export class Trade {
                     ? this.price1.reserves.reserveOutBN
                     : this.price0.reserves.reserveOutBN,
                 priceIn: A
-                    ? this.price1.priceInBN.toFixed(this.match.token0.decimals)
-                    : this.price0.priceInBN.toFixed(this.match.token0.decimals),
+                    ? this.price1.priceInBN.toFixed(this.match.token1.decimals)
+                    : this.price0.priceInBN.toFixed(this.match.token1.decimals),
                 priceOut: A
-                    ? this.price1.priceOutBN.toFixed(this.match.token1.decimals)
-                    : this.price0.priceOutBN.toFixed(this.match.token1.decimals),
+                    ? this.price1.priceOutBN.toFixed(this.match.token0.decimals)
+                    : this.price0.priceOutBN.toFixed(this.match.token0.decimals),
                 amountOut: 0n,
                 repays: {
                     single: { singleIn: 0n, singleOut: 0n },
@@ -169,14 +168,14 @@ export class Trade {
                     ? this.price0.reserves.reserveOutBN
                     : this.price1.reserves.reserveOutBN,
                 priceIn: A
-                    ? this.price0.priceInBN.toFixed(this.match.token0.decimals)
-                    : this.price1.priceInBN.toFixed(this.match.token0.decimals),
+                    ? this.price0.priceInBN.toFixed(this.match.token1.decimals)
+                    : this.price1.priceInBN.toFixed(this.match.token1.decimals),
                 priceOut: A
-                    ? this.price0.priceOutBN.toFixed(this.match.token1.decimals)
-                    : this.price1.priceOutBN.toFixed(this.match.token1.decimals),
+                    ? this.price0.priceOutBN.toFixed(this.match.token0.decimals)
+                    : this.price1.priceOutBN.toFixed(this.match.token0.decimals),
                 //TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
                 tradeSize: size,
-                amountOutToken0for1: 0n,
+                // amountOuttoken0for1: 0n,
                 amountOut: 0n,
             },
             gas: this.gasData,
@@ -186,8 +185,8 @@ export class Trade {
                 uniswapKPositive: false,
             },
             differenceTokenOut:
-                dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
-            differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
+                dir.diff.toFixed(this.match.token0.decimals) + " " + this.match.token0.symbol,
+            differencePercent: dir.dperc.toFixed(this.match.token0.decimals) + "%",
             profits: {
                 profitToken: 0n,
                 profitWMATIC: 0n,
@@ -196,16 +195,16 @@ export class Trade {
         };
 
         trade.target.amountOut = await getAmountsOut(
-            trade.target.router, // token0 in given
-            trade.target.tradeSize, // token0 in
+            trade.target.router, // token1 in given
+            trade.target.tradeSize, // token1 in
             [trade.tokenIn.id, trade.tokenOut.id],
-        ); // token1 max out
+        ); // token0 max out
 
         trade.loanPool.amountOut = await getAmountsOut(
-            trade.loanPool.router, // token0 in given
-            trade.target.tradeSize, // token0 in
+            trade.loanPool.router, // token1 in given
+            trade.target.tradeSize, // token1 in
             [trade.tokenIn.id, trade.tokenOut.id],
-        ); // token1 max out
+        ); // token0 max out
 
         // // SUBTRACT SLIPPAGE FROM EXPECTED AMOUNTOUT. This is an attempt to offset 'INSUFFICIENT_OUTPUT_AMOUNT' errors.
         // trade.target.amountOut = await this.calc0.subSlippage(
@@ -225,7 +224,7 @@ export class Trade {
         const single = await p.getSingleProfit();
 
         // subtract the result from amountOut to get profit
-        // The below will be either in token0 or token1, depending on the trade type.
+        // The below will be either in token1 or token0, depending on the trade type.
         // Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
 
         // if (filteredTrade == undefined) {

@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 import { FactoryPair } from "./constants/interfaces";
 import { logger } from "./constants/logger";
-import { telegramInfo } from "./scripts//v2/modules/notify";
+import { telegramInfo } from "./scripts/v2/modules/transaction/notify";
 
 async function main() {
     // // Set up Telegram message

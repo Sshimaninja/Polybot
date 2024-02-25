@@ -1,12 +1,10 @@
 import { BigNumber as BN } from "bignumber.js";
-import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from "./tradeMath";
+import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from "../modules/tradeMath";
 import { Pair, ReservesData, TradePair } from "../../../constants/interfaces";
-import { Prices } from "./prices";
+import { Prices } from "./Prices";
 import { Token, Amounts } from "../../../constants/interfaces";
-import { getAmountsOut, getAmountsIn } from "./getAmountsIOLocal";
-import { HiLo, Difference } from "../../../constants/interfaces";
 import { BigInt2BN, fu, pu } from "../../modules/convertBN";
-import { slippageTolerance } from "../../v2/control";
+import { slip } from "../../../constants/environment";
 
 /**
  * @description
@@ -25,16 +23,16 @@ export class AmountConverter {
         this.reserves = price.reserves;
         this.price = price;
         this.targetPrice = targetPrice;
-        this.slip = slippageTolerance;
-        this.token0 = pair.token0;
-        this.token1 = pair.token1;
+        this.slip = slip;
+        this.token0 = pair.token1; // direction token0-token1 reults in WMATIC pairs more often, making pricing easier.
+        this.token1 = pair.token0;
     }
 
     /**
      * @returns Amounts in/out for a trade. Should never be negative.
      */
     // tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of token0 needed to reach that price
-    // can be limited by slippageTolerance if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
+    // can be limited by slip if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
     // can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
 
     async tradeToPrice(): Promise<bigint> {

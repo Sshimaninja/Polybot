@@ -1,7 +1,7 @@
 import { BigNumber as BN } from "bignumber.js";
 import { BoolTrade, Profcalcs, Repays } from "../../../constants/interfaces";
 import { BigInt2BN, fu } from "../../modules/convertBN";
-import { AmountConverter } from "./amountConverter";
+import { AmountConverter } from "./AmountConverter";
 
 export class ProfitCalculator {
     repays: Repays;

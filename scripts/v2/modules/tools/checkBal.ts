@@ -1,10 +1,10 @@
 import { Contract, ethers } from "ethers";
-import { provider, wallet } from "../../../constants/provider";
-import { deployedMap, gasTokens, uniswapV2Factory } from "../../../constants/addresses";
+import { provider, wallet } from "../../../../constants/provider";
+import { deployedMap, gasTokens, uniswapV2Factory } from "../../../../constants/addresses";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IERC20 } from "@uniswap/v2-periphery/build/IERC20.json";
-import { fetchGasPrice } from "./fetchGasPrice";
-import { fu } from "../../modules/convertBN";
+import { fetchGasPrice } from "../transaction/fetchGasPrice";
+import { fu } from "../../../modules/convertBN";
 require("dotenv").config();
 /**
  * checks gas token balance of the flashwallet

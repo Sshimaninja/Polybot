@@ -1,8 +1,8 @@
 import { BoolTrade, TradeGas, TradeProfit } from "../../../constants/interfaces";
 import { Profit } from "../../../constants/interfaces";
 import { gasTokens, uniswapV2Exchange } from "../../../constants/addresses";
-import { fetchGasPrice } from "./fetchGasPrice";
-import { WMATICProfit } from "./WMATICProfit";
+import { fetchGasPrice } from "./transaction/fetchGasPrice";
+import { WMATICProfit } from "../classes/WMATICProfit";
 import { fu } from "../../modules/convertBN";
 import { logger } from "../../../constants/logger";
 require("dotenv").config();
@@ -36,7 +36,7 @@ export async function trueProfit(trade: BoolTrade): Promise<BoolTrade> {
     // if (gasPrices.tested === true) {
     let WMATICprofit = new WMATICProfit(trade, gasTokens, uniswapV2Exchange);
     let profitInWMATIC = await WMATICprofit.getWMATICProfit();
-    logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>trueProfit: ", profitInWMATIC);
+    // logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>trueProfit: ", profitInWMATIC);
 
     trade.profits.profitWMATIC = profitInWMATIC;
     // if (trade.profits.profitWMATIC > trade.gas.gasPrice) {

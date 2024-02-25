@@ -3,9 +3,9 @@ import { BoolTrade /*WmaticProfit*/ } from "../../../constants/interfaces";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IUniswapv2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IUniswapV2Factory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
-import { getAmountsOut } from "./getAmountsIOJS";
+import { getAmountsOut } from "../modules/getAmounts/getAmountsIOJS";
 import { BigNumber as BN } from "bignumber.js";
-import { getAmountsOut as getAmountsOutBN } from "./getAmountsIOBN";
+import { getAmountsOut as getAmountsOutBN } from "../modules/getAmounts/getAmountsIOBN";
 import {
     // gasTokens,
     GasToken,
@@ -106,7 +106,7 @@ export class WMATICProfit {
             let profitInWMATIC = this.trade.profits.profitToken;
             let gasRouter = this.trade.target.router;
             let gasPool = this.trade.target.pool;
-            // logger.info(
+            // console.log(
             //     "[getProfitInWmatic]: profitInWMATIC: " +
             //         fu(profitInWMATIC, 18) +
             //         " gasRouter: " +
@@ -121,7 +121,7 @@ export class WMATICProfit {
     async tokenInisWMATIC(): Promise<bigint | undefined> {
         if (this.trade.tokenIn.id == this.wmaticID) {
             console.log("[getprofitInWMATIC]: tokenIn is WMATIC");
-            // logger.info(
+            // console.log(
             //     "[getProfitInWmatic] CHECK TOKENPROFIT TO BN CONVERSION: ",
             //     this.tokenProfitBN,
             //     this.tokenProfitBN.toFixed(this.trade.tokenOut.decimals),
@@ -135,7 +135,7 @@ export class WMATICProfit {
             //     this.trade.profits.profitToken,
             //     [this.trade.tokenOut.id, wmatic],
             // );
-            // logger.info(
+            // console.log(
             //     "[getProfitInWmatic] CHECK TOKENPROFITBN TO WMATIC CONVERSION: ",
             //     inMatic,
             //     inMatic.toFixed(this.trade.tokenOut.decimals),
@@ -145,7 +145,7 @@ export class WMATICProfit {
             let gasPool = this.trade.target.pool;
 
             let profitInWMATIC = pu(inMatic.toFixed(18), 18);
-            logger.info(
+            console.log(
                 ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]:  profitInWMATICBN:  " + inMatic,
                 " string: ",
                 inMatic.toFixed(18),
@@ -176,7 +176,7 @@ export class WMATICProfit {
                 let factoryKey = Object.keys(uniswapV2Factory).find(
                     (key) => uniswapV2Factory[key] === f.factory,
                 );
-                // logger.info("Factory Key for Profit in WMATIC calculation: " + factoryKey);
+                // console.log("Factory Key for Profit in WMATIC calculation: " + factoryKey);
                 if (!factoryKey) {
                     throw new Error("Factory: " + f + " not found in uniswapV2Factory");
                 }
@@ -186,7 +186,7 @@ export class WMATICProfit {
                 let r1 = r[1];
                 r0 = BN(r0);
                 r1 = BN(r1);
-                // logger.info("Check bn conversion: ", r0, r1);
+                // console.log("Check bn conversion: ", r0, r1);
                 let profitInWMATICBN: BN;
                 if ((await pairC.token0()) === this.wmaticID) {
                     profitInWMATICBN = await getAmountsOutBN(this.tokenProfitBN, r1, r0);
@@ -197,7 +197,7 @@ export class WMATICProfit {
                     return undefined;
                 }
                 let profitInWMATIC = pu(profitInWMATICBN.toFixed(this.trade.tokenOut.decimals), 18);
-                logger.info(
+                console.log(
                     ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]: profitInWMATICBN: ",
                     profitInWMATICBN,
                     " string: ",
@@ -239,7 +239,7 @@ export class WMATICProfit {
                         let factoryKey = Object.keys(uniswapV2Factory).find(
                             (key) => uniswapV2Factory[key] === f.factory,
                         );
-                        // logger.info(
+                        // console.log(
                         //     "Factory Key for Profit in WMATIC calculation: " +
                         //         factoryKey +
                         //         " for token: " +
@@ -304,7 +304,7 @@ export class WMATICProfit {
 //                         let gasRouter = router;
 //                         let gasPool = pool;
 //                         wmaticProfit = { profitInWMATIC, gasRouter, gasPool };
-//                         logger.info(
+//                         console.log(
 //                             "[getProfitInWmatic]: profitInWMATIC: " +
 //                                 fu(profitInWMATIC, 18) +
 //                                 " gasRouter: " +

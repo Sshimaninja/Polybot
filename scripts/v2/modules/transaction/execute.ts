@@ -1,12 +1,12 @@
-import { logger } from "../../../constants/logger";
-import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../../../constants/interfaces";
-import { checkBal, checkGasBal } from "./checkBal";
-import { logEmits } from "./emits";
+import { logger } from "../../../../constants/logger";
+import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../../../../constants/interfaces";
+import { checkBal, checkGasBal } from "../tools/checkBal";
+// import { logEmits } from "./emits";
 import { send } from "./send";
 import { notify } from "./notify";
 import { fetchGasPrice } from "./fetchGasPrice";
 import { pendingTransactions } from "./pendingTransactions";
-import { fu } from "../../modules/convertBN";
+import { fu } from "../../../modules/convertBN";
 
 /**
  * @param trade
@@ -104,12 +104,12 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
 
                 const req = await send(trade);
 
-                const logs = await logEmits(trade, req);
+                // const logs = await logEmits(trade, req);
 
                 logger.info(
                     ":::::::::::::::::::::::::::::::::::Transaction logs::::::::::::::::::::::::: ",
                 );
-                logger.info(logs);
+                // logger.info(logs);
 
                 //Print balances after trade
                 await checkBal(

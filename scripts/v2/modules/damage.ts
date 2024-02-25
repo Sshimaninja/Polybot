@@ -1,6 +1,6 @@
 import { BoolTrade, PendingTx } from "../../../constants/interfaces";
 import { trueProfit } from "./trueProfit";
-import { execute } from "./execute";
+import { execute } from "./transaction/execute";
 import { BigNumber as BN } from "bignumber.js";
 import { tradeLogs } from "./tradeLog";
 import { logger } from "../../../constants/logger";

@@ -1,8 +1,8 @@
-import { BoolTrade, GAS, GasData } from "../../../constants/interfaces";
-import { tradeLogs } from "./tradeLog";
-import { logger } from "../../../constants/logger";
-import { fu, pu } from "../../modules/convertBN";
-import { fixEstimateGas } from "./fixEstimateGas";
+import { BoolTrade, GAS, GasData } from "../../../../constants/interfaces";
+import { tradeLogs } from "../tradeLog";
+import { logger } from "../../../../constants/logger";
+import { fu, pu } from "../../../modules/convertBN";
+import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 
 /**
  * @param trade
