@@ -8,6 +8,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { getAmountsOut as getAmountsOutBN } from "../modules/getAmounts/getAmountsIOBN";
 import {
     // gasTokens,
+    toWMATIC,
     GasToken,
     uniswapV2Factory,
     uniswapV2Router,
@@ -22,7 +23,6 @@ import { logger } from "../../../constants/logger";
 // import { zero } from "../../../constants/environment";
 import { fu, pu } from "../../modules/convertBN";
 import { zero, wmatic } from "../../../constants/environment";
-import { factories } from "../../../typechain-types";
 /**
  * @description
  * This function returns the profit in wmatic for a given trade.
@@ -45,6 +45,7 @@ export class WMATICProfit {
     gasRouter: Contract | undefined;
     gasPool: Contract | undefined;
     tokenProfitBN: BN;
+    toWMATIC: any;
     constructor(trade: BoolTrade, gasTokens: GasToken, exchanges: ExchangeMap) {
         this.gasTokens = gasTokens;
         this.exchanges = exchanges;
@@ -79,7 +80,7 @@ export class WMATICProfit {
             profitInWMATIC = await this.scanAllExchangesForWMATIC();
         }
         if (profitInWMATIC === undefined) {
-            profitInWMATIC = await this.scanAllExchangesForGasTokens();
+            profitInWMATIC = await this.gasTokentoWMATICPrice();
         } else if (profitInWMATIC === undefined) {
             console.log(
                 "Profit token has no value: ",
@@ -213,197 +214,179 @@ export class WMATICProfit {
             return undefined;
         }
     }
+
+    // IF NEITHER TOKEN IS WMATIC, USE toWMATIC object to get gasToken -> WMATIC price.
+
+    async gasTokentoWMATICPrice(): Promise<bigint | undefined> {
+        let profitInWMATIC: bigint | undefined;
+        for (let tokenIn of Object.keys(toWMATIC)) {
+            if (tokenIn == this.trade.tokenOut.id) {
+                let token = this.toWMATIC[tokenIn];
+                let profitInWMATICBN = await getAmountsOutBN(
+                    this.tokenProfitBN,
+                    token.reserves.reserve0,
+                    token.reserves.reserve1,
+                );
+                profitInWMATIC = pu(profitInWMATICBN.toFixed(18), 18);
+                // return profitInWMATIC;
+            }
+            if (tokenIn == this.trade.tokenIn.id) {
+                let token = this.toWMATIC[tokenIn];
+
+                let profitInToken0 = this.tokenProfitBN.multipliedBy(this.trade.loanPool.priceIn);
+                let profitInWMATICBN = await getAmountsOutBN(
+                    this.tokenProfitBN,
+                    token.reserves.reserve0,
+                    token.reserves.reserve1,
+                );
+                profitInWMATIC = pu(profitInWMATICBN.toFixed(18), 18);
+            }
+            return profitInWMATIC;
+        }
+    }
+
+    // export const toWMATIC = {
+    //     "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619": {
+    //         ticker: "ETHWMATIC",
+    //         id: "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
+    //         exchange: "QUICK",
+    //         tokenIn: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+    //         tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    //         reserves: {
+    //             reserve0: 454316351407229260525n,
+    //             reserve1: 1359855875041370319871605n,
+    //         },
+    //         liquidity: 617804759588480440177444411257351417094892625n,
+    //     },
+    //     "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": {
+    //         ticker: "USDCWMATIC",
+    //         id: "0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827",
+    //         exchange: "QUICK",
+    //         tokenIn: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    //         tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    //         reserves: { reserve0: 1161146404460n, reserve1: 1111991300426165069868546n },
+    //         liquidity: 1291184700280641236584306872748115160n,
+    //     },
+    //     "0xc2132D05D31c914a87C6611C10748AEb04B58e8F": {
+    //         ticker: "USDTWMATIC",
+    //         id: "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
+    //         exchange: "QUICK",
+    //         tokenIn: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    //         tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    //         reserves: { reserve0: 336152405054n, reserve1: 321393040088091915558702n },
+    //         liquidity: 108037043393228733440871559418479908n,
+    //     },
+    //     "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063": {
+    //         ticker: "DAIWMATIC",
+    //         id: "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
+    //         exchange: "QUICK",
+    //         tokenIn: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+    //         tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    //         reserves: {
+    //             reserve0: 10048054644023146532118n,
+    //             reserve1: 9631474205336469374047n,
+    //         },
+    //         liquidity: 96777579117720255903494240539631102241141546n,
+    //     },
+    //     "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6": {
+    //         ticker: "WBTCWMATIC",
+    //         id: "0xf6B87181BF250af082272E3f448eC3238746Ce3D",
+    //         exchange: "QUICK",
+    //         tokenIn: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+    //         tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    //         reserves: { reserve0: 22647769n, reserve1: 11541797837604398053611n },
+    //         liquidity: 261395971270763920502231543859n,
+    //     },
+    //     "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7": {
+    //         ticker: "GHSTWMATIC",
+    //         id: "0x1366c529a133D4153211410126F12Aa4e31AaAc5",
+    //         exchange: "QUICK",
+    //         tokenIn: "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+    //         tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    //         reserves: {
+    //             reserve0: 873606219290375554739n,
+    //             reserve1: 873746681901906779595n,
+    //         },
+    //         liquidity: 763310535393835188071081054011763130750705n,
+    //     },
+    // };
+
     // return undefined;
 
-    async scanAllExchangesForGasTokens(): Promise<bigint | undefined> {
-        let profitInWMATIC: bigint | undefined;
+    //     async scanAllExchangesForGasTokens(): Promise<bigint | undefined> {
+    //         let profitInWMATIC: bigint | undefined;
+    //         for (let f of Object.values(this.exchanges)) {
+    //             for (let address of Object.keys(this.gasTokens)) {
+    //                 if (address == this.trade.tokenOut.id) {
+    //                     let factory = new Contract(f.factory, IUniswapV2Factory, provider);
+    //                     let pairID = await factory.getPair(wmatic, address);
 
-        for (let address of Object.keys(this.gasTokens)) {
-            if (address == this.trade.tokenOut.id) {
-                for (let f of Object.values(this.exchanges)) {
-                    let factory = new Contract(f.factory, IUniswapV2Factory, provider);
-                    let pairID = await factory.getPair(wmatic, address);
+    //                     if (pairID) {
+    //                         let pair = new Contract(pairID, IPair, provider);
+    //                         const token0 = {
+    //                             id: await pair.token0(),
+    //                             decimals: await pair.decimals(),
+    //                             reserves: (await pair.getReserves())[0],
+    //                         };
+    //                         const token1 = {
+    //                             id: await pair.token1(),
+    //                             decimals: await pair.decimals(),
+    //                             reserves: (await pair.getReserves())[1],
+    //                         };
 
-                    if (pairID) {
-                        let pair = new Contract(pairID, IPair, provider);
-                        const token0 = {
-                            id: await pair.token0(),
-                            decimals: await pair.decimals(),
-                            reserves: (await pair.getReserves())[0],
-                        };
-                        const token1 = {
-                            id: await pair.token1(),
-                            decimals: await pair.decimals(),
-                            reserves: (await pair.getReserves())[1],
-                        };
+    //                         const tokenIn = token0.id === this.trade.tokenOut.id ? token0 : token1;
+    //                         const tokenOut = token0.id === this.trade.tokenOut.id ? token1 : token0;
 
-                        const tokenIn = token0.id === this.trade.tokenOut.id ? token0 : token1;
-                        const tokenOut = token0.id === this.trade.tokenOut.id ? token1 : token0;
+    //                         let amountsOut = await getAmountsOutBN(
+    //                             this.tokenProfitBN,
+    //                             tokenIn.reserves,
+    //                             tokenOut.reserves,
+    //                         );
 
-                        let amountsOut = await getAmountsOutBN(
-                            this.tokenProfitBN,
-                            tokenIn.reserves,
-                            tokenOut.reserves,
-                        );
+    //                         return (profitInWMATIC = pu(amountsOut.toFixed(18), 18));
+    //                     }
+    //                 }
 
-                        return (profitInWMATIC = pu(amountsOut.toFixed(18), 18));
-                    }
-                }
-            }
-            if (address == this.trade.tokenIn.id) {
-                for (let f of Object.values(this.exchanges)) {
-                    let factory = new Contract(f.factory, IUniswapV2Factory, provider);
-                    let pairID = await factory.getPair(wmatic, address);
+    //                 if (address == this.trade.tokenIn.id) {
+    //                     let factory = new Contract(f.factory, IUniswapV2Factory, provider);
+    //                     let pairID = await factory.getPair(wmatic, address);
 
-                    if (pairID) {
-                        let pair = new Contract(pairID, IPair, provider);
-                        const token0 = {
-                            id: await pair.token0(),
-                            decimals: await pair.decimals(),
-                            reserves: (await pair.getReserves())[0],
-                        };
-                        const token1 = {
-                            id: await pair.token1(),
-                            decimals: await pair.decimals(),
-                            reserves: (await pair.getReserves())[1],
-                        };
+    //                     if (pairID) {
+    //                         let pair = new Contract(pairID, IPair, provider);
+    //                         const token0 = {
+    //                             id: await pair.token0(),
+    //                             decimals: await pair.decimals(),
+    //                             reserves: (await pair.getReserves())[0],
+    //                         };
+    //                         const token1 = {
+    //                             id: await pair.token1(),
+    //                             decimals: await pair.decimals(),
+    //                             reserves: (await pair.getReserves())[1],
+    //                         };
 
-                        const tokenIn = token0.id === this.trade.tokenIn.id ? token0 : token1;
-                        const tokenOut = token0.id === this.trade.tokenIn.id ? token1 : token0;
+    //                         const tokenIn = token0.id === this.trade.tokenIn.id ? token0 : token1;
+    //                         const tokenOut = token0.id === this.trade.tokenIn.id ? token1 : token0;
 
-                        let profitInToken0 = this.tokenProfitBN.multipliedBy(
-                            this.trade.loanPool.priceIn,
-                        );
+    //                         let profitInToken0 = this.tokenProfitBN.multipliedBy(
+    //                             this.trade.loanPool.priceIn,
+    //                         );
 
-                        let amountsOut = await getAmountsOutBN(
-                            profitInToken0,
-                            tokenIn.reserves,
-                            tokenOut.reserves,
-                        );
-
-                        return (profitInWMATIC = pu(amountsOut.toFixed(18), 18));
-                    }
-                }
-            }
-        }
-
-        if (!profitInWMATIC) {
-            console.log("Pair not found for ", this.trade.tokenOut);
-        }
-
-        return profitInWMATIC;
-    }
+    //                         let amountsOut = await getAmountsOutBN(
+    //                             profitInToken0,
+    //                             tokenIn.reserves,
+    //                             tokenOut.reserves,
+    //                         );
+    //                         console.log(
+    //                             "scanAllExchangesForGasTokens amountsOut: ",
+    //                             amountsOut.toFixed(18),
+    //                         );
+    //                         return (profitInWMATIC = pu(amountsOut.toFixed(18), 18));
+    //                     }
+    //                 }
+    //             }
+    //             if (!profitInWMATIC) {
+    //                 console.log("Pair not found for ", this.trade.tokenOut);
+    //             }
+    //         }
+    //     }
 }
-
-//         this.exchanges.find(async (f) => {
-//             for (let address of Object.keys(gasTokens)) {
-//                 let match =
-//                     address == trade.tokenIn.id
-//                         ? trade.tokenIn.id
-//                         : address == trade.tokenOut.id
-//                         ? trade.tokenOut.id
-//                         : undefined;
-//                 if (match !== undefined) {
-//                     let factory = new Contract(f, IUniswapV2Factory, provider);
-//                     let pair0 = await factory.getPair(trade.tokenIn.id, wmatic);
-//                     let pair1 = await factory.getPair(trade.tokenOut.id, wmatic);
-//                     let gasPair = pair1 !== zero ? pair1 : pair0;
-//                     let pairContract = new Contract(gasPair, IPair, provider);
-//                     let pair = {
-//                         pair: gasPair,
-//                         token: gasPair == pair1 ? trade.tokenOut.id : trade.tokenIn.id,
-//                     };
-//                     if (!pair) {
-//                         pair = {
-//                             pair: await factory.getPair(trade.tokenIn.id, address),
-//                             token: trade.tokenIn.id,
-//                         };
-//                     }
-//                     if (pair) {
-//                         let routerID = Object.keys(uniswapV2Router).find(
-//                             (key) => uniswapV2Router[key] === f,
-//                         );
-//                         if (!routerID) {
-//                             throw new Error("Router not found for factory: " + f);
-//                         }
-//                         let router = new Contract(routerID, IUniswapv2Router02, provider);
-//                         let pool = new Contract(pair.pair, IPair, provider);
-//                         let amountsOut = await getAmountsOut(
-//                             router,
-//                             trade.profits.profitToken,
-//                             [pair.token, address, wmatic],
-//                         );
-//                         let profitInWMATIC = amountsOut[2];
-//                         let gasRouter = router;
-//                         let gasPool = pool;
-//                         wmaticProfit = { profitInWMATIC, gasRouter, gasPool };
-//                         console.log(
-//                             "[getProfitInWmatic]: profitInWMATIC: " +
-//                                 fu(profitInWMATIC, 18) +
-//                                 " gasRouter: " +
-//                                 (await gasRouter.getAddress()) +
-//                                 " gasPool: " +
-//                                 (await gasPool.token0())[Symbol()] +
-//                                 "/" +
-//                                 (await gasPool.token1())[Symbol()],
-//                         );
-//                         if (amountsOut[1] > pu("0.1", 18)) {
-//                             return wmaticProfit;
-//                         }
-//                     }
-//                 }
-//             }
-//         });
-//     }
-// }
-// console.log(
-//     "Token has no value in WMATIC: ",
-//     trade.ticker,
-//     trade.loanPool.exchange,
-//     trade.target.exchange,
-//     trade.profits.profitToken,
-// );
-// wmaticProfit = {
-//     profitInWMATIC: 0n,
-//     gasRouter: trade.loanPool.router,
-//     gasPool: trade.target.pool,
-// };
-// return wmaticProfit;
-// }
-
-// export type RouterMap = { [protocol: string]: string };
-
-// export const uniswapV2Router: RouterMap = {
-//     SUSHI: "0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",
-//     QUICK: "0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff",
-//     APE: "0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607",
-//     JET: "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
-//     POLYDEX: "0xBd13225f0a45BEad8510267B4D6a7c78146Be459",
-//     MMF: "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
-//     CAT: "0x94930a328162957FF1dd48900aF67B5439336cBD",
-// };
-// // GAS TOKENS:
-
-// export type GasToken = { [gasToken: string]: string };
-
-// export const gasTokens: GasToken = {
-//     WMATIC: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-//     ETH: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-//     WETH: "0x95D7632E9f183b47FCe7BD3518bDBf3E35e25eEF",
-//     USDC: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-//     USDT: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-//     DAI: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-//     WBTC: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
-// };
-
-// export type FactoryMap = { [protocol: string]: string };
-
-// export const uniswapV2Factory: FactoryMap = {
-//     QUICK: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32",
-//     SUSHI: "0xc35DADB65012eC5796536bD9864eD8773aBc74C4",
-//     APE: "0xCf083Be4164828f00cAE704EC15a36D711491284",
-//     JET: "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
-//     POLYDEX: "0x5BdD1CD910e3307582F213b33699e676E61deaD9",
-//     MMF: "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
-//     CAT: "0x477Ce834Ae6b7aB003cCe4BC4d8697763FF456FA",
-// };
