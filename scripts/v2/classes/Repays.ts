@@ -33,6 +33,12 @@ export class PopulateRepays {
         //     };
         //     return singleRepay;
         // };
+        // console.log(
+        //     "tradeSizeBN: ",
+        //     this.trade.target.tradeSize.sizeBN.toString(),
+        //     "tradeSizeJS: ",
+        //     this.trade.target.tradeSize.size,
+        // );
 
         const loanFee = this.trade.target.tradeSize.sizeBN.multipliedBy(0.003);
         const loanPlusFee = this.trade.target.tradeSize.sizeBN.plus(loanFee);

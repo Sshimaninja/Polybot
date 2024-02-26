@@ -61,7 +61,10 @@ export class AmountConverter {
             const bestSize = toPrice.gt(maxIn) ? maxIn : toPrice;
             const safeReserves = this.reserves.reserveInBN.times(820).div(1000);
             const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
-            return BN(0);
+
+            // Something weird going on: when I make this return BN(0) the tradeSize increases to reasonable levels.
+
+            return size;
         };
         return { size: await size(), sizeBN: await sizeBN() };
     }

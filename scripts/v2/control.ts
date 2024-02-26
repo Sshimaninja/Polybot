@@ -69,7 +69,7 @@ export async function control(data: FactoryPair[], gasData: any) {
         if (error.code === "ECONNRESET") {
             console.log("CONTROL ERROR: ECONNRESET: Connection reset by peer. Retrying.");
         }
-        console.log("Error in control.ts: " + error.message);
+        console.log("Error in control.ts: " + error.reason);
         console.log(error);
     }
 }
