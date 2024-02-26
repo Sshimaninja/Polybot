@@ -12,8 +12,8 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
         default: 10,
     };
 
-    const tradeSize = trade.target.tradeSize.sizeBN;
-    const amountOut = BigInt2BN(trade.target.amountOut, trade.tokenOut.decimals);
+    // const tradeSize = trade.target.tradeSize.sizeBN;
+    // const amountOut = BigInt2BN(trade.target.amountOut, trade.tokenOut.decimals);
 
     const liquidityThresholdIn =
         liquidityThresholds[trade.tokenIn.symbol] || liquidityThresholds.default;

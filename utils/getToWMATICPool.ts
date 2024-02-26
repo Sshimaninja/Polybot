@@ -103,27 +103,27 @@ export async function getGas2WMATICArray(): Promise<ToWMATICPool[]> {
         }
 
         // Convert the object values to an array and return it
-        console.log("highestLiquidityPools: ", highestLiquidityPools);
+        // console.log("highestLiquidityPools: ", highestLiquidityPools);
         return Object.values(highestLiquidityPools);
     }
     const ToWMATICPools = await getGasTokenToWMATICPool();
     const highestLiquidityPools = await compareLiquidity(ToWMATICPools);
-    fs.writeFile(
-        "./constants/ToWMATICPools.json",
-        JSON.stringify(highestLiquidityPools, (key, value) => {
-            if (typeof value === "bigint") {
-                return value.toString();
-            }
-            return value;
-        }),
-        (err) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            console.log("File has been created");
-        },
-    );
+    // fs.writeFile(
+    //     "./constants/ToWMATICPools.json",
+    //     JSON.stringify(highestLiquidityPools, (key, value) => {
+    //         if (typeof value === "bigint") {
+    //             return value.toString();
+    //         }
+    //         return value;
+    //     }),
+    //     (err) => {
+    //         if (err) {
+    //             console.error(err);
+    //             return;
+    //         }
+    //         console.log("File has been created");
+    //     },
+    // );
     return highestLiquidityPools;
 }
 getGas2WMATICArray();

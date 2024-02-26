@@ -44,6 +44,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 //     " " +
                 //     trade.tokenOut.symbol,
                 amountRepay:
+                    trade.loanPool.amountRepay +
+                    ": " +
                     fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
@@ -81,8 +83,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     fu(trade.profits.profitToken, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
-                wmaticProfit:
-                    trade.profits.profitWMATIC + fu(trade.profits.profitWMATIC, 18) + " WMATIC",
+                wmaticProfit: fu(trade.profits.profitWMATIC, 18) + " WMATIC",
                 profperc: fu(trade.profits.profitPercent, trade.tokenOut.decimals) + "%",
             },
         };

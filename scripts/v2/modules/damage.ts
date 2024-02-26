@@ -48,11 +48,15 @@ export async function rollDamage(trade: BoolTrade) {
             trade.profits.profitToken > 0n &&
             trade.k.uniswapKPositive //&&
         ) {
+            trade = await trueProfit(trade);
+            trade.profits.profitWMATIC = trade.profits.profitWMATIC;
+
+            // logger.info(
+            //     ">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ",
+            //     fu(trade.profits.profitWMATIC, 18),
+            // );
             const log = await tradeLogs(trade);
             console.log(log);
-            trade = await trueProfit(trade);
-
-            logger.info(">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ", trade.profits.profitWMATIC);
             // If profit is greater than gas cost, execute trade
             if (trade.profits.profitWMATIC > trade.gas.gasPrice) {
                 logger.info(
@@ -117,6 +121,6 @@ export async function rollDamage(trade: BoolTrade) {
             return;
         }
     } catch (error: any) {
-        logger.error("Error in rollDamage: ", error);
+        logger.error("Error in rollDamage: ", error.reason);
     }
 }
