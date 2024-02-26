@@ -216,49 +216,82 @@ export class WMATICProfit {
     // return undefined;
 
     async scanAllExchangesForGasTokens(): Promise<bigint | undefined> {
-        for (let f of Object.values(this.exchanges)) {
-            for (let address of Object.keys(this.gasTokens)) {
-                let match =
-                    address == this.trade.tokenIn.id
-                        ? this.trade.tokenIn.id
-                        : address == this.trade.tokenOut.id
-                        ? this.trade.tokenOut.id
-                        : undefined;
-                if (match !== undefined) {
+        let profitInWMATIC: bigint | undefined;
+
+        for (let address of Object.keys(this.gasTokens)) {
+            if (address == this.trade.tokenOut.id) {
+                for (let f of Object.values(this.exchanges)) {
                     let factory = new Contract(f.factory, IUniswapV2Factory, provider);
-                    let router = new Contract(f.router, IUniswapv2Router02, provider);
-                    let pair = await factory.getPair(match, wmatic);
-                    pair !== zero ? pair : undefined;
+                    let pairID = await factory.getPair(wmatic, address);
 
-                    if (!pair) {
-                        console.log("Pair not found for token: " + match);
-                        return undefined;
+                    if (pairID) {
+                        let pair = new Contract(pairID, IPair, provider);
+                        const token0 = {
+                            id: await pair.token0(),
+                            decimals: await pair.decimals(),
+                            reserves: (await pair.getReserves())[0],
+                        };
+                        const token1 = {
+                            id: await pair.token1(),
+                            decimals: await pair.decimals(),
+                            reserves: (await pair.getReserves())[1],
+                        };
+
+                        const tokenIn = token0.id === this.trade.tokenOut.id ? token0 : token1;
+                        const tokenOut = token0.id === this.trade.tokenOut.id ? token1 : token0;
+
+                        let amountsOut = await getAmountsOutBN(
+                            this.tokenProfitBN,
+                            tokenIn.reserves,
+                            tokenOut.reserves,
+                        );
+
+                        return (profitInWMATIC = pu(amountsOut.toFixed(18), 18));
                     }
+                }
+            }
+            if (address == this.trade.tokenIn.id) {
+                for (let f of Object.values(this.exchanges)) {
+                    let factory = new Contract(f.factory, IUniswapV2Factory, provider);
+                    let pairID = await factory.getPair(wmatic, address);
 
-                    if (pair) {
-                        let factoryKey = Object.keys(uniswapV2Factory).find(
-                            (key) => uniswapV2Factory[key] === f.factory,
+                    if (pairID) {
+                        let pair = new Contract(pairID, IPair, provider);
+                        const token0 = {
+                            id: await pair.token0(),
+                            decimals: await pair.decimals(),
+                            reserves: (await pair.getReserves())[0],
+                        };
+                        const token1 = {
+                            id: await pair.token1(),
+                            decimals: await pair.decimals(),
+                            reserves: (await pair.getReserves())[1],
+                        };
+
+                        const tokenIn = token0.id === this.trade.tokenIn.id ? token0 : token1;
+                        const tokenOut = token0.id === this.trade.tokenIn.id ? token1 : token0;
+
+                        let profitInToken0 = this.tokenProfitBN.multipliedBy(
+                            this.trade.loanPool.priceIn,
                         );
-                        // console.log(
-                        //     "Factory Key for Profit in WMATIC calculation: " +
-                        //         factoryKey +
-                        //         " for token: " +
-                        //         match +
-                        //         " and WMATIC",
-                        // );
-                        let pool = new Contract(pair.pair, IPair, provider);
-                        let amountsOut = await router.getAmountsOut(
-                            this.trade.profits.profitToken,
-                            [pair.tokenOut.id, address, this.wmaticID],
+
+                        let amountsOut = await getAmountsOutBN(
+                            profitInToken0,
+                            tokenIn.reserves,
+                            tokenOut.reserves,
                         );
-                        let profitInWMATIC: bigint = amountsOut[2];
-                        // let gasRouter = router;
-                        // let gasPool = pool;
-                        return profitInWMATIC;
+
+                        return (profitInWMATIC = pu(amountsOut.toFixed(18), 18));
                     }
                 }
             }
         }
+
+        if (!profitInWMATIC) {
+            console.log("Pair not found for ", this.trade.tokenOut);
+        }
+
+        return profitInWMATIC;
     }
 }
 
