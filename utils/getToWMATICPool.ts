@@ -1,5 +1,5 @@
 import { ethers, Contract } from "ethers";
-import { BoolTrade /*WmaticProfit*/ } from "../constants/interfaces";
+import { BoolTrade /*WmaticProfit*/, ToWMATICPool } from "../constants/interfaces";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IUniswapv2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IUniswapV2Factory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
@@ -9,29 +9,29 @@ import { getAmountsOut as getAmountsOutBN } from "../scripts/v2/modules/getAmoun
 import { uniswapV2Exchange, gasTokens } from "../constants/addresses";
 import { wallet, provider } from "../constants/provider";
 import { logger } from "../constants/logger";
-// import { getGasPoolForTrade } from "./getGasPool";
+// import { getToWMATICPoolForTrade } from "./getToWMATICPool";
 // import { getWmaticRate } from "./getWmaticRate";
 // import { zero } from "../../../constants/environment";
 import { fu, pu } from "../scripts/modules/convertBN";
 import { zero, wmatic } from "../constants/environment";
 import fs from "fs";
 
-interface GasPool {
-    ticker: string;
-    tokenIn: { id: string; decimals: number; symbol: string };
-    tokenOut: { id: string; decimals: number; symbol: string };
-    id: string;
-    exchange: string;
-    reserves: {
-        reserve0: bigint;
-        reserve1: bigint;
-    };
-    liquidity: bigint;
-}
-export async function getGas2WMATICArray(): Promise<GasPool[]> {
-    async function getGasTokentoWMATICPool(): Promise<GasPool[]> {
+// interface ToWMATICPool {
+//     ticker: string;
+//     tokenIn: { id: string; decimals: number; symbol: string };
+//     tokenOut: { id: string; decimals: number; symbol: string };
+//     id: string;
+//     exchange: string;
+//     reserves: {
+//         reserve0: bigint;
+//         reserve1: bigint;
+//     };
+//     liquidity: bigint;
+// }
+export async function getGas2WMATICArray(): Promise<ToWMATICPool[]> {
+    async function getGasTokenToWMATICPool(): Promise<ToWMATICPool[]> {
         const wmaticID = await wmatic.getAddress();
-        const gasPools: GasPool[] = [];
+        const ToWMATICPools: ToWMATICPool[] = [];
         for (let exchange in uniswapV2Exchange) {
             let exchangeID = uniswapV2Exchange[exchange].factory;
             for (let token in gasTokens) {
@@ -57,7 +57,7 @@ export async function getGas2WMATICArray(): Promise<GasPool[]> {
                         const tokenIn = token0.id == wmaticID ? token1 : token0;
                         const tokenOut = token0.id == wmaticID ? token0 : token1;
 
-                        const gasPool: GasPool = {
+                        const ToWMATICPool: ToWMATICPool = {
                             ticker: token + "WMATIC",
                             id: pair,
 
@@ -74,31 +74,31 @@ export async function getGas2WMATICArray(): Promise<GasPool[]> {
                             },
                             liquidity: tokenIn.reserves * tokenOut.reserves,
                         };
-                        gasPools.push(gasPool);
+                        ToWMATICPools.push(ToWMATICPool);
                     }
                 }
             }
-            // console.log("gasPools: ", gasPools);
-            return gasPools;
+            // console.log("ToWMATICPools: ", ToWMATICPools);
+            return ToWMATICPools;
         }
-        console.log("Something wrong with the gasPools: ", gasPools);
-        return gasPools;
+        console.log("Something wrong with the ToWMATICPools: ", ToWMATICPools);
+        return ToWMATICPools;
     }
 
-    async function compareLiquidity(gasPools: GasPool[]): Promise<GasPool[]> {
-        const highestLiquidityPools: { [key: string]: GasPool } = {};
+    async function compareLiquidity(ToWMATICPools: ToWMATICPool[]): Promise<ToWMATICPool[]> {
+        const highestLiquidityPools: { [key: string]: ToWMATICPool } = {};
 
-        for (let gasPool of gasPools) {
+        for (let ToWMATICPool of ToWMATICPools) {
             // Create a unique key for the pair of tokens
-            const key = gasPool.tokenIn.id;
+            const key = ToWMATICPool.tokenIn.id;
 
-            // If the key doesn't exist in the object, or if the current gasPool has higher liquidity,
-            // add/replace the gasPool in the object
+            // If the key doesn't exist in the object, or if the current ToWMATICPool has higher liquidity,
+            // add/replace the ToWMATICPool in the object
             if (
                 !highestLiquidityPools[key] ||
-                gasPool.liquidity > highestLiquidityPools[key].liquidity
+                ToWMATICPool.liquidity > highestLiquidityPools[key].liquidity
             ) {
-                highestLiquidityPools[key] = gasPool;
+                highestLiquidityPools[key] = ToWMATICPool;
             }
         }
 
@@ -106,10 +106,10 @@ export async function getGas2WMATICArray(): Promise<GasPool[]> {
         console.log("highestLiquidityPools: ", highestLiquidityPools);
         return Object.values(highestLiquidityPools);
     }
-    const gasPools = await getGasTokentoWMATICPool();
-    const highestLiquidityPools = await compareLiquidity(gasPools);
+    const ToWMATICPools = await getGasTokenToWMATICPool();
+    const highestLiquidityPools = await compareLiquidity(ToWMATICPools);
     fs.writeFile(
-        "./constants/gasPools.json",
+        "./constants/ToWMATICPools.json",
         JSON.stringify(highestLiquidityPools, (key, value) => {
             if (typeof value === "bigint") {
                 return value.toString();

@@ -4,7 +4,6 @@ import { checkBal, checkGasBal } from "../tools/checkBal";
 // import { logEmits } from "./emits";
 import { send } from "./send";
 import { notify } from "./notify";
-import { fetchGasPrice } from "./fetchGasPrice";
 import { pendingTransactions } from "./pendingTransactions";
 import { fu } from "../../../modules/convertBN";
 
@@ -75,14 +74,12 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
             }
 
             if (gotGas == true) {
-                //re-fetch gas price. Might be unnecessary but it's free.
-                let gasEstimate = await fetchGasPrice(trade);
                 let gasObj: TxGas = {
                     type: 2,
                     gasPrice: trade.gas.gasPrice,
-                    maxFeePerGas: Number(trade.gas.maxFee * 2n),
-                    maxPriorityFeePerGas: Number(trade.gas.maxPriorityFee * 2n),
-                    gasLimit: gasEstimate.gasEstimate * 10n,
+                    maxFeePerGas: Number(trade.gas.maxFee),
+                    maxPriorityFeePerGas: Number(trade.gas.maxPriorityFee),
+                    gasLimit: trade.gas.gasEstimate, // * 10n,
                 };
 
                 // Set the pending transaction flag for this pool

@@ -194,10 +194,10 @@ export class Trade {
         ); // token0 max out
 
         // // SUBTRACT SLIPPAGE FROM EXPECTED AMOUNTOUT. This is an attempt to offset 'INSUFFICIENT_OUTPUT_AMOUNT' errors.
-        // trade.target.amountOut = await this.calc0.subSlippage(
-        //     trade.target.amountOut,
-        //     trade.tokenOut.decimals,
-        // );
+        trade.target.amountOut = await this.calc0.subSlippage(
+            trade.target.amountOut,
+            trade.tokenOut.decimals,
+        );
 
         // console.log("trade.target.amountOut minus slippage: ", trade.target.amountOut);
 

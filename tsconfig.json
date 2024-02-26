@@ -50,7 +50,9 @@
         "constants/interfaces.ts",
         "logs/equalizeRatioTEST.ts",
         "logs/flashitBN.ts",
-        "logs/flashAll.ts"
+        "logs/flashAll.ts",
+        "utils/getToWMATICPool.ts",
+        "utils/getToWMATICPool.ts"
     ],
     "files": ["./hardhat.config.ts"]
 }

@@ -12,45 +12,50 @@ require("dotenv").config();
  * @returns Profit{profit: string, gasEstimate: bigint, gasCost: bigint, gasPool: string}
  */
 export async function trueProfit(trade: BoolTrade): Promise<BoolTrade> {
-    if (trade.direction == undefined) {
-        console.log("Trade direction is undefined.");
-        trade.profits = {
-            profitToken: 0n,
-            profitWMATIC: 0n,
-            profitPercent: 0n,
+    try {
+        if (trade.direction == undefined) {
+            console.log("Trade direction is undefined.");
+            trade.profits = {
+                profitToken: 0n,
+                profitWMATIC: 0n,
+                profitPercent: 0n,
+            };
+            return trade;
+        }
+
+        // Get gas prices
+        let gasPrices = await fetchGasPrice(trade);
+        // update trade with gaPrices
+        trade.gas = {
+            gasPrice: gasPrices.gasPrice,
+            gasEstimate: gasPrices.gasEstimate,
+            maxFee: gasPrices.maxFee,
+            maxPriorityFee: gasPrices.maxPriorityFee,
         };
+
+        // Calculate profit & compare to gas cost
+        // if (gasPrices.tested === true) {
+        let WMATICprofit = new WMATICProfit(trade, gasTokens, uniswapV2Exchange);
+        let profitInWMATIC = await WMATICprofit.getWMATICProfit();
+        // logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>trueProfit: ", profitInWMATIC);
+
+        trade.profits.profitWMATIC = profitInWMATIC;
+        // if (trade.profits.profitWMATIC > trade.gas.gasPrice) {
+        //     console.log(
+        //         "Possible trade: " + trade.ticker + " Gas Estimate: ",
+        //         fu(gasPrices.gasEstimate, 18),
+        //         "Gas Price: ",
+        //         fu(gasPrices.gasPrice, 18),
+        //     );
+        //     console.log("Profit: ", fu(trade.profits.profitWMATIC, 18));
+        //     return trade;
+        // }
+
+        return trade;
+    } catch (error: any) {
+        logger.error("Error in trueProfit: ", error);
         return trade;
     }
-
-    // Get gas prices
-    let gasPrices = await fetchGasPrice(trade);
-    // update trade with gaPrices
-    trade.gas = {
-        gasPrice: gasPrices.gasPrice,
-        gasEstimate: gasPrices.gasEstimate,
-        maxFee: gasPrices.maxFee,
-        maxPriorityFee: gasPrices.maxPriorityFee,
-    };
-
-    // Calculate profit & compare to gas cost
-    // if (gasPrices.tested === true) {
-    let WMATICprofit = new WMATICProfit(trade, gasTokens, uniswapV2Exchange);
-    let profitInWMATIC = await WMATICprofit.getWMATICProfit();
-    // logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>trueProfit: ", profitInWMATIC);
-
-    trade.profits.profitWMATIC = profitInWMATIC;
-    // if (trade.profits.profitWMATIC > trade.gas.gasPrice) {
-    //     console.log(
-    //         "Possible trade: " + trade.ticker + " Gas Estimate: ",
-    //         fu(gasPrices.gasEstimate, 18),
-    //         "Gas Price: ",
-    //         fu(gasPrices.gasPrice, 18),
-    //     );
-    //     console.log("Profit: ", fu(trade.profits.profitWMATIC, 18));
-    //     return trade;
-    // }
-
-    return trade;
     // }
 
     // console.log("Gas estimate failed for " + trade.ticker);

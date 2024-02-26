@@ -1,5 +1,5 @@
 import { ethers, Contract } from "ethers";
-import { BoolTrade /*WmaticProfit*/ } from "../../../constants/interfaces";
+import { BoolTrade /*WmaticProfit*/, ToWMATICPool } from "../../../constants/interfaces";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IUniswapv2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IUniswapV2Factory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
@@ -220,39 +220,47 @@ export class WMATICProfit {
     // IF NEITHER TOKEN IS WMATIC, USE toWMATIC object to get gasToken -> WMATIC price.
 
     async gasTokentoWMATICPrice(): Promise<bigint | undefined> {
-        const toWMATIC = JSON.parse(fs.readFileSync("constants/gasPools.json", "utf8"));
-        console.log("gasTokentoWMATICPrice...");
+        const toWMATIC: ToWMATICPool = JSON.parse(
+            fs.readFileSync("constants/gasPools.json", "utf8"),
+        );
         let profitInWMATIC: bigint | undefined;
-        for (let tokenIn of Object.keys(toWMATIC)) {
-            console.log("gasTokentoWMATICPrice tokenIn: ", tokenIn);
-            if (tokenIn == this.trade.tokenOut.id) {
-                console.log(
-                    "gasTokentoWMATICPrice tokenIn: ",
-                    tokenIn,
-                    " trade.tokenOut.id: ",
-                    this.trade.tokenOut.id,
-                );
-                let token = toWMATIC[tokenIn];
+        for (let gasToken of Object.values(toWMATIC)) {
+            console.log("GASTOKEN");
+            console.log(
+                "Processing token: ",
+                gasToken.tokenIn.symbol,
+                " token.id: ",
+                gasToken.tokenIn.id,
+            );
+            if (gasToken.tokenIn.id == this.trade.tokenOut.id) {
+                console.log("Matched tokenOut.id");
                 let profitInWMATICBN = await getAmountsOutBN(
                     this.tokenProfitBN,
-                    BN(fu(token.reserves.reserve0, token.decimals)),
-                    BN(fu(token.reserves.reserve1, token.decimals)),
+                    BN(fu(gasToken.reserves.reserve0, gasToken.decimals)),
+                    BN(fu(gasToken.reserves.reserve1, gasToken.decimals)),
                 );
+                console.log("profitInWMATICBN: ", profitInWMATICBN);
                 profitInWMATIC = pu(profitInWMATICBN.toFixed(18), 18);
+                console.log("profitInWMATIC: ", profitInWMATIC);
                 return profitInWMATIC;
             }
-            if (tokenIn == this.trade.tokenIn.id) {
-                let token = toWMATIC[tokenIn];
-
+            if (gasToken.tokenIn.id == this.trade.tokenIn.id) {
+                console.log("Matched tokenIn.id");
                 let profitInToken0 = this.tokenProfitBN.multipliedBy(this.trade.loanPool.priceIn);
                 let profitInWMATICBN = await getAmountsOutBN(
                     profitInToken0,
-                    token.reserves.reserve0,
-                    token.reserves.reserve1,
+                    BN(fu(gasToken.reserves.reserve0, gasToken.tokenIn.decimals)),
+                    BN(fu(gasToken.reserves.reserve1)),
                 );
+                console.log("profitInWMATICBN: ", profitInWMATICBN);
                 profitInWMATIC = pu(profitInWMATICBN.toFixed(18), 18);
+                console.log("profitInWMATIC: ", profitInWMATIC);
                 return profitInWMATIC;
             }
         }
+        console.log(
+            "GASTOKENTOWMATICPRICE IS BROKEN BECAUSE IT CAN'T FUCKING FIND USDC DAI OR WETH IN THE JSON ARRAY WHERE THEY ARE STORED ",
+        );
+        return undefined;
     }
 }
