@@ -14,12 +14,12 @@ import { logger } from "../constants/logger";
 // import { zero } from "../../../constants/environment";
 import { fu, pu } from "../scripts/modules/convertBN";
 import { zero, wmatic } from "../constants/environment";
-import { get } from "http";
+import fs from "fs";
 
 interface GasPool {
     ticker: string;
-    tokenIn: string;
-    tokenOut: string;
+    tokenIn: { id: string; decimals: number; symbol: string };
+    tokenOut: { id: string; decimals: number; symbol: string };
     id: string;
     exchange: string;
     reserves: {
@@ -60,9 +60,14 @@ export async function getGas2WMATICArray(): Promise<GasPool[]> {
                         const gasPool: GasPool = {
                             ticker: token + "WMATIC",
                             id: pair,
+
                             exchange: exchange,
-                            tokenIn: tokenIn.id,
-                            tokenOut: tokenOut.id,
+                            tokenIn: { id: tokenIn.id, decimals: tokenIn.decimals, symbol: token },
+                            tokenOut: {
+                                id: tokenOut.id,
+                                decimals: tokenOut.decimals,
+                                symbol: "WMATIC",
+                            },
                             reserves: {
                                 reserve0: tokenIn.reserves,
                                 reserve1: tokenOut.reserves,
@@ -85,7 +90,7 @@ export async function getGas2WMATICArray(): Promise<GasPool[]> {
 
         for (let gasPool of gasPools) {
             // Create a unique key for the pair of tokens
-            const key = gasPool.tokenIn;
+            const key = gasPool.tokenIn.id;
 
             // If the key doesn't exist in the object, or if the current gasPool has higher liquidity,
             // add/replace the gasPool in the object
@@ -103,6 +108,26 @@ export async function getGas2WMATICArray(): Promise<GasPool[]> {
     }
     const gasPools = await getGasTokentoWMATICPool();
     const highestLiquidityPools = await compareLiquidity(gasPools);
+    fs.writeFile(
+        "./constants/gasPools.json",
+        JSON.stringify(highestLiquidityPools, (key, value) => {
+            if (typeof value === "bigint") {
+                return value.toString();
+            }
+            return value;
+        }),
+        (err) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            console.log("File has been created");
+        },
+    );
     return highestLiquidityPools;
 }
 getGas2WMATICArray();
+
+/*
+
+*/

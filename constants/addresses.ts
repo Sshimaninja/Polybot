@@ -133,68 +133,17 @@ export const gasTokens: GasToken = {
     GHST: "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
 };
 
-export const toWMATIC = {
-    "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619": {
-        ticker: "ETHWMATIC",
-        id: "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
-        exchange: "QUICK",
-        tokenIn: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-        tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        reserves: {
-            reserve0: 454316351407229260525n,
-            reserve1: 1359855875041370319871605n,
-        },
-        liquidity: 617804759588480440177444411257351417094892625n,
-    },
-    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174": {
-        ticker: "USDCWMATIC",
-        id: "0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827",
-        exchange: "QUICK",
-        tokenIn: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-        tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        reserves: { reserve0: 1161146404460n, reserve1: 1111991300426165069868546n },
-        liquidity: 1291184700280641236584306872748115160n,
-    },
-    "0xc2132D05D31c914a87C6611C10748AEb04B58e8F": {
-        ticker: "USDTWMATIC",
-        id: "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
-        exchange: "QUICK",
-        tokenIn: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-        tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        reserves: { reserve0: 336152405054n, reserve1: 321393040088091915558702n },
-        liquidity: 108037043393228733440871559418479908n,
-    },
-    "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063": {
-        ticker: "DAIWMATIC",
-        id: "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
-        exchange: "QUICK",
-        tokenIn: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-        tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        reserves: {
-            reserve0: 10048054644023146532118n,
-            reserve1: 9631474205336469374047n,
-        },
-        liquidity: 96777579117720255903494240539631102241141546n,
-    },
-    "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6": {
-        ticker: "WBTCWMATIC",
-        id: "0xf6B87181BF250af082272E3f448eC3238746Ce3D",
-        exchange: "QUICK",
-        tokenIn: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
-        tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        reserves: { reserve0: 22647769n, reserve1: 11541797837604398053611n },
-        liquidity: 261395971270763920502231543859n,
-    },
-    "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7": {
-        ticker: "GHSTWMATIC",
-        id: "0x1366c529a133D4153211410126F12Aa4e31AaAc5",
-        exchange: "QUICK",
-        tokenIn: "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
-        tokenOut: "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        reserves: {
-            reserve0: 873606219290375554739n,
-            reserve1: 873746681901906779595n,
-        },
-        liquidity: 763310535393835188071081054011763130750705n,
-    },
-};
+interface toWMATICPool {
+    ticker: string;
+    tokenIn: { id: string; decimals: number; symbol: string };
+    tokenOut: { id: string; decimals: number; symbol: string };
+    id: string;
+    exchange: string;
+    reserves: {
+        reserve0: bigint;
+        reserve1: bigint;
+    };
+    liquidity: bigint;
+}
+
+export const toWMATIC: { [key: string]: toWMATICPool } = {};

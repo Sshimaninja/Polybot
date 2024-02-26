@@ -2063,3 +2063,926 @@
 [2024-02-26T18:28:26.425] [INFO] default - ====================Trade Data WMATIC/USDC====================
 [2024-02-26T18:28:26.425] [INFO] default - ::::::::::::::::::::::::WMATIC/USDC0xb965c131f1C48d89B1760860b782D2aCDF87273b0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6: PENDING TRANSACTION::::::::::::::::::::::::: 
 [2024-02-26T18:28:26.538] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0n
+[2024-02-26T20:31:56.091] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-02-26T20:32:00.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.516] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.517] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.520] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1724811036510271584n
+[2024-02-26T20:32:00.520] [INFO] default - ====================Profitable trade found on WMATIC/USDT!====================
+[2024-02-26T20:32:00.520] [INFO] default - {
+  id: '0x65D43B64E3B31965Cd5EA367D4c2b94c030847970xa789324E64268C5385eA7678435Fa83532705B0F',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.820031 USDT',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.056458',
+    priceOut: '0.946559247089848047',
+    reservesIn: '58931.845025 USDT',
+    reservesOut: '55782.482856479607346095 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'MMF',
+    priceIn: '1.051416',
+    priceOut: '0.951098711552072311',
+    reservesIn: '956.804614 USDT',
+    reservesOut: '910.015635582477888755 WMATIC',
+    amountOut: '1.724811036510271584 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3287364634807775537192922078927375',
+    uniswapkPosT: '3287364934002684877543050145934740',
+    uniswapKPositive: true,
+    tokenProfit: '1.724811036510271584 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.520] [INFO] default - Profit:  1.724811036510271584 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.520] [INFO] default - ====================Trade Data WMATIC/USDT====================
+[2024-02-26T20:32:00.520] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDT::::::::::::::::::::::::::
+[2024-02-26T20:32:00.520] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  11109390783115638n
+[2024-02-26T20:32:00.520] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  229661805449237n
+[2024-02-26T20:32:00.520] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  18063822231708299450n
+[2024-02-26T20:32:00.520] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-26T20:32:00.520] [INFO] default - {
+  id: '0xd32f3139A214034A0f9777c87eE0a064c1FF6AE20xEEf611894CeaE652979C9D0DaE1dEb597790C6eE',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '19.153993589801962024 DAI',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.055869304985928499',
+    priceOut: '0.947086912440670803',
+    reservesIn: '56510.685615834736008622 DAI',
+    reservesOut: '53520.530759806347615639 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'QUICK',
+    priceIn: '1.055176036555801133',
+    priceOut: '0.947709164495527050',
+    reservesIn: '10105.417520151227828012 DAI',
+    reservesOut: '9576.996794900981011871 WMATIC',
+    amountOut: '18.06382223170829945 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3024481887760029102614552113927323365446039458',
+    uniswapkPosT: '3024484274581288819512247969575573006860900856',
+    uniswapKPositive: true,
+    tokenProfit: '18.06382223170829945 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.521] [INFO] default - Profit:  18.06382223170829945 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.521] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-26T20:32:00.521] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-26T20:32:00.521] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  229661805449237n
+[2024-02-26T20:32:00.521] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1724811036510271584n
+[2024-02-26T20:32:00.521] [INFO] default - ====================Profitable trade found on WMATIC/USDT!====================
+[2024-02-26T20:32:00.521] [INFO] default - {
+  id: '0x101640e107C4a72DeC79826768C239F1eB48cc850xa789324E64268C5385eA7678435Fa83532705B0F',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.820031 USDT',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.054393',
+    priceOut: '0.948413374417971820',
+    reservesIn: '1837.262673 USDT',
+    reservesOut: '1742.484491392112724702 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'MMF',
+    priceIn: '1.051416',
+    priceOut: '0.951098711552072311',
+    reservesIn: '956.804614 USDT',
+    reservesOut: '910.015635582477888755 WMATIC',
+    amountOut: '1.724811036510271584 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3201401714316118515703309648446',
+    uniswapkPosT: '3201404951685632269163122563378',
+    uniswapKPositive: true,
+    tokenProfit: '1.724811036510271584 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.521] [INFO] default - Profit:  1.724811036510271584 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.521] [INFO] default - ====================Trade Data WMATIC/USDT====================
+[2024-02-26T20:32:00.521] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDT::::::::::::::::::::::::::
+[2024-02-26T20:32:00.521] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  5140058903250200772n
+[2024-02-26T20:32:00.521] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-26T20:32:00.521] [INFO] default - {
+  id: '0xd32f3139A214034A0f9777c87eE0a064c1FF6AE20x8929D3FEa77398F64448c85015633c2d6472fB29',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '5.445355367660114735 DAI',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.055869304985928499',
+    priceOut: '0.947086912440670803',
+    reservesIn: '56510.685615834736008622 DAI',
+    reservesOut: '53520.530759806347615639 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'SUSHI',
+    priceIn: '1.054223332086256055',
+    priceOut: '0.948565611824440699',
+    reservesIn: '2870.310340044213035415 DAI',
+    reservesOut: '2722.677683830057367574 WMATIC',
+    amountOut: '5.140058903250200772 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3024481887760029102614552113927323365446039458',
+    uniswapkPosT: '3024482708291642564263420581661256194730347782',
+    uniswapKPositive: true,
+    tokenProfit: '5.140058903250200772 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.521] [INFO] default - Profit:  5.140058903250200772 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.521] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-26T20:32:00.521] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-26T20:32:00.521] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:32:00.521] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:32:00.521] [INFO] default - {
+  id: '0xb965c131f1C48d89B1760860b782D2aCDF87273b0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'MMF',
+    priceIn: '1.055976',
+    priceOut: '0.946991351147230423',
+    reservesIn: '13895.425221 USDC',
+    reservesOut: '13158.847504800092897352 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '182847781497492129409007944914792',
+    uniswapkPosT: '182847905036452517331572032376814',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.522] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.522] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:32:00.522] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-26T20:32:00.522] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3295641009031670955n
+[2024-02-26T20:32:00.522] [INFO] default - ====================Profitable trade found on WMATIC/USDT!====================
+[2024-02-26T20:32:00.522] [INFO] default - {
+  id: '0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c30x101640e107C4a72DeC79826768C239F1eB48cc85',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'A',
+  tradeSize: '3.484969 USDT',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.054631',
+    priceOut: '0.948198784023367495',
+    reservesIn: '337556.112183 USDT',
+    reservesOut: '320070.295111576026154459 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'JET',
+    priceIn: '1.054393',
+    priceOut: '0.948413374417971820',
+    reservesIn: '1837.262673 USDT',
+    reservesOut: '1742.484491392112724702 WMATIC',
+    amountOut: '3.295641009031670955 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '108041684443129073586527904289673997',
+    uniswapkPosT: '108041687776367780412095820779048708',
+    uniswapKPositive: true,
+    tokenProfit: '3.295641009031670955 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.522] [INFO] default - Profit:  3.295641009031670955 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.522] [INFO] default - ====================Trade Data WMATIC/USDT====================
+[2024-02-26T20:32:00.522] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDT::::::::::::::::::::::::::
+[2024-02-26T20:32:00.522] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  2574836563416410n
+[2024-02-26T20:32:00.522] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:32:00.522] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:32:00.522] [INFO] default - {
+  id: '0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF148270xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.055680',
+    priceOut: '0.947256994533070931',
+    reservesIn: '1167531.352492 USDC',
+    reservesOut: '1105952.239984703353809508 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '1291233914540897668064623275769093936',
+    uniswapkPosT: '1291233927230735272003792794727203930',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.522] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.522] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:32:00.522] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-26T20:32:00.522] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:32:00.522] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:32:00.522] [INFO] default - {
+  id: '0xcd353F79d9FADe311fC3119B841e1f456b54e8580xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991083,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1.055081',
+    priceOut: '0.947794094933436096',
+    reservesIn: '180437.09671 USDC',
+    reservesOut: '171017.214768671329806849 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '30857849720289589014562718633366790',
+    uniswapkPosT: '30857851659052139366840760609332652',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:32:00.523] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0156 Flash Type:  multi
+[2024-02-26T20:32:00.523] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:32:00.523] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.588] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.588] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.588] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.588] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.588] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.589] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.589] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.589] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:32:00.589] [INFO] default - Gas Cost::::::::::::: 0.0156 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:32:00.589] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.594] [INFO] default - :::::::::::Sending Transaction: APE to MMF for WMATIC/USDT : profit: 1.724811036510271584:::::::::: 
+[2024-02-26T20:32:00.594] [INFO] default - :::::::::::Sending Transaction: APE to QUICK for WMATIC/DAI : profit: 18.06382223170829945:::::::::: 
+[2024-02-26T20:32:00.594] [INFO] default - :::::::::::Sending Transaction: JET to MMF for WMATIC/USDT : profit: 1.724811036510271584:::::::::: 
+[2024-02-26T20:32:00.594] [INFO] default - :::::::::::Sending Transaction: APE to SUSHI for WMATIC/DAI : profit: 5.140058903250200772:::::::::: 
+[2024-02-26T20:32:00.594] [INFO] default - :::::::::::Sending Transaction: MMF to POLYDEX for WMATIC/USDC : profit: 3.610715198213426838:::::::::: 
+[2024-02-26T20:32:00.594] [INFO] default - :::::::::::Sending Transaction: QUICK to JET for WMATIC/USDT : profit: 3.295641009031670955:::::::::: 
+[2024-02-26T20:32:00.595] [INFO] default - :::::::::::Sending Transaction: QUICK to POLYDEX for WMATIC/USDC : profit: 3.610715198213426838:::::::::: 
+[2024-02-26T20:32:00.595] [INFO] default - :::::::::::Sending Transaction: SUSHI to POLYDEX for WMATIC/USDC : profit: 3.610715198213426838:::::::::: 
+[2024-02-26T20:32:00.666] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-26T20:32:00.666] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-26T20:32:00.666] [INFO] default - {
+  loanFactory: '0xCf083Be4164828f00cAE704EC15a36D711491284',
+  loanRouter: '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607',
+  targetRouter: '0x51aba405de2b25e5506dea32a6697f450ceb1a17',
+  tokenInId: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 1820031n,
+  amountOut: 1724811036510271584n,
+  repay: 0n
+}
+[2024-02-26T20:32:00.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:32:00.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:11.976] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-02-26T20:34:16.587] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.587] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.588] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.591] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  11109390783115638n
+[2024-02-26T20:34:16.591] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1716657564083487671n
+[2024-02-26T20:34:16.591] [INFO] default - ====================Profitable trade found on WMATIC/USDT!====================
+[2024-02-26T20:34:16.591] [INFO] default - {
+  id: '0x65D43B64E3B31965Cd5EA367D4c2b94c030847970xa789324E64268C5385eA7678435Fa83532705B0F',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.817157 USDT',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.056458',
+    priceOut: '0.946559247089848047',
+    reservesIn: '58931.845025 USDT',
+    reservesOut: '55782.482856479607346095 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'MMF',
+    priceIn: '1.054748',
+    priceOut: '0.948094170266265937',
+    reservesIn: '958.320776 USDT',
+    reservesOut: '908.578340970644098989 WMATIC',
+    amountOut: '1.716657564083487671 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3287364634807775537192922078927375',
+    uniswapkPosT: '3287364933540158879994855321715628',
+    uniswapKPositive: true,
+    tokenProfit: '1.716657564083487671 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.591] [INFO] default - Profit:  1.716657564083487671 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.591] [INFO] default - ====================Trade Data WMATIC/USDT====================
+[2024-02-26T20:34:16.591] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDT::::::::::::::::::::::::::
+[2024-02-26T20:34:16.592] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  229661805449237n
+[2024-02-26T20:34:16.592] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  5140058903250200772n
+[2024-02-26T20:34:16.592] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-26T20:34:16.592] [INFO] default - {
+  id: '0xd32f3139A214034A0f9777c87eE0a064c1FF6AE20x8929D3FEa77398F64448c85015633c2d6472fB29',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '5.445355367660114735 DAI',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.055868910814523480',
+    priceOut: '0.947087266002154741',
+    reservesIn: '56510.675078261037195667 DAI',
+    reservesOut: '53520.540759806347615639 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'SUSHI',
+    priceIn: '1.054223332086256055',
+    priceOut: '0.948565611824440699',
+    reservesIn: '2870.310340044213035415 DAI',
+    reservesOut: '2722.677683830057367574 WMATIC',
+    amountOut: '5.140058903250200772 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3024481888890242604179816778756414176552236213',
+    uniswapkPosT: '3024482709421998858829622928195984764483321592',
+    uniswapKPositive: true,
+    tokenProfit: '5.140058903250200772 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.592] [INFO] default - Profit:  5.140058903250200772 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.592] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-26T20:34:16.592] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-26T20:34:16.592] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  229661805449237n
+[2024-02-26T20:34:16.592] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1716657564083487671n
+[2024-02-26T20:34:16.592] [INFO] default - ====================Profitable trade found on WMATIC/USDT!====================
+[2024-02-26T20:34:16.592] [INFO] default - {
+  id: '0x101640e107C4a72DeC79826768C239F1eB48cc850xa789324E64268C5385eA7678435Fa83532705B0F',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.817157 USDT',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.055770',
+    priceOut: '0.947175970324671693',
+    reservesIn: '1838.463386 USDT',
+    reservesOut: '1741.348341540931440946 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'MMF',
+    priceIn: '1.054748',
+    priceOut: '0.948094170266265937',
+    reservesIn: '958.320776 USDT',
+    reservesOut: '908.578340970644098989 WMATIC',
+    amountOut: '1.716657564083487671 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3201405168194825274515442203156',
+    uniswapkPosT: '3201408412367812900672158316885',
+    uniswapKPositive: true,
+    tokenProfit: '1.716657564083487671 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.592] [INFO] default - Profit:  1.716657564083487671 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.592] [INFO] default - ====================Trade Data WMATIC/USDT====================
+[2024-02-26T20:34:16.592] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDT::::::::::::::::::::::::::
+[2024-02-26T20:34:16.592] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  2574836563416410n
+[2024-02-26T20:34:16.592] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:34:16.592] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:34:16.592] [INFO] default - {
+  id: '0xb965c131f1C48d89B1760860b782D2aCDF87273b0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'MMF',
+    priceIn: '1.055976',
+    priceOut: '0.946991351147230423',
+    reservesIn: '13895.425221 USDC',
+    reservesOut: '13158.847504800092897352 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '182847781497492129409007944914792',
+    uniswapkPosT: '182847905036452517331572032376814',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.593] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.593] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:34:16.593] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-26T20:34:16.593] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:34:16.593] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:34:16.593] [INFO] default - {
+  id: '0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF148270xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.055599',
+    priceOut: '0.947329628710618332',
+    reservesIn: '1167487.051695 USDC',
+    reservesOut: '1105995.075206678820951941 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '1291234929542235249445980391377589995',
+    uniswapkPosT: '1291234942232563295536781544999324112',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.593] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.593] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:34:16.593] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-26T20:34:16.593] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:34:16.593] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:34:16.593] [INFO] default - {
+  id: '0xcd353F79d9FADe311fC3119B841e1f456b54e8580xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1.055186',
+    priceOut: '0.947700379660789385',
+    reservesIn: '180446.031336 USDC',
+    reservesOut: '171008.772405409898330213 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '30857854304197486610018189073554568',
+    uniswapkPosT: '30857856242865705656769888431205307',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.593] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.593] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:34:16.593] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-26T20:34:16.626] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Gas Cost::::::::::::: 0.0136 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:34:16.627] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:34:16.627] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Gas Cost::::::::::::: 0.0136 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:34:16.627] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:34:16.627] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Gas Cost::::::::::::: 0.0136 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:34:16.627] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:34:16.627] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.627] [INFO] default - Gas Cost::::::::::::: 0.0136 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:34:16.627] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:34:16.628] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.628] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.628] [INFO] default - Gas Cost::::::::::::: 0.0136 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:34:16.628] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:34:16.628] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.628] [INFO] default - Wallet Balance Matic: 4.917039284746963412 MATIC
+[2024-02-26T20:34:16.628] [INFO] default - Gas Cost::::::::::::: 0.0136 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-26T20:34:16.628] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-26T20:34:16.635] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.635] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.635] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.635] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.635] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.635] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.635] [INFO] default - :::::::::::Sending Transaction: APE to MMF for WMATIC/USDT : profit: 1.716657564083487671:::::::::: 
+[2024-02-26T20:34:16.636] [INFO] default - :::::::::::Sending Transaction: APE to SUSHI for WMATIC/DAI : profit: 5.140058903250200772:::::::::: 
+[2024-02-26T20:34:16.636] [INFO] default - :::::::::::Sending Transaction: JET to MMF for WMATIC/USDT : profit: 1.716657564083487671:::::::::: 
+[2024-02-26T20:34:16.636] [INFO] default - :::::::::::Sending Transaction: MMF to POLYDEX for WMATIC/USDC : profit: 3.610715198213426838:::::::::: 
+[2024-02-26T20:34:16.636] [INFO] default - :::::::::::Sending Transaction: QUICK to POLYDEX for WMATIC/USDC : profit: 3.610715198213426838:::::::::: 
+[2024-02-26T20:34:16.636] [INFO] default - :::::::::::Sending Transaction: SUSHI to POLYDEX for WMATIC/USDC : profit: 3.610715198213426838:::::::::: 
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/DAI undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.680] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  11109390783115638n
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1716657564083487671n
+[2024-02-26T20:34:16.683] [INFO] default - ====================Profitable trade found on WMATIC/USDT!====================
+[2024-02-26T20:34:16.683] [INFO] default - {
+  id: '0x65D43B64E3B31965Cd5EA367D4c2b94c030847970xa789324E64268C5385eA7678435Fa83532705B0F',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.817157 USDT',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.056458',
+    priceOut: '0.946559247089848047',
+    reservesIn: '58931.845025 USDT',
+    reservesOut: '55782.482856479607346095 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'MMF',
+    priceIn: '1.054748',
+    priceOut: '0.948094170266265937',
+    reservesIn: '958.320776 USDT',
+    reservesOut: '908.578340970644098989 WMATIC',
+    amountOut: '1.716657564083487671 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3287364634807775537192922078927375',
+    uniswapkPosT: '3287364933540158879994855321715628',
+    uniswapKPositive: true,
+    tokenProfit: '1.716657564083487671 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.683] [INFO] default - Profit:  1.716657564083487671 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.683] [INFO] default - ====================Trade Data WMATIC/USDT====================
+[2024-02-26T20:34:16.683] [INFO] default - ::::::::::::::::::::::::WMATIC/USDT0x65D43B64E3B31965Cd5EA367D4c2b94c030847970xa789324E64268C5385eA7678435Fa83532705B0F: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  229661805449237n
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  5140058903250200772n
+[2024-02-26T20:34:16.683] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-26T20:34:16.683] [INFO] default - {
+  id: '0xd32f3139A214034A0f9777c87eE0a064c1FF6AE20x8929D3FEa77398F64448c85015633c2d6472fB29',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/DAI',
+  direction: 'B',
+  tradeSize: '5.445355367660114735 DAI',
+  loanPool: {
+    exchange: 'APE',
+    priceIn: '1.055868910814523480',
+    priceOut: '0.947087266002154741',
+    reservesIn: '56510.675078261037195667 DAI',
+    reservesOut: '53520.540759806347615639 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'SUSHI',
+    priceIn: '1.054223332086256055',
+    priceOut: '0.948565611824440699',
+    reservesIn: '2870.310340044213035415 DAI',
+    reservesOut: '2722.677683830057367574 WMATIC',
+    amountOut: '5.140058903250200772 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3024481888890242604179816778756414176552236213',
+    uniswapkPosT: '3024482709421998858829622928195984764483321592',
+    uniswapKPositive: true,
+    tokenProfit: '5.140058903250200772 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.683] [INFO] default - Profit:  5.140058903250200772 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.683] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-26T20:34:16.683] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xd32f3139A214034A0f9777c87eE0a064c1FF6AE20x8929D3FEa77398F64448c85015633c2d6472fB29: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  229661805449237n
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1716657564083487671n
+[2024-02-26T20:34:16.683] [INFO] default - ====================Profitable trade found on WMATIC/USDT!====================
+[2024-02-26T20:34:16.683] [INFO] default - {
+  id: '0x101640e107C4a72DeC79826768C239F1eB48cc850xa789324E64268C5385eA7678435Fa83532705B0F',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDT',
+  direction: 'B',
+  tradeSize: '1.817157 USDT',
+  loanPool: {
+    exchange: 'JET',
+    priceIn: '1.055770',
+    priceOut: '0.947175970324671693',
+    reservesIn: '1838.463386 USDT',
+    reservesOut: '1741.348341540931440946 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'MMF',
+    priceIn: '1.054748',
+    priceOut: '0.948094170266265937',
+    reservesIn: '958.320776 USDT',
+    reservesOut: '908.578340970644098989 WMATIC',
+    amountOut: '1.716657564083487671 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '3201405168194825274515442203156',
+    uniswapkPosT: '3201408412367812900672158316885',
+    uniswapKPositive: true,
+    tokenProfit: '1.716657564083487671 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.683] [INFO] default - Profit:  1.716657564083487671 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.683] [INFO] default - ====================Trade Data WMATIC/USDT====================
+[2024-02-26T20:34:16.683] [INFO] default - ::::::::::::::::::::::::WMATIC/USDT0x101640e107C4a72DeC79826768C239F1eB48cc850xa789324E64268C5385eA7678435Fa83532705B0F: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  2574836563416410n
+[2024-02-26T20:34:16.683] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:34:16.683] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:34:16.683] [INFO] default - {
+  id: '0xb965c131f1C48d89B1760860b782D2aCDF87273b0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'B',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'MMF',
+    priceIn: '1.055976',
+    priceOut: '0.946991351147230423',
+    reservesIn: '13895.425221 USDC',
+    reservesOut: '13158.847504800092897352 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '182847781497492129409007944914792',
+    uniswapkPosT: '182847905036452517331572032376814',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.683] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.683] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:34:16.683] [INFO] default - ::::::::::::::::::::::::WMATIC/USDC0xb965c131f1C48d89B1760860b782D2aCDF87273b0xA2937659873ef52Da71a399e4079EBb2a7e5fFF6: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-26T20:34:16.684] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:34:16.684] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:34:16.684] [INFO] default - {
+  id: '0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF148270xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'QUICK',
+    priceIn: '1.055599',
+    priceOut: '0.947329628710618332',
+    reservesIn: '1167487.051695 USDC',
+    reservesOut: '1105995.075206678820951941 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '1291234929542235249445980391377589995',
+    uniswapkPosT: '1291234942232563295536781544999324112',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.684] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.684] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:34:16.684] [INFO] default - ::::::::::::::::::::::::WMATIC/USDC0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF148270xA2937659873ef52Da71a399e4079EBb2a7e5fFF6: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-26T20:34:16.684] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  3610715198213426838n
+[2024-02-26T20:34:16.684] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-26T20:34:16.684] [INFO] default - {
+  id: '0xcd353F79d9FADe311fC3119B841e1f456b54e8580xA2937659873ef52Da71a399e4079EBb2a7e5fFF6',
+  block: 53991146,
+  trade: 'multi',
+  ticker: 'WMATIC/USDC',
+  direction: 'A',
+  tradeSize: '3.821587 USDC',
+  loanPool: {
+    exchange: 'SUSHI',
+    priceIn: '1.055186',
+    priceOut: '0.947700379660789385',
+    reservesIn: '180446.031336 USDC',
+    reservesOut: '171008.772405409898330213 WMATIC',
+    repaysObj: { multi: '0.0 WMATIC' },
+    amountRepay: '0.0 WMATIC'
+  },
+  target: {
+    exchange: 'POLYDEX',
+    priceIn: '1.053232',
+    priceOut: '0.949458008606009288',
+    reservesIn: '2012.509814 USDC',
+    reservesOut: '1910.793560300490151626 WMATIC',
+    amountOut: '3.610715198213426838 WMATIC'
+  },
+  result: {
+    uniswapkPreT: '30857854304197486610018189073554568',
+    uniswapkPosT: '30857856242865705656769888431205307',
+    uniswapKPositive: true,
+    tokenProfit: '3.610715198213426838 WMATIC',
+    wmaticProfit: '00.0 WMATIC',
+    profperc: '100.0%'
+  }
+}
+[2024-02-26T20:34:16.684] [INFO] default - Profit:  3.610715198213426838 Gas Cost:  0.0136 Flash Type:  multi
+[2024-02-26T20:34:16.684] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-26T20:34:16.684] [INFO] default - ::::::::::::::::::::::::WMATIC/USDC0xcd353F79d9FADe311fC3119B841e1f456b54e8580xA2937659873ef52Da71a399e4079EBb2a7e5fFF6: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-26T20:34:16.686] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-26T20:34:16.686] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-26T20:34:16.686] [INFO] default - {
+  loanFactory: '0xCf083Be4164828f00cAE704EC15a36D711491284',
+  loanRouter: '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607',
+  targetRouter: '0x51aba405de2b25e5506dea32a6697f450ceb1a17',
+  tokenInId: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 1817157n,
+  amountOut: 1716657564083487671n,
+  repay: 0n
+}
