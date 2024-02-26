@@ -222,6 +222,19 @@ export interface PoolsV3 {
     feeTier: number;
 }
 
+export interface ToWMATICPool {
+    ticker: string;
+    tokenIn: { id: string; decimals: number; symbol: string };
+    tokenOut: { id: string; decimals: number; symbol: string };
+    id: string;
+    exchange: string;
+    reserves: {
+        reserve0: bigint;
+        reserve1: bigint;
+    };
+    liquidity: bigint;
+}
+
 export interface GasPool {
     ticker: string;
     address: string;
