@@ -83,27 +83,14 @@ export class Trade {
         return { dir, diff, dperc };
     }
 
-    async getSize(loan: AmountConverter, target: AmountConverter): Promise<bigint> {
-        const toPrice = await target.tradeToPrice();
-        // use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
-        const maxIn = await target.getMaxTokenIn();
-        const bestSize = toPrice < maxIn ? toPrice : maxIn;
-        const safeReserves = (loan.reserves.reserveIn * 820n) / 1000n;
-        //473 * 800 / 1000 = 378.4
-        const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
-        // const msg = size.eq(safeReserves) ? "[getSize]: using safeReserves" : "[getSize]: using bestSize";
-        // console.log(msg);
-        return size;
-    }
-
     async getTrade() {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
         //TODO: SWITCH bot to trade from token1 to token0; token0 is more often WMATIC, which is easier to price.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const size = A
-            ? await this.getSize(this.calc1, this.calc0)
-            : await this.getSize(this.calc0, this.calc1);
+            ? await this.calc0.getSize() //this.getSize(this.calc1, this.calc0)
+            : await this.calc1.getSize(); //this.getSize(this.calc0, this.calc1);
         const trade: BoolTrade = {
             ID: A
                 ? this.match.poolBID + this.match.poolAID
@@ -142,7 +129,7 @@ export class Trade {
                     : this.price0.priceOutBN.toFixed(this.match.token0.decimals),
                 amountOut: 0n,
                 repays: {
-                    single: { singleIn: 0n, singleOut: 0n },
+                    // single: { singleIn: 0n, singleOut: 0n },
                     multi: 0n,
                     repay: 0n,
                 },
@@ -196,13 +183,13 @@ export class Trade {
 
         trade.target.amountOut = await getAmountsOut(
             trade.target.router, // token1 in given
-            trade.target.tradeSize, // token1 in
+            trade.target.tradeSize.size, // token1 in
             [trade.tokenIn.id, trade.tokenOut.id],
         ); // token0 max out
 
         trade.loanPool.amountOut = await getAmountsOut(
             trade.loanPool.router, // token1 in given
-            trade.target.tradeSize, // token1 in
+            trade.target.tradeSize.size, // token1 in
             [trade.tokenIn.id, trade.tokenOut.id],
         ); // token0 max out
 
@@ -218,10 +205,10 @@ export class Trade {
         // Define repay & profit for each trade type:
         const r = new PopulateRepays(trade, this.calc0);
         const repays = await r.getRepays();
-        const p = new ProfitCalculator(trade, this.calc0, repays);
 
+        const p = new ProfitCalculator(trade, this.calc0, repays);
         const multi = await p.getMultiProfit();
-        const single = await p.getSingleProfit();
+        // const single = await p.getSingleProfit();
 
         // subtract the result from amountOut to get profit
         // The below will be either in token1 or token0, depending on the trade type.
@@ -231,37 +218,41 @@ export class Trade {
         //     return trade;
         // }
         //TODO: CHANGE 'SINGLE' TO 'SINGLE' to reflect uniswap docs.
-        trade.type =
-            multi.profit > single.profit
-                ? "multi"
-                : single.profit > multi.profit
-                ? "single"
-                : "No Profit: multi: " + multi.profit + " single: " + single.profit;
+        trade.type = "multi";
+        // multi.profit > single.profit
+        //     ? "multi"
+        //     : single.profit > multi.profit
+        //     ? "single"
+        //     : "No Profit: multi: " + multi.profit + " single: " + single.profit;
 
-        trade.loanPool.amountRepay =
-            trade.type === "multi" ? repays.multi : repays.single.singleOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
+        trade.loanPool.amountRepay = repays.multi;
+        // trade.type === "multi" ? repays.multi : repays.single.singleOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
 
         trade.loanPool.repays = repays;
 
-        trade.profits.profitToken = trade.type === "multi" ? multi.profit : single.profit;
+        trade.profits.profitToken = multi.profit; //trade.type === "multi" ? multi.profit : single.profit;
 
-        trade.profits.profitPercent =
-            trade.type == "multi"
-                ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
-                : pu(
-                      single.profitPercent.toFixed(trade.tokenOut.decimals),
-                      trade.tokenOut.decimals,
-                  );
+        trade.profits.profitPercent = pu(
+            multi.profitPercent.toFixed(trade.tokenOut.decimals),
+            trade.tokenOut.decimals,
+        );
+        // trade.type == "multi"
+        //     ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
+        //     : pu(
+        //           single.profitPercent.toFixed(trade.tokenOut.decimals),
+        //           trade.tokenOut.decimals,
+        //       );
 
         trade.k = await getK(
             trade.type,
-            trade.target.tradeSize,
+            trade.target.tradeSize.size,
             trade.loanPool.reserveIn,
             trade.loanPool.reserveOut,
             this.calc0,
         );
 
-        trade.flash = trade.type === "multi" ? flashMulti : flashSingle;
+        trade.flash = flashMulti; // trade.type === "multi" ? flashMulti : flashSingle;
+
         await filterTrade(trade);
 
         // return trade;

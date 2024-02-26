@@ -235,10 +235,10 @@ export interface swap {
 }
 
 export interface Repays {
-    single: {
-        singleIn: bigint;
-        singleOut: bigint;
-    };
+    // single: {
+    //     singleIn: bigint;
+    //     singleOut: bigint;
+    // };
     multi: bigint;
     repay: bigint;
 }
@@ -368,7 +368,7 @@ export interface BoolTrade {
         reserveOutBN: BN;
         priceIn: string;
         priceOut: string;
-        tradeSize: bigint;
+        tradeSize: Size;
         amountOut: bigint;
     };
     gas: GasData;
@@ -376,6 +376,10 @@ export interface BoolTrade {
     differenceTokenOut: string;
     differencePercent: string;
     profits: TradeProfit;
+}
+export interface Size {
+    size: bigint;
+    sizeBN: BN;
 }
 
 export interface TradeGas {

@@ -10,7 +10,9 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             ticker: trade.ticker,
             direction: trade.direction,
             tradeSize:
-                fu(trade.target.tradeSize, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+                fu(trade.target.tradeSize.size, trade.tokenIn.decimals) +
+                " " +
+                trade.tokenIn.symbol,
             loanPool: {
                 exchange: trade.loanPool.exchange,
                 priceIn: trade.loanPool.priceIn,
@@ -24,10 +26,10 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     " " +
                     trade.tokenOut.symbol,
                 repaysObj: {
-                    single:
-                        fu(trade.loanPool.repays.single.singleIn, trade.tokenIn.decimals) +
-                        " " +
-                        trade.tokenIn.symbol,
+                    // single:
+                    //     fu(trade.loanPool.repays.single.singleIn, trade.tokenIn.decimals) +
+                    //     " " +
+                    //     trade.tokenIn.symbol,
                     // singleOut:
                     //     fu(trade.loanPool.repays.single.singleOut, trade.tokenOut.decimals) +
                     //     " " +
@@ -79,7 +81,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     fu(trade.profits.profitToken, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
-                wmaticProfit: fu(trade.profits.profitWMATIC, 18) + " WMATIC",
+                wmaticProfit:
+                    trade.profits.profitWMATIC + fu(trade.profits.profitWMATIC, 18) + " WMATIC",
                 profperc: fu(trade.profits.profitPercent, trade.tokenOut.decimals) + "%",
             },
         };
