@@ -42,13 +42,16 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     const trade = await t.getTrade();
 
+                    if (trade.target.tradeSize.size == 0n) {
+                        return;
+                    }
+
                     // This filter was too strong, resulting in 0 matches to trade. Needs refined.
                     // const filtered = filterMatches(filteredTrades)
 
-                    const dataPromise = tradeLogs(trade);
                     const rollPromise = rollDamage(trade);
 
-                    promises.push(dataPromise, rollPromise);
+                    promises.push(rollPromise);
                 } else {
                     console.log(
                         "Reserves not found for " + match.poolAID + " and " + match.poolBID,

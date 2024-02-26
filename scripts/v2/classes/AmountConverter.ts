@@ -35,7 +35,37 @@ export class AmountConverter {
     // can be limited by slip if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
     // can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
 
-    async tradeToPrice(): Promise<bigint> {
+    async getSize(): Promise<{
+        size: bigint;
+        sizeBN: BN;
+    }> {
+        const p = await this.tradeToPrice();
+        const size = async (): Promise<bigint> => {
+            const toPrice = p.tradeSize;
+            if (toPrice === 0n) {
+                return 0n;
+            }
+            // use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
+            let maxIn = await this.getMaxTokenIn();
+            const bestSize = toPrice > maxIn ? maxIn : toPrice;
+            const safeReserves = (this.reserves.reserveIn * 820n) / 1000n;
+            const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
+            return size;
+        };
+        const sizeBN = async (): Promise<BN> => {
+            const toPrice = p.tradeSizeBN;
+            if (toPrice.eq(BN(0))) {
+                return BN(0);
+            }
+            let maxIn = BN(fu(await this.getMaxTokenIn(), this.token0.decimals));
+            const bestSize = toPrice.gt(maxIn) ? maxIn : toPrice;
+            const safeReserves = this.reserves.reserveInBN.times(820).div(1000);
+            const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
+            return BN(0);
+        };
+        return { size: await size(), sizeBN: await sizeBN() };
+    }
+    async tradeToPrice(): Promise<{ tradeSize: bigint; tradeSizeBN: BN }> {
         // this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
         // console.log({
         // 	reservesInBN: this.reserves.reserveInBN.toString(),
@@ -48,10 +78,10 @@ export class AmountConverter {
             this.targetPrice,
             this.slip,
         );
-        // console.log('tradeSize: ', tradeSize.toFixed(this.token0.decimals));//DEBUG
+        // console.log("tradeSize: ", tradeSize.toFixed(this.token0.decimals)); //DEBUG
         const tradeSizeJS = pu(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
-        // console.log('tradeSizeJS: ', fu(tradeSizeJS, this.token0.decimals));//DEBUG
-        return tradeSizeJS;
+        // console.log("tradeSizeJS: ", fu(tradeSizeJS, this.token0.decimals)); //DEBUG
+        return { tradeSize: tradeSizeJS, tradeSizeBN: tradeSize };
     }
 
     async getMaxTokenIn(): Promise<bigint> {

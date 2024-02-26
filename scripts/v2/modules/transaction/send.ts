@@ -17,7 +17,7 @@ export async function send(trade: BoolTrade): Promise<TxData> {
         targetRouter: await trade.target.router.getAddress(),
         tokenInId: trade.tokenIn.id,
         tokenOutId: trade.tokenOut.id,
-        tradeSize: trade.target.tradeSize,
+        tradeSize: trade.target.tradeSize.size,
         amountOut: trade.target.amountOut,
         repay: trade.loanPool.amountRepay,
     };
@@ -30,7 +30,7 @@ export async function send(trade: BoolTrade): Promise<TxData> {
         trade.target.router,
         trade.tokenIn.id,
         trade.tokenOut.id,
-        trade.target.tradeSize,
+        trade.target.tradeSize.size,
         trade.target.amountOut,
         trade.loanPool.amountRepay,
     );

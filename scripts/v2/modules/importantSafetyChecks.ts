@@ -8,7 +8,7 @@ import { tradeComparator } from "@cryptoalgebra/integral-sdk";
 
 export async function importantSafetyChecks(trade: BoolTrade): Promise<boolean> {
     const swap: swap = {
-        amount0Out: trade.target.tradeSize,
+        amount0Out: trade.target.tradeSize.size,
         amount1Out: 0n,
         to: await trade.target.pool.getAddress(),
         data: "none",

@@ -12,7 +12,7 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
         default: 10,
     };
 
-    const tradeSize = BigInt2BN(trade.target.tradeSize, trade.tokenOut.decimals);
+    const tradeSize = trade.target.tradeSize.sizeBN;
     const amountOut = BigInt2BN(trade.target.amountOut, trade.tokenOut.decimals);
 
     const liquidityThresholdIn =
@@ -29,7 +29,7 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
 
     const safe = await importantSafetyChecks(trade);
     if (!safe) {
-        trade.type = "filtered: failed safety checks";
+        // trade.type = "filtered: failed safety checks";
         return undefined;
     }
     return trade;

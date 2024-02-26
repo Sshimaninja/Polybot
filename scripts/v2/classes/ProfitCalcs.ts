@@ -35,26 +35,26 @@ export class ProfitCalculator {
         }
     }
 
-    async getSingleProfit(): Promise<Profcalcs> {
-        try {
-            const repays = this.repays;
-            const profit =
-                this.trade.target.amountOut > repays.single.singleOut
-                    ? this.trade.target.amountOut - repays.single.singleOut
-                    : 0n;
-            const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
-            const profitPercent =
-                profit > 0n && this.trade.target.amountOut > 0
-                    ? profitBN
-                          .dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals))
-                          .multipliedBy(100)
-                    : BN(0);
-            const profCalcs = { profit, profitPercent };
-            return profCalcs;
-        } catch (error: any) {
-            console.log("Error in getSingleProfit: " + error.trace);
-            console.log(error);
-            return { profit: 0n, profitPercent: BN(0) };
-        }
-    }
+    // async getSingleProfit(): Promise<Profcalcs> {
+    //     try {
+    //         const repays = this.repays;
+    //         const profit =
+    //             this.trade.target.amountOut > repays.single.singleOut
+    //                 ? this.trade.target.amountOut - repays.single.singleOut
+    //                 : 0n;
+    //         const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
+    //         const profitPercent =
+    //             profit > 0n && this.trade.target.amountOut > 0
+    //                 ? profitBN
+    //                       .dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals))
+    //                       .multipliedBy(100)
+    //                 : BN(0);
+    //         const profCalcs = { profit, profitPercent };
+    //         return profCalcs;
+    //     } catch (error: any) {
+    //         console.log("Error in getSingleProfit: " + error.trace);
+    //         console.log(error);
+    //         return { profit: 0n, profitPercent: BN(0) };
+    //     }
+    // }
 }
