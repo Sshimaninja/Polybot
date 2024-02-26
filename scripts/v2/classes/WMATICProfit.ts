@@ -218,8 +218,10 @@ export class WMATICProfit {
     // IF NEITHER TOKEN IS WMATIC, USE toWMATIC object to get gasToken -> WMATIC price.
 
     async gasTokentoWMATICPrice(): Promise<bigint | undefined> {
+        console.log("gasTokentoWMATICPrice...");
         let profitInWMATIC: bigint | undefined;
         for (let tokenIn of Object.keys(toWMATIC)) {
+            console.log("gasTokentoWMATICPrice tokenIn: ", tokenIn);
             if (tokenIn == this.trade.tokenOut.id) {
                 let token = this.toWMATIC[tokenIn];
                 let profitInWMATICBN = await getAmountsOutBN(
@@ -228,7 +230,7 @@ export class WMATICProfit {
                     token.reserves.reserve1,
                 );
                 profitInWMATIC = pu(profitInWMATICBN.toFixed(18), 18);
-                // return profitInWMATIC;
+                return profitInWMATIC;
             }
             if (tokenIn == this.trade.tokenIn.id) {
                 let token = this.toWMATIC[tokenIn];
@@ -240,8 +242,8 @@ export class WMATICProfit {
                     token.reserves.reserve1,
                 );
                 profitInWMATIC = pu(profitInWMATICBN.toFixed(18), 18);
+                return profitInWMATIC;
             }
-            return profitInWMATIC;
         }
     }
 
