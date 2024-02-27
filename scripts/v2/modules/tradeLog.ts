@@ -35,7 +35,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     //     " " +
                     //     trade.tokenOut.symbol,
                     multi:
-                        fu(trade.loanPool.repays.multi, trade.tokenOut.decimals) +
+                        fu(trade.loanPool.repays.flashMulti, trade.tokenOut.decimals) +
                         " " +
                         trade.tokenOut.symbol,
                 },

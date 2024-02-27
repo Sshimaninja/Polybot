@@ -1,7 +1,9 @@
 ////SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
 
-contract SwapSingle {
+import "hardhat/console.sol";
+
+contract SwapSingleTest {
     address owner;
     IUniswapV2Pair pair;
 
@@ -17,7 +19,7 @@ contract SwapSingle {
         return owner;
     }
 
-    function swapSingle(
+    function swapSingleTest(
         address router0ID,
         address router1ID,
         address token0ID,
@@ -30,6 +32,7 @@ contract SwapSingle {
         address to,
         uint256 deadline
     ) external {
+        console.log("SwapSingle: contract entered");
         // Perform the first swap
         IERC20 tokenIn = IERC20(token0ID);
         IERC20 tokenOut = IERC20(token1ID);
@@ -44,7 +47,7 @@ contract SwapSingle {
             address(this),
             deadline
         );
-
+        console.log("SwapSingle: first swap completed");
         // Approve the Uniswap router to spend the output tokens
         tokenOut.approve(address(router1), swapIn[1]);
 
@@ -52,6 +55,7 @@ contract SwapSingle {
         require(amountsOut[1] > amountOutMin1, "Error SwapSingle: Insufficient output: Target");
         // Perform the second swap
         router1.swapExactTokensForTokens(swapIn[1], amountOutMin1, path1, to, deadline);
+        console.log("SwapSingle: second swap completed");
         // Return any unspent tokens to the sender
         tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));
     }

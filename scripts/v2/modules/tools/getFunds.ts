@@ -6,8 +6,8 @@ import { BoolTrade, Size } from "../../../../constants/interfaces";
 import { BigInt2BN } from "../../../modules/convertBN";
 
 export async function getFunds(trade: BoolTrade): Promise<Size> {
-    const tokenContract = new ethers.Contract(trade.tokenIn.id, IERC20, provider);
-    const balance = await tokenContract.balanceOf(signer.address);
+    const tokenInContract = new ethers.Contract(trade.tokenIn.id, IERC20, provider);
+    const balance = await tokenInContract.balanceOf(signer.address);
     const balanceBN = BigInt2BN(balance, trade.tokenIn.decimals);
     let size: Size = {
         size: balance,
