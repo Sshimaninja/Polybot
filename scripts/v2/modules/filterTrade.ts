@@ -6,14 +6,14 @@ import { tradeLogs } from "./tradeLog";
 
 export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefined> {
     const liquidityThresholds: { [key: string]: number } = {
-        WBTC: 0.01,
-        WETH: 0.1,
-        ETH: 0.1,
-        default: 10,
+        WBTC: 0.001,
+        WETH: 0.01,
+        ETH: 0.01,
+        default: 1,
     };
 
     // const tradeSize = trade.target.tradeSize.sizeBN;
-    // const amountOut = BigInt2BN(trade.target.amountOut, trade.tokenOut.decimals);
+    // const amountOut = BigInt2BN(trade.quotes.target.flashOut, trade.tokenOut.decimals);
 
     const liquidityThresholdIn =
         liquidityThresholds[trade.tokenIn.symbol] || liquidityThresholds.default;

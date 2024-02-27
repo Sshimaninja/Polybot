@@ -3,9 +3,9 @@ import { BoolTrade /*WmaticProfit*/, ToWMATICPool } from "../constants/interface
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IUniswapv2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IUniswapV2Factory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
-import { getAmountsOut } from "../scripts/v2/modules/getAmounts/getAmountsIOJS";
+import { getAmountsOut } from "../scripts/v2/modules/price/getAmountsIOJS";
 import { BigNumber as BN } from "bignumber.js";
-import { getAmountsOut as getAmountsOutBN } from "../scripts/v2/modules/getAmounts/getAmountsIOBN";
+import { getAmountsOut as getAmountsOutBN } from "../scripts/v2/modules/price/getAmountsIOBN";
 import { uniswapV2Exchange, gasTokens } from "../constants/addresses";
 import { wallet, provider } from "../constants/provider";
 import { logger } from "../constants/logger";

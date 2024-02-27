@@ -15,7 +15,9 @@ import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { flashMulti, flashSingle } from "../../../constants/environment";
 import { provider, wallet } from "../../../constants/provider";
 import { Prices } from "./Prices";
+import { getQuotes } from "../modules/price/getQuotes";
 import { getK } from "../modules/tools/getK";
+import { getFunds } from "../modules/tools/getFunds";
 import { BoolTrade } from "../../../constants/interfaces";
 import { PopulateRepays } from "./Repays";
 import { AmountConverter } from "./AmountConverter";
@@ -23,7 +25,7 @@ import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../../modules/conve
 import { filterTrade } from "../modules/filterTrade";
 import { logger } from "../../../constants/logger";
 import { ProfitCalculator } from "./ProfitCalcs";
-import { getAmountsOut, getAmountsIn } from "../modules/getAmounts/getAmountsIOJS";
+import { getAmountsOut, getAmountsIn } from "../modules/price/getAmountsIOBN";
 // import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmounts/getAmountsIOBN";
 
 /**
@@ -68,24 +70,12 @@ export class Trade {
         const B = this.price1.priceOutBN;
         const diff = A.lt(B) ? B.minus(A) : A.minus(B);
         const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100); // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
-
-        //It would seem like you want to 'buy' the cheaper token, but you actually want to 'sell' the more expensive token.
-
-        /*
-		ex:
-		A: eth/usd = 1/3000 = on uniswap
-		B: eth/usd = 1/3100 = on sushiswap
-		borrow eth on uniswap, sell on sushiswap for 3100 = $100 profit minus fees.
-		*/
-
         const dir = A.gt(B) ? "A" : "B";
-        //borrow from the pool with the higher priceOut, sell on the pool with the lower priceOut
         return { dir, diff, dperc };
     }
 
     async getTrade() {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
-        //TODO: SWITCH bot to trade from token1 to token0; token0 is more often WMATIC, which is easier to price.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const size = A
@@ -127,11 +117,10 @@ export class Trade {
                 priceOut: A
                     ? this.price1.priceOutBN.toFixed(this.match.token0.decimals)
                     : this.price0.priceOutBN.toFixed(this.match.token0.decimals),
-                amountOut: 0n,
                 repays: {
-                    // single: { singleIn: 0n, singleOut: 0n },
-                    multi: 0n,
-                    repay: 0n,
+                    single: 0n,
+                    flashSingle: { singleIn: 0n, singleOut: 0n },
+                    flashMulti: 0n,
                 },
                 amountRepay: 0n,
             },
@@ -160,10 +149,22 @@ export class Trade {
                 priceOut: A
                     ? this.price0.priceOutBN.toFixed(this.match.token0.decimals)
                     : this.price1.priceOutBN.toFixed(this.match.token0.decimals),
-                //TODO: FIX THE CALCS FOR MAXIN() WHICH ARE WRONG.
                 tradeSize: size,
-                // amountOuttoken0for1: 0n,
-                amountOut: 0n,
+                walletSize: size,
+            },
+            quotes: {
+                target: {
+                    out: 0n,
+                    outBN: BN(0),
+                    flashOut: 0n,
+                    flashOutBN: BN(0),
+                },
+                loanPool: {
+                    out: 0n,
+                    outBN: BN(0),
+                    flashOut: 0n,
+                    flashOutBN: BN(0),
+                },
             },
             gas: this.gasData,
             k: {
@@ -175,73 +176,61 @@ export class Trade {
                 dir.diff.toFixed(this.match.token0.decimals) + " " + this.match.token0.symbol,
             differencePercent: dir.dperc.toFixed(this.match.token0.decimals) + "%",
             profits: {
-                profitToken: 0n,
-                profitWMATIC: 0n,
-                profitPercent: 0n,
+                tokenProfit: 0n,
+                WMATICProfit: 0n,
+                profitPercent: "",
             },
         };
 
-        trade.target.amountOut = await getAmountsOut(
-            trade.target.router, // token1 in given
-            trade.target.tradeSize.size, // token1 in
-            [trade.tokenIn.id, trade.tokenOut.id],
-        ); // token0 max out
+        const quote = await getQuotes(trade);
 
-        trade.loanPool.amountOut = await getAmountsOut(
-            trade.loanPool.router, // token1 in given
-            trade.target.tradeSize.size, // token1 in
-            [trade.tokenIn.id, trade.tokenOut.id],
-        ); // token0 max out
-
-        // // SUBTRACT SLIPPAGE FROM EXPECTED AMOUNTOUT. This is an attempt to offset 'INSUFFICIENT_OUTPUT_AMOUNT' errors.
-        trade.target.amountOut = await this.calc0.subSlippage(
-            trade.target.amountOut,
-            trade.tokenOut.decimals,
-        );
-
-        // console.log("trade.target.amountOut minus slippage: ", trade.target.amountOut);
-
-        //TODO: Add Balancer, Aave, Compound, Dydx, etc. here.
-        // Define repay & profit for each trade type:
         const r = new PopulateRepays(trade, this.calc0);
         const repays = await r.getRepays();
 
         const p = new ProfitCalculator(trade, this.calc0, repays);
         const multi = await p.getMultiProfit();
-        // const single = await p.getSingleProfit();
+        const single = await p.getSingleProfit();
 
-        // subtract the result from amountOut to get profit
-        // The below will be either in token1 or token0, depending on the trade type.
-        // Set repayCalculation here for testing, until you find the correct answer (of which there is only 1):
+        let maxProfit;
+        let tradeType;
 
-        // if (filteredTrade == undefined) {
-        //     return trade;
-        // }
-        //TODO: CHANGE 'SINGLE' TO 'SINGLE' to reflect uniswap docs.
-        trade.type = "multi";
-        // multi.profit > single.profit
-        //     ? "multi"
-        //     : single.profit > multi.profit
-        //     ? "single"
-        //     : "No Profit: multi: " + multi.profit + " single: " + single.profit;
+        if (single.flashProfit > multi.flashProfit) {
+            maxProfit = single.flashProfit;
+            tradeType = "flashSingle";
+        } else {
+            maxProfit = multi.flashProfit;
+            tradeType = "flashMulti";
+        }
 
-        trade.loanPool.amountRepay = repays.multi;
-        // trade.type === "multi" ? repays.multi : repays.single.singleOut; // Must be calculated in tokenOut for this bot unless new contracts are added.
+        if (single.profit > maxProfit) {
+            // maxProfit = single.profit;
+            tradeType = "single";
+        }
 
+        trade.type = tradeType;
         trade.loanPool.repays = repays;
+        trade.target.tradeSize =
+            trade.type === "flashMulti"
+                ? trade.target.tradeSize
+                : trade.type === "flashSingle"
+                ? trade.target.tradeSize
+                : trade.target.walletSize;
 
-        trade.profits.profitToken = multi.profit; //trade.type === "multi" ? multi.profit : single.profit;
+        trade.profits.tokenProfit =
+            trade.type === "flashMulti"
+                ? multi.flashProfit
+                : trade.type === "flashSingle"
+                ? single.flashProfit
+                : single.profit;
 
-        trade.profits.profitPercent = pu(
-            multi.profitPercent.toFixed(trade.tokenOut.decimals),
-            trade.tokenOut.decimals,
-        );
-        // trade.type == "multi"
-        //     ? pu(multi.profitPercent.toFixed(trade.tokenOut.decimals), trade.tokenOut.decimals)
-        //     : pu(
-        //           single.profitPercent.toFixed(trade.tokenOut.decimals),
-        //           trade.tokenOut.decimals,
-        //       );
+        trade.profits.profitPercent = await p.getProfitPercent(trade.tokenOut.decimals);
+
+        trade.loanPool.amountRepay =
+            trade.type === "flashMulti"
+                ? repays.flashMulti
+                : trade.type === "flashSingle"
+                ? repays.flashSingle.singleOut
+                : repays.single;
 
         trade.k = await getK(
             trade.type,
@@ -251,11 +240,8 @@ export class Trade {
             this.calc0,
         );
 
-        trade.flash = flashMulti; // trade.type === "multi" ? flashMulti : flashSingle;
+        trade.flash = trade.type === "flashSingle" ? flashSingle : flashMulti;
 
-        await filterTrade(trade);
-
-        // return trade;
         return trade;
     }
 }

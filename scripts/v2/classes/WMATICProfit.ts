@@ -4,11 +4,11 @@ import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IUniswapv2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IUniswapV2Factory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { getGas2WMATICArray } from "../../../utils/getToWMATICPool";
-import { getAmountsOut } from "../modules/getAmounts/getAmountsIOJS";
+import { getAmountsOut } from "../modules/price/getAmountsIOJS";
 import gasPools from "../../../constants/gasPools.json";
 import { BigNumber as BN } from "bignumber.js";
 import fs from "fs";
-import { getAmountsOut as getAmountsOutBN } from "../modules/getAmounts/getAmountsIOBN";
+import { getAmountsOut as getAmountsOutBN } from "../modules/price/getAmountsIOBN";
 import {
     // gasTokens,
     toWMATIC,
@@ -57,7 +57,7 @@ export class WMATICProfit {
         this.profitInWMATIC = 0n;
         this.gasRouter = trade.loanPool.router;
         this.gasPool = trade.target.pool;
-        this.tokenProfitBN = BN(fu(this.trade.profits.profitToken, this.trade.tokenOut.decimals));
+        this.tokenProfitBN = BN(fu(this.trade.profits.tokenProfit, this.trade.tokenOut.decimals));
     }
 
     //  async getProfitInWMATIC(trade: BoolTrade) {
@@ -89,7 +89,7 @@ export class WMATICProfit {
                 "Profit token has no value: ",
                 this.trade.ticker,
                 "Profit in tokenOut: ",
-                fu(this.trade.profits.profitToken, this.trade.tokenOut.decimals),
+                fu(this.trade.profits.tokenProfit, this.trade.tokenOut.decimals),
             );
             profitInWMATIC = 0n;
         }
@@ -107,7 +107,7 @@ export class WMATICProfit {
     async tokenOutisWMATIC(): Promise<bigint | undefined> {
         if (this.trade.tokenOut.id == this.wmaticID) {
             console.log("[getProfitInWmatic]: tokenOut is WMATIC");
-            let profitInWMATIC = this.trade.profits.profitToken;
+            let profitInWMATIC = this.trade.profits.tokenProfit;
             let gasRouter = this.trade.target.router;
             let gasPool = this.trade.target.pool;
             // console.log(
@@ -136,7 +136,7 @@ export class WMATICProfit {
                 this.trade.target.reserveInBN,
             );
             // let inMatic = await this.trade.loanPool.router.getAmountsOut(
-            //     this.trade.profits.profitToken,
+            //     this.trade.profits.tokenProfit,
             //     [this.trade.tokenOut.id, wmatic],
             // );
             // console.log(
