@@ -16,45 +16,44 @@ export class ProfitCalculator {
 
     async getMultiProfit(): Promise<Profcalcs> {
         try {
-            let profit: Profcalcs = { profit: 0n, profitPercent: BN(0) };
-            profit.profit =
-                this.trade.target.amountOut > this.repays.repay
-                    ? this.trade.target.amountOut - this.repays.repay
+            let profit: Profcalcs = { profit: 0n, flashProfit: 0n };
+            profit.flashProfit =
+                this.trade.quotes.target.flashOut > this.repays.flashMulti
+                    ? this.trade.quotes.target.flashOut - this.repays.flashMulti
                     : 0n;
-            const profitBN = BigInt2BN(profit.profit, this.trade.tokenOut.decimals);
-            profit.profitPercent =
-                profit.profit > 0n && this.trade.target.amountOut > 0n
-                    ? profitBN
-                          .dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals))
-                          .multipliedBy(100)
-                    : BN(0);
+            const profitBN = BigInt2BN(profit.flashProfit, this.trade.tokenOut.decimals);
+
             return profit;
         } catch (error: any) {
             console.log("Error in getMultiProfit: " + error.message);
-            return { profit: 0n, profitPercent: BN(0) };
+            return { profit: 0n, flashProfit: 0n };
         }
     }
 
-    // async getSingleProfit(): Promise<Profcalcs> {
-    //     try {
-    //         const repays = this.repays;
-    //         const profit =
-    //             this.trade.target.amountOut > repays.single.singleOut
-    //                 ? this.trade.target.amountOut - repays.single.singleOut
-    //                 : 0n;
-    //         const profitBN = BigInt2BN(profit, this.trade.tokenOut.decimals);
-    //         const profitPercent =
-    //             profit > 0n && this.trade.target.amountOut > 0
-    //                 ? profitBN
-    //                       .dividedBy(fu(this.trade.target.amountOut, this.trade.tokenOut.decimals))
-    //                       .multipliedBy(100)
-    //                 : BN(0);
-    //         const profCalcs = { profit, profitPercent };
-    //         return profCalcs;
-    //     } catch (error: any) {
-    //         console.log("Error in getSingleProfit: " + error.trace);
-    //         console.log(error);
-    //         return { profit: 0n, profitPercent: BN(0) };
-    //     }
-    // }
+    async getSingleProfit(): Promise<Profcalcs> {
+        try {
+            const repays = this.repays;
+
+            // Single profit has 2 calculations: one for lfash loan and another for straight arb without flash, as you would usually want to sell back into stake.
+            const profit = this.trade.quotes.target.out - this.trade.quotes.loanPool.out; //this.trade.quotes.target.flashBN.minus(this.trade.loanPool.amountOutBN);
+
+            const flashProfit =
+                this.trade.quotes.target.flashOut > repays.flashSingle.singleOut
+                    ? this.trade.quotes.target.flashOut - repays.flashSingle.singleOut
+                    : 0n;
+            const profitBN = BigInt2BN(flashProfit, this.trade.tokenOut.decimals);
+            const profCalcs = { profit, flashProfit };
+            return profCalcs;
+        } catch (error: any) {
+            console.log("Error in getSingleProfit: " + error.trace);
+            console.log(error);
+            return { profit: 0n, flashProfit: 0n };
+        }
+    }
+
+    async getProfitPercent(d: number): Promise<string> {
+        let tokenProfitBN = BigInt2BN(this.trade.profits.tokenProfit, d);
+        let profitPercent = tokenProfitBN.div(this.trade.quotes.target.flashOutBN).toFixed(d);
+        return profitPercent;
+    }
 }

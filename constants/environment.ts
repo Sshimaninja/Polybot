@@ -1,8 +1,8 @@
 import { ethers } from "ethers";
 import { config as dotenvConfig } from "dotenv";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
-import { abi as IflashMulti } from "../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json";
-import { abi as IflashSingle } from "../artifacts/contracts/v2/flashSingleTest.sol/flashSingleTest.json";
+import { abi as IFlashMulti } from "../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json";
+import { abi as IFlashSingle } from "../artifacts/contracts/v2/flashSingleTest.sol/flashSingleTest.json";
 import { provider, wallet, signer } from "./provider";
 import { BigNumber as BN } from "bignumber.js";
 import { logger } from "./logger";
@@ -30,5 +30,5 @@ export const wmatic = new ethers.Contract(
 export const flashMultiID = process.env.FLASH_MULTI;
 export const flashSingleID = process.env.FLASH_SINGLE;
 
-export const flashMulti = new ethers.Contract(flashMultiID, IflashMulti, signer);
-export const flashSingle = new ethers.Contract(flashSingleID, IflashSingle, signer);
+export const flashMulti = new ethers.Contract(flashMultiID, IFlashMulti, signer);
+export const flashSingle = new ethers.Contract(flashSingleID, IFlashSingle, signer);

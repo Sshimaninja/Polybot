@@ -5,7 +5,7 @@ import { slip } from "../../../../constants/environment";
 import { logger } from "../../../../constants/logger";
 export async function send(trade: BoolTrade): Promise<TxData> {
     // let slippageJS = BN2BigInt(slip, 18);
-    // let amountOut = trade.target.amountOut - trade.target.amountOut * slippageJS;
+    // let amountOut = trade.quotes.target.flashOut - trade.quotes.target.flashOut * slippageJS;
     // POSSIBLE REVERT CONDITIONS:
     // amountOut too high (calculated without slip)
     // amountRepay too low (calculated without subtracting extra for slip)
@@ -18,7 +18,7 @@ export async function send(trade: BoolTrade): Promise<TxData> {
         tokenInId: trade.tokenIn.id,
         tokenOutId: trade.tokenOut.id,
         tradeSize: trade.target.tradeSize.size,
-        amountOut: trade.target.amountOut,
+        amountOut: trade.quotes.target.flashOut,
         repay: trade.loanPool.amountRepay,
     };
     logger.info("====TRANSACTION PARAMS=== ");
@@ -31,7 +31,7 @@ export async function send(trade: BoolTrade): Promise<TxData> {
         trade.tokenIn.id,
         trade.tokenOut.id,
         trade.target.tradeSize.size,
-        trade.target.amountOut,
+        trade.quotes.target.flashOut,
         trade.loanPool.amountRepay,
     );
     try {

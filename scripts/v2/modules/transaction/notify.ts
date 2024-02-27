@@ -32,7 +32,7 @@ export async function notify(trade: BoolTrade) {
     const message =
         `Trade ${trade.ticker} on ${
             trade.loanPool.exchange + trade.target.exchange
-        } is ongoing. Projected profit: ${trade.profits.profitWMATIC} MATIC equivalent. \n\n` +
+        } is ongoing. Projected profit: ${trade.profits.WMATICProfit} MATIC equivalent. \n\n` +
         ` ${JSON.stringify(logs.data)}`;
     try {
         if (!TELEGRAM_BOT_TOKEN) {

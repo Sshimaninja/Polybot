@@ -12,8 +12,8 @@ import { slip } from "../../../constants/environment";
  * Target price is re-intitialized as the average of two prices.
  */
 export class AmountConverter {
-    token0: Token;
-    token1: Token;
+    tokenIn: Token;
+    tokenOut: Token;
     reserves: ReservesData;
     price: Prices;
     targetPrice: BN;
@@ -24,14 +24,15 @@ export class AmountConverter {
         this.price = price;
         this.targetPrice = targetPrice;
         this.slip = slip;
-        this.token0 = pair.token1; // direction token0-token1 reults in WMATIC pairs more often, making pricing easier.
-        this.token1 = pair.token0;
+        // DETERMINE DIRECTION OF TRADE HERE TOKEN0 -> TOKEN1 OR TOKEN1 -> TOKEN0
+        this.tokenIn = pair.token1; // direction tokenIn-tokenOut reults in WMATIC pairs more often, making pricing easier.
+        this.tokenOut = pair.token0;
     }
 
     /**
      * @returns Amounts in/out for a trade. Should never be negative.
      */
-    // tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of token0 needed to reach that price
+    // tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of tokenIn needed to reach that price
     // can be limited by slip if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
     // can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
 
@@ -50,6 +51,7 @@ export class AmountConverter {
             const bestSize = toPrice > maxIn ? maxIn : toPrice;
             const safeReserves = (this.reserves.reserveIn * 820n) / 1000n;
             const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
+            // console.log("size: ", fu(size, this.tokenIn.decimals), this.tokenIn.symbol); //DEBUG
             return size;
         };
         const sizeBN = async (): Promise<BN> => {
@@ -57,12 +59,11 @@ export class AmountConverter {
             if (toPrice.eq(BN(0))) {
                 return BN(0);
             }
-            let maxIn = BN(fu(await this.getMaxTokenIn(), this.token0.decimals));
+            let maxIn = BN(fu(await this.getMaxTokenIn(), this.tokenIn.decimals));
             const bestSize = toPrice.gt(maxIn) ? maxIn : toPrice;
             const safeReserves = this.reserves.reserveInBN.times(820).div(1000);
             const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
-
-            // Something weird going on: when I make this return BN(0) the tradeSize increases to reasonable levels.
+            // console.log("sizeBN: ", size.toFixed(this.tokenIn.decimals), this.tokenIn.symbol); //DEBUG
 
             return size;
         };
@@ -81,22 +82,22 @@ export class AmountConverter {
             this.targetPrice,
             this.slip,
         );
-        // console.log("tradeSize: ", tradeSize.toFixed(this.token0.decimals)); //DEBUG
-        const tradeSizeJS = pu(tradeSize.toFixed(this.token0.decimals), this.token0.decimals);
-        // console.log("tradeSizeJS: ", fu(tradeSizeJS, this.token0.decimals)); //DEBUG
+        // console.log("tradeSize: ", tradeSize.toFixed(this.tokenIn.decimals)); //DEBUG
+        const tradeSizeJS = pu(tradeSize.toFixed(this.tokenIn.decimals), this.tokenIn.decimals);
+        // console.log("tradeSizeJS: ", fu(tradeSizeJS, this.tokenIn.decimals)); //DEBUG
         return { tradeSize: tradeSizeJS, tradeSizeBN: tradeSize };
     }
 
     async getMaxTokenIn(): Promise<bigint> {
         const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.slip);
-        // console.log('maxTokenIn: ', maxTokenIn.toFixed(this.token0.decimals));//DEBUG
-        const maxIn = pu(maxTokenIn.toFixed(this.token0.decimals), this.token0.decimals!);
+        // console.log('maxTokenIn: ', maxTokenIn.toFixed(this.tokenIn.decimals));//DEBUG
+        const maxIn = pu(maxTokenIn.toFixed(this.tokenIn.decimals), this.tokenIn.decimals!);
         return maxIn;
     }
 
     async getMaxTokenOut(): Promise<bigint> {
         const maxTokenOut = await getMaxTokenOut(this.reserves.reserveOutBN, this.slip);
-        const maxOut = pu(maxTokenOut.toFixed(this.token1.decimals), this.token1.decimals!);
+        const maxOut = pu(maxTokenOut.toFixed(this.tokenOut.decimals), this.tokenOut.decimals!);
         return maxOut;
     }
 
@@ -120,6 +121,6 @@ export class AmountConverter {
         // 167 * 1003 / 1000 =
         //167 * 997 / 1000 = 166
         // ex 100000 * 1003009027 / 1000000000 = 100301
-        return repay; //in token0
+        return repay; //in tokenIn
     }
 }

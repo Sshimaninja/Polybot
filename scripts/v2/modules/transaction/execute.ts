@@ -93,7 +93,7 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
                         " for " +
                         trade.ticker +
                         " : profit: " +
-                        fu(trade.profits.profitWMATIC, 18) +
+                        fu(trade.profits.WMATICProfit, 18) +
                         ":::::::::: ",
                 );
 

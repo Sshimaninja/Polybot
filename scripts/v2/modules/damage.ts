@@ -5,6 +5,7 @@ import { BigNumber as BN } from "bignumber.js";
 import { tradeLogs } from "./tradeLog";
 import { logger } from "../../../constants/logger";
 import { fu } from "../../modules/convertBN";
+import { swap } from "./transaction/swap";
 /**
  * Executes profitable trades
  * @param trade
@@ -45,20 +46,28 @@ export async function rollDamage(trade: BoolTrade) {
         // console.log(await tradeLogs(trade)); //debug
 
         if (
-            trade.profits.profitToken > 0n &&
-            trade.k.uniswapKPositive //&&
+            trade.profits.tokenProfit > 0n
+            // trade.k.uniswapKPositive //&&
         ) {
             trade = await trueProfit(trade);
-            trade.profits.profitWMATIC = trade.profits.profitWMATIC;
+            trade.profits.WMATICProfit = trade.profits.WMATICProfit;
 
-            // logger.info(
-            //     ">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ",
-            //     fu(trade.profits.profitWMATIC, 18),
-            // );
+            logger.info(
+                ">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ",
+                fu(trade.profits.WMATICProfit, 18),
+            );
             const log = await tradeLogs(trade);
-            console.log(log);
+            if (trade.type.includes("filtered")) {
+                console.log("Trade Type: ", trade.type);
+            }
+            if (trade.type == "flashMulti" || trade.type == "flashSingle") {
+                console.log(log);
+            }
+            if (trade.type == "single") {
+                console.log(log);
+            }
             // If profit is greater than gas cost, execute trade
-            if (trade.profits.profitWMATIC > trade.gas.gasPrice) {
+            if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
                 logger.info(
                     "====================" +
                         "Profitable trade found on " +
@@ -69,7 +78,7 @@ export async function rollDamage(trade: BoolTrade) {
                 logger.info(log);
                 logger.info(
                     "Profit: ",
-                    fu(trade.profits.profitWMATIC, 18),
+                    fu(trade.profits.WMATICProfit, 18),
                     "Gas Cost: ",
                     fu(trade.gas.gasPrice, 18),
                     "Flash Type: ",
@@ -79,8 +88,14 @@ export async function rollDamage(trade: BoolTrade) {
                     "====================" + "Trade Data " + trade.ticker + "====================",
                 );
                 pendingTrades.push(newTx);
+                let x: any;
                 // Execute trade
-                const x = await execute(trade);
+                if (trade.type == "flashMulti" || trade.type == "flashSingle") {
+                    const x = await execute(trade);
+                }
+                if (trade.type == "single") {
+                    const x = await swap(trade);
+                }
                 // if execute returns either txresponse or undefined, remove it from pendingTrades:
                 if (x.txResponse || x.txResponse == undefined) {
                     pendingTrades = pendingTrades.filter((tx) => tx.ID !== trade.ID);
@@ -89,23 +104,23 @@ export async function rollDamage(trade: BoolTrade) {
             }
 
             // If profit is less than gas cost, return
-            if (trade.profits.profitWMATIC < trade.gas.gasPrice) {
+            if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                 console.log(
                     "<<<<<<<<<<<<No Trade After trueProfit: " +
                         trade.ticker +
                         " [ gas " +
                         fu(trade.gas.gasPrice, 18) +
                         " > profit: " +
-                        fu(trade.profits.profitWMATIC, 18) +
+                        fu(trade.profits.WMATICProfit, 18) +
                         " tokenOut profit: " +
                         trade.tokenOut.symbol,
-                    fu(trade.profits.profitToken, trade.tokenOut.decimals) + " ] >>>>>>>>>>>>",
+                    fu(trade.profits.tokenProfit, trade.tokenOut.decimals) + " ] >>>>>>>>>>>>",
                 );
                 return;
             }
 
             // If profit is undefined, return
-            if (trade.profits.profitWMATIC == undefined) {
+            if (trade.profits.WMATICProfit == undefined) {
                 console.log(
                     ">>>>>>>>>>>>>>>>>>>>>>>>>>>>Profit is undefined: error in gasVProfit<<<<<<<<<<<<<<<<<<<<<<<<",
                 );

@@ -1,7 +1,7 @@
 import { K } from "../../../../constants/interfaces";
 import { AmountConverter } from "../../classes/AmountConverter";
 import { BN2BigInt } from "../../../modules/convertBN";
-import { getAmountsInJS } from "../getAmounts/getAmountsIOLocal";
+import { getAmountsInJS } from "../price/getAmountsIOLocal";
 
 /**
  * This doc calculates whether will revert due to uniswak K being positive or negative

@@ -17,7 +17,7 @@
 //         trade.tokenIn.id,
 //         trade.tokenOut.id,
 //     ]);
-//     const amountInJS = await getAmountsInJS(trade.loanPool.router, trade.target.amountOut, [
+//     const amountInJS = await getAmountsInJS(trade.loanPool.router, trade.quotes.target.flashOut, [
 //         trade.tokenIn.id,
 //         trade.tokenOut.id,
 //     ]);
@@ -34,7 +34,7 @@
 
 //     // CHECKING AMOUNTS AS THEY ARE DIFFERENT FROM WHAT THE CONTRACT RETURNS
 //     const allAmounts = {
-//         amountOutLocal: fu(trade.target.amountOut, trade.tokenOut.decimals),
+//         amountOutLocal: fu(trade.quotes.target.flashOut, trade.tokenOut.decimals),
 //         amountOutEVM: fu(amountOutJS[1], trade.tokenOut.decimals),
 //         amountOutBN: amountOutBN.toFixed(trade.tokenOut.decimals),
 //         amountInLocal: fu(trade.loanPool.amountRepay, trade.tokenIn.decimals),

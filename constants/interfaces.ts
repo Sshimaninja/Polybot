@@ -135,8 +135,8 @@ export interface PoolState {
     priceOutBN: BN;
 }
 export interface Profit {
-    profitToken: bigint;
-    profitWMATIC: bigint;
+    tokenProfit: bigint;
+    WMATICProfit: bigint;
     gasData: GasData;
 }
 export interface Amounts {
@@ -161,7 +161,7 @@ export interface DeployedPools {
 }
 export interface Profcalcs {
     profit: bigint;
-    profitPercent: BN;
+    flashProfit: bigint;
 }
 export interface Valid3Pool {
     poolID: string;
@@ -248,12 +248,12 @@ export interface swap {
 }
 
 export interface Repays {
-    // single: {
-    //     singleIn: bigint;
-    //     singleOut: bigint;
-    // };
-    multi: bigint;
-    repay: bigint;
+    single: bigint;
+    flashSingle: {
+        singleIn: bigint;
+        singleOut: bigint;
+    };
+    flashMulti: bigint;
 }
 export interface V3Repays {
     getAmountsOut: bigint;
@@ -366,7 +366,6 @@ export interface BoolTrade {
         reserveOutBN: BN;
         priceIn: string;
         priceOut: string;
-        amountOut: bigint;
         repays: Repays;
         amountRepay: bigint;
     };
@@ -382,8 +381,9 @@ export interface BoolTrade {
         priceIn: string;
         priceOut: string;
         tradeSize: Size;
-        amountOut: bigint;
+        walletSize: Size;
     };
+    quotes: Quotes;
     gas: GasData;
     k: K;
     differenceTokenOut: string;
@@ -400,7 +400,22 @@ export interface TradeGas {
 }
 
 export interface TradeProfit {
-    profitToken: bigint;
-    profitWMATIC: bigint;
-    profitPercent: bigint;
+    tokenProfit: bigint;
+    WMATICProfit: bigint;
+    profitPercent: string;
+}
+
+export interface Quotes {
+    target: {
+        out: bigint;
+        outBN: BN;
+        flashOut: bigint;
+        flashOutBN: BN;
+    };
+    loanPool: {
+        out: bigint;
+        outBN: BN;
+        flashOut: bigint;
+        flashOutBN: BN;
+    };
 }
