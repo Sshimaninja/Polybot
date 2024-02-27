@@ -49,24 +49,6 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.loanPool.amountRepay,
             );
             console.log(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
-            // Helpful for figuring out how to determine and display gas prices:
-            // const gasLogs = {
-            //     gasEstimate: gasEstimate,
-            //     gasPrice: fu(maxFee + maxPriorityFee * BigInt(10), 18),
-            //     maxFee: fu(maxFee, 18),
-            //     maxPriorityFee: fu(maxPriorityFee, 18),
-            //     gasLimit: fu(gasEstimate, 18),
-            //     gasEstimateTimesMaxFee: fu(gasEstimate * maxFee, 18),
-            //     gasEstimateTimesMaxPriorityFee: fu(gasEstimate * maxPriorityFee, 18),
-            //     gasEstimateTimesMaxFeePlusMaxPriorityFee: fu(
-            //         gasEstimate * (maxFee + maxPriorityFee),
-            //         18,
-            //     ),
-            //     gasEstimateTimesMaxFeePlusMaxPriorityFeeTimes10: fu(
-            //         (gasEstimate * (maxFee + maxPriorityFee) + maxFee) * BigInt(10),
-            //         18,
-            //     ),
-            // };
             let gasPrice = gasEstimate * trade.gas.maxFee;
             console.log("GASLOGS: ", gasPrice);
             console.log("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
@@ -97,7 +79,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             //loanPool: 1000/1 WMATIC/ETH
             //target: 1100/1 WMATIC/ETH
             const deadline = Math.floor(Date.now() / 1000) + 60 * 5; // 5 minutes
-            const tx = await trade.flash.swapSingle.estimateGas(
+            gasEstimate = await trade.flash.swapSingle.estimateGas(
                 trade.loanPool.router,
                 trade.target.router,
                 trade.target.tradeSize,
@@ -109,80 +91,6 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 deadline,
             );
 
-            //     address router0,
-            //     address router1,
-            //     address token0ID,
-            //     address token1ID,
-            //     uint256 amountIn,
-            //     uint256 amountOut0,
-            //     uint256 amountOut1,
-            //     address[] memory path0,
-            //     address[] memory path1,
-            //     address to,
-            //     uint256 deadline
-
-            // trade.loanPool.factory,
-            // trade.loanPool.router,
-            // trade.target.router,
-            // trade.tokenIn.id,
-            // trade.tokenOut.id,
-            // trade.target.tradeSize,
-            // trade.quotes.target.flashOut,
-            // trade.loanPool.amountRepay,
-
-            // {
-            //   "inputs": [
-            //     {
-            //       "internalType": "uint256",
-            //       "name": "amountIn",
-            //       "type": "uint256"
-            //     },
-            //     {
-            //       "internalType": "uint256",
-            //       "name": "amountOutMin",
-            //       "type": "uint256"
-            //     },
-            //     {
-            //       "internalType": "address[]",
-            //       "name": "path",
-            //       "type": "address[]"
-            //     },
-            //     {
-            //       "internalType": "address",
-            //       "name": "to",
-            //       "type": "address"
-            //     },
-            //     {
-            //       "internalType": "uint256",
-            //       "name": "deadline",
-            //       "type": "uint256"
-            //     }
-            //   ],
-            //   "name": "swapExactTokensForTokens",
-            //   "outputs": [
-            //     {
-            //       "internalType": "uint256[]",
-            //       "name": "amounts",
-            //       "type": "uint256[]"
-            //     }
-            //   ],
-            //   "stateMutability": "nonpayable",
-            //   "type": "function"
-            // },
-
-            // let tx = {
-            //     from: signer,
-            //     to: trade.target.router,
-            //     value: 0,
-            //     data: await trade.target.router.swapExactTokensForTokens(
-            //         trade.target.tradeSize,
-            //         trade.quotes.target.flashOut,
-            //         trade.tokenIn.id,
-            //         trade.tokenOut.id,
-            //         deadline,
-            //     ),
-            // };
-            gasEstimate = await signer.estimateGas(tx);
             console.log(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
             let gasPrice = gasEstimate * trade.gas.maxFee;
             console.log("GASLOGS: ", gasPrice);

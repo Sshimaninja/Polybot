@@ -1,0 +1,465 @@
+[2024-02-27T21:23:33.191] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:48.566] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:23:48.570] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:23:48.571] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:23:48.571] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:23:48.572] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:48.572] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:48.572] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:48.572] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:48.572] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:48.573] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:48.573] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:48.573] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:48.573] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:48.573] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:48.573] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:48.573] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:48.573] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:48.573] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:48.573] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:48.573] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:48.573] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:48.573] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:48.573] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:48.573] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:51.261] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.261] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.261] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:51.261] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:51.261] [INFO] default - :::::::::::Sending Transaction: POLYDEX to APE for WMATIC/DAI : profit: 0.11564729264866443:::::::::: 
+[2024-02-27T21:23:51.262] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.262] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.262] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:51.262] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:51.262] [INFO] default - :::::::::::Sending Transaction: POLYDEX to CAT for WMATIC/DAI : profit: 0.115877136721254232:::::::::: 
+[2024-02-27T21:23:51.263] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.263] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.263] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:51.263] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:51.263] [INFO] default - :::::::::::Sending Transaction: POLYDEX to APE for WMATIC/DAI : profit: 0.11564729264866443:::::::::: 
+[2024-02-27T21:23:51.263] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.263] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:51.263] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:51.263] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:51.263] [INFO] default - :::::::::::Sending Transaction: POLYDEX to CAT for WMATIC/DAI : profit: 0.115877136721254232:::::::::: 
+[2024-02-27T21:23:51.310] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:51.311] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:51.311] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 116019804825238469454n,
+  amountOut: 0n,
+  repay: -115647292648664430n
+}
+[2024-02-27T21:23:51.311] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:51.367] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:51.367] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:51.367] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 116019804825238469454n,
+  amountOut: 0n,
+  repay: -115647292648664430n
+}
+[2024-02-27T21:23:51.368] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:51.368] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:51.368] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:51.368] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0x94930a328162957FF1dd48900aF67B5439336cBD',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 36246505226951095731n,
+  amountOut: 0n,
+  repay: -115877136721254232n
+}
+[2024-02-27T21:23:51.369] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:51.374] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:51.374] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:51.374] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0x94930a328162957FF1dd48900aF67B5439336cBD',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 36246505226951095731n,
+  amountOut: 0n,
+  repay: -115877136721254232n
+}
+[2024-02-27T21:23:51.374] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:53.265] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:23:53.265] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:23:53.266] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:23:53.267] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:23:53.267] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.267] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.267] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.267] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.267] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xd32f3139A214034A0f9777c87eE0a064c1FF6AE2: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:53.267] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.267] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.267] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.267] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.267] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x9cE65ae286e74f1268D19aB9b25f102C25DbDCb4: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:53.268] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.268] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.268] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.268] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.268] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xd32f3139A214034A0f9777c87eE0a064c1FF6AE2: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:53.268] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.268] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.268] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.268] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.268] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x9cE65ae286e74f1268D19aB9b25f102C25DbDCb4: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:53.269] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:53.269] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:53.269] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:53.269] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:53.961] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.116222759947214486
+[2024-02-27T21:23:53.961] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.118022749391946423
+[2024-02-27T21:23:53.962] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.116222759947214486
+[2024-02-27T21:23:53.962] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.118022749391946423
+[2024-02-27T21:23:53.962] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.962] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.962] [INFO] default - Profit:  0.116222759947214486 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.962] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.962] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:53.962] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.963] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.963] [INFO] default - Profit:  0.118022749391946423 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.963] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.963] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:53.963] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.963] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.963] [INFO] default - Profit:  0.116222759947214486 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.963] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.963] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:53.963] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:53.963] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:53.963] [INFO] default - Profit:  0.118022749391946423 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:53.963] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:53.963] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/DAI::::::::::::::::::::::::::
+[2024-02-27T21:23:55.580] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.580] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.580] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:55.580] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:55.580] [INFO] default - :::::::::::Sending Transaction: POLYDEX to QUICK for WMATIC/DAI : profit: 0.116222759947214486:::::::::: 
+[2024-02-27T21:23:55.581] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.581] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.581] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:55.581] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:55.581] [INFO] default - :::::::::::Sending Transaction: POLYDEX to SUSHI for WMATIC/DAI : profit: 0.118022749391946423:::::::::: 
+[2024-02-27T21:23:55.581] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.581] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.581] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:55.581] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:55.582] [INFO] default - :::::::::::Sending Transaction: POLYDEX to QUICK for WMATIC/DAI : profit: 0.116222759947214486:::::::::: 
+[2024-02-27T21:23:55.582] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.582] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:55.582] [INFO] default - Gas Cost::::::::::::: 0.00000000180000015 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:55.582] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:55.582] [INFO] default - :::::::::::Sending Transaction: POLYDEX to SUSHI for WMATIC/DAI : profit: 0.118022749391946423:::::::::: 
+[2024-02-27T21:23:55.617] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:55.617] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:55.617] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 17865807929792767142n,
+  amountOut: 0n,
+  repay: -116222759947214486n
+}
+[2024-02-27T21:23:55.618] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:55.619] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:55.619] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:55.619] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 4972455819253155454n,
+  amountOut: 0n,
+  repay: -118022749391946423n
+}
+[2024-02-27T21:23:55.620] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:55.620] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:55.620] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:55.620] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 4972455819253155454n,
+  amountOut: 0n,
+  repay: -118022749391946423n
+}
+[2024-02-27T21:23:55.621] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:55.621] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:55.621] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:55.621] [INFO] default - {
+  loanFactory: '0x5BdD1CD910e3307582F213b33699e676E61deaD9',
+  loanRouter: '0xBd13225f0a45BEad8510267B4D6a7c78146Be459',
+  targetRouter: '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
+  tokenInId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 17865807929792767142n,
+  amountOut: 0n,
+  repay: -116222759947214486n
+}
+[2024-02-27T21:23:55.622] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.278] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.116222759947214486
+[2024-02-27T21:23:57.278] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.118022749391946423
+[2024-02-27T21:23:57.280] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.116222759947214486
+[2024-02-27T21:23:57.281] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.118022749391946423
+[2024-02-27T21:23:57.281] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:23:57.281] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:23:57.282] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:23:57.282] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:23:57.283] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.283] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.283] [INFO] default - Profit:  0.116222759947214486 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.283] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.283] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xEEf611894CeaE652979C9D0DaE1dEb597790C6eE: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.283] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.283] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.283] [INFO] default - Profit:  0.118022749391946423 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.283] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.283] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x8929D3FEa77398F64448c85015633c2d6472fB29: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.283] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.283] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.283] [INFO] default - Profit:  0.116222759947214486 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.283] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.283] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xEEf611894CeaE652979C9D0DaE1dEb597790C6eE: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.283] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.283] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.283] [INFO] default - Profit:  0.118022749391946423 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.283] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.283] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x8929D3FEa77398F64448c85015633c2d6472fB29: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.283] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.283] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.283] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.283] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.283] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xd32f3139A214034A0f9777c87eE0a064c1FF6AE2: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.283] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.283] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.283] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.283] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.283] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x9cE65ae286e74f1268D19aB9b25f102C25DbDCb4: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.283] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.283] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.283] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.284] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.284] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xd32f3139A214034A0f9777c87eE0a064c1FF6AE2: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.284] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:23:57.284] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.284] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:23:57.284] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:23:57.284] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x9cE65ae286e74f1268D19aB9b25f102C25DbDCb4: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.286] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:57.444] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/WBTC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:23:57.444] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:23:57.445] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/WBTC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:23:57.445] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:23:57.445] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1.122069325067086184
+[2024-02-27T21:23:57.446] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  446.051122238173040179
+[2024-02-27T21:23:57.446] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1.122069325067086184
+[2024-02-27T21:23:57.446] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  446.051122238173040179
+[2024-02-27T21:23:57.448] [INFO] default - ====================Profitable trade found on WMATIC/WBTC!====================
+[2024-02-27T21:23:57.448] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.448] [INFO] default - Profit:  1.122069325067086184 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:23:57.448] [INFO] default - ====================Trade Data WMATIC/WBTC====================
+[2024-02-27T21:23:57.448] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/WBTC::::::::::::::::::::::::::
+[2024-02-27T21:23:57.448] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-27T21:23:57.448] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.448] [INFO] default - Profit:  446.051122238173040179 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:23:57.448] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-27T21:23:57.448] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-27T21:23:57.449] [INFO] default - ====================Profitable trade found on WMATIC/WBTC!====================
+[2024-02-27T21:23:57.449] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.449] [INFO] default - Profit:  1.122069325067086184 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:23:57.449] [INFO] default - ====================Trade Data WMATIC/WBTC====================
+[2024-02-27T21:23:57.449] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/WBTC::::::::::::::::::::::::::
+[2024-02-27T21:23:57.449] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-27T21:23:57.449] [INFO] default - { data: 'error' }
+[2024-02-27T21:23:57.449] [INFO] default - Profit:  446.051122238173040179 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:23:57.449] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-27T21:23:57.449] [INFO] default - ::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: WMATIC/USDC::::::::::::::::::::::::::
+[2024-02-27T21:23:59.376] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.376] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.376] [INFO] default - Gas Cost::::::::::::: 0.0144 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:59.376] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:59.376] [INFO] default - :::::::::::Sending Transaction: JET to CAT for WMATIC/WBTC : profit: 1.122069325067086184:::::::::: 
+[2024-02-27T21:23:59.377] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.377] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.377] [INFO] default - Gas Cost::::::::::::: 0.0144 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:59.377] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:59.377] [INFO] default - :::::::::::Sending Transaction: APE to QUICK for WMATIC/USDC : profit: 446.051122238173040179:::::::::: 
+[2024-02-27T21:23:59.380] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.380] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.380] [INFO] default - Gas Cost::::::::::::: 0.0144 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:59.380] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:59.380] [INFO] default - :::::::::::Sending Transaction: JET to CAT for WMATIC/WBTC : profit: 1.122069325067086184:::::::::: 
+[2024-02-27T21:23:59.380] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.380] [INFO] default - Wallet Balance Matic: 1999.999617684702133993 MATIC
+[2024-02-27T21:23:59.380] [INFO] default - Gas Cost::::::::::::: 0.0144 MATIC (if this is tiny, it's probably because gasEstimate has failed.
+[2024-02-27T21:23:59.380] [INFO] default - Sufficient Matic Balance. Proceeding...
+[2024-02-27T21:23:59.380] [INFO] default - :::::::::::Sending Transaction: APE to QUICK for WMATIC/USDC : profit: 446.051122238173040179:::::::::: 
+[2024-02-27T21:23:59.415] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:59.415] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:59.415] [INFO] default - {
+  loanFactory: '0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7',
+  loanRouter: '0x5C6EC38fb0e2609672BDf628B1fD605A523E5923',
+  targetRouter: '0x94930a328162957FF1dd48900aF67B5439336cBD',
+  tokenInId: '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 109392n,
+  amountOut: 0n,
+  repay: -1122069325067086184n
+}
+[2024-02-27T21:23:59.416] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:59.416] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:59.417] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:59.417] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:59.417] [INFO] default - {
+  loanFactory: '0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7',
+  loanRouter: '0x5C6EC38fb0e2609672BDf628B1fD605A523E5923',
+  targetRouter: '0x94930a328162957FF1dd48900aF67B5439336cBD',
+  tokenInId: '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 109392n,
+  amountOut: 0n,
+  repay: -1122069325067086184n
+}
+[2024-02-27T21:23:59.417] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:59.417] [INFO] default - {
+  loanFactory: '0xCf083Be4164828f00cAE704EC15a36D711491284',
+  loanRouter: '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607',
+  targetRouter: '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
+  tokenInId: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 2060884231n,
+  amountOut: 0n,
+  repay: -446051122238173040179n
+}
+[2024-02-27T21:23:59.418] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:59.418] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:23:59.419] [ERROR] default - TELEGRAM ERROR [notify()]: ETELEGRAM: 404 Not Found
+[2024-02-27T21:23:59.419] [INFO] default - ====TRANSACTION PARAMS=== 
+[2024-02-27T21:23:59.419] [INFO] default - {
+  loanFactory: '0xCf083Be4164828f00cAE704EC15a36D711491284',
+  loanRouter: '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607',
+  targetRouter: '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
+  tokenInId: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+  tokenOutId: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+  tradeSize: 2060884231n,
+  amountOut: 0n,
+  repay: -446051122238173040179n
+}
+[2024-02-27T21:23:59.420] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.500] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/WBTC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:24:01.500] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:24:01.501] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1.122069325067086184
+[2024-02-27T21:24:01.501] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  446.051122238173040179
+[2024-02-27T21:24:01.501] [INFO] default - ====================Profitable trade found on WMATIC/WBTC!====================
+[2024-02-27T21:24:01.501] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.501] [INFO] default - Profit:  1.122069325067086184 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:24:01.501] [INFO] default - ====================Trade Data WMATIC/WBTC====================
+[2024-02-27T21:24:01.501] [INFO] default - ::::::::::::::::::::::::WMATIC/WBTC0x31AF2A041F905fA56bcE631570e648b9c49AFf4F0x3B02A89628A375FAf4FC5eC83566801E9d9DCE02: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.501] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-27T21:24:01.501] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.501] [INFO] default - Profit:  446.051122238173040179 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:24:01.501] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-27T21:24:01.501] [INFO] default - ::::::::::::::::::::::::WMATIC/USDC0x019011032a7ac3A87eE885B6c08467AC46ad11CD0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.502] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.502] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.674] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.116222759947214486
+[2024-02-27T21:24:01.674] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.118022749391946423
+[2024-02-27T21:24:01.675] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.116222759947214486
+[2024-02-27T21:24:01.675] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.118022749391946423
+[2024-02-27T21:24:01.675] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:01.675] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.675] [INFO] default - Profit:  0.116222759947214486 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:01.675] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:01.675] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xEEf611894CeaE652979C9D0DaE1dEb597790C6eE: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.675] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:01.675] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.675] [INFO] default - Profit:  0.118022749391946423 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:01.675] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:01.675] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x8929D3FEa77398F64448c85015633c2d6472fB29: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.675] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:01.675] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.675] [INFO] default - Profit:  0.116222759947214486 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:01.675] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:01.675] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xEEf611894CeaE652979C9D0DaE1dEb597790C6eE: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.675] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:01.675] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.675] [INFO] default - Profit:  0.118022749391946423 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:01.675] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:01.675] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x8929D3FEa77398F64448c85015633c2d6472fB29: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.677] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.677] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.677] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.677] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.678] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/WBTC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:24:01.678] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDC flashSingle undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-02-27T21:24:01.680] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  1.122069325067086184
+[2024-02-27T21:24:01.680] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  446.051122238173040179
+[2024-02-27T21:24:01.680] [INFO] default - ====================Profitable trade found on WMATIC/WBTC!====================
+[2024-02-27T21:24:01.680] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.680] [INFO] default - Profit:  1.122069325067086184 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:24:01.680] [INFO] default - ====================Trade Data WMATIC/WBTC====================
+[2024-02-27T21:24:01.680] [INFO] default - ::::::::::::::::::::::::WMATIC/WBTC0x31AF2A041F905fA56bcE631570e648b9c49AFf4F0x3B02A89628A375FAf4FC5eC83566801E9d9DCE02: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.680] [INFO] default - ====================Profitable trade found on WMATIC/USDC!====================
+[2024-02-27T21:24:01.680] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:01.680] [INFO] default - Profit:  446.051122238173040179 Gas Cost:  0.0144 Flash Type:  flashSingle
+[2024-02-27T21:24:01.680] [INFO] default - ====================Trade Data WMATIC/USDC====================
+[2024-02-27T21:24:01.680] [INFO] default - ::::::::::::::::::::::::WMATIC/USDC0x019011032a7ac3A87eE885B6c08467AC46ad11CD0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:01.680] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:01.680] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:02.080] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:24:02.081] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:24:02.081] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.11564729264866443
+[2024-02-27T21:24:02.082] [INFO] default - >>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS:  0.115877136721254232
+[2024-02-27T21:24:02.082] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:02.082] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:02.082] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:02.082] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:02.082] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xd32f3139A214034A0f9777c87eE0a064c1FF6AE2: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:02.082] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:02.082] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:02.082] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:02.082] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:02.082] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x9cE65ae286e74f1268D19aB9b25f102C25DbDCb4: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:02.082] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:02.082] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:02.082] [INFO] default - Profit:  0.11564729264866443 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:02.082] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:02.082] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350xd32f3139A214034A0f9777c87eE0a064c1FF6AE2: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:02.083] [INFO] default - ====================Profitable trade found on WMATIC/DAI!====================
+[2024-02-27T21:24:02.083] [INFO] default - { data: 'error' }
+[2024-02-27T21:24:02.083] [INFO] default - Profit:  0.115877136721254232 Gas Cost:  0.00000000180000015 Flash Type:  flashMulti
+[2024-02-27T21:24:02.083] [INFO] default - ====================Trade Data WMATIC/DAI====================
+[2024-02-27T21:24:02.083] [INFO] default - ::::::::::::::::::::::::WMATIC/DAI0xaC5D1a011aFD5C33Dcb3fdC8B2Ae5F40910806350x9cE65ae286e74f1268D19aB9b25f102C25DbDCb4: PENDING TRANSACTION::::::::::::::::::::::::: 
+[2024-02-27T21:24:02.084] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:02.084] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:02.084] [ERROR] default - Error in rollDamage:  undefined
+[2024-02-27T21:24:02.084] [ERROR] default - Error in rollDamage:  undefined

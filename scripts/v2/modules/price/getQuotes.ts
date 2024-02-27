@@ -1,18 +1,8 @@
 import { getAmountsOut } from "./getAmountsIOBN";
-import { BoolTrade, Quotes } from "../../../../constants/interfaces";
+import { BoolTrade, Quotes, Size } from "../../../../constants/interfaces";
 import { pu } from "../../../modules/convertBN";
 import { getFunds } from "../tools/getFunds";
 
-// interface Quotes {
-//     target: {
-//         out: bigint;
-//         flashOut: string;
-//     };
-//     loanPool: {
-//         out: bigint;
-//         flashOut: string;
-//     };
-// }
 export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
     const quotes: Quotes = {
         target: {
@@ -29,16 +19,24 @@ export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
         },
     };
 
-    const walletSize = await getFunds(trade);
+    let walletSize = async (): Promise<Size> => {
+        let funds = await getFunds(trade);
+        if (funds.sizeBN.gt(trade.target.tradeSize.sizeBN)) {
+            funds = trade.target.tradeSize;
+        }
+        return funds;
+    };
+
+    let wallet = await walletSize();
 
     const singleOutTargetBN = await getAmountsOut(
-        walletSize.sizeBN, // token1 in
+        wallet.sizeBN, // token1 in
         trade.target.reserveInBN,
         trade.target.reserveOutBN,
     );
 
     const singleOutLoanPoolBN = await getAmountsOut(
-        walletSize.sizeBN, // token1 in
+        wallet.sizeBN, // token1 in
         trade.loanPool.reserveInBN,
         trade.loanPool.reserveOutBN,
     );
