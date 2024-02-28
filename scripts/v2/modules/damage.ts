@@ -6,6 +6,7 @@ import { tradeLogs } from "./tradeLog";
 import { logger } from "../../../constants/logger";
 import { fu } from "../../modules/convertBN";
 import { swap } from "./transaction/swap";
+import { provider } from "../../../constants/provider";
 /**
  * Executes profitable trades
  * @param trade
@@ -43,34 +44,12 @@ export async function rollDamage(trade: BoolTrade) {
             return;
         }
 
-        // console.log(await tradeLogs(trade)); //debug
-
-        if (
-            trade.profits.tokenProfit > 0n
-            // trade.k.uniswapKPositive //&&
-        ) {
+        if (trade.profits.tokenProfit > 0n) {
             trade = await trueProfit(trade);
             trade.profits.WMATICProfit = trade.profits.WMATICProfit;
 
-            // logger.info(
-            //     ">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ",
-            //     fu(trade.profits.WMATICProfit, 18),
-            // );
             const log = await tradeLogs(trade);
-            // if (trade.type.includes("filtered")) {
-            //     console.log(
-            //         "Trade Type: ",
-            //         trade.type,
-            //         " | ",
-            //         trade.ticker,
-            //         " | ",
-            //         trade.loanPool.exchange,
-            //         " | ",
-            //         trade.target.exchange,
-            //     );
-            // }
-            // if (trade.type == "flashMulti" || trade.type == "flashSingle") {
-            // console.log(log);
+
             console.log(
                 "Trade Type: ",
                 trade.type,
@@ -81,11 +60,7 @@ export async function rollDamage(trade: BoolTrade) {
                 " | ",
                 trade.target.exchange,
             );
-            // }
-            // if (trade.type == "single") {
-            // console.log(log);
-            // }
-            // If profit is greater than gas cost, execute trade
+
             if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
                 logger.info(
                     "====================" +
@@ -107,19 +82,25 @@ export async function rollDamage(trade: BoolTrade) {
                     "====================" + "Trade Data " + trade.ticker + "====================",
                 );
                 pendingTrades.push(newTx);
-                let x: any;
-                // Execute trade
-                if (trade.type == "flashMulti" || trade.type == "flashSingle") {
-                    const x = await execute(trade);
+
+                try {
+                    let tradeExecutionResult;
+                    // Execute trade
+                    if (trade.type == "flashMulti" || trade.type == "flashSingle") {
+                        tradeExecutionResult = await execute(trade);
+                    }
+                    if (trade.type == "single") {
+                        tradeExecutionResult = await swap(trade);
+                    }
+                    // if execute returns either txresponse or undefined, remove it from pendingTrades:
+                    if (tradeExecutionResult) {
+                        pendingTrades = pendingTrades.filter((tx) => tx.ID !== trade.ID);
+                        // Log the transaction receipt
+                    }
+                } catch (error) {
+                    logger.error("Error executing trade: ", error);
+                    // Retry the trade or handle the error in some other way
                 }
-                if (trade.type == "single") {
-                    const x = await swap(trade);
-                }
-                // if execute returns either txresponse or undefined, remove it from pendingTrades:
-                if (x.txResponse || x.txResponse == undefined) {
-                    pendingTrades = pendingTrades.filter((tx) => tx.ID !== trade.ID);
-                }
-                return;
             }
 
             // If profit is less than gas cost, return

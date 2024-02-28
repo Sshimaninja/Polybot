@@ -5,6 +5,8 @@ import { pu } from "../../../modules/convertBN";
 import { provider, signer } from "../../../../constants/provider";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
+    let nonce = await provider.getTransactionCount(await signer.getAddress());
+    let signerAddress = await signer.getAddress();
     try {
         const deadline = Math.floor(Date.now() / 1000) + 60 * 5; // 5 minutes
         let tx = await swapSingle.swapSingle(
@@ -17,12 +19,13 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             trade.quotes.target.out,
             [trade.tokenIn.id, trade.tokenOut.id],
             [trade.tokenOut.id, trade.tokenIn.id],
-            await signer.getAddress(),
+            signerAddress,
             deadline,
             {
                 gasLimit: trade.gas.gasEstimate,
                 maxFeePerGas: trade.gas.maxFee,
                 maxPriorityFeePerGas: trade.gas.maxPriorityFee,
+                nonce: nonce,
             },
         );
         let receipt = await provider.waitForTransaction(tx.hash);
@@ -46,3 +49,22 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
 //     address[] memory path1,
 //     address to,
 //     uint256 deadline
+
+// code: 'UNKNOWN_ERROR',
+// error: {
+//   code: -32000,
+//   message: "Nonce too high. Expected nonce to be 2418 but got 2830. Note that transactions can't be queued when automining.",
+//   data: {
+//     message: "Nonce too high. Expected nonce to be 2418 but got 2830. Note that transactions can't be queued when automining."
+//   }
+// },
+// payload: {
+//   method: 'eth_sendRawTransaction',
+//   params: [
+//     [DATA]
+//   ],
+//   id: 20885,
+//   jsonrpc: '2.0'
+// },
+// shortMessage: 'could not coalesce error'
+// }

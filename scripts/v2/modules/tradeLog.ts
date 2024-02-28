@@ -26,9 +26,9 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     " " +
                     trade.tokenOut.symbol,
                 repays: {
-                    single: trade.loanPool.repays.single,
-                    flashSingle: trade.loanPool.repays.flashSingle,
-                    flashMulti: trade.loanPool.repays.flashMulti,
+                    single: fu(trade.loanPool.repays.single, trade.tokenOut.decimals),
+                    flashSingle: fu(trade.loanPool.repays.flashSingle, trade.tokenOut.decimals),
+                    flashMulti: fu(trade.loanPool.repays.flashMulti, trade.tokenOut.decimals),
                 },
 
                 amountRepay:
@@ -61,6 +61,33 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     fu(trade.quotes.target.flashOut, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
+            },
+            quotes: {
+                loanPool: {
+                    out:
+                        fu(trade.quotes.loanPool.out, trade.tokenOut.decimals) +
+                        " " +
+                        trade.tokenOut.symbol,
+                    flashOut:
+                        fu(trade.quotes.loanPool.flashOut, trade.tokenOut.decimals) +
+                        " " +
+                        trade.tokenOut.symbol,
+                },
+                target: {
+                    out:
+                        fu(trade.quotes.target.out, trade.tokenOut.decimals) +
+                        " " +
+                        trade.tokenOut.symbol,
+                    flashOut:
+                        fu(trade.quotes.target.flashOut, trade.tokenOut.decimals) +
+                        " " +
+                        trade.tokenOut.symbol,
+                },
+            },
+            gas: {
+                gasEstimate: trade.gas.gasEstimate,
+                maxFee: trade.gas.maxFee,
+                maxPriorityFee: trade.gas.maxPriorityFee,
             },
             result: {
                 uniswapkPreT: trade.k.uniswapKPre > 0n ? trade.k.uniswapKPre.toString() : 0,
