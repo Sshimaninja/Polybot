@@ -85,20 +85,20 @@ export class WMATICProfit {
         if (profitInWMATIC === undefined) {
             profitInWMATIC = await this.gasTokentoWMATICPrice();
         } else if (profitInWMATIC === undefined) {
-            console.log(
-                "Profit token has no value: ",
-                this.trade.ticker,
-                "Profit in tokenOut: ",
-                fu(this.trade.profits.tokenProfit, this.trade.tokenOut.decimals),
-            );
+            // console.log(
+            //     "Profit token has no value: ",
+            //     this.trade.ticker,
+            //     "Profit in tokenOut: ",
+            //     fu(this.trade.profits.tokenProfit, this.trade.tokenOut.decimals),
+            // );
             profitInWMATIC = 0n;
         }
         if (profitInWMATIC === undefined) {
-            console.log(
-                ">>>>>>>>>>>>>>>>>>>>>>>>Profit in WMATIC is undefined. trade: ",
-                this.trade.ticker,
-                "<<<<<<<<<<<<<<<<<<<<<<<<<<",
-            );
+            // console.log(
+            //     ">>>>>>>>>>>>>>>>>>>>>>>>Profit in WMATIC is undefined. trade: ",
+            //     this.trade.ticker,
+            //     "<<<<<<<<<<<<<<<<<<<<<<<<<<",
+            // );
             return 0n;
         }
         return profitInWMATIC;
@@ -106,7 +106,7 @@ export class WMATICProfit {
 
     async tokenOutisWMATIC(): Promise<bigint | undefined> {
         if (this.trade.tokenOut.id == this.wmaticID) {
-            console.log("[getProfitInWmatic]: tokenOut is WMATIC");
+            // console.log("[getProfitInWmatic]: tokenOut is WMATIC");
             let profitInWMATIC = this.trade.profits.tokenProfit;
             let gasRouter = this.trade.target.router;
             let gasPool = this.trade.target.pool;
@@ -124,7 +124,7 @@ export class WMATICProfit {
 
     async tokenInisWMATIC(): Promise<bigint | undefined> {
         if (this.trade.tokenIn.id == this.wmaticID) {
-            console.log("[getprofitInWMATIC]: tokenIn is WMATIC");
+            // console.log("[getprofitInWMATIC]: tokenIn is WMATIC");
             // console.log(
             //     "[getProfitInWmatic] CHECK TOKENPROFIT TO BN CONVERSION: ",
             //     this.tokenProfitBN,
@@ -201,17 +201,17 @@ export class WMATICProfit {
                     return undefined;
                 }
                 let profitInWMATIC = pu(profitInWMATICBN.toFixed(this.trade.tokenOut.decimals), 18);
-                console.log(
-                    ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]: profitInWMATICBN: ",
-                    profitInWMATICBN,
-                    " string: ",
-                    profitInWMATICBN.toFixed(18),
-                    " bigint: ",
-                    profitInWMATIC,
-                    " bigint string: ",
-                    fu(profitInWMATIC, 18),
-                    "<<<<<<<<<<<<<<<<<<<<<<<<<",
-                );
+                // console.log(
+                //     ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]: profitInWMATICBN: ",
+                //     profitInWMATICBN,
+                //     " string: ",
+                //     profitInWMATICBN.toFixed(18),
+                //     " bigint: ",
+                //     profitInWMATIC,
+                //     " bigint string: ",
+                //     fu(profitInWMATIC, 18),
+                //     "<<<<<<<<<<<<<<<<<<<<<<<<<",
+                // );
                 return profitInWMATIC;
             }
             return undefined;
@@ -239,8 +239,9 @@ export class WMATICProfit {
                     BN(fu(gasToken.reserves.reserve0, gasToken.tokenIn.decimals)),
                     BN(fu(gasToken.reserves.reserve1, gasToken.tokenOut.decimals)),
                 );
-                // console.log("profitInWMATICBN: ", profitInWMATICBN);
-                profitInWMATIC = pu(profitInWMATICBN.toFixed(18), gasToken.tokenOut.decimals);
+                console.log("profitInWMATICBN: ", profitInWMATICBN);
+                let profitString = profitInWMATICBN.toFixed(gasToken.tokenOut.decimals);
+                profitInWMATIC = pu(profitString, gasToken.tokenOut.decimals);
                 // console.log("profitInWMATIC: ", profitInWMATIC);
                 return profitInWMATIC;
             }
@@ -250,7 +251,7 @@ export class WMATICProfit {
                 let profitInWMATICBN = await getAmountsOutBN(
                     profitInToken0,
                     BN(fu(gasToken.reserves.reserve0, gasToken.tokenIn.decimals)),
-                    BN(fu(gasToken.reserves.reserve1), gasToken.tokenOut.decimals),
+                    BN(fu(gasToken.reserves.reserve1, gasToken.tokenOut.decimals)),
                 );
                 // console.log("profitInWMATICBN: ", profitInWMATICBN);
                 profitInWMATIC = pu(

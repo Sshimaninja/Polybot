@@ -9,19 +9,23 @@ import { slip } from "../../../constants/environment";
 /**
  * @description
  * This class holds amounts in/out for a pair, as well as the trade size.
- * Target price is re-intitialized as the average of two prices.
+ * Target priceTarget is re-intitialized as the average of two priceTargets.
  */
 export class AmountConverter {
     tokenIn: Token;
     tokenOut: Token;
-    reserves: ReservesData;
-    price: Prices;
+    reservesLoanPool: ReservesData;
+    reservesTarget: ReservesData;
+    priceLoanPool: Prices;
+    priceTarget: Prices;
     targetPrice: BN;
     slip: BN;
 
-    constructor(price: Prices, pair: TradePair, targetPrice: BN) {
-        this.reserves = price.reserves;
-        this.price = price;
+    constructor(priceLoanPool: Prices, priceTarget: Prices, pair: TradePair, targetPrice: BN) {
+        this.reservesLoanPool = priceLoanPool.reserves;
+        this.reservesTarget = priceTarget.reserves;
+        this.priceLoanPool = priceLoanPool;
+        this.priceTarget = priceTarget;
         this.targetPrice = targetPrice;
         this.slip = slip;
         // DETERMINE DIRECTION OF TRADE HERE TOKEN0 -> TOKEN1 OR TOKEN1 -> TOKEN0
@@ -32,7 +36,7 @@ export class AmountConverter {
     /**
      * @returns Amounts in/out for a trade. Should never be negative.
      */
-    // tradeToPrice gets a mid-level between price of pool and target price, and returns the amount of tokenIn needed to reach that price
+    // tradeToPrice gets a mid-level between priceTarget of pool and target priceTarget, and returns the amount of tokenIn needed to reach that priceTarget
     // can be limited by slip if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
     // can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
 
@@ -46,10 +50,27 @@ export class AmountConverter {
             if (toPrice === 0n) {
                 return 0n;
             }
-            // use maxIn, maxOut to make sure the trade doesn't revert due to too much slippage on target
+            // use maxIn to make sure the trade doesn't revert due to too much slippage on target
             let maxIn = await this.getMaxTokenIn();
-            const bestSize = toPrice > maxIn ? maxIn : toPrice;
-            const safeReserves = (this.reserves.reserveIn * 820n) / 1000n;
+            // use maxOut to ensure trade doesn't revert due to insufficient liq on loanPool
+            let maxOut = pu(
+                (await getMaxTokenOut(this.reservesLoanPool.reserveInBN, this.slip)).toFixed(
+                    this.tokenIn.decimals,
+                ),
+                this.tokenIn.decimals,
+            );
+            maxOut = maxOut < 0n ? maxOut * -1n : maxOut;
+            let bestSize: bigint = toPrice;
+            if (toPrice > maxIn) {
+                bestSize = maxIn;
+            }
+            if (toPrice > maxOut) {
+                bestSize = maxOut;
+            }
+
+            //toPrice > maxIn ? maxIn : toPrice;
+
+            const safeReserves = (this.reservesTarget.reserveIn * 820n) / 1000n;
             const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
             // console.log("size: ", fu(size, this.tokenIn.decimals), this.tokenIn.symbol); //DEBUG
             return size;
@@ -59,9 +80,17 @@ export class AmountConverter {
             if (toPrice.eq(BN(0))) {
                 return BN(0);
             }
-            let maxIn = BN(fu(await this.getMaxTokenIn(), this.tokenIn.decimals));
-            const bestSize = toPrice.gt(maxIn) ? maxIn : toPrice;
-            const safeReserves = this.reserves.reserveInBN.times(820).div(1000);
+            let maxIn = await getMaxTokenIn(this.reservesTarget.reserveInBN, this.slip);
+            let maxOut = await getMaxTokenOut(this.reservesLoanPool.reserveInBN, this.slip);
+            maxOut.abs();
+            let bestSize: BN = toPrice;
+            if (toPrice.gt(maxIn)) {
+                bestSize = maxIn;
+            }
+            if (toPrice.gt(maxOut)) {
+                bestSize = maxOut;
+            }
+            const safeReserves = this.reservesTarget.reserveInBN.times(820).div(1000);
             const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
             // console.log("sizeBN: ", size.toFixed(this.tokenIn.decimals), this.tokenIn.symbol); //DEBUG
 
@@ -70,15 +99,15 @@ export class AmountConverter {
         return { size: await size(), sizeBN: await sizeBN() };
     }
     async tradeToPrice(): Promise<{ tradeSize: bigint; tradeSizeBN: BN }> {
-        // this.targetPrice = this.price.priceOutBN.plus(this.targetPrice).div(2);// average of two prices
+        // this.targetPrice = this.priceTarget.priceTargetOutBN.plus(this.targetPrice).div(2);// average of two priceTargets
         // console.log({
-        // 	reservesInBN: this.reserves.reserveInBN.toString(),
-        // 	reserveOutBN: this.reserves.reserveOutBN.toString(),
+        // 	reservesTargetInBN: this.reservesTarget.reserveInBN.toString(),
+        // 	reserveOutBN: this.reservesTarget.reserveOutBN.toString(),
         // 	targetPrice:  this.targetPrice,
         // 	slip: this.slip})
         const tradeSize = await tradeToPrice(
-            this.reserves.reserveInBN,
-            this.reserves.reserveOutBN,
+            this.reservesTarget.reserveInBN,
+            this.reservesTarget.reserveOutBN,
             this.targetPrice,
             this.slip,
         );
@@ -89,14 +118,14 @@ export class AmountConverter {
     }
 
     async getMaxTokenIn(): Promise<bigint> {
-        const maxTokenIn = await getMaxTokenIn(this.reserves.reserveInBN, this.slip);
+        const maxTokenIn = await getMaxTokenIn(this.reservesTarget.reserveInBN, this.slip);
         // console.log('maxTokenIn: ', maxTokenIn.toFixed(this.tokenIn.decimals));//DEBUG
         const maxIn = pu(maxTokenIn.toFixed(this.tokenIn.decimals), this.tokenIn.decimals!);
         return maxIn;
     }
 
     async getMaxTokenOut(): Promise<bigint> {
-        const maxTokenOut = await getMaxTokenOut(this.reserves.reserveOutBN, this.slip);
+        const maxTokenOut = await getMaxTokenOut(this.reservesTarget.reserveOutBN, this.slip);
         const maxOut = pu(maxTokenOut.toFixed(this.tokenOut.decimals), this.tokenOut.decimals!);
         return maxOut;
     }

@@ -14,46 +14,56 @@ export class PopulateRepays {
         this.calc = calc;
         this.repays = {
             single: 0n,
-            flashSingle: { singleIn: 0n, singleOut: 0n },
+            flashSingle: 0n,
             flashMulti: 0n,
         };
     }
     async getRepays(): Promise<Repays> {
         // getSingle() Will only be used if I for triangular arbitrage, which requries extra protocol integration.
 
-        let singleRepayTokenIn = await this.calc.addFee(this.trade.target.tradeSize.size);
-        const getSingle = async (): Promise<{ singleIn: bigint; singleOut: bigint }> => {
-            const singleRepayTokenInBN = BigInt2BN(singleRepayTokenIn, this.trade.tokenIn.decimals);
-            const repayinTokenOut = await getAmountsIn(
-                singleRepayTokenInBN,
-                this.trade.loanPool.reserveOutBN,
+        const tradeSizeWithFee = this.trade.target.tradeSize.sizeBN.multipliedBy(1.003);
+
+        // const getCoverAmount = async (
+        //     tokenInAmount: BN,
+        //     reserveIn: BN,
+        //     reserveOut: BN,
+        // ): Promise<BN> => {
+        //     // Calculate the price of tokenIn in terms of tokenOut
+        //     const priceInTermsOfOut = reserveOut.div(reserveIn);
+
+        //     // Calculate the amount of tokenOut needed to cover the loan
+        //     const coverAmount = tokenInAmount.multipliedBy(priceInTermsOfOut);
+
+        //     return coverAmount;
+        // };
+
+        const getSingle = async (): Promise<bigint> => {
+            const repayinTokenOut = await getAmountsOut(
+                tradeSizeWithFee, //tradeSize in tokenIn
                 this.trade.loanPool.reserveInBN,
+                this.trade.loanPool.reserveOutBN,
             );
             let singleRepayTokenOut = pu(
                 repayinTokenOut.toFixed(this.trade.tokenOut.decimals),
                 this.trade.tokenOut.decimals,
             );
-            const singleRepay = {
-                singleIn: singleRepayTokenIn, // Only usable if you can find another trade/pool elsewhere that will give you the exact amount of tokenIn you need to repay. TODO: IMPLEMENT THIS (TRIANGULAR ARBITRAGE)
-                singleOut: singleRepayTokenOut,
-            };
-            return singleRepay;
+
+            // const singleRepay = {
+            //     singleIn: singleRepayTokenOut, // Only usable if you can find another trade/pool elsewhere that will give you the exact amount of tokenIn you need to repay. TODO: IMPLEMENT THIS (TRIANGULAR ARBITRAGE)
+            //     singleOut: singleRepayTokenOut,
+            // };
+            const bigintSizeWithFee = BN2BigInt(tradeSizeWithFee, this.trade.tokenIn.decimals);
+            return singleRepayTokenOut * 2n; //falsely inflated to force multi trade (this isn't a real trade, just a placeholder for now)
         };
-        console.log(
-            "tradeSizeBN: ",
-            this.trade.target.tradeSize.sizeBN.toString(),
-            "tradeSizeJS: ",
-            this.trade.target.tradeSize.size,
-        );
 
         const loanFee = this.trade.target.tradeSize.sizeBN.multipliedBy(0.003);
         const loanPlusFee = this.trade.target.tradeSize.sizeBN.plus(loanFee);
 
         const getMultiFlash = async (): Promise<bigint> => {
-            const repayByGetAmountsIn = await getAmountsIn(
-                loanPlusFee,
-                this.trade.loanPool.reserveOutBN,
+            const repayByGetAmountsIn = await getAmountsOut(
+                loanPlusFee, //tradeSize in tokenIn
                 this.trade.loanPool.reserveInBN,
+                this.trade.loanPool.reserveOutBN,
             );
 
             const multi = pu(
@@ -66,9 +76,10 @@ export class PopulateRepays {
         const flashSingle = await getSingle();
         const repays: Repays = {
             single: 0n,
-            flashSingle: { singleIn: flashSingle.singleIn, singleOut: flashSingle.singleOut },
+            flashSingle: flashSingle,
             flashMulti: flashMulti,
         };
+        // console.log(">>>>>>>>>>>>", repays);
         return repays;
     }
 }

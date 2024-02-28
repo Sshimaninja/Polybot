@@ -35,14 +35,16 @@ export async function getAmountsOut(amountIn: BN, reserveIn: BN, reserveOut: BN)
     const numerator = amountInWithFee.multipliedBy(reserveOut);
     // logger.info("reserve in type: ", typeof reserveIn, reserveIn);
     const denominator = reserveIn.multipliedBy(BN(1000)).plus(amountInWithFee);
-    return numerator.div(denominator);
+    const result = numerator.div(denominator);
+    return result.abs();
 }
 
 export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN) {
-    const numerator = reserveIn.multipliedBy(amountOut).multipliedBy(BN(1000));
-    const denominator = reserveOut.minus(amountOut).multipliedBy(BN(997));
+    const numerator = reserveIn.multipliedBy(amountOut);
+    const denominator = reserveOut.minus(amountOut).multipliedBy(BN(0.97));
     //this used to be plus 1, but it was probably causing errors since it was a hack to deal with javascript bignumber rounding errors when using ethers.js
-    return numerator.div(denominator);
+    const result = numerator.div(denominator);
+    return result.abs();
 }
 
 // export async function getAmountsIO(

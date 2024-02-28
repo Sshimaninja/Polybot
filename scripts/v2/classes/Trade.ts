@@ -9,6 +9,7 @@ import {
     Repays,
     TradePair,
 } from "../../../constants/interfaces";
+import { debugAmounts } from "../../../test/debugAmounts";
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
@@ -38,38 +39,48 @@ export class Trade {
     // trade: BoolTrade
     pair: FactoryPair;
     match: TradePair;
-    price0: Prices;
-    price1: Prices;
+    priceA: Prices;
+    priceB: Prices;
     slip: BN;
     gasData: GasData;
-    calc0: AmountConverter;
-    calc1: AmountConverter;
+    calcA: AmountConverter;
+    calcB: AmountConverter;
 
     constructor(
         pair: FactoryPair,
         match: TradePair,
-        price0: Prices,
-        price1: Prices,
+        priceA: Prices,
+        priceB: Prices,
         slip: BN,
         gasData: GasData,
         // trade: BoolTrade
     ) {
         this.pair = pair;
-        this.price0 = price0;
-        this.price1 = price1;
+        this.priceA = priceA;
+        this.priceB = priceB;
         this.match = match;
         this.slip = slip;
         this.gasData = gasData;
         // Pass in the opposing pool's priceOut as target
-        this.calc0 = new AmountConverter(price0, match, this.price1.priceOutBN);
-        this.calc1 = new AmountConverter(price1, match, this.price0.priceOutBN);
+        this.calcA = new AmountConverter(
+            this.priceB,
+            this.priceA,
+            this.match,
+            this.priceB.priceOutBN,
+        );
+        this.calcB = new AmountConverter(
+            this.priceA,
+            this.priceB,
+            this.match,
+            this.priceA.priceOutBN,
+        );
     }
 
     async direction() {
-        const A = this.price0.priceOutBN;
-        const B = this.price1.priceOutBN;
+        const A = this.priceA.priceOutBN;
+        const B = this.priceB.priceOutBN;
         const diff = A.lt(B) ? B.minus(A) : A.minus(B);
-        const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100); // 0.6% price difference required for trade (0.3%) + loan repayment (0.3%) on Uniswap V2
+        const dperc = diff.div(A.gt(B) ? A : B).multipliedBy(100); // 0.6% price difference required for trade (0.3%) + loa`n repayment (0.3%) on Uniswap V2
         const dir = A.gt(B) ? "A" : "B";
         return { dir, diff, dperc };
     }
@@ -79,8 +90,8 @@ export class Trade {
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const size = A
-            ? await this.calc0.getSize() //this.getSize(this.calc1, this.calc0)
-            : await this.calc1.getSize(); //this.getSize(this.calc0, this.calc1);
+            ? await this.calcA.getSize() //this.getSize(this.calcB, this.calcA)
+            : await this.calcB.getSize(); //this.getSize(this.calcA, this.calcB);
         const trade: BoolTrade = {
             ID: A
                 ? this.match.poolBID + this.match.poolAID
@@ -103,23 +114,23 @@ export class Trade {
                 pool: A
                     ? new Contract(this.match.poolBID, IPair, provider)
                     : new Contract(this.match.poolAID, IPair, provider),
-                reserveIn: A ? this.price1.reserves.reserveIn : this.price0.reserves.reserveIn,
+                reserveIn: A ? this.priceB.reserves.reserveIn : this.priceA.reserves.reserveIn,
                 reserveInBN: A
-                    ? this.price1.reserves.reserveInBN
-                    : this.price0.reserves.reserveInBN,
-                reserveOut: A ? this.price1.reserves.reserveOut : this.price0.reserves.reserveOut,
+                    ? this.priceB.reserves.reserveInBN
+                    : this.priceA.reserves.reserveInBN,
+                reserveOut: A ? this.priceB.reserves.reserveOut : this.priceA.reserves.reserveOut,
                 reserveOutBN: A
-                    ? this.price1.reserves.reserveOutBN
-                    : this.price0.reserves.reserveOutBN,
+                    ? this.priceB.reserves.reserveOutBN
+                    : this.priceA.reserves.reserveOutBN,
                 priceIn: A
-                    ? this.price1.priceInBN.toFixed(this.match.token1.decimals)
-                    : this.price0.priceInBN.toFixed(this.match.token1.decimals),
+                    ? this.priceB.priceInBN.toFixed(this.match.token1.decimals)
+                    : this.priceA.priceInBN.toFixed(this.match.token1.decimals),
                 priceOut: A
-                    ? this.price1.priceOutBN.toFixed(this.match.token0.decimals)
-                    : this.price0.priceOutBN.toFixed(this.match.token0.decimals),
+                    ? this.priceB.priceOutBN.toFixed(this.match.token0.decimals)
+                    : this.priceA.priceOutBN.toFixed(this.match.token0.decimals),
                 repays: {
                     single: 0n,
-                    flashSingle: { singleIn: 0n, singleOut: 0n },
+                    flashSingle: 0n,
                     flashMulti: 0n,
                 },
                 amountRepay: 0n,
@@ -135,20 +146,20 @@ export class Trade {
                 pool: A
                     ? new Contract(this.match.poolAID, IPair, provider)
                     : new Contract(this.match.poolBID, IPair, provider),
-                reserveIn: A ? this.price0.reserves.reserveIn : this.price1.reserves.reserveIn,
+                reserveIn: A ? this.priceA.reserves.reserveIn : this.priceB.reserves.reserveIn,
                 reserveInBN: A
-                    ? this.price0.reserves.reserveInBN
-                    : this.price1.reserves.reserveInBN,
-                reserveOut: A ? this.price0.reserves.reserveOut : this.price1.reserves.reserveOut,
+                    ? this.priceA.reserves.reserveInBN
+                    : this.priceB.reserves.reserveInBN,
+                reserveOut: A ? this.priceA.reserves.reserveOut : this.priceB.reserves.reserveOut,
                 reserveOutBN: A
-                    ? this.price0.reserves.reserveOutBN
-                    : this.price1.reserves.reserveOutBN,
+                    ? this.priceA.reserves.reserveOutBN
+                    : this.priceB.reserves.reserveOutBN,
                 priceIn: A
-                    ? this.price0.priceInBN.toFixed(this.match.token1.decimals)
-                    : this.price1.priceInBN.toFixed(this.match.token1.decimals),
+                    ? this.priceA.priceInBN.toFixed(this.match.token1.decimals)
+                    : this.priceB.priceInBN.toFixed(this.match.token1.decimals),
                 priceOut: A
-                    ? this.price0.priceOutBN.toFixed(this.match.token0.decimals)
-                    : this.price1.priceOutBN.toFixed(this.match.token0.decimals),
+                    ? this.priceA.priceOutBN.toFixed(this.match.token0.decimals)
+                    : this.priceB.priceOutBN.toFixed(this.match.token0.decimals),
                 tradeSize: size,
                 walletSize: size,
             },
@@ -181,13 +192,14 @@ export class Trade {
                 profitPercent: "",
             },
         };
-
+        // const debug = await debugAmounts(trade);
+        // logger.info(">>>>>>>>>>>>>DEBUG: ", debug);
         const quote = await getQuotes(trade);
 
-        const r = new PopulateRepays(trade, this.calc0);
+        const r = new PopulateRepays(trade, this.calcA);
         const repays = await r.getRepays();
 
-        const p = new ProfitCalculator(trade, this.calc0, repays);
+        const p = new ProfitCalculator(trade, this.calcA, repays);
         const multi = await p.getMultiProfit();
         const single = await p.getSingleProfit();
 
@@ -209,6 +221,10 @@ export class Trade {
 
         trade.type = tradeType;
         trade.loanPool.repays = repays;
+        // console.log(">>>>>>>>>>>repays: ", repays);
+        // console.log(">>>>>>>>>>>trade.repays: ", trade.loanPool.repays);
+        // console.log(">>>>>>>>>>>amountRepay: ", trade.loanPool.amountRepay);
+
         trade.target.tradeSize =
             trade.type === "flashMulti"
                 ? trade.target.tradeSize
@@ -229,7 +245,7 @@ export class Trade {
             trade.type === "flashMulti"
                 ? repays.flashMulti
                 : trade.type === "flashSingle"
-                ? repays.flashSingle.singleOut
+                ? repays.flashSingle
                 : repays.single;
 
         trade.k = await getK(
@@ -237,7 +253,7 @@ export class Trade {
             trade.target.tradeSize.size,
             trade.loanPool.reserveIn,
             trade.loanPool.reserveOut,
-            this.calc0,
+            this.calcA,
         );
 
         trade.flash = trade.type === "flashSingle" ? flashSingle : flashMulti;

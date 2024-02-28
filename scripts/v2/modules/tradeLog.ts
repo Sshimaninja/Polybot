@@ -25,24 +25,12 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     fu(trade.loanPool.reserveOut, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
-                repaysObj: {
-                    // single:
-                    //     fu(trade.loanPool.repays.single.singleIn, trade.tokenIn.decimals) +
-                    //     " " +
-                    //     trade.tokenIn.symbol,
-                    // singleOut:
-                    //     fu(trade.loanPool.repays.single.singleOut, trade.tokenOut.decimals) +
-                    //     " " +
-                    //     trade.tokenOut.symbol,
-                    multi:
-                        fu(trade.loanPool.repays.flashMulti, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
+                repays: {
+                    single: trade.loanPool.repays.single,
+                    flashSingle: trade.loanPool.repays.flashSingle,
+                    flashMulti: trade.loanPool.repays.flashMulti,
                 },
-                // amountOut:
-                //     fbi(trade.loanPool.amountOut, trade.tokenOut.decimals) +
-                //     " " +
-                //     trade.tokenOut.symbol,
+
                 amountRepay:
                     trade.loanPool.amountRepay +
                     ": " +
@@ -84,7 +72,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     " " +
                     trade.tokenOut.symbol,
                 wmaticProfit: fu(trade.profits.WMATICProfit, 18) + " WMATIC",
-                profperc: fu(trade.profits.profitPercent, trade.tokenOut.decimals) + "%",
+                // profperc: fu(trade.profits.profitPercent, trade.tokenOut.decimals) + "%",
             },
         };
 
