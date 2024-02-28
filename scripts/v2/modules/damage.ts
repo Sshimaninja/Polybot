@@ -57,15 +57,34 @@ export async function rollDamage(trade: BoolTrade) {
             //     fu(trade.profits.WMATICProfit, 18),
             // );
             const log = await tradeLogs(trade);
-            if (trade.type.includes("filtered")) {
-                console.log("Trade Type: ", trade.type);
-            }
-            if (trade.type == "flashMulti" || trade.type == "flashSingle") {
-                console.log(log);
-            }
-            if (trade.type == "single") {
-                console.log(log);
-            }
+            // if (trade.type.includes("filtered")) {
+            //     console.log(
+            //         "Trade Type: ",
+            //         trade.type,
+            //         " | ",
+            //         trade.ticker,
+            //         " | ",
+            //         trade.loanPool.exchange,
+            //         " | ",
+            //         trade.target.exchange,
+            //     );
+            // }
+            // if (trade.type == "flashMulti" || trade.type == "flashSingle") {
+            // console.log(log);
+            console.log(
+                "Trade Type: ",
+                trade.type,
+                " | ",
+                trade.ticker,
+                " | ",
+                trade.loanPool.exchange,
+                " | ",
+                trade.target.exchange,
+            );
+            // }
+            // if (trade.type == "single") {
+            // console.log(log);
+            // }
             // If profit is greater than gas cost, execute trade
             if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
                 logger.info(
