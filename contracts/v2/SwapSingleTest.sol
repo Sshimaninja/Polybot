@@ -19,7 +19,7 @@ contract SwapSingleTest {
         return owner;
     }
 
-    function swapSingleTest(
+    function swapSingle(
         address router0ID,
         address router1ID,
         address token0ID,

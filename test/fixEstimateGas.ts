@@ -30,7 +30,7 @@ export async function fixEstimateGas(trade: BoolTrade) {
     // logger.info('Function selector: ', flashSelector)
     // const flashSwapFunction = await trade.flash.flashSwap.getFunction()
     // const owner = await trade.flash.checkOwner();
-    // const walletAddress = signer.address;
+    // const walletAddress = await signer.getAddress;
     // logger.info("Owner: ", owner);
     // logger.info("wallet address: ", walletAddress);
 }

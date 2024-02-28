@@ -249,10 +249,7 @@ export interface swap {
 
 export interface Repays {
     single: bigint;
-    flashSingle: {
-        singleIn: bigint;
-        singleOut: bigint;
-    };
+    flashSingle: bigint,
     flashMulti: bigint;
 }
 export interface V3Repays {

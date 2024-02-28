@@ -3,6 +3,7 @@ import { tradeLogs } from "../tradeLog";
 import { logger } from "../../../../constants/logger";
 import { fu, pu } from "../../../modules/convertBN";
 import { signer } from "../../../../constants/provider";
+import { swapSingle } from "../../../../constants/environment";
 import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 
 /**
@@ -79,7 +80,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             //loanPool: 1000/1 WMATIC/ETH
             //target: 1100/1 WMATIC/ETH
             const deadline = Math.floor(Date.now() / 1000) + 60 * 5; // 5 minutes
-            gasEstimate = await trade.flash.swapSingle.estimateGas(
+            gasEstimate = await swapSingle.swapSingle.estimateGas(
                 trade.loanPool.router,
                 trade.target.router,
                 trade.target.tradeSize,
@@ -87,7 +88,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.quotes.target.out,
                 [trade.tokenIn.id, trade.tokenOut.id],
                 [trade.tokenOut.id, trade.tokenIn.id],
-                signer.address,
+                await signer.getAddress(),
                 deadline,
             );
 

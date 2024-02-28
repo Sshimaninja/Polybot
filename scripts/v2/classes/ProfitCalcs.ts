@@ -38,8 +38,8 @@ export class ProfitCalculator {
             const profit = this.trade.quotes.target.out - this.trade.quotes.loanPool.out; //this.trade.quotes.target.flashBN.minus(this.trade.loanPool.amountOutBN);
 
             const flashProfit =
-                this.trade.quotes.target.flashOut > repays.flashSingle.singleOut
-                    ? this.trade.quotes.target.flashOut - repays.flashSingle.singleOut
+                this.trade.quotes.target.flashOut > repays.flashSingle
+                    ? this.trade.quotes.target.flashOut - repays.flashSingle
                     : 0n;
             const profitBN = BigInt2BN(flashProfit, this.trade.tokenOut.decimals);
             const profCalcs = { profit, flashProfit };

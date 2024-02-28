@@ -52,10 +52,10 @@ export async function rollDamage(trade: BoolTrade) {
             trade = await trueProfit(trade);
             trade.profits.WMATICProfit = trade.profits.WMATICProfit;
 
-            logger.info(
-                ">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ",
-                fu(trade.profits.WMATICProfit, 18),
-            );
+            // logger.info(
+            //     ">>>>>>>>>>>>>>CHECKING TRADE PROFIT CALCS: ",
+            //     fu(trade.profits.WMATICProfit, 18),
+            // );
             const log = await tradeLogs(trade);
             if (trade.type.includes("filtered")) {
                 console.log("Trade Type: ", trade.type);
