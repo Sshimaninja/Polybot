@@ -81,11 +81,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             //target: 1100/1 WMATIC/ETH
             const deadline = Math.floor(Date.now() / 1000) + 60 * 5; // 5 minutes
             gasEstimate = await swapSingle.swapSingle.estimateGas(
-                trade.loanPool.router,
                 trade.target.router,
+                trade.loanPool.router,
                 trade.target.tradeSize,
-                trade.quotes.loanPool.out,
                 trade.quotes.target.out,
+                trade.quotes.loanPool.out,
                 [trade.tokenIn.id, trade.tokenOut.id],
                 [trade.tokenOut.id, trade.tokenIn.id],
                 await signer.getAddress(),

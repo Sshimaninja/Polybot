@@ -100,7 +100,8 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
                 await notify(trade);
 
                 const req = await send(trade);
-
+                const r = req.txResponse;
+                console.log("Transaction response: ", r);
                 // const logs = await logEmits(trade, req);
 
                 logger.info(
