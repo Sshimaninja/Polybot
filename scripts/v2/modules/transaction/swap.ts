@@ -16,11 +16,11 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
     console.log(":::::::::::::::::::sending tx:::::::::::::::: ");
     try {
         const p = {
-            routerAID: await trade.target.router.getAddress(),
-            routerBID: await trade.loanPool.router.getAddress(),
+            routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
+            routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.target.tradeSize.size,
-            amountOutTokenOutTarget: trade.quotes.target.out,
-            amountOutTokenOutLoanPool: trade.quotes.loanPool.out,
+            amountOutA: trade.quotes.target.out, //high Output tokenIn to tokenOut
+            amountOutB: trade.quotes.loanPool.in, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.id, trade.tokenOut.id],
             path1: [trade.tokenOut.id, trade.tokenIn.id],
             to: await signer.getAddress(),
@@ -41,8 +41,8 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             p.routerAID,
             p.routerBID,
             p.tradeSize,
-            p.amountOutTokenOutTarget,
-            p.amountOutTokenOutLoanPool,
+            p.amountOutA,
+            p.amountOutB,
             p.path0,
             p.path1,
             p.to,

@@ -239,9 +239,9 @@ export class WMATICProfit {
                     gasToken.reserves.reserve0BN,
                     gasToken.reserves.reserve1BN,
                 );
-                console.log("profitInWMATICBN: ", profitInWMATICBN.toFixed(18));
-                let profitString = profitInWMATICBN.toFixed(gasToken.tokenOut.decimals);
+                let profitString = profitInWMATICBN.toFixed(18);
                 profitInWMATIC = pu(profitString, gasToken.tokenOut.decimals);
+                console.log("[gasTokentoWMATICPrice]: profitInWMATIC: ", profitString);
                 // console.log("profitInWMATIC: ", profitInWMATIC);
                 return profitInWMATIC;
             }
