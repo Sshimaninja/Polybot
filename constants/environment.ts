@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { config as dotenvConfig } from "dotenv";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
-import { abi as ISwapSingle } from "../artifacts/contracts/v2/SwapSingleTest.sol/SwapSingleTest.json";
+import { abi as ISwapSingle } from "../artifacts/contracts/v2/SwapSingle.sol/SwapSingle.json";
 import { abi as IFlashMulti } from "../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json";
 import { abi as IFlashSingle } from "../artifacts/contracts/v2/flashSingleTest.sol/flashSingleTest.json";
 import { provider, wallet, signer } from "./provider";

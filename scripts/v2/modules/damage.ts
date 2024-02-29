@@ -69,8 +69,19 @@ export async function rollDamage(trade: BoolTrade) {
                         "!" +
                         "====================",
                 );
-                logger.info(log);
+                // logger.info(log);
                 logger.info(
+                    "Ticker: ",
+                    trade.ticker,
+                    " | ",
+                    "Loan Pool: ",
+                    trade.loanPool.exchange,
+                    " | ",
+                    "Target: ",
+                    trade.target.exchange,
+                    " | ",
+                    "Trade Size: ",
+                    fu(trade.target.tradeSize.size, trade.tokenIn.decimals),
                     "Profit: ",
                     fu(trade.profits.WMATICProfit, 18),
                     "Gas Cost: ",

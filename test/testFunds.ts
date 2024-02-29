@@ -18,11 +18,11 @@ export const gasTokens: GasToken = {
     WBTC: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
     GHST: "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
 };
-const testkey = process.env.TEST_KEY;
-if (testkey === undefined) {
+const KEY = process.env.PRIVATE_KEY;
+if (KEY === undefined) {
     throw new Error("No test wallet set in .env file");
 }
-const wallet = new ethers.Wallet(testkey, provider);
+const wallet = new ethers.Wallet(KEY, provider);
 const signer: Signer = new NonceManager(wallet);
 // const signer = wallet.connect(provider);
 const wmaticContract = new ethers.Contract(gasTokens.WMATIC, IERC20, signer);
