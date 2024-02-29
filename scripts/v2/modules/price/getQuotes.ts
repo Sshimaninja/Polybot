@@ -8,15 +8,19 @@ export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
     const quotes: Quotes = {
         target: {
             out: trade.quotes.target.out,
-            outBN: trade.quotes.target.outBN,
+            in: trade.quotes.target.in,
+            // outBN: trade.quotes.target.outBN,
             flashOut: trade.quotes.target.flashOut,
-            flashOutBN: trade.quotes.target.flashOutBN,
+            flashIn: trade.quotes.target.flashIn,
+            // flashOutBN: trade.quotes.target.flashOutBN,
         },
         loanPool: {
             out: trade.quotes.loanPool.out,
-            outBN: trade.quotes.loanPool.outBN,
+            in: trade.quotes.loanPool.in,
+            // outBN: trade.quotes.loanPool.outBN,
             flashOut: trade.quotes.loanPool.flashOut,
-            flashOutBN: trade.quotes.loanPool.flashOutBN,
+            flashIn: trade.quotes.loanPool.flashIn,
+            // flashOutBN: trade.quotes.loanPool.flashOutBN,
         },
     };
 
@@ -30,83 +34,112 @@ export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
 
     let wallet = await walletSize();
 
-    const singleOutTarget = await getAmountsOut(trade.target.router, wallet.size, [
+    if (wallet.size <= 0) {
+        return trade;
+    }
+    if (trade.target.tradeSize.size <= 0) {
+        return trade;
+    }
+    const singleOutTargetTokenOut = await getAmountsOut(trade.target.router, wallet.size, [
         trade.tokenIn.id,
         trade.tokenOut.id,
     ]);
 
-    const singleOutLoanPool = await getAmountsOut(trade.loanPool.router, wallet.size, [
+    const singleOutLoanPoolTokenOut = await getAmountsOut(trade.loanPool.router, wallet.size, [
         trade.tokenIn.id,
         trade.tokenOut.id,
     ]);
 
-    const flashOutTarget = await getAmountsOut(trade.target.router, trade.target.tradeSize.size, [
-        trade.tokenIn.id,
-        trade.tokenOut.id,
-    ]);
+    const flashOutTargetTokenOut = await getAmountsOut(
+        trade.target.router,
+        trade.target.tradeSize.size,
+        [trade.tokenIn.id, trade.tokenOut.id],
+    );
 
-    const flashOutLoanPool = await getAmountsOut(
+    const flashOutLoanPoolTokenOut = await getAmountsOut(
         trade.loanPool.router,
         trade.target.tradeSize.size,
         [trade.tokenIn.id, trade.tokenOut.id],
-    ); // token0 max out
-
-    const singleOutTargetBN = await getAmountsOutBN(
-        wallet.sizeBN, // token1 in
-        trade.target.reserveInBN,
-        trade.target.reserveOutBN,
     );
 
-    const singleOutLoanPoolBN = await getAmountsOutBN(
-        wallet.sizeBN, // token1 in
-        trade.loanPool.reserveInBN,
-        trade.loanPool.reserveOutBN,
+    const singleOutTargetTokenIn = await getAmountsOut(trade.target.router, wallet.size, [
+        trade.tokenOut.id,
+        trade.tokenIn.id,
+    ]);
+
+    const singleOutLoanPoolTokenIn = await getAmountsOut(trade.loanPool.router, wallet.size, [
+        trade.tokenOut.id,
+        trade.tokenIn.id,
+    ]);
+
+    const flashOutTargetTokenIn = await getAmountsOut(
+        trade.target.router,
+        trade.target.tradeSize.size,
+        [trade.tokenOut.id, trade.tokenIn.id],
     );
 
-    const flashOutTargetBN = await getAmountsOutBN(
-        trade.target.tradeSize.sizeBN, // token1 in
-        trade.target.reserveInBN,
-        trade.target.reserveOutBN,
+    const flashOutLoanPoolTokenIn = await getAmountsOut(
+        trade.loanPool.router,
+        trade.target.tradeSize.size,
+        [trade.tokenOut.id, trade.tokenIn.id],
     );
 
-    const flashOutLoanPoolBN = await getAmountsOutBN(
-        trade.target.tradeSize.sizeBN, // token1 in
-        trade.loanPool.reserveInBN,
-        trade.loanPool.reserveOutBN,
-    ); // token0 max out
+    // const singleOutTargetTokenOutBN = await getAmountsOutBN(
+    //     wallet.sizeBN, // token1 in
+    //     trade.target.reserveInBN,
+    //     trade.target.reserveOutBN,
+    // );
 
-    // const singleOutTarget = pu(
-    //     singleOutTargetBN.toFixed(trade.tokenOut.decimals),
+    // const singleOutLoanPoolTokenOutBN = await getAmountsOutBN(
+    //     wallet.sizeBN, // token1 in
+    //     trade.loanPool.reserveInBN,
+    //     trade.loanPool.reserveOutBN,
+    // );
+
+    // const flashOutTargetTokenOutBN = await getAmountsOutBN(
+    //     trade.target.tradeSize.sizeBN, // token1 in
+    //     trade.target.reserveInBN,
+    //     trade.target.reserveOutBN,
+    // );
+
+    // const flashOutLoanPoolTokenOutBN = await getAmountsOutBN(
+    //     trade.target.tradeSize.sizeBN, // token1 in
+    //     trade.loanPool.reserveInBN,
+    //     trade.loanPool.reserveOutBN,
+    // ); // token0 max out
+
+    // const singleOutTargetTokenOut = pu(
+    //     singleOutTargetTokenOutBN.toFixed(trade.tokenOut.decimals),
     //     trade.tokenOut.decimals,
     // );
 
-    // const singleOutLoanPool = pu(
-    //     singleOutLoanPoolBN.toFixed(trade.tokenOut.decimals),
+    // const singleOutLoanPoolTokenOut = pu(
+    //     singleOutLoanPoolTokenOutBN.toFixed(trade.tokenOut.decimals),
     //     trade.tokenOut.decimals,
     // );
 
-    // const flashOutTarget = pu(
-    //     flashOutTargetBN.toFixed(trade.tokenOut.decimals),
+    // const flashOutTargetTokenOut = pu(
+    //     flashOutTargetTokenOutBN.toFixed(trade.tokenOut.decimals),
     //     trade.tokenOut.decimals,
     // );
 
-    // const flashOutLoanPool = pu(
-    //     flashOutLoanPoolBN.toFixed(trade.tokenOut.decimals),
+    // const flashOutLoanPoolTokenOut = pu(
+    //     flashOutLoanPoolTokenOutBN.toFixed(trade.tokenOut.decimals),
     //     trade.tokenOut.decimals,
     // );
 
     trade.quotes = {
         target: {
-            out: singleOutTarget,
-            outBN: singleOutTargetBN,
-            flashOut: flashOutTarget,
-            flashOutBN: flashOutTargetBN,
+            out: singleOutTargetTokenOut,
+            in: singleOutTargetTokenIn,
+            flashIn: flashOutTargetTokenIn,
+            flashOut: flashOutTargetTokenOut,
         },
         loanPool: {
-            out: singleOutLoanPool,
-            outBN: singleOutLoanPoolBN,
-            flashOut: flashOutLoanPool,
-            flashOutBN: flashOutLoanPoolBN,
+            out: singleOutLoanPoolTokenOut,
+            in: singleOutLoanPoolTokenIn,
+            flashIn: flashOutLoanPoolTokenIn,
+            flashOut: flashOutLoanPoolTokenOut,
         },
     };
 

@@ -26,7 +26,6 @@ import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../../modules/conve
 import { filterTrade } from "../modules/filterTrade";
 import { logger } from "../../../constants/logger";
 import { ProfitCalculator } from "./ProfitCalcs";
-import { getAmountsOut, getAmountsIn } from "../modules/price/getAmountsIOBN";
 // import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmounts/getAmountsIOBN";
 
 /**
@@ -166,15 +165,15 @@ export class Trade {
             quotes: {
                 target: {
                     out: 0n,
-                    outBN: BN(0),
                     flashOut: 0n,
-                    flashOutBN: BN(0),
+                    in: 0n,
+                    flashIn: 0n,
                 },
                 loanPool: {
                     out: 0n,
-                    outBN: BN(0),
                     flashOut: 0n,
-                    flashOutBN: BN(0),
+                    in: 0n,
+                    flashIn: 0n,
                 },
             },
             gas: this.gasData,

@@ -22,6 +22,15 @@ export class PopulateRepays {
     }
 
     async getRepays(): Promise<Repays> {
+        let r: Repays = {
+            single: 0n,
+            flashSingle: 0n,
+            flashMulti: 0n,
+        };
+        if (this.trade.target.tradeSize.size <= 0) {
+            return r;
+        }
+
         // getSingle() Will only be used if I for triangular arbitrage, which requries extra protocol integration.
         let loanPlusFee = await this.calc.addFee(this.trade.target.tradeSize.size);
 
@@ -55,7 +64,7 @@ export class PopulateRepays {
                 loanPlusFee, //tradeSize in tokenIn
                 [this.trade.tokenOut.id, this.trade.tokenIn.id],
             );
-            console.log(">>>>>>>>>>>> FLASHSINGLE REPAY:", repayInTokenOut);
+            // console.log(">>>>>>>>>>>> FLASHSINGLE REPAY:", repayInTokenOut);
             // const singleRepay = {
             //     singleIn: singleRepayTokenOut, // Only usable if you can find another trade/pool elsewhere that will give you the exact amount of tokenIn you need to repay. TODO: IMPLEMENT THIS (TRIANGULAR ARBITRAGE)
             //     singleOut: singleRepayTokenOut,
@@ -76,7 +85,7 @@ export class PopulateRepays {
                 loanPlusFee, //tradeSize in tokenIn
                 [this.trade.tokenOut.id, this.trade.tokenIn.id],
             );
-            console.log(">>>>>>>>>>>> FLASHMULTI REPAY:", repayByGetAmountsIn);
+            // console.log(">>>>>>>>>>>> FLASHMULTI REPAY:", repayByGetAmountsIn);
             return repayByGetAmountsIn;
         };
         const flashMulti = await getMultiFlash();

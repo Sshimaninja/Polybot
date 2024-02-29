@@ -46,12 +46,12 @@ export async function getGas2WMATICArray(): Promise<ToWMATICPool[]> {
                         const r1: bigint = r[1];
                         const token0 = {
                             id: await pairContract.token0(),
-                            decimals: await pairContract.decimals(),
+                            decimals: Number(await pairContract.decimals()),
                             reserves: r0,
                         };
                         const token1 = {
                             id: await pairContract.token1(),
-                            decimals: await pairContract.decimals(),
+                            decimals: Number(await pairContract.decimals()),
                             reserves: r1,
                         };
                         const tokenIn = token0.id == wmaticID ? token1 : token0;
@@ -70,7 +70,9 @@ export async function getGas2WMATICArray(): Promise<ToWMATICPool[]> {
                             },
                             reserves: {
                                 reserve0: tokenIn.reserves,
+                                reserve0BN: BN(fu(tokenIn.reserves, tokenIn.decimals)),
                                 reserve1: tokenOut.reserves,
+                                reserve1BN: BN(fu(tokenOut.reserves, tokenOut.decimals)),
                             },
                             liquidity: tokenIn.reserves * tokenOut.reserves,
                         };
