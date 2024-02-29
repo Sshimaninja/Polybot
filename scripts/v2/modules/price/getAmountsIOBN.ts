@@ -39,13 +39,13 @@ export async function getAmountsOut(amountIn: BN, reserveIn: BN, reserveOut: BN)
     return result.abs();
 }
 
-export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN) {
-    const numerator = reserveIn.multipliedBy(amountOut);
-    const denominator = reserveOut.minus(amountOut).multipliedBy(BN(0.97));
-    //this used to be plus 1, but it was probably causing errors since it was a hack to deal with javascript bignumber rounding errors when using ethers.js
-    const result = numerator.div(denominator);
-    return result.abs();
-}
+// export async function getAmountsIn(amountOut: BN, reserveIn: BN, reserveOut: BN) {
+//     const numerator = reserveIn.multipliedBy(amountOut);
+//     const denominator = reserveOut.minus(amountOut).multipliedBy(BN(0.97));
+//     //this used to be plus 1, but it was probably causing errors since it was a hack to deal with javascript bignumber rounding errors when using ethers.js
+//     const result = numerator.div(denominator);
+//     return result.abs();
+// }
 
 // export async function getAmountsIO(
 //     amountIn: BN,

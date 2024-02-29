@@ -1,34 +1,48 @@
 import { ethers } from "ethers";
 import { swapSingle } from "../../../../constants/environment";
 import { BoolTrade } from "../../../../constants/interfaces";
-import { pu } from "../../../modules/convertBN";
+import { fu, pu } from "../../../modules/convertBN";
 import { provider, signer } from "../../../../constants/provider";
 import { logger } from "../../../../constants/logger";
+import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { tradeLogs } from "../../modules/tradeLog";
+import { checkBal } from "../tools/checkBal";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
     let nonce = await provider.getTransactionCount(await signer.getAddress());
-    let signerAddress = await signer.getAddress();
-    let logs = await tradeLogs(trade);
+    const signerAddress = await signer.getAddress();
+    const swapSingleAddress = await swapSingle.getAddress();
+    const logs = await tradeLogs(trade);
     console.log(":::::::::::::::::::sending tx:::::::::::::::: ");
     try {
         const p = {
             routerAID: await trade.target.router.getAddress(),
             routerBID: await trade.loanPool.router.getAddress(),
             tradeSize: trade.target.tradeSize.size,
-            amountOutA: trade.quotes.target.out,
-            amountOutB: trade.quotes.loanPool.out,
+            amountOutTokenOutTarget: trade.quotes.target.out,
+            amountOutTokenOutLoanPool: trade.quotes.loanPool.out,
             path0: [trade.tokenIn.id, trade.tokenOut.id],
             path1: [trade.tokenOut.id, trade.tokenIn.id],
             to: await signer.getAddress(),
             deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
         };
+        // const b = {
+        //     tradeSize: fu(p.tradeSize, trade.tokenIn.decimals),
+        //     reservesA: fu(trade.target.reserveOut, trade.tokenOut.decimals),
+        //     amountOutA: fu(p.amountOutA, trade.tokenOut.decimals),
+        //     reservesB: fu(trade.loanPool.reserveIn, trade.tokenIn.decimals),
+        //     amountOutB: fu(p.amountOutB, trade.tokenOut.decimals),
+        // };
+        // console.log(b);
+        let tokenIn = new ethers.Contract(p.path0[0], IERC20, signer);
+        await tokenIn.approve(swapSingleAddress, p.tradeSize);
+        const oldBal = await checkBal(trade.tokenIn, trade.tokenOut);
         let tx = await swapSingle.swapSingle(
             p.routerAID,
             p.routerBID,
             p.tradeSize,
-            p.amountOutA,
-            p.amountOutB,
+            p.amountOutTokenOutTarget,
+            p.amountOutTokenOutLoanPool,
             p.path0,
             p.path1,
             p.to,
@@ -37,7 +51,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
                 gasLimit: trade.gas.gasEstimate,
                 maxFeePerGas: trade.gas.maxFee,
                 maxPriorityFeePerGas: trade.gas.maxPriorityFee,
-                nonce: nonce,
+                // nonce: nonce,
             },
         );
         let receipt = await provider.waitForTransaction(tx.hash);
@@ -46,11 +60,24 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             receipt,
             "<<<<<<<<<<<<<<<<<<",
         );
+        const newBal = await checkBal(trade.tokenIn, trade.tokenOut);
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:::::::::::::::::::::::: ", oldBal);
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>new Balance:::::::::::::::::::::::: ", newBal);
         return receipt;
     } catch (error: any) {
-        logger.info(logs);
-        console.log(">>>>>>>>>>>>>>>>>>>>Error in swap: ", error);
-        return error;
+        if (error.message.includes("INSUFFICIENT_INPUT_AMOUNT")) {
+            logger.error(">>>>>>>>>>>>>>>>>>>>Error in swap: ");
+            logger.error(error);
+            logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            logger.error(logs);
+            logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+        } else {
+            logger.info(logs);
+            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: ");
+            logger.info(error);
+            logger.info(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+        }
+        return null;
     }
 }
 

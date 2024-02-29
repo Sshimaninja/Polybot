@@ -48,11 +48,11 @@ contract SwapSingle {
         );
         console.log("SwapSingle: first swap completed");
         // Approve the Uniswap router to spend the output tokens
-        tokenOut.approve(routerBID, swapIn[1]);
 
         uint256[] memory amountsOut = routerB.getAmountsOut(swapIn[1], path1);
         require(amountsOut[1] > swapIn[1], "Error SwapSingle: Insufficient output: Target");
         // Perform the second swap
+        tokenOut.approve(routerBID, swapIn[1]);
         routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
         console.log("SwapSingle: second swap completed");
         // Return any unspent tokens to the sender

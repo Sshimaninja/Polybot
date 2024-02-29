@@ -30,15 +30,21 @@ export async function checkBal(token0: Token, token1: Token): Promise<bal> {
     const walletbalance1 = await t1.balanceOf(wallet);
     const walletbalanceMatic = await wmatictoken.balanceOf(wallet);
 
-    console.log("Wallet balance: ");
-    console.log("Wallet: " + (await signer.getAddress()));
-    console.log(
-        "Wallet balance token0: " + fu(walletbalance0, token0.decimals) + " Asset:  " + token0,
-    );
-    console.log(
-        "Wallet balance token1: " + fu(walletbalance1, token1.decimals) + " Asset:  " + token1,
-    );
-    console.log("Wallet Balance Matic: " + fu(walletbalanceMatic, 18) + " " + "MATIC");
+    // console.log("Wallet balance: ");
+    // console.log("Wallet: " + (await signer.getAddress()));
+    // console.log(
+    //     "Wallet balance token0: " +
+    //         fu(walletbalance0, token0.decimals) +
+    //         " Asset:  " +
+    //         token0.symbol,
+    // );
+    // console.log(
+    //     "Wallet balance token1: " +
+    //         fu(walletbalance1, token1.decimals) +
+    //         " Asset:  " +
+    //         token1.symbol,
+    // );
+    // console.log("Wallet Balance Matic: " + fu(walletbalanceMatic, 18) + " " + "MATIC");
     // console.log("Block Number: " + (await provider.getBlockNumber()))
     // console.log("Contract balance: " + contractbalance.toString() + " " + deployedMap.flashTest)
     return {

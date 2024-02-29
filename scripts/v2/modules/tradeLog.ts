@@ -72,6 +72,14 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                         fu(trade.quotes.loanPool.flashOut, trade.tokenOut.decimals) +
                         " " +
                         trade.tokenOut.symbol,
+                    in:
+                        fu(trade.quotes.loanPool.in, trade.tokenIn.decimals) +
+                        " " +
+                        trade.tokenIn.symbol,
+                    flashIn:
+                        fu(trade.quotes.loanPool.flashIn, trade.tokenIn.decimals) +
+                        " " +
+                        trade.tokenIn.symbol,
                 },
                 target: {
                     out:
@@ -82,6 +90,14 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                         fu(trade.quotes.target.flashOut, trade.tokenOut.decimals) +
                         " " +
                         trade.tokenOut.symbol,
+                    in:
+                        fu(trade.quotes.target.in, trade.tokenIn.decimals) +
+                        " " +
+                        trade.tokenIn.symbol,
+                    flashIn:
+                        fu(trade.quotes.target.flashIn, trade.tokenIn.decimals) +
+                        " " +
+                        trade.tokenIn.symbol,
                 },
             },
             gas: {

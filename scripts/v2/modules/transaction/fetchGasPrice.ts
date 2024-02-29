@@ -5,8 +5,8 @@ import { fu, pu } from "../../../modules/convertBN";
 import { signer } from "../../../../constants/provider";
 import { swapSingle } from "../../../../constants/environment";
 import { debugAmounts } from "../../../../test/debugAmounts";
+import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { checkBal } from "../tools/checkBal";
-import { abi as IERC20ABI } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 import { debug } from "console";
 import { ethers } from "hardhat";
@@ -95,17 +95,24 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             // let a = await debugAmounts(trade);
 
             // console.log(a);
+
             const p = {
-                routerAID: await trade.target.router.getAddress(),
-                routerBID: await trade.loanPool.router.getAddress(),
+                routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
+                routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
                 tradeSize: trade.target.tradeSize.size,
-                amountOutA: trade.quotes.target.out,
-                amountOutB: trade.quotes.loanPool.out,
+                amountOutA: trade.quotes.target.out, //high Output tokenIn to tokenOut
+                amountOutB: trade.quotes.loanPool.in, //high Output tokenOut to tokenIn
                 path0: [trade.tokenIn.id, trade.tokenOut.id],
                 path1: [trade.tokenOut.id, trade.tokenIn.id],
                 to: await signer.getAddress(),
                 deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
             };
+            if (p.amountOutB < p.tradeSize) {
+                // logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
+                return g;
+            }
+            const profit = p.amountOutB - p.tradeSize;
+            console.log("Profit in tokenIn: " + fu(profit, trade.tokenIn.decimals));
             // logger.info("Checking balances: ");
             const bal = await checkBal(trade.tokenIn, trade.tokenOut);
             // logger.info(bal);
@@ -113,7 +120,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 logger.error("Token0 balance too low for trade.");
                 return g;
             }
-
+            let swapSingleAddress = await swapSingle.getAddress();
+            let tokenIn = new ethers.Contract(p.path0[0], IERC20, signer);
+            await tokenIn.approve(swapSingleAddress, p.tradeSize);
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.routerAID,
                 p.routerBID,
@@ -137,17 +146,19 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 maxPriorityFee: trade.gas.maxPriorityFee,
             };
         } catch (error: any) {
-            const data = await tradeLogs(trade);
-            logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
-            );
-            return {
-                gasEstimate,
-                tested: false,
-                gasPrice: trade.gas.gasPrice,
-                maxFee: maxFeeGasData,
-                maxPriorityFee: maxPriorityFeeGasData,
-            };
+            if (error.message.includes("Nonce too high")) {
+                logger.error("Nonce too high. Skipping trade.");
+                return g;
+            } else {
+                const data = await tradeLogs(trade);
+                logger.error(
+                    `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                    error,
+                    data,
+                    `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                );
+                return g;
+            }
         }
     } else {
         return {

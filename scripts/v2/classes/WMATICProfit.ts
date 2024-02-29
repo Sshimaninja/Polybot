@@ -236,10 +236,10 @@ export class WMATICProfit {
                 // console.log("Matched tokenOut.id");
                 let profitInWMATICBN = await getAmountsOutBN(
                     this.tokenProfitBN,
-                    BN(fu(gasToken.reserves.reserve0, gasToken.tokenIn.decimals)),
-                    BN(fu(gasToken.reserves.reserve1, gasToken.tokenOut.decimals)),
+                    gasToken.reserves.reserve0BN,
+                    gasToken.reserves.reserve1BN,
                 );
-                console.log("profitInWMATICBN: ", profitInWMATICBN);
+                console.log("profitInWMATICBN: ", profitInWMATICBN.toFixed(18));
                 let profitString = profitInWMATICBN.toFixed(gasToken.tokenOut.decimals);
                 profitInWMATIC = pu(profitString, gasToken.tokenOut.decimals);
                 // console.log("profitInWMATIC: ", profitInWMATIC);

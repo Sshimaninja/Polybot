@@ -230,7 +230,9 @@ export interface ToWMATICPool {
     exchange: string;
     reserves: {
         reserve0: bigint;
+        reserve0BN: BN;
         reserve1: bigint;
+        reserve1BN: BN;
     };
     liquidity: bigint;
 }
@@ -405,14 +407,18 @@ export interface TradeProfit {
 export interface Quotes {
     target: {
         out: bigint;
-        outBN: BN;
         flashOut: bigint;
-        flashOutBN: BN;
+        in: bigint;
+        flashIn: bigint;
+        // outB: bigint;
+        // flashOutB: bigint;
     };
     loanPool: {
         out: bigint;
-        outBN: BN;
         flashOut: bigint;
-        flashOutBN: BN;
+        in: bigint;
+        flashIn: bigint;
+        // outB: bigint;
+        // flashOutB: bigint;
     };
 }

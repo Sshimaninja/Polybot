@@ -84,7 +84,7 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
 
                 // Set the pending transaction flag for this pool
                 pendingTransactions[trade.ID] = true;
-
+                const oldBal = await checkBal(trade.tokenIn, trade.tokenOut);
                 logger.info(
                     ":::::::::::Sending Transaction: " +
                         trade.loanPool.exchange +
@@ -110,8 +110,15 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
                 // logger.info(logs);
 
                 //Print balances after trade
-                await checkBal(trade.tokenIn, trade.tokenOut);
-
+                const newBal = await checkBal(trade.tokenIn, trade.tokenOut);
+                logger.info(
+                    ">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:::::::::::::::::::::::: ",
+                    oldBal,
+                );
+                logger.info(
+                    ">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:::::::::::::::::::::::: ",
+                    newBal,
+                );
                 let result: TxData = {
                     txResponse: req.txResponse,
                     pendingID: null,
