@@ -4,7 +4,12 @@ import { logger } from "../../../../constants/logger";
 import { fu, pu } from "../../../modules/convertBN";
 import { signer } from "../../../../constants/provider";
 import { swapSingle } from "../../../../constants/environment";
+import { debugAmounts } from "../../../../test/debugAmounts";
+import { checkBal } from "../tools/checkBal";
+import { abi as IERC20ABI } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { fixEstimateGas } from "../../../../test/fixEstimateGas";
+import { debug } from "console";
+import { ethers } from "hardhat";
 
 /**
  * @param trade
@@ -13,22 +18,19 @@ import { fixEstimateGas } from "../../../../test/fixEstimateGas";
  * @returns gasData: { gasEstimate: bigint, gasPrice: bigint, maxFee: number, maxPriorityFee: number }
  */
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
-    // Commented out for now to elimiate from testing & debugging:
+    const maxFeeGasData = trade.gas.maxFee;
 
-    const maxFeeGasData = trade.gas.maxFee; //150 is placeholder until gasData works.
-    // console.log('maxFeeGasData: ', maxFeeGasData)
-
-    const maxPriorityFeeGasData = trade.gas.maxPriorityFee; //60 is placeholder until gasData works.
-    // console.log('maxPriorityFeeGasData: ', maxPriorityFeeGasData)
-
-    // const maxFee = BigInt(Math.trunc(maxFeeGasData * 10 ** 9));
-    // // console.log('maxFeeString: ', maxFeeString)
-
-    // const maxPriorityFee = BigInt(Math.trunc(maxPriorityFeeGasData * 10 ** 9));
-    // console.log('maxPriorityFeeString: ', maxPriorityFeeString
+    const maxPriorityFeeGasData = trade.gas.maxPriorityFee;
 
     let gasEstimate = BigInt(30000000);
 
+    let g: GAS = {
+        gasEstimate,
+        tested: false,
+        gasPrice: trade.gas.gasPrice,
+        maxFee: maxFeeGasData,
+        maxPriorityFee: maxPriorityFeeGasData,
+    };
     if (
         trade.type === "flashMult" ||
         trade.type === "flashSingle" ||
@@ -77,25 +79,56 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
         try {
-            //loanPool: 1000/1 WMATIC/ETH
-            //target: 1100/1 WMATIC/ETH
-            const deadline = Math.floor(Date.now() / 1000) + 60 * 5; // 5 minutes
-            gasEstimate = await swapSingle.swapSingle.estimateGas(
-                trade.target.router,
-                trade.loanPool.router,
-                trade.target.tradeSize,
-                trade.quotes.target.out,
-                trade.quotes.loanPool.out,
-                [trade.tokenIn.id, trade.tokenOut.id],
-                [trade.tokenOut.id, trade.tokenIn.id],
-                await signer.getAddress(),
-                deadline,
-            );
+            //loanPool: 1000/1.0 WMATIC/ETH
+            //target: 1000/1.2 WMATIC/ETH
+            // 1.2 ETH to loanPool = 1.2 * 1000 = 1200 WMATIC = 200 WMATIC profit
 
-            console.log(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
+            // address routerAID,
+            // address routerBID,
+            // uint256 tradeSize,
+            // uint256 amountOutA,
+            // uint256 amountOutB,
+            // address[] memory path0,
+            // address[] memory path1,
+            // address to,
+            // uint256 deadline
+            // let a = await debugAmounts(trade);
+
+            // console.log(a);
+            const p = {
+                routerAID: await trade.target.router.getAddress(),
+                routerBID: await trade.loanPool.router.getAddress(),
+                tradeSize: trade.target.tradeSize.size,
+                amountOutA: trade.quotes.target.out,
+                amountOutB: trade.quotes.loanPool.out,
+                path0: [trade.tokenIn.id, trade.tokenOut.id],
+                path1: [trade.tokenOut.id, trade.tokenIn.id],
+                to: await signer.getAddress(),
+                deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
+            };
+            // logger.info("Checking balances: ");
+            const bal = await checkBal(trade.tokenIn, trade.tokenOut);
+            // logger.info(bal);
+            if (bal.token0 < trade.target.tradeSize.size) {
+                logger.error("Token0 balance too low for trade.");
+                return g;
+            }
+
+            gasEstimate = await swapSingle.swapSingle.estimateGas(
+                p.routerAID,
+                p.routerBID,
+                p.tradeSize,
+                p.amountOutA,
+                p.amountOutB,
+                p.path0,
+                p.path1,
+                p.to,
+                p.deadline,
+            );
+            logger.info(">>>>>>>>>>swapSingle gasEstimate SUCCESS: ", gasEstimate);
             let gasPrice = gasEstimate * trade.gas.maxFee;
-            console.log("GASLOGS: ", gasPrice);
-            console.log("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
+            logger.info("swapSingle GASLOGS: ", gasPrice);
+            logger.info("swapSingle GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
             return {
                 gasEstimate,
                 tested: true,

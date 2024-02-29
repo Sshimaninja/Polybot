@@ -12,14 +12,16 @@ import { BigNumber as BN } from "bignumber.js";
 import { logger } from "../constants/logger";
 import { fu } from "../scripts/modules/convertBN";
 
-export async function debugAmounts(trade: BoolTrade) {
+export async function debugAmounts(
+    trade: BoolTrade,
+): Promise<{ amountOutEVM: string; amountOutBN: string; amountInEVM: string; amountInBN: string }> {
     const amountOutJS = await getAmountOutJS(trade.target.router, trade.target.tradeSize.size, [
         trade.tokenIn.id,
         trade.tokenOut.id,
     ]);
     const amountInJS = await getAmountsInJS(trade.loanPool.router, trade.target.tradeSize.size, [
-        trade.tokenIn.id,
         trade.tokenOut.id,
+        trade.tokenIn.id,
     ]);
     const amountOutBN = await getAmountsOutBN(
         trade.target.tradeSize.sizeBN,
@@ -28,17 +30,18 @@ export async function debugAmounts(trade: BoolTrade) {
     );
     const amountInBN = await getAmountsInBN(
         trade.target.tradeSize.sizeBN,
-        trade.target.reserveInBN,
         trade.target.reserveOutBN,
+        trade.target.reserveInBN,
     );
 
     // CHECKING AMOUNTS AS THEY ARE DIFFERENT FROM WHAT THE CONTRACT RETURNS
     const allAmountsRaw = {
-        amountOutEVM: fu(await amountOutJS, trade.tokenOut.decimals),
-        amountOutBN: amountOutBN.toFixed(trade.tokenOut.decimals),
-        amountInEVM: fu(await amountInJS, trade.tokenOut.decimals),
-        amountInBN: amountInBN.toFixed(trade.tokenOut.decimals),
+        amountOutEVM: fu(await amountOutJS, trade.tokenOut.decimals) + trade.tokenOut.symbol,
+        amountOutBN: amountOutBN.toFixed(trade.tokenOut.decimals) + trade.tokenOut.symbol,
+        amountInEVM: fu(await amountInJS, trade.tokenOut.decimals) + trade.tokenOut.symbol,
+        amountInBN: amountInBN.toFixed(trade.tokenOut.decimals) + trade.tokenOut.symbol,
     };
+    return allAmountsRaw;
     // console.log(">>>>>>>>>>>>CHECK AMOUNTS::::::::::::::");
     // console.log(allAmountsRaw);
 

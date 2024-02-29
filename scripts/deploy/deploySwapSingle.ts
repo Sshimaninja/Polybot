@@ -2,9 +2,9 @@ import { ethers } from "ethers";
 import { config as dotEnvConfig } from "dotenv";
 import { provider, signer } from "../../constants/provider";
 import {
-    abi as ISwapSingleTest,
-    bytecode as swapSingleTestBytecode,
-} from "../../artifacts/contracts/v2/SwapSingleTest.sol/SwapSingleTest.json";
+    abi as ISwapSingle,
+    bytecode as swapSingleBytecode,
+} from "../../artifacts/contracts/v2/SwapSingle.sol/SwapSingle.json";
 
 dotEnvConfig({ path: `.env.${process.env.NODE_ENV}` });
 async function deploySwapSingle() {
@@ -16,34 +16,30 @@ async function deploySwapSingle() {
 
         console.log("Account balance:", balanceDeployer.toString());
 
-        const SwapSingleTestFactory = new ethers.ContractFactory(
-            ISwapSingleTest,
-            swapSingleTestBytecode,
+        const SwapSingleFactory = new ethers.ContractFactory(
+            ISwapSingle,
+            swapSingleBytecode,
             signer,
         );
-        console.log("Deploying swapSingleTest to ...");
-        const flashmultitest = await SwapSingleTestFactory.deploy(signer);
-        console.log("awaiting swapSingleTest.deployed()...");
-        await flashmultitest.waitForDeployment();
-        const swapSingleTestAddress = await flashmultitest.getAddress();
-        console.log("Contract 'swapSingleTest' deployed: " + swapSingleTestAddress);
-        if (swapSingleTestAddress !== process.env.FLASH_MULTI) {
+        console.log("Deploying swapSingle to ...");
+        const swapsingle = await SwapSingleFactory.deploy(signer);
+        console.log("awaiting swapSingle.deployed()...");
+        await swapsingle.waitForDeployment();
+        const swapSingleAddress = await swapsingle.getAddress();
+        console.log("Contract 'swapSingle' deployed: " + swapSingleAddress);
+        if (swapSingleAddress !== process.env.FLASH_MULTI) {
             console.log(
                 "Contract address does not match .env file. Please update .env file with new contract address.",
             );
         }
-        const swapSingleContract = new ethers.Contract(
-            swapSingleTestAddress,
-            ISwapSingleTest,
-            provider,
-        );
+        const swapSingleContract = new ethers.Contract(swapSingleAddress, ISwapSingle, provider);
         const checkOwnerSingle = await swapSingleContract.checkOwner();
 
         console.log(checkOwnerSingle);
 
         console.log("Deploying flashSingle with the account: ", signer);
     } catch (error: any) {
-        console.log("Error in deployFlashTests.ts:", error.message);
+        console.log("Error in deployFlashs.ts:", error.message);
     }
 }
 

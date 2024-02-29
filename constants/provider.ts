@@ -10,8 +10,8 @@ if (process.env.PRIVATE_KEY === undefined) {
     throw new Error("No private key set in .env file");
 }
 export const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-export const signer: Signer = new NonceManager(wallet);
-// export const signer = wallet.connect(provider);
+export const walletSigner = wallet.connect(provider);
+export const signer: Signer = new NonceManager(walletSigner);
 
 export async function checkProvider() {
     // console.log('Ready?: ', provider.ready)

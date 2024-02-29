@@ -3,24 +3,36 @@ import { swapSingle } from "../../../../constants/environment";
 import { BoolTrade } from "../../../../constants/interfaces";
 import { pu } from "../../../modules/convertBN";
 import { provider, signer } from "../../../../constants/provider";
+import { logger } from "../../../../constants/logger";
+import { tradeLogs } from "../../modules/tradeLog";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
     let nonce = await provider.getTransactionCount(await signer.getAddress());
     let signerAddress = await signer.getAddress();
+    let logs = await tradeLogs(trade);
+    console.log(":::::::::::::::::::sending tx:::::::::::::::: ");
     try {
-        const deadline = Math.floor(Date.now() / 1000) + 60 * 5; // 5 minutes
+        const p = {
+            routerAID: await trade.target.router.getAddress(),
+            routerBID: await trade.loanPool.router.getAddress(),
+            tradeSize: trade.target.tradeSize.size,
+            amountOutA: trade.quotes.target.out,
+            amountOutB: trade.quotes.loanPool.out,
+            path0: [trade.tokenIn.id, trade.tokenOut.id],
+            path1: [trade.tokenOut.id, trade.tokenIn.id],
+            to: await signer.getAddress(),
+            deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
+        };
         let tx = await swapSingle.swapSingle(
-            await trade.loanPool.router.getAddress(),
-            await trade.target.router.getAddress(),
-            trade.tokenIn.id,
-            trade.tokenOut.id,
-            trade.target.tradeSize.size,
-            trade.quotes.loanPool.out,
-            trade.quotes.target.out,
-            [trade.tokenIn.id, trade.tokenOut.id],
-            [trade.tokenOut.id, trade.tokenIn.id],
-            signerAddress,
-            deadline,
+            p.routerAID,
+            p.routerBID,
+            p.tradeSize,
+            p.amountOutA,
+            p.amountOutB,
+            p.path0,
+            p.path1,
+            p.to,
+            p.deadline,
             {
                 gasLimit: trade.gas.gasEstimate,
                 maxFeePerGas: trade.gas.maxFee,
@@ -29,10 +41,15 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             },
         );
         let receipt = await provider.waitForTransaction(tx.hash);
-        console.log("Transaction receipt: ", receipt);
+        logger.info(
+            ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>Transaction receipt: ",
+            receipt,
+            "<<<<<<<<<<<<<<<<<<",
+        );
         return receipt;
     } catch (error: any) {
-        console.log("Error in swap: ", error);
+        logger.info(logs);
+        console.log(">>>>>>>>>>>>>>>>>>>>Error in swap: ", error);
         return error;
     }
 }

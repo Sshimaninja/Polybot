@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 import "hardhat/console.sol";
 
-contract SwapSingleTest {
+contract SwapSingle {
     address owner;
     IUniswapV2Pair pair;
 
@@ -19,32 +19,12 @@ contract SwapSingleTest {
         return owner;
     }
 
-    //   info: {
-    //     key: 'swapSingle',
-    //     args: [
-    //       '0x94930a328162957FF1dd48900aF67B5439336cBD',
-    //       '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
-    //       '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
-    //       '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
-    //       50258853n,
-    //       62811484399562296113n,
-    //       63152827756132972221n,
-    //       [Array],
-    //       [Array],
-    //       '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
-    //       1709157493,
-    //       [Object],
-    //       2361
-    //     ]
-
     function swapSingle(
-        address router0ID,
-        address router1ID,
-        address token0ID,
-        address token1ID,
-        uint256 amountIn,
-        uint256 amountOutMin0,
-        uint256 amountOutMin1,
+        address routerAID,
+        address routerBID,
+        uint256 tradeSize,
+        uint256 amountOutA,
+        uint256 amountOutB,
         address[] memory path0,
         address[] memory path1,
         address to,
@@ -52,27 +32,28 @@ contract SwapSingleTest {
     ) external {
         console.log("SwapSingle: contract entered");
         // Perform the first swap
-        IERC20 tokenIn = IERC20(token0ID);
-        IERC20 tokenOut = IERC20(token1ID);
-        IUniswapV2Router02 router0 = IUniswapV2Router02(router0ID);
-        IUniswapV2Router02 router1 = IUniswapV2Router02(router1ID);
+        IERC20 tokenIn = IERC20(path0[0]);
+        IERC20 tokenOut = IERC20(path0[path0.length - 1]);
+        IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
+        IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
+        tokenIn.approve(routerAID, tradeSize);
         // router0.getAmountsOut(amountIn, path0);
         // require(amounts[1] >= amountOutMin0, "Error SwapSingle: Insufficient output: LoanPool");
-        uint256[] memory swapIn = router0.swapExactTokensForTokens(
-            amountIn,
-            amountOutMin0,
+        uint256[] memory swapIn = routerA.swapExactTokensForTokens(
+            tradeSize,
+            amountOutA,
             path0,
             address(this),
             deadline
         );
         console.log("SwapSingle: first swap completed");
         // Approve the Uniswap router to spend the output tokens
-        tokenOut.approve(address(router1), swapIn[1]);
+        tokenOut.approve(routerBID, swapIn[1]);
 
-        uint256[] memory amountsOut = router1.getAmountsOut(swapIn[1], path1);
-        require(amountsOut[1] > amountOutMin1, "Error SwapSingle: Insufficient output: Target");
+        uint256[] memory amountsOut = routerB.getAmountsOut(swapIn[1], path1);
+        require(amountsOut[1] > swapIn[1], "Error SwapSingle: Insufficient output: Target");
         // Perform the second swap
-        router1.swapExactTokensForTokens(swapIn[1], amountOutMin1, path1, to, deadline);
+        routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
         console.log("SwapSingle: second swap completed");
         // Return any unspent tokens to the sender
         tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));

@@ -1,8 +1,10 @@
 import { BigNumber as BN } from "bignumber.js";
 import { Profcalcs, Repays, BoolTrade } from "../../../constants/interfaces";
 import { AmountConverter } from "./AmountConverter";
-import { getAmountsIn, getAmountsOut } from "../modules/price/getAmountsIOBN";
+import { tradeLogs } from "../modules/tradeLog";
+import { getAmountsIn, getAmountsOut } from "../modules/price/getAmountsIOJS";
 import { BigInt2BN, BN2BigInt, fu, pu } from "../../modules/convertBN";
+import { logger } from "../../../constants/logger";
 
 export class PopulateRepays {
     trade: BoolTrade;
@@ -18,10 +20,10 @@ export class PopulateRepays {
             flashMulti: 0n,
         };
     }
+
     async getRepays(): Promise<Repays> {
         // getSingle() Will only be used if I for triangular arbitrage, which requries extra protocol integration.
-
-        const tradeSizeWithFee = this.trade.target.tradeSize.sizeBN.multipliedBy(1.003);
+        let loanPlusFee = await this.calc.addFee(this.trade.target.tradeSize.size);
 
         // const getCoverAmount = async (
         //     tokenInAmount: BN,
@@ -38,39 +40,44 @@ export class PopulateRepays {
         // };
 
         const getSingle = async (): Promise<bigint> => {
-            const repayinTokenOut = await getAmountsOut(
-                tradeSizeWithFee, //tradeSize in tokenIn
-                this.trade.loanPool.reserveInBN,
-                this.trade.loanPool.reserveOutBN,
-            );
-            let singleRepayTokenOut = pu(
-                repayinTokenOut.toFixed(this.trade.tokenOut.decimals),
-                this.trade.tokenOut.decimals,
-            );
+            // const repayInTokenOut = await getAmountsOut(
+            //     tradeSizeWithFee, //tradeSize in tokenIn
+            //     this.trade.loanPool.reserveInBN,
+            //     this.trade.loanPool.reserveOutBN,
+            // );
+            // let singleRepayTokenOut = pu(
+            //     repayInTokenOut.toFixed(this.trade.tokenOut.decimals),
+            //     this.trade.tokenOut.decimals,
+            // );
 
+            const repayInTokenOut = await getAmountsIn(
+                this.trade.loanPool.router,
+                loanPlusFee, //tradeSize in tokenIn
+                [this.trade.tokenOut.id, this.trade.tokenIn.id],
+            );
+            console.log(">>>>>>>>>>>> FLASHSINGLE REPAY:", repayInTokenOut);
             // const singleRepay = {
             //     singleIn: singleRepayTokenOut, // Only usable if you can find another trade/pool elsewhere that will give you the exact amount of tokenIn you need to repay. TODO: IMPLEMENT THIS (TRIANGULAR ARBITRAGE)
             //     singleOut: singleRepayTokenOut,
             // };
-            const bigintSizeWithFee = BN2BigInt(tradeSizeWithFee, this.trade.tokenIn.decimals);
-            return singleRepayTokenOut * 2n; //falsely inflated to force multi trade (this isn't a real trade, just a placeholder for now)
+            // const bigintSizeWithFee = BN2BigInt(tradeSizeWithFee, this.trade.tokenIn.decimals);
+            return repayInTokenOut; //falsely inflated to force multi trade (this isn't a real trade, just a placeholder for now)
         };
 
-        const loanFee = this.trade.target.tradeSize.sizeBN.multipliedBy(0.003);
-        const loanPlusFee = this.trade.target.tradeSize.sizeBN.plus(loanFee);
-
+        const logs = await tradeLogs(this.trade);
+        // logger.info(
+        //     "::::::::::::::::::::::::DEBUGGING TRADELOGS IN REPAYS::::::::::::::::::::::::",
+        // );
+        // logger.info(logs);
+        // console.log("LOANPLUSFEE:::::::::::::::: ", loanPlusFee); //debug
         const getMultiFlash = async (): Promise<bigint> => {
-            const repayByGetAmountsIn = await getAmountsOut(
+            const repayByGetAmountsIn = await getAmountsIn(
+                this.trade.loanPool.router,
                 loanPlusFee, //tradeSize in tokenIn
-                this.trade.loanPool.reserveInBN,
-                this.trade.loanPool.reserveOutBN,
+                [this.trade.tokenOut.id, this.trade.tokenIn.id],
             );
-
-            const multi = pu(
-                repayByGetAmountsIn.toFixed(this.trade.tokenOut.decimals),
-                this.trade.tokenOut.decimals,
-            );
-            return multi;
+            console.log(">>>>>>>>>>>> FLASHMULTI REPAY:", repayByGetAmountsIn);
+            return repayByGetAmountsIn;
         };
         const flashMulti = await getMultiFlash();
         const flashSingle = await getSingle();

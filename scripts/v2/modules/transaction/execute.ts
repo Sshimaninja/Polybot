@@ -110,12 +110,7 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
                 // logger.info(logs);
 
                 //Print balances after trade
-                await checkBal(
-                    trade.tokenIn.id,
-                    trade.tokenIn.decimals,
-                    trade.tokenOut.id,
-                    trade.tokenOut.decimals,
-                );
+                await checkBal(trade.tokenIn, trade.tokenOut);
 
                 let result: TxData = {
                     txResponse: req.txResponse,
