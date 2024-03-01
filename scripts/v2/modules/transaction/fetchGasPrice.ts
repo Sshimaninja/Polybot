@@ -38,18 +38,19 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         trade.type === "flashSingle"
         // trade.type.includes("filtered")
     ) {
-        console.log("EstimatingGas for trade: " + trade.ticker + "...");
+        logger.info("EstimatingGas for trade: " + trade.ticker + "...");
         try {
             // const fix = await fixEstimateGas(trade);
-            // console.log(fix);
+            // logger.info(fix);
             if (trade.wallet.tokenInBalance < trade.target.tradeSize.size) {
-                console.log("Insufficient balance for trade. Skipping trade.");
+                logger.info("Insufficient balance for trade. Skipping trade.");
                 return g;
             }
             if (pendingTransactions[trade.ID] == true) {
-                console.log("Pending transaction. Skipping trade.");
+                logger.info("Pending transaction. Skipping trade.");
                 return g;
             }
+            pendingTransactions[trade.ID] == true;
             gasEstimate = await trade.flash.flashSwap.estimateGas(
                 trade.loanPool.factory,
                 trade.loanPool.router,
@@ -60,10 +61,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.quotes.target.flashOut,
                 trade.loanPool.amountRepay,
             );
-            console.log(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
+            logger.info(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
             let gasPrice = gasEstimate * trade.gas.maxFee;
-            console.log("GASLOGS: ", gasPrice);
-            console.log("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
+            logger.info("GASLOGS: ", gasPrice);
+            logger.info("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
+            pendingTransactions[trade.ID] == false;
             return {
                 gasEstimate,
                 tested: true,
@@ -87,11 +89,13 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     }
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
+        let nonce = await signer.getNonce();
+
         try {
             const p = {
                 routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
                 routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
-                tradeSize: trade.target.tradeSize.size,
+                tradeSize: trade.wallet.tokenInBalance,
                 amountOutA: trade.quotes.target.out, //high Output tokenIn to tokenOut
                 amountOutB: trade.quotes.loanPool.in, //high Output tokenOut to tokenIn
                 path0: [trade.tokenIn.id, trade.tokenOut.id],
@@ -99,19 +103,20 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 to: await signer.getAddress(),
                 deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
             };
+
             if (p.amountOutB < p.tradeSize) {
                 logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
                 return g;
             }
             const profit = p.amountOutB - p.tradeSize;
-            console.log("Profit in tokenIn: " + fu(profit, trade.tokenIn.decimals));
+            logger.info("Profit in tokenIn: " + fu(profit, trade.tokenIn.decimals));
             // logger.info("Checking balances: ");
             const bal = await walletBal(trade.tokenIn, trade.tokenOut);
             // logger.info(bal);
-            if (bal.token0 < trade.target.tradeSize.size) {
+            if (bal.tokenIn < trade.target.tradeSize.size) {
                 logger.info(
                     "tokenIn Balance: ",
-                    fu(bal.token0, trade.tokenIn.decimals),
+                    fu(bal.tokenIn, trade.tokenIn.decimals),
                     trade.tokenIn.symbol,
                 );
                 logger.info(
@@ -123,7 +128,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 return g;
             }
             let swapSingleAddress = await swapSingle.getAddress();
-
+            if (pendingTransactions[trade.ID] == true) {
+                logger.info("Pending gasEstimate. Skipping gasEstimate.");
+                return g;
+            }
+            pendingTransactions[trade.ID] == true;
             let approveTokenIn = await checkApproval(
                 trade.tokenIn.id,
                 swapSingleAddress,
@@ -138,8 +147,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 logger.info(">>>>>>>>>>>>>>>>>>>>>ERROR: APPROVAL FAILED");
                 return g;
             }
-            console.log("tokenIn approved: ", approveTokenIn);
-            console.log("tokenOut approved: ", approveTokenOut);
+            logger.info("tokenIn approved: ", approveTokenIn);
+            logger.info("tokenOut approved: ", approveTokenOut);
 
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.routerAID,
@@ -156,6 +165,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             let gasPrice = gasEstimate * trade.gas.maxFee;
             logger.info("swapSingle GASLOGS: ", gasPrice);
             logger.info("swapSingle GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
+            pendingTransactions[trade.ID] == false;
             return {
                 gasEstimate,
                 tested: true,

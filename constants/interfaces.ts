@@ -15,6 +15,7 @@ export interface PendingTx {
 }
 export interface TxData {
     txResponse: ethers.TransactionResponse | undefined;
+    pendingID: string | null;
 }
 
 // export interface WmaticProfit {
@@ -42,7 +43,7 @@ export interface TxGas {
     type: number;
     gasPrice: bigint;
     maxFee: bigint;
-    maxPriorityFee: bigint;
+    maxPriority: bigint;
     gasLimit: bigint;
 }
 
@@ -407,23 +408,24 @@ export interface TradeGas {
 export interface TradeProfit {
     tokenProfit: bigint;
     WMATICProfit: bigint;
-    profitPercent: string;
 }
 
 export interface Quotes {
     target: {
         out: bigint;
-        flashOut: bigint;
         in: bigint;
-        flashIn: bigint;
+        flashOut: bigint;
+        // in: bigint;
+        // flashIn: bigint;
         // outB: bigint;
         // flashOutB: bigint;
     };
     loanPool: {
         out: bigint;
-        flashOut: bigint;
         in: bigint;
-        flashIn: bigint;
+        flashOut: bigint;
+        // in: bigint;
+        // flashIn: bigint;
         // outB: bigint;
         // flashOutB: bigint;
     };

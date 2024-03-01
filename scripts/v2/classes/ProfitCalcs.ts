@@ -35,13 +35,12 @@ export class ProfitCalculator {
             const repays = this.repays;
 
             // Single profit has 2 calculations: one for lfash loan and another for straight arb without flash, as you would usually want to sell back into stake.
-            const profit = this.trade.quotes.target.out - this.trade.quotes.loanPool.out; // This actually gets traded back into tokenIn, but for now we're representing it as tokenOut until I add the switch in the logs.
+            const profit = this.trade.wallet.tokenInBalance - this.trade.quotes.loanPool.in; // This actually gets traded back into tokenIn, but for now we're representing it as tokenOut until I add the switch in the logs.
 
             const flashProfit =
                 this.trade.quotes.target.flashOut > repays.flashSingle
                     ? this.trade.quotes.target.flashOut - repays.flashSingle
                     : 0n;
-            const profitBN = BigInt2BN(flashProfit, this.trade.tokenOut.decimals);
             const profCalcs = { profit, flashProfit };
             return profCalcs;
         } catch (error: any) {
@@ -49,12 +48,5 @@ export class ProfitCalculator {
             console.log(error);
             return { profit: 0n, flashProfit: 0n };
         }
-    }
-
-    async getProfitPercent(d: number): Promise<string> {
-        let tokenProfitBN = BigInt2BN(this.trade.profits.tokenProfit, d);
-        let flashOutBN = BigInt2BN(this.trade.quotes.target.flashOut, d);
-        let profitPercent = tokenProfitBN.div(flashOutBN).toFixed(d);
-        return profitPercent;
     }
 }

@@ -7,26 +7,26 @@ import { fu } from "../../../modules/convertBN";
 import { Token } from "../../../../constants/interfaces";
 import { logger } from "../../../../constants/logger";
 import { MATIC } from "../../../../constants/environment";
-import { Trade } from "../../../v2/Trade";
+import { Trade } from "../../Trade";
 require("dotenv").config();
 /**
  * checks gas token balance of the flashwallet
- * @param token0
- * @param token0dec
- * @param token1
- * @param token1dec
+ * @param tokenIn
+ * @param tokenIndec
+ * @param tokenOut
+ * @param tokenOutdec
  */
 
 interface bal {
     walletID: string;
-    token0: bigint;
-    token1: bigint;
+    tokenIn: bigint;
+    tokenOut: bigint;
     gas: bigint;
 }
 
-export async function walletBal(token0: Token, token1: Token): Promise<bal> {
-    const t0 = new ethers.Contract(token0.id, IERC20, provider);
-    const t1 = new ethers.Contract(token1.id, IERC20, provider);
+export async function walletBal(tokenIn: Token, tokenOut: Token): Promise<bal> {
+    const t0 = new ethers.Contract(tokenIn.id, IERC20, provider);
+    const t1 = new ethers.Contract(tokenOut.id, IERC20, provider);
     const matictoken = new ethers.Contract(await MATIC.getAddress(), IERC20, provider);
     const wallet = await signer.getAddress();
     const walletbalance0 = await t0.balanceOf(wallet);
@@ -35,8 +35,8 @@ export async function walletBal(token0: Token, token1: Token): Promise<bal> {
 
     return {
         walletID: await signer.getAddress(),
-        token0: walletbalance0,
-        token1: walletbalance1,
+        tokenIn: walletbalance0,
+        tokenOut: walletbalance1,
         gas: walletbalanceMatic,
     };
 }
