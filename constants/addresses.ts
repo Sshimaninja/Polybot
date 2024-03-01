@@ -130,9 +130,13 @@ export const gasTokens: GasToken = {
     USDT: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
     DAI: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
     WBTC: "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
-    GHST: "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
 };
-
+//needed:
+/*
+ETH
+USDT
+DAI
+*/
 interface toWMATICPool {
     ticker: string;
     tokenIn: { id: string; decimals: number; symbol: string };

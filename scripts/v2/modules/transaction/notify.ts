@@ -29,11 +29,10 @@ export async function telegramInfo(message: string): Promise<void> {
 
 export async function notify(trade: BoolTrade) {
     let logs = await tradeLogs(trade);
-    const message =
-        `Trade ${trade.ticker} on ${
-            trade.loanPool.exchange + trade.target.exchange
-        } is ongoing. Projected profit: ${trade.profits.WMATICProfit} MATIC equivalent. \n\n` +
-        ` ${JSON.stringify(logs.data)}`;
+    const message = `Trade ${trade.ticker} on ${
+        (trade.loanPool.exchange, trade.target.exchange)
+    } is ongoing. Projected profit: ${trade.profits.WMATICProfit} MATIC equivalent. \n\n`;
+    ` ${JSON.stringify(logs.data)}`;
     try {
         if (!TELEGRAM_BOT_TOKEN) {
             throw new Error("Telegram bot token not found in environment variables");

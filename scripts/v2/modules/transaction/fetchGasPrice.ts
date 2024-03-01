@@ -6,11 +6,12 @@ import { signer } from "../../../../constants/provider";
 import { swapSingle } from "../../../../constants/environment";
 import { debugAmounts } from "../../../../test/debugAmounts";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
-import { checkBal } from "../tools/checkBal";
+import { walletBal } from "../tools/walletBal";
 import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 import { debug } from "console";
 import { ethers } from "hardhat";
 import { pendingTransactions } from "../../control";
+import { checkApproval } from "./approvals";
 
 /**
  * @param trade
@@ -33,9 +34,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         maxPriorityFee: maxPriorityFeeGasData,
     };
     if (
-        trade.type === "flashMult" ||
-        trade.type === "flashSingle" ||
-        trade.type.includes("filtered")
+        trade.type === "flashMultI" ||
+        trade.type === "flashSingle"
+        // trade.type.includes("filtered")
     ) {
         console.log("EstimatingGas for trade: " + trade.ticker + "...");
         try {
@@ -87,23 +88,6 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
         try {
-            //loanPool: 1000/1.0 WMATIC/ETH
-            //target: 1000/1.2 WMATIC/ETH
-            // 1.2 ETH to loanPool = 1.2 * 1000 = 1200 WMATIC = 200 WMATIC profit
-
-            // address routerAID,
-            // address routerBID,
-            // uint256 tradeSize,
-            // uint256 amountOutA,
-            // uint256 amountOutB,
-            // address[] memory path0,
-            // address[] memory path1,
-            // address to,
-            // uint256 deadline
-            // let a = await debugAmounts(trade);
-
-            // console.log(a);
-
             const p = {
                 routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
                 routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
@@ -116,23 +100,47 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
             };
             if (p.amountOutB < p.tradeSize) {
-                // logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
+                logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
                 return g;
             }
             const profit = p.amountOutB - p.tradeSize;
             console.log("Profit in tokenIn: " + fu(profit, trade.tokenIn.decimals));
             // logger.info("Checking balances: ");
-            const bal = await checkBal(trade.tokenIn, trade.tokenOut);
+            const bal = await walletBal(trade.tokenIn, trade.tokenOut);
             // logger.info(bal);
             if (bal.token0 < trade.target.tradeSize.size) {
+                logger.info(
+                    "tokenIn Balance: ",
+                    fu(bal.token0, trade.tokenIn.decimals),
+                    trade.tokenIn.symbol,
+                );
+                logger.info(
+                    "tokenIn tradeSize: ",
+                    fu(trade.target.tradeSize.size, trade.tokenIn.decimals),
+                    trade.tokenIn.symbol,
+                );
                 logger.error("Token0 balance too low for trade.");
                 return g;
             }
             let swapSingleAddress = await swapSingle.getAddress();
-            let tokenIn = new ethers.Contract(p.path0[0], IERC20, signer);
-            let tokenOut = new ethers.Contract(p.path0[1], IERC20, signer);
-            await tokenIn.approve(swapSingleAddress, p.amountOutB);
-            await tokenOut.approve(swapSingleAddress, p.amountOutA);
+
+            let approveTokenIn = await checkApproval(
+                trade.tokenIn.id,
+                swapSingleAddress,
+                trade.target.tradeSize.size,
+            );
+            let approveTokenOut = await checkApproval(
+                trade.tokenOut.id,
+                swapSingleAddress,
+                trade.quotes.target.out,
+            );
+            if (!approveTokenIn || !approveTokenOut) {
+                logger.info(">>>>>>>>>>>>>>>>>>>>>ERROR: APPROVAL FAILED");
+                return g;
+            }
+            console.log("tokenIn approved: ", approveTokenIn);
+            console.log("tokenOut approved: ", approveTokenOut);
+
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.routerAID,
                 p.routerBID,

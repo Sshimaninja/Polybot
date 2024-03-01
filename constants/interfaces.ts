@@ -2,6 +2,7 @@ import { BaseContract, Contract, ethers } from "ethers";
 import { BigNumber as BN } from "bignumber.js";
 import { Token as V3Token } from "@uniswap/sdk-core";
 import { AmountConverter as CalcV2 } from "../scripts/v2/classes/AmountConverter";
+import { TransactionReceipt } from "alchemy-sdk";
 export interface K {
     uniswapKPre: bigint;
     uniswapKPost: bigint;
@@ -14,7 +15,6 @@ export interface PendingTx {
 }
 export interface TxData {
     txResponse: ethers.TransactionResponse | undefined;
-    pendingID: string | null;
 }
 
 // export interface WmaticProfit {
@@ -41,8 +41,8 @@ export interface V2Tx {
 export interface TxGas {
     type: number;
     gasPrice: bigint;
-    maxFeePerGas: number;
-    maxPriorityFeePerGas: number;
+    maxFee: bigint;
+    maxPriorityFee: bigint;
     gasLimit: bigint;
 }
 
@@ -347,6 +347,7 @@ export interface V3FlashParams {
 
 export interface BoolTrade {
     ID: string;
+    pending: boolean;
     block: number;
     direction: string;
     type: string;
