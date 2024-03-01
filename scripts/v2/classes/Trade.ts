@@ -9,12 +9,13 @@ import {
     Repays,
     TradePair,
 } from "../../../constants/interfaces";
+import { abi as IERC20 } from "@uniswap/v2-periphery/build/IERC20.json";
 import { debugAmounts } from "../../../test/debugAmounts";
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { flashMulti, flashSingle } from "../../../constants/environment";
-import { provider, wallet } from "../../../constants/provider";
+import { provider, signer } from "../../../constants/provider";
 import { Prices } from "./Prices";
 import { getQuotes } from "../modules/price/getQuotes";
 import { getK } from "../modules/tools/getK";
@@ -84,6 +85,22 @@ export class Trade {
         return { dir, diff, dperc };
     }
 
+    async getBal(): Promise<{
+        tokenInBalance: bigint;
+        tokenOutBalance: bigint;
+        gasBalance: bigint;
+    }> {
+        const signerID = await signer.getAddress();
+        const tokenIn: Contract = new Contract(this.match.token1.id, IERC20, provider);
+        const tokenOut: Contract = new Contract(this.match.token0.id, IERC20, provider);
+        let bal = {
+            tokenInBalance: await tokenIn.balanceOf(signerID),
+            tokenOutBalance: await tokenOut.balanceOf(signerID),
+            gasBalance: await provider.getBalance(signerID),
+        };
+        return bal;
+    }
+
     async getTrade() {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
         const dir = await this.direction();
@@ -102,6 +119,7 @@ export class Trade {
             tokenIn: this.match.token1,
             tokenOut: this.match.token0,
             flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type. Likely to be flashMulti uneless other protocols are added for single swaps.
+            wallet: await this.getBal(),
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A

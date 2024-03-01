@@ -4,8 +4,9 @@ import { checkBal, checkGasBal } from "../tools/checkBal";
 // import { logEmits } from "./emits";
 import { send } from "./send";
 import { notify } from "./notify";
-import { pendingTransactions } from "./pendingTransactions";
+import { pendingTransactions } from "../../control";
 import { fu } from "../../../modules/convertBN";
+import { TransactionReceipt } from "ethers";
 
 /**
  * @param trade
@@ -23,115 +24,82 @@ import { fu } from "../../../modules/convertBN";
 
 // Keep track of pending transactions for each pool
 
-export async function execute(trade: BoolTrade): Promise<TxData> {
-    if (pendingTransactions[trade.ID]) {
-        logger.info(
-            "::::::::::::::::::::::::" +
-                trade.ticker +
-                trade.ID +
-                ": PENDING TRANSACTION::::::::::::::::::::::::: ",
-        );
-        return {
-            txResponse: undefined,
-            pendingID: await trade.target.pool.getAddress(),
-        };
-    } else {
-        logger.info(
-            "::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: " +
-                trade.ticker +
-                "::::::::::::::::::::::::::",
-        );
+export async function execute(trade: BoolTrade): Promise<TransactionReceipt | null> {
+    logger.info(
+        "::::::::::::::::::::::::::::::::::::::::BEGIN TRANSACTION: " +
+            trade.ticker +
+            "::::::::::::::::::::::::::",
+    );
 
-        var gasbalance = await checkGasBal();
+    var gasbalance = await checkGasBal();
 
+    logger.info("Wallet Balance Matic: " + fu(gasbalance, 18) + " " + "MATIC");
+
+    if (trade) {
         logger.info("Wallet Balance Matic: " + fu(gasbalance, 18) + " " + "MATIC");
+        logger.info(
+            "Gas Cost::::::::::::: " +
+                fu(trade.gas.gasPrice, 18) +
+                " " +
+                "MATIC (if this is tiny, it's probably because gasEstimate has failed.",
+        );
 
-        if (trade) {
-            logger.info("Wallet Balance Matic: " + fu(gasbalance, 18) + " " + "MATIC");
+        const gotGas = trade.gas.gasPrice < gasbalance;
+
+        gotGas == true
+            ? logger.info("Sufficient Matic Balance. Proceeding...")
+            : console.log(">>>>Insufficient Matic Balance<<<<");
+
+        if (gotGas == false) {
             logger.info(
-                "Gas Cost::::::::::::: " +
-                    fu(trade.gas.gasPrice, 18) +
-                    " " +
-                    "MATIC (if this is tiny, it's probably because gasEstimate has failed.",
+                ":::::::::::::::::::::::END TRANSACTION: " +
+                    trade.ticker +
+                    ": GAS GREATER THAN PROFIT::::::::::::::::::::::::: ",
+            );
+            return null;
+        }
+
+        if (gotGas == true) {
+            let gasObj: TxGas = {
+                type: 2,
+                gasPrice: trade.gas.gasPrice,
+                maxFeePerGas: Number(trade.gas.maxFee),
+                maxPriorityFeePerGas: Number(trade.gas.maxPriorityFee),
+                gasLimit: trade.gas.gasEstimate, // * 10n,
+            };
+
+            // Set the pending transaction flag for this pool
+            const oldBal = await checkBal(trade.tokenIn, trade.tokenOut);
+            logger.info(
+                ":::::::::::Sending Transaction: " +
+                    trade.loanPool.exchange +
+                    " to " +
+                    trade.target.exchange +
+                    " for " +
+                    trade.ticker +
+                    " : profit: " +
+                    fu(trade.profits.WMATICProfit, 18) +
+                    ":::::::::: ",
             );
 
-            const gotGas = trade.gas.gasPrice < gasbalance;
+            await notify(trade);
 
-            gotGas == true
-                ? logger.info("Sufficient Matic Balance. Proceeding...")
-                : console.log(">>>>Insufficient Matic Balance<<<<");
+            const req = await send(trade);
+            const r = req.txResponse;
+            const receipt = await req.txResponse?.wait();
+            console.log("Transaction response: ", r);
 
-            if (gotGas == false) {
-                logger.info(
-                    ":::::::::::::::::::::::END TRANSACTION: " +
-                        trade.ticker +
-                        ": GAS GREATER THAN PROFIT::::::::::::::::::::::::: ",
-                );
-                return {
-                    txResponse: undefined,
-                    pendingID: null,
-                };
-            }
+            //Print balances after trade
+            const newBal = await checkBal(trade.tokenIn, trade.tokenOut);
+            logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:::::::::::::::::::::::: ", oldBal);
+            logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:::::::::::::::::::::::: ", newBal);
+            logger.info(":::::::::::::::END TRANSACTION:::::::::::::::");
 
-            if (gotGas == true) {
-                let gasObj: TxGas = {
-                    type: 2,
-                    gasPrice: trade.gas.gasPrice,
-                    maxFeePerGas: Number(trade.gas.maxFee),
-                    maxPriorityFeePerGas: Number(trade.gas.maxPriorityFee),
-                    gasLimit: trade.gas.gasEstimate, // * 10n,
-                };
+            // Clear the pending transaction flag for this pool
+            pendingTransactions[await trade.target.pool.getAddress()] = false;
 
-                // Set the pending transaction flag for this pool
-                pendingTransactions[trade.ID] = true;
-                const oldBal = await checkBal(trade.tokenIn, trade.tokenOut);
-                logger.info(
-                    ":::::::::::Sending Transaction: " +
-                        trade.loanPool.exchange +
-                        " to " +
-                        trade.target.exchange +
-                        " for " +
-                        trade.ticker +
-                        " : profit: " +
-                        fu(trade.profits.WMATICProfit, 18) +
-                        ":::::::::: ",
-                );
-
-                await notify(trade);
-
-                const req = await send(trade);
-                const r = req.txResponse;
-                console.log("Transaction response: ", r);
-                // const logs = await logEmits(trade, req);
-
-                logger.info(
-                    ":::::::::::::::::::::::::::::::::::Transaction logs::::::::::::::::::::::::: ",
-                );
-                // logger.info(logs);
-
-                //Print balances after trade
-                const newBal = await checkBal(trade.tokenIn, trade.tokenOut);
-                logger.info(
-                    ">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:::::::::::::::::::::::: ",
-                    oldBal,
-                );
-                logger.info(
-                    ">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:::::::::::::::::::::::: ",
-                    newBal,
-                );
-                let result: TxData = {
-                    txResponse: req.txResponse,
-                    pendingID: null,
-                };
-
-                logger.info(
-                    "::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::",
-                );
-
-                // Clear the pending transaction flag for this pool
-                pendingTransactions[await trade.target.pool.getAddress()] = false;
-
-                return result;
+            if (receipt) {
+                return receipt;
             } else {
                 logger.info(
                     "::::::::::::::::::::::::::::::::::::::::TRADE UNDEFINED::::::::::::::::::::::::::::::::::::::: ",
@@ -141,19 +109,14 @@ export async function execute(trade: BoolTrade): Promise<TxData> {
                     "::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::",
                 );
 
-                return {
-                    txResponse: undefined,
-                    pendingID: null,
-                };
+                return null;
             }
         } else {
             logger.info(
                 "::::::::::::::::::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::::::::::::::::::::",
             );
-            return {
-                txResponse: undefined,
-                pendingID: null,
-            };
+            return null;
         }
     }
+    return null;
 }

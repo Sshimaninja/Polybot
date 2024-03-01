@@ -354,6 +354,11 @@ export interface BoolTrade {
     tokenIn: Token;
     tokenOut: Token;
     flash: Contract;
+    wallet: {
+        tokenInBalance: bigint;
+        tokenOutBalance: bigint;
+        gasBalance: bigint;
+    };
     loanPool: {
         exchange: string;
         factory: Contract;

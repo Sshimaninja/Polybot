@@ -7,7 +7,8 @@ import { FactoryPair, TradePair } from "../../constants/interfaces";
 import { Trade } from "./classes/Trade";
 import { Reserves } from "./modules/reserves";
 import { tradeLogs } from "./modules/tradeLog";
-import { rollDamage } from "./modules/damage";
+import { rollDamage } from "./modules/transaction/damage";
+import { logger } from "../../constants/logger";
 import { slip } from "../../constants/environment";
 // import { filterMatches } from "./filterMatches";
 /*
@@ -22,7 +23,8 @@ TODO:
  * It prevents multiple flash swaps from being executed at the same time, on the same pool, if the profit is too low, or the gas cost too high.
  */
 let filteredTrades: string[]; // Array to store filtered trades
-
+export let pendingTransactions: { [poolAddress: string]: boolean } = {};
+logger.info("Control.ts: pendingTransactions: " + pendingTransactions);
 export async function control(data: FactoryPair[], gasData: any) {
     const promises: any[] = [];
     try {
