@@ -9,9 +9,10 @@ export const provider = new ethers.JsonRpcProvider(process.env.RPC, undefined, {
 if (process.env.PRIVATE_KEY === undefined) {
     throw new Error("No private key set in .env file");
 }
+console.log("PRIVATE KEY: ", process.env.PRIVATE_KEY);
 export const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-export const walletSigner = wallet.connect(provider);
-export const signer: Signer = new NonceManager(walletSigner);
+export const signer: Signer = wallet.connect(provider);
+// export const signer: Signer = new NonceManager(wallet);
 
 export async function checkProvider() {
     // console.log('Ready?: ', provider.ready)

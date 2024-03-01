@@ -30,15 +30,17 @@ contract SwapSingle {
         address to,
         uint256 deadline
     ) external {
-        console.log("SwapSingle: contract entered");
-        // Perform the first swap
+        console.log("SwapSingle: swapSingle contract entered");
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[path0.length - 1]);
         IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
         IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
         tokenIn.approve(routerAID, tradeSize);
-        // router0.getAmountsOut(amountIn, path0);
-        // require(amounts[1] >= amountOutMin0, "Error SwapSingle: Insufficient output: LoanPool");
+        tokenOut.approve(routerAID, amountOutA);
+        console.log("SwapSingle: tokenIn approved");
+        console.log("SwapSingle: tokenIn balance check passed");
+        console.log("signer balance TokenIn:", tokenIn.balanceOf(msg.sender));
+        console.log("SwapSingle: tradeSize: ", tradeSize);
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
             amountOutA,
@@ -47,15 +49,11 @@ contract SwapSingle {
             deadline
         );
         console.log("SwapSingle: first swap completed");
-        // Approve the Uniswap router to spend the output tokens
-
         uint256[] memory amountsOut = routerB.getAmountsOut(swapIn[1], path1);
         require(amountsOut[1] > swapIn[1], "Error SwapSingle: Insufficient output: Target");
-        // Perform the second swap
         tokenOut.approve(routerBID, swapIn[1]);
         routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
         console.log("SwapSingle: second swap completed");
-        // Return any unspent tokens to the sender
         tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));
     }
 }

@@ -10,6 +10,7 @@ import { checkBal } from "../tools/checkBal";
 import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 import { debug } from "console";
 import { ethers } from "hardhat";
+import { pendingTransactions } from "../../control";
 
 /**
  * @param trade
@@ -40,7 +41,14 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         try {
             // const fix = await fixEstimateGas(trade);
             // console.log(fix);
-
+            if (trade.wallet.tokenInBalance < trade.target.tradeSize.size) {
+                console.log("Insufficient balance for trade. Skipping trade.");
+                return g;
+            }
+            if (pendingTransactions[trade.ID] == true) {
+                console.log("Pending transaction. Skipping trade.");
+                return g;
+            }
             gasEstimate = await trade.flash.flashSwap.estimateGas(
                 trade.loanPool.factory,
                 trade.loanPool.router,
@@ -65,7 +73,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         } catch (error: any) {
             const data = await tradeLogs(trade);
             logger.error(
-                `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                `>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<`,
             );
             return {
                 gasEstimate,
@@ -122,7 +130,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             }
             let swapSingleAddress = await swapSingle.getAddress();
             let tokenIn = new ethers.Contract(p.path0[0], IERC20, signer);
-            await tokenIn.approve(swapSingleAddress, p.tradeSize);
+            let tokenOut = new ethers.Contract(p.path0[1], IERC20, signer);
+            await tokenIn.approve(swapSingleAddress, p.amountOutB);
+            await tokenOut.approve(swapSingleAddress, p.amountOutA);
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.routerAID,
                 p.routerBID,

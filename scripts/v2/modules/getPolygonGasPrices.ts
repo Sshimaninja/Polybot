@@ -8,7 +8,7 @@ import { fu, pu } from "../../modules/convertBN";
  *
  *
  */
-export var gasMult = 9n * 10n ** 9n;
+// export var gasMult = 9n * 10n ** 9n;
 
 export async function getGasData(): Promise<GasData> {
     let gasData: GasData = {
@@ -32,9 +32,9 @@ export async function getGasData(): Promise<GasData> {
                 : gasData.maxPriorityFee,
     };
     ethersGasData.gasPrice = ethersGasData.maxFee + ethersGasData.gasEstimate * baseFee!;
-    ethersGasData.gasPrice += gasMult;
-    ethersGasData.maxFee += gasMult;
-    ethersGasData.maxPriorityFee += gasMult;
+    ethersGasData.gasPrice; //+= gasMult;
+    ethersGasData.maxFee; //+= gasMult;
+    ethersGasData.maxPriorityFee; //+= gasMult;
 
     const polygonGasData: PolygonGasData = (
         await axios.get("https://gasstation.polygon.technology/v2")
@@ -50,10 +50,9 @@ export async function getGasData(): Promise<GasData> {
         };
         // console.log("PolyGas: ", gasData);
         return gasData;
-    }
-    if (ethersGasData) {
+    } else if (ethersGasData) {
         return gasData;
     }
-    console.log("Error in getGasData: Using default gasData");
+    console.log("Error in Polygon getGasData: Using default gasData");
     return gasData;
 }

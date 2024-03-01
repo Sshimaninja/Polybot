@@ -7,13 +7,33 @@ import { logger } from "../../../../constants/logger";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { tradeLogs } from "../../modules/tradeLog";
 import { checkBal } from "../tools/checkBal";
+import { pendingTransactions } from "../../control";
+import { getMaxTokenOut } from "../tradeMath";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
-    let nonce = await provider.getTransactionCount(await signer.getAddress());
-    const signerAddress = await signer.getAddress();
     const swapSingleAddress = await swapSingle.getAddress();
     const logs = await tradeLogs(trade);
-    console.log(":::::::::::::::::::sending tx:::::::::::::::: ");
+    if (pendingTransactions[trade.ID]) {
+        logger.info(
+            "::::::::::::::::TRADE " +
+                trade.ticker +
+                " " +
+                trade.profits.tokenProfit +
+                " " +
+                trade.tokenOut +
+                " PENDING",
+        );
+        return null;
+    }
+    logger.info(
+        ":::::::::::::::::::sending swap tx" + trade.ticker,
+        trade.profits.tokenProfit,
+        trade.tokenOut,
+    );
+    if (trade.wallet.tokenInBalance < trade.target.tradeSize.size) {
+        logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
+        return null;
+    }
     try {
         const p = {
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
@@ -35,8 +55,11 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         // };
         // console.log(b);
         let tokenIn = new ethers.Contract(p.path0[0], IERC20, signer);
-        await tokenIn.approve(swapSingleAddress, p.tradeSize);
+        let tokenOut = new ethers.Contract(p.path0[1], IERC20, signer);
+        await tokenIn.approve(swapSingleAddress, p.amountOutB * 2n);
+        await tokenOut.approve(swapSingleAddress, p.amountOutA * 2n);
         const oldBal = await checkBal(trade.tokenIn, trade.tokenOut);
+        pendingTransactions[trade.ID] = true;
         let tx = await swapSingle.swapSingle(
             p.routerAID,
             p.routerBID,
@@ -55,11 +78,10 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             },
         );
         let receipt = await provider.waitForTransaction(tx.hash);
-        logger.info(
-            ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>Transaction receipt: ",
-            receipt,
-            "<<<<<<<<<<<<<<<<<<",
-        );
+        if (receipt) {
+            pendingTransactions[trade.ID] = false;
+        }
+        logger.info(">>>>>>>>>>>Transaction receipt: ", receipt, "<<<<<<<<<<<<<<<<<<");
         const newBal = await checkBal(trade.tokenIn, trade.tokenOut);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:::::::::::::::::::::::: ", oldBal);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>new Balance:::::::::::::::::::::::: ", newBal);
