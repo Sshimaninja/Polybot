@@ -1,8 +1,10 @@
 import { getAmountsOut as getAmountsOutBN } from "./getAmountsIOBN";
 import { BoolTrade, Quotes, Size } from "../../../../constants/interfaces";
-import { pu } from "../../../modules/convertBN";
-import { getFunds } from "../tools/getFunds";
+import { BN2BigInt, fu, pu } from "../../../modules/convertBN";
 import { getAmountsOut } from "./getAmountsIOJS";
+import { BigNumber as BN } from "bignumber.js";
+import { tradeToPrice } from "../tradeMath";
+import { slip } from "../../../../constants/environment";
 
 export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
     const quotes: Quotes = {
@@ -11,7 +13,7 @@ export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
             in: trade.quotes.target.in,
             // outBN: trade.quotes.target.outBN,
             flashOut: trade.quotes.target.flashOut,
-            flashIn: trade.quotes.target.flashIn,
+            // flashIn: trade.quotes.target.flashIn,
             // flashOutBN: trade.quotes.target.flashOutBN,
         },
         loanPool: {
@@ -19,134 +21,110 @@ export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
             in: trade.quotes.loanPool.in,
             // outBN: trade.quotes.loanPool.outBN,
             flashOut: trade.quotes.loanPool.flashOut,
-            flashIn: trade.quotes.loanPool.flashIn,
+            // flashIn: trade.quotes.loanPool.flashIn,
             // flashOutBN: trade.quotes.loanPool.flashOutBN,
         },
     };
 
-    let walletSize = async (): Promise<Size> => {
-        let funds = await getFunds(trade);
-        if (funds.sizeBN.gt(trade.target.tradeSize.sizeBN)) {
-            funds = trade.target.tradeSize;
+    interface WalletTradeSizes {
+        tokenIn: bigint;
+        tokenOut: bigint;
+    }
+    let walletTradeSize = async (): Promise<WalletTradeSizes> => {
+        let sizes = {
+            tokenIn: trade.target.tradeSize.size,
+            tokenOut: trade.wallet.tokenOutBalance,
+        };
+        let funds = trade.wallet.tokenInBalance;
+
+        if (funds > trade.target.tradeSize.size) {
+            sizes.tokenIn = trade.target.tradeSize.size;
         }
-        return funds;
+        let tradeSizeTokenOut = await tradeToPrice(
+            trade.loanPool.reserveOutBN,
+            trade.loanPool.reserveInBN,
+            BN(trade.target.priceIn),
+            slip,
+        );
+        let size = {
+            tokenIn: sizes.tokenIn,
+            tokenOut: pu(
+                tradeSizeTokenOut.toFixed(trade.tokenOut.decimals),
+                trade.tokenOut.decimals,
+            ),
+        };
+        return sizes;
     };
 
-    let wallet = await walletSize();
+    let wallet = await walletTradeSize();
 
-    if (wallet.size <= 0) {
+    ///YOU CAN'T PASS IN TRADESIZE TO GET AMOUTN OF TOKENIN OUT
+
+    if (wallet.tokenIn <= 0 && wallet.tokenOut <= 0) {
         return trade;
     }
     if (trade.target.tradeSize.size <= 0) {
         return trade;
     }
-    const singleOutTargetTokenOut = await getAmountsOut(trade.target.router, wallet.size, [
+
+    const singleTargetTokenOut = await getAmountsOut(trade.target.router, wallet.tokenIn, [
         trade.tokenIn.id,
         trade.tokenOut.id,
     ]);
 
-    const singleOutLoanPoolTokenOut = await getAmountsOut(trade.loanPool.router, wallet.size, [
+    const singleLoanPoolTokenOut = await getAmountsOut(trade.loanPool.router, wallet.tokenIn, [
         trade.tokenIn.id,
         trade.tokenOut.id,
     ]);
 
-    const flashOutTargetTokenOut = await getAmountsOut(
+    const singleTargetTokenIn = await getAmountsOut(trade.target.router, wallet.tokenOut, [
+        trade.tokenOut.id,
+        trade.tokenIn.id,
+    ]);
+
+    const singleLoanPoolTokenIn = await getAmountsOut(trade.loanPool.router, wallet.tokenOut, [
+        trade.tokenOut.id,
+        trade.tokenIn.id,
+    ]);
+
+    const flashTargetTokenOut = await getAmountsOut(
         trade.target.router,
         trade.target.tradeSize.size,
         [trade.tokenIn.id, trade.tokenOut.id],
     );
 
-    const flashOutLoanPoolTokenOut = await getAmountsOut(
+    const flashLoanPoolTokenOut = await getAmountsOut(
         trade.loanPool.router,
         trade.target.tradeSize.size,
         [trade.tokenIn.id, trade.tokenOut.id],
     );
 
-    const singleOutTargetTokenIn = await getAmountsOut(trade.target.router, wallet.size, [
-        trade.tokenOut.id,
-        trade.tokenIn.id,
-    ]);
-
-    const singleOutLoanPoolTokenIn = await getAmountsOut(trade.loanPool.router, wallet.size, [
-        trade.tokenOut.id,
-        trade.tokenIn.id,
-    ]);
-
-    const flashOutTargetTokenIn = await getAmountsOut(
-        trade.target.router,
-        trade.target.tradeSize.size,
-        [trade.tokenOut.id, trade.tokenIn.id],
-    );
-
-    const flashOutLoanPoolTokenIn = await getAmountsOut(
-        trade.loanPool.router,
-        trade.target.tradeSize.size,
-        [trade.tokenOut.id, trade.tokenIn.id],
-    );
-
-    // const singleOutTargetTokenOutBN = await getAmountsOutBN(
-    //     wallet.sizeBN, // token1 in
-    //     trade.target.reserveInBN,
-    //     trade.target.reserveOutBN,
+    // const flashOutTargetTokenIn = await getAmountsOut(
+    //     trade.target.router,
+    //     trade.target.tradeSize.size,
+    //     [trade.tokenOut.id, trade.tokenIn.id],
     // );
 
-    // const singleOutLoanPoolTokenOutBN = await getAmountsOutBN(
-    //     wallet.sizeBN, // token1 in
-    //     trade.loanPool.reserveInBN,
-    //     trade.loanPool.reserveOutBN,
-    // );
-
-    // const flashOutTargetTokenOutBN = await getAmountsOutBN(
-    //     trade.target.tradeSize.sizeBN, // token1 in
-    //     trade.target.reserveInBN,
-    //     trade.target.reserveOutBN,
-    // );
-
-    // const flashOutLoanPoolTokenOutBN = await getAmountsOutBN(
-    //     trade.target.tradeSize.sizeBN, // token1 in
-    //     trade.loanPool.reserveInBN,
-    //     trade.loanPool.reserveOutBN,
-    // ); // token0 max out
-
-    // const singleOutTargetTokenOut = pu(
-    //     singleOutTargetTokenOutBN.toFixed(trade.tokenOut.decimals),
-    //     trade.tokenOut.decimals,
-    // );
-
-    // const singleOutLoanPoolTokenOut = pu(
-    //     singleOutLoanPoolTokenOutBN.toFixed(trade.tokenOut.decimals),
-    //     trade.tokenOut.decimals,
-    // );
-
-    // const flashOutTargetTokenOut = pu(
-    //     flashOutTargetTokenOutBN.toFixed(trade.tokenOut.decimals),
-    //     trade.tokenOut.decimals,
-    // );
-
-    // const flashOutLoanPoolTokenOut = pu(
-    //     flashOutLoanPoolTokenOutBN.toFixed(trade.tokenOut.decimals),
-    //     trade.tokenOut.decimals,
+    // const flashOutLoanPoolTokenIn = await getAmountsOut(
+    //     trade.loanPool.router,
+    //     trade.target.tradeSize.size,
+    //     [trade.tokenOut.id, trade.tokenIn.id],
     // );
 
     trade.quotes = {
         target: {
-            out: singleOutTargetTokenOut,
-            in: singleOutTargetTokenIn,
-            flashIn: flashOutTargetTokenIn,
-            flashOut: flashOutTargetTokenOut,
+            out: singleTargetTokenOut,
+            in: singleTargetTokenIn,
+            // flashIn: flashOutTargetTokenIn,
+            flashOut: flashTargetTokenOut,
         },
         loanPool: {
-            out: singleOutLoanPoolTokenOut,
-            in: singleOutLoanPoolTokenIn,
-            flashIn: flashOutLoanPoolTokenIn,
-            flashOut: flashOutLoanPoolTokenOut,
+            out: singleLoanPoolTokenOut,
+            in: singleLoanPoolTokenIn,
+            // flashIn: flashOutLoanPoolTokenIn,
+            flashOut: flashLoanPoolTokenOut,
         },
     };
 
     return trade;
 }
-// // SUBTRACT SLIPPAGE FROM EXPECTED AMOUNTOUT. This is an attempt to offset 'INSUFFICIENT_OUTPUT_AMOUNT' errors.
-// trade.quotes.target.flashOut = await this.calc0.subSlippage(
-//     trade.quotes.target.flashOut,
-//     trade.tokenOut.decimals,
-// );

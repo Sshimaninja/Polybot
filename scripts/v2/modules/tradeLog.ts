@@ -13,6 +13,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 fu(trade.target.tradeSize.size, trade.tokenIn.decimals) +
                 " " +
                 trade.tokenIn.symbol,
+            tokenIn: { symbol: trade.tokenIn.symbol, decimals: trade.tokenIn.decimals },
+            tokenOut: { symbol: trade.tokenOut.symbol, decimals: trade.tokenOut.decimals },
             loanPool: {
                 exchange: trade.loanPool.exchange,
                 priceIn: trade.loanPool.priceIn,
@@ -76,10 +78,6 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                         fu(trade.quotes.loanPool.in, trade.tokenIn.decimals) +
                         " " +
                         trade.tokenIn.symbol,
-                    flashIn:
-                        fu(trade.quotes.loanPool.flashIn, trade.tokenIn.decimals) +
-                        " " +
-                        trade.tokenIn.symbol,
                 },
                 target: {
                     out:
@@ -94,10 +92,6 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                         fu(trade.quotes.target.in, trade.tokenIn.decimals) +
                         " " +
                         trade.tokenIn.symbol,
-                    flashIn:
-                        fu(trade.quotes.target.flashIn, trade.tokenIn.decimals) +
-                        " " +
-                        trade.tokenIn.symbol,
                 },
             },
             gas: {
@@ -109,13 +103,11 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 uniswapkPreT: trade.k.uniswapKPre > 0n ? trade.k.uniswapKPre.toString() : 0,
                 uniswapkPosT: trade.k.uniswapKPost > 0n ? trade.k.uniswapKPost.toString() : 0,
                 uniswapKPositive: trade.k.uniswapKPositive,
-                // loanCostPercent: fu((trade.loanPool.amountOut.div(trade.amountRepay)).mul(100), trade.tokenOut.decimals),
                 tokenProfit:
                     fu(trade.profits.tokenProfit, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
                 wmaticProfit: fu(trade.profits.WMATICProfit, 18) + " WMATIC",
-                // profperc: fu(trade.profits.profitPercent, trade.tokenOut.decimals) + "%",
             },
         };
 

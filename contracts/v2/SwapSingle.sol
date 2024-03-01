@@ -35,8 +35,7 @@ contract SwapSingle {
         IERC20 tokenOut = IERC20(path0[path0.length - 1]);
         IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
         IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
-        tokenIn.approve(routerAID, tradeSize);
-        tokenOut.approve(routerAID, amountOutA);
+        tokenIn.approve(routerAID, type(uint256).max);
         console.log("SwapSingle: tokenIn approved");
         console.log("SwapSingle: tokenIn balance check passed");
         console.log("signer balance TokenIn:", tokenIn.balanceOf(msg.sender));

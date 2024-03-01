@@ -184,15 +184,16 @@ export class Trade {
             quotes: {
                 target: {
                     out: 0n,
-                    flashOut: 0n,
                     in: 0n,
-                    flashIn: 0n,
+                    flashOut: 0n,
+
+                    // flashIn: 0n,
                 },
                 loanPool: {
                     out: 0n,
-                    flashOut: 0n,
                     in: 0n,
-                    flashIn: 0n,
+                    flashOut: 0n,
+                    // flashIn: 0n,
                 },
             },
             gas: this.gasData,
@@ -207,7 +208,6 @@ export class Trade {
             profits: {
                 tokenProfit: 0n,
                 WMATICProfit: 0n,
-                profitPercent: "",
             },
         };
         // const debug = await debugAmounts(trade);
@@ -233,31 +233,22 @@ export class Trade {
         }
 
         if (single.profit > maxProfit) {
-            // maxProfit = single.profit;
             tradeType = "single";
         }
 
-        trade.type = tradeType;
         trade.loanPool.repays = repays;
-        // console.log(">>>>>>>>>>>repays: ", repays);
-        // console.log(">>>>>>>>>>>trade.repays: ", trade.loanPool.repays);
-        // console.log(">>>>>>>>>>>amountRepay: ", trade.loanPool.amountRepay);
 
         trade.target.tradeSize =
-            trade.type === "flashMulti"
-                ? trade.target.tradeSize
-                : trade.type === "flashSingle"
-                ? trade.target.tradeSize
-                : trade.target.walletSize;
+            trade.type === "single" ? trade.target.walletSize : trade.target.tradeSize;
 
         trade.profits.tokenProfit =
-            trade.type === "flashMulti"
+            trade.type === "single"
+                ? single.profit
+                : trade.type === "flashMulti"
                 ? multi.flashProfit
                 : trade.type === "flashSingle"
                 ? single.flashProfit
-                : single.profit;
-
-        trade.profits.profitPercent = await p.getProfitPercent(trade.tokenOut.decimals);
+                : 0n;
 
         trade.loanPool.amountRepay =
             trade.type === "flashMulti"
