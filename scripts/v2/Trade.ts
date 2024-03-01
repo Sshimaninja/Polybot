@@ -8,25 +8,25 @@ import {
     Profcalcs,
     Repays,
     TradePair,
-} from "../../../constants/interfaces";
+} from "../../constants/interfaces";
 import { abi as IERC20 } from "@uniswap/v2-periphery/build/IERC20.json";
-import { debugAmounts } from "../../../test/debugAmounts";
+import { debugAmounts } from "../../test/debugAmounts";
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { flashMulti, flashSingle } from "../../../constants/environment";
-import { provider, signer } from "../../../constants/provider";
-import { Prices } from "./Prices";
-import { getQuotes } from "../modules/price/getQuotes";
-import { getK } from "../modules/tools/getK";
-import { getFunds } from "../modules/tools/getFunds";
-import { BoolTrade } from "../../../constants/interfaces";
-import { PopulateRepays } from "./Repays";
-import { AmountConverter } from "./AmountConverter";
-import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../../modules/convertBN";
-import { filterTrade } from "../modules/filterTrade";
-import { logger } from "../../../constants/logger";
-import { ProfitCalculator } from "./ProfitCalcs";
+import { flashMulti, flashSingle } from "../../constants/environment";
+import { provider, signer } from "../../constants/provider";
+import { Prices } from "./classes/Prices";
+import { getQuotes } from "./modules/price/getQuotes";
+import { getK } from "./modules/tools/getK";
+import { getFunds } from "./modules/tools/getFunds";
+import { BoolTrade } from "../../constants/interfaces";
+import { PopulateRepays } from "./classes/Repays";
+import { AmountConverter } from "./classes/AmountConverter";
+import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertBN";
+import { filterTrade } from "./modules/filterTrade";
+import { logger } from "../../constants/logger";
+import { ProfitCalculator } from "./classes/ProfitCalcs";
 // import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmounts/getAmountsIOBN";
 
 /**
@@ -112,6 +112,7 @@ export class Trade {
             ID: A
                 ? this.match.poolBID + this.match.poolAID
                 : this.match.poolAID + this.match.poolBID,
+            pending: false,
             block: await provider.getBlockNumber(),
             direction: dir.dir,
             type: "filtered",

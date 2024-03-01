@@ -24,30 +24,14 @@ export async function trueProfit(trade: BoolTrade): Promise<BoolTrade> {
         };
 
         // Calculate profit & compare to gas cost
-        // if (gasPrices.tested === true) {
         let WMATICprofit = new WMATICProfit(trade, gasTokens, uniswapV2Exchange);
         let profitInWMATIC = await WMATICprofit.getWMATICProfit();
-        // logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>trueProfit: ", profitInWMATIC);
 
         trade.profits.WMATICProfit = profitInWMATIC;
-        // if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
-        //     console.log(
-        //         "Possible trade: " + trade.ticker + " Gas Estimate: ",
-        //         fu(gasPrices.gasEstimate, 18),
-        //         "Gas Price: ",
-        //         fu(gasPrices.gasPrice, 18),
-        //     );
-        //     console.log("Profit: ", fu(trade.profits.WMATICProfit, 18));
-        //     return trade;
-        // }
 
         return trade;
     } catch (error: any) {
         logger.error("Error in trueProfit: ", error);
         return trade;
     }
-    // }
-
-    // console.log("Gas estimate failed for " + trade.ticker);
-    // return trade;
 }

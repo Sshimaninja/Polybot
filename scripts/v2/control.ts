@@ -4,12 +4,14 @@ import fs from "fs";
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from "./classes/Prices";
 import { FactoryPair, TradePair } from "../../constants/interfaces";
-import { Trade } from "./classes/Trade";
+import { Trade } from "./Trade";
 import { Reserves } from "./modules/reserves";
 import { tradeLogs } from "./modules/tradeLog";
 import { rollDamage } from "./modules/transaction/damage";
 import { logger } from "../../constants/logger";
 import { slip } from "../../constants/environment";
+import { flash } from "./modules/transaction/flash";
+import { swap } from "./modules/transaction/swap";
 // import { filterMatches } from "./filterMatches";
 /*
 TODO:
@@ -47,13 +49,24 @@ export async function control(data: FactoryPair[], gasData: any) {
                     if (trade.target.tradeSize.size == 0n) {
                         return;
                     }
+                    if (pendingTransactions[trade.ID] == true) {
+                        console.log("Pending transaction on ", trade.ticker, " Skipping trade.");
+                        return;
+                    }
 
-                    // This filter was too strong, resulting in 0 matches to trade. Needs refined.
-                    // const filtered = filterMatches(filteredTrades)
+                    await rollDamage(trade);
 
-                    const rollPromise = rollDamage(trade);
+                    return; //DEBUG
 
-                    promises.push(rollPromise);
+                    if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
+                        return;
+                    }
+                    if (trade.type.includes("flash")) {
+                        let tx = await flash(trade);
+                    }
+                    if (trade.type == "flashSingle") {
+                        let tx = await swap(trade);
+                    }
                 } else {
                     console.log(
                         "Reserves not found for " + match.poolAID + " and " + match.poolBID,
@@ -63,10 +76,6 @@ export async function control(data: FactoryPair[], gasData: any) {
                 }
             }
         }
-
-        await Promise.all(promises).catch((error: any) => {
-            console.log("Error in swap.ts: " + error.message);
-        });
     } catch (error: any) {
         if (error.code === "ECONNRESET") {
             console.log("CONTROL ERROR: ECONNRESET: Connection reset by peer. Retrying.");

@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { Transaction, TransactionReceipt, ethers } from "ethers";
 import { swapSingle } from "../../../../constants/environment";
 import { BoolTrade } from "../../../../constants/interfaces";
 import { fu, pu } from "../../../modules/convertBN";
@@ -6,9 +6,11 @@ import { provider, signer } from "../../../../constants/provider";
 import { logger } from "../../../../constants/logger";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { tradeLogs } from "../../modules/tradeLog";
-import { checkBal } from "../tools/checkBal";
+import { walletBal } from "../tools/walletBal";
 import { pendingTransactions } from "../../control";
 import { getMaxTokenOut } from "../tradeMath";
+import { checkApproval } from "./approvals";
+import { TransactionResponse } from "alchemy-sdk";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
     const swapSingleAddress = await swapSingle.getAddress();
@@ -46,21 +48,14 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             to: await signer.getAddress(),
             deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
         };
-        // const b = {
-        //     tradeSize: fu(p.tradeSize, trade.tokenIn.decimals),
-        //     reservesA: fu(trade.target.reserveOut, trade.tokenOut.decimals),
-        //     amountOutA: fu(p.amountOutA, trade.tokenOut.decimals),
-        //     reservesB: fu(trade.loanPool.reserveIn, trade.tokenIn.decimals),
-        //     amountOutB: fu(p.amountOutB, trade.tokenOut.decimals),
+        // const m = {
+        //     //message describing trade for my own info/debug
         // };
-        // console.log(b);
-        let tokenIn = new ethers.Contract(p.path0[0], IERC20, signer);
-        let tokenOut = new ethers.Contract(p.path0[1], IERC20, signer);
-        await tokenIn.approve(swapSingleAddress, p.amountOutB * 2n);
-        await tokenOut.approve(swapSingleAddress, p.amountOutA * 2n);
-        const oldBal = await checkBal(trade.tokenIn, trade.tokenOut);
+        // // console.log(m);
+
+        const oldBal = await walletBal(trade.tokenIn, trade.tokenOut);
         pendingTransactions[trade.ID] = true;
-        let tx = await swapSingle.swapSingle(
+        let tx: Transaction = await swapSingle.swapSingle(
             p.routerAID,
             p.routerBID,
             p.tradeSize,
@@ -71,20 +66,26 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             p.to,
             p.deadline,
             {
+                Type: 2,
                 gasLimit: trade.gas.gasEstimate,
                 maxFeePerGas: trade.gas.maxFee,
                 maxPriorityFeePerGas: trade.gas.maxPriorityFee,
-                // nonce: nonce,
             },
         );
-        let receipt = await provider.waitForTransaction(tx.hash);
-        if (receipt) {
-            pendingTransactions[trade.ID] = false;
+        const txResponse = await signer.sendTransaction(tx);
+        const receipt = await txResponse.wait(30);
+        pendingTransactions[await trade.target.pool.getAddress()] = false;
+        if (!receipt) {
+            logger.info("Transaction failed with txResponse: " + txResponse);
+            return null;
         }
-        logger.info(">>>>>>>>>>>Transaction receipt: ", receipt, "<<<<<<<<<<<<<<<<<<");
-        const newBal = await checkBal(trade.tokenIn, trade.tokenOut);
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:::::::::::::::::::::::: ", oldBal);
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>new Balance:::::::::::::::::::::::: ", newBal);
+        logger.info("TRANSACTION COMPLETE: " + trade.ticker, receipt.hash);
+
+        //Print balances after trade
+        const newBal = await walletBal(trade.tokenIn, trade.tokenOut);
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ", oldBal);
+        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ", newBal);
+        logger.info("::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::");
         return receipt;
     } catch (error: any) {
         if (error.message.includes("INSUFFICIENT_INPUT_AMOUNT")) {
@@ -102,35 +103,3 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         return null;
     }
 }
-
-// function swapSingle(
-//     address router0ID,
-//     address router1ID,
-//     address token0ID,
-//     address token1ID,
-//     uint256 amountIn,
-//     uint256 amountOutMin0,
-//     uint256 amountOutMin1,
-//     address[] memory path0,
-//     address[] memory path1,
-//     address to,
-//     uint256 deadline
-
-// code: 'UNKNOWN_ERROR',
-// error: {
-//   code: -32000,
-//   message: "Nonce too high. Expected nonce to be 2418 but got 2830. Note that transactions can't be queued when automining.",
-//   data: {
-//     message: "Nonce too high. Expected nonce to be 2418 but got 2830. Note that transactions can't be queued when automining."
-//   }
-// },
-// payload: {
-//   method: 'eth_sendRawTransaction',
-//   params: [
-//     [DATA]
-//   ],
-//   id: 20885,
-//   jsonrpc: '2.0'
-// },
-// shortMessage: 'could not coalesce error'
-// }
