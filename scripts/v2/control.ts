@@ -43,28 +43,48 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const p0 = new Prices(match.poolAID, reserves[0]);
                     const p1 = new Prices(match.poolBID, reserves[1]);
 
+                    console.log("Starting trade for " + match.poolAID + " and " + match.poolBID);
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     const trade = await t.getTrade();
 
                     if (trade.target.tradeSize.size == 0n) {
+                        console.log("Trade size is 0. Skipping trade.");
                         return;
                     }
+
                     if (pendingTransactions[trade.ID] == true) {
                         console.log("Pending transaction on ", trade.ticker, " Skipping trade.");
                         return;
                     }
 
+                    console.log(
+                        "Finding true profit for trade: ",
+                        trade.ticker,
+                        trade.loanPool.exchange,
+                        trade.target.exchange,
+                    );
                     await rollDamage(trade);
 
-                    return; //DEBUG
-
+                    // return; //DEBUG
+                    console.log(
+                        "Trade: " +
+                            trade.ticker +
+                            " | " +
+                            trade.type +
+                            " | " +
+                            trade.profits.WMATICProfit +
+                            " | " +
+                            trade.gas.gasPrice,
+                    );
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                         return;
                     }
                     if (trade.type.includes("flash")) {
+                        console.log("Executing flash swap for trade: " + trade.ticker);
                         let tx = await flash(trade);
                     }
                     if (trade.type == "flashSingle") {
+                        console.log("Executing swap for trade: " + trade.ticker);
                         let tx = await swap(trade);
                     }
                 } else {

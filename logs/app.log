@@ -75411,3 +75411,13 @@
     wmaticProfit: '1292173.500666695347909848 WMATIC'
   }
 }
+[2024-03-02T00:00:57.326] [INFO] default - Control.ts: pendingTransactions: [object Object]
+[2024-03-02T00:00:57.457] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-02T00:03:22.138] [INFO] default - Control.ts: pendingTransactions: [object Object]
+[2024-03-02T00:03:22.264] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-02T00:04:56.115] [INFO] default - Control.ts: pendingTransactions: [object Object]
+[2024-03-02T00:04:56.243] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-02T00:08:32.701] [INFO] default - Control.ts: pendingTransactions: [object Object]
+[2024-03-02T00:08:32.830] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-02T00:10:13.334] [INFO] default - Control.ts: pendingTransactions: [object Object]
+[2024-03-02T00:10:13.471] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
