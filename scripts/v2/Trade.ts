@@ -76,26 +76,14 @@ export class Trade {
         return { dir, diff, dperc };
     }
 
-    async getBal(): Promise<{
-        token0Balance: bigint;
-        token1Balance: bigint;
-        maticBalance: bigint;
-    }> {
-        const signerID = await signer.getAddress();
-        const tokenIn: Contract = new Contract(this.match.token1.id, IERC20, provider);
-        const tokenOut: Contract = new Contract(this.match.token0.id, IERC20, provider);
-        let bal = {
-            token0Balance: await tokenIn.balanceOf(signerID),
-            token1Balance: await tokenOut.balanceOf(signerID),
-            maticBalance: await provider.getBalance(signerID),
-        };
-        return bal;
-    }
-
     async getTrade() {
         //TODO: Add complexity: use greater reserves for loanPool, lesser reserves for target.
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
+        const signerID = await signer.getAddress();
+        const tokenIn: Contract = new Contract(this.match.token1.id, IERC20, provider);
+        const tokenOut: Contract = new Contract(this.match.token0.id, IERC20, provider);
+
         const size = A
             ? await this.calcA.getSize() //this.getSize(this.calcB, this.calcA)
             : await this.calcB.getSize(); //this.getSize(this.calcA, this.calcB);
@@ -126,7 +114,11 @@ export class Trade {
                     },
                 },
             },
-            wallet: await this.getBal(),
+            wallet: {
+                token0Balance: await tokenIn.balanceOf(signerID),
+                token1Balance: await tokenOut.balanceOf(signerID),
+                maticBalance: await provider.getBalance(signerID),
+            },
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A
@@ -215,30 +207,51 @@ export class Trade {
 
         const r = new PopulateRepays(trade, trade.direction === "A" ? this.calcA : this.calcB);
         const repays = await r.getRepays();
+        trade.loanPool.repays = repays;
 
         const p = new ProfitCalculator(trade, this.calcA, repays, quotes);
         const multi = await p.getMultiProfit();
         const single = await p.getSingleProfit();
 
-        let maxProfit;
-        let tradeType;
-
-        if (single.flashProfit > multi.flashProfit) {
-            maxProfit = single.flashProfit;
-            tradeType = "flashSingle";
-        } else {
-            maxProfit = multi.flashProfit;
-            tradeType = "flashMulti";
+        if (multi.flashProfit <= 0n && single.flashProfit <= 0n && single.singleProfit <= 0n) {
+            trade.type = "filtered: 0 profit";
+            return trade;
         }
 
-        if (single.singleProfit > maxProfit) {
-            tradeType = "single";
-        }
+        let maxProfit =
+            multi.flashProfit > single.flashProfit ? multi.flashProfit : single.flashProfit;
 
-        trade.loanPool.repays = repays;
+        maxProfit = maxProfit > single.singleProfit ? maxProfit : single.singleProfit;
+
+        trade.type =
+            maxProfit === single.singleProfit
+                ? "single"
+                : maxProfit === multi.flashProfit
+                ? "flashMulti"
+                : maxProfit === single.flashProfit
+                ? "flashSingle"
+                : maxProfit === 0n
+                ? "filtered: 0 profit"
+                : "filtered: unknown";
+
+        logger.info(
+            "CHECK CALCS: maxProfit: ",
+            fu(maxProfit, trade.tokenOut.decimals),
+            " tradeType: ",
+            trade.type,
+        );
+
+        trade.profits.tokenProfit = maxProfit;
+
+        logger.info(
+            "CHECK CALCS: trade.profits.tokenProfit: ",
+            fu(trade.profits.tokenProfit, trade.tokenOut.decimals),
+            " tradeType: ",
+            trade.type,
+        );
 
         let walletTradeSizes = await walletTradeSize(trade);
-        // this has to be assigned using profit calculator
+
         trade.tradeSizes.pool0.token0.size =
             trade.type === "single" ? walletTradeSizes.token0 : trade.tradeSizes.pool0.token0.size;
 
@@ -250,6 +263,13 @@ export class Trade {
                 : trade.type === "flashSingle"
                 ? single.flashProfit
                 : 0n;
+
+        logger.info(
+            "CHECK CALCS: trade.profits.tokenProfit: ",
+            trade.profits.tokenProfit,
+            " tradeType: ",
+            trade.type,
+        );
 
         trade.loanPool.amountRepay =
             trade.type === "flashMulti"

@@ -7,7 +7,6 @@ import { BoolTrade, FactoryPair, TradePair } from "../../constants/interfaces";
 import { Trade } from "./Trade";
 import { Reserves } from "./modules/reserves";
 import { tradeLogs } from "./modules/tradeLog";
-import { rollDamage } from "./modules/transaction/damage";
 import { logger } from "../../constants/logger";
 import { slip } from "../../constants/environment";
 import { flash } from "./modules/transaction/flash";
@@ -28,7 +27,8 @@ TODO:
  */
 let filteredTrades: string[]; // Array to store filtered trades
 export let pendingTransactions: { [poolAddress: string]: boolean } = {};
-logger.info("Control.ts: pendingTransactions: " + pendingTransactions);
+logger.info("Control.ts: pendingTransactions: ");
+logger.info(pendingTransactions);
 export async function control(data: FactoryPair[], gasData: any) {
     const promises: any[] = [];
     try {
@@ -47,12 +47,23 @@ export async function control(data: FactoryPair[], gasData: any) {
                     let trade: BoolTrade = await t.getTrade();
 
                     if (pendingTransactions[trade.ID] == true) {
-                        console.log("Pending transaction on ", trade.ticker, " Skipping trade.");
+                        console.log(
+                            "Pending transaction on ",
+                            trade.ticker,
+                            trade.loanPool.exchange,
+                            trade.target.exchange,
+                            " Skipping trade.",
+                        );
                         return;
                     }
 
-                    trade = await trueProfit(trade);
-                    // console.log(rade);
+                    if (trade.profits.tokenProfit <= 0) {
+                        // console.log("No profit for trade: " + trade.ticker);
+                        return;
+                    }
+
+                    await trueProfit(trade);
+
                     await filterTrade(trade);
 
                     const log = await tradeLogs(trade);

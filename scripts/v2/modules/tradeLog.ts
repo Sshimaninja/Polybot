@@ -113,7 +113,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             trade.target.exchange +
             " | Gas: " +
             fu(trade.gas.gasPrice, 18) +
-            " | Profit: " +
+            " | WMATIC Profit: " +
             fu(trade.profits.WMATICProfit, 18);
 
         return { data, tinyData };
