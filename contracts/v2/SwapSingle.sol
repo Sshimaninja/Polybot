@@ -24,7 +24,7 @@ contract SwapSingle {
         address routerBID,
         uint256 tradeSize,
         uint256 amountOutA,
-        uint256 amountOutB,
+        // uint256 amountOutB,
         address[] memory path0,
         address[] memory path1,
         address to,
@@ -36,10 +36,14 @@ contract SwapSingle {
         IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
         IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
         tokenIn.approve(routerAID, type(uint256).max);
+        tokenIn.approve(routerBID, type(uint256).max);
+        tokenOut.approve(routerAID, type(uint256).max);
+        tokenOut.approve(routerBID, type(uint256).max);
         console.log("SwapSingle: tokenIn approved");
         console.log("SwapSingle: tokenIn balance check passed");
         console.log("signer balance TokenIn:", tokenIn.balanceOf(msg.sender));
         console.log("SwapSingle: tradeSize: ", tradeSize);
+        console.log("SwapSingle: amountOutA: ", amountOutA);
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
             amountOutA,
@@ -48,10 +52,11 @@ contract SwapSingle {
             deadline
         );
         console.log("SwapSingle: first swap completed");
+        console.log("SwapSingle: swapIn[1]: ", swapIn[1]);
+        tokenOut.approve(routerBID, type(uint256).max);
         uint256[] memory amountsOut = routerB.getAmountsOut(swapIn[1], path1);
-        require(amountsOut[1] > swapIn[1], "Error SwapSingle: Insufficient output: Target");
-        tokenOut.approve(routerBID, swapIn[1]);
-        routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
+        require(amountsOut[1] > tradeSize, "Error SwapSingle: Insufficient output: Target");
+        routerB.swapTokensForExactTokens(swapIn[1], tradeSize, path1, to, deadline);
         console.log("SwapSingle: second swap completed");
         tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));
     }

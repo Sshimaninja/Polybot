@@ -44,7 +44,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.pool0.token0.size,
             amountOutA: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
+            // amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.id, trade.tokenOut.id],
             path1: [trade.tokenOut.id, trade.tokenIn.id],
             to: await signer.getAddress(),
@@ -62,7 +62,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             p.routerBID,
             p.tradeSize,
             p.amountOutA,
-            p.amountOutB,
+            // p.amountOutB,
             p.path0,
             p.path1,
             p.to,

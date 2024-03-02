@@ -137,19 +137,50 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 swapSingleAddress,
                 trade.quotes.target.token1Out,
             );
-            if (!approveTokenIn || !approveTokenOut) {
+            let approveTokenInRouterA = await checkApproval(
+                trade.tokenIn.id,
+                p.routerAID,
+                trade.tradeSizes.pool0.token0.size,
+            );
+            let approveTokenOutRouterA = await checkApproval(
+                trade.tokenOut.id,
+                p.routerAID,
+                trade.quotes.target.token1Out,
+            );
+            let approveTokenInRouterB = await checkApproval(
+                trade.tokenIn.id,
+                p.routerBID,
+                trade.tradeSizes.pool0.token0.size,
+            );
+            let approveTokenOutRouterB = await checkApproval(
+                trade.tokenOut.id,
+                p.routerBID,
+                trade.quotes.target.token1Out,
+            );
+            if (
+                !approveTokenIn ||
+                !approveTokenOut ||
+                !approveTokenInRouterA ||
+                !approveTokenOutRouterA ||
+                !approveTokenInRouterB ||
+                !approveTokenOutRouterB
+            ) {
                 logger.info(">>>>>>>>>>>>>>>>>>>>>ERROR: APPROVAL FAILED");
                 return g;
             }
-            logger.info("tokenIn approved: ", approveTokenIn);
-            logger.info("tokenOut approved: ", approveTokenOut);
+            logger.info("tokenIn swapContract approved: ", approveTokenIn);
+            logger.info("tokenOut swapContract approved: ", approveTokenOut);
+            logger.info("tokenIn RouterA approved: ", approveTokenInRouterA);
+            logger.info("tokenOut RouterA approved: ", approveTokenOutRouterA);
+            logger.info("tokenIn RouterB approved: ", approveTokenInRouterB);
+            logger.info("tokenOut RouterB approved: ", approveTokenOutRouterB);
 
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.routerAID,
                 p.routerBID,
                 p.tradeSize,
                 p.amountOutA,
-                p.amountOutB,
+                // p.amountOutB,
                 p.path0,
                 p.path1,
                 p.to,
