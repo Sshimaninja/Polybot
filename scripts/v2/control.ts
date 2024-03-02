@@ -57,28 +57,21 @@ export async function control(data: FactoryPair[], gasData: any) {
                         return;
                     }
 
-                    console.log(
-                        "Finding true profit for trade: ",
-                        trade.ticker,
-                        trade.loanPool.exchange,
-                        trade.target.exchange,
-                    );
                     await rollDamage(trade);
 
-                    // return; //DEBUG
+                    if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
+                        return;
+                    }
                     console.log(
                         "Trade: " +
                             trade.ticker +
                             " | " +
                             trade.type +
                             " | " +
-                            trade.profits.WMATICProfit +
+                            trade.loanPool.exchange +
                             " | " +
-                            trade.gas.gasPrice,
+                            trade.target.exchange,
                     );
-                    if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
-                        return;
-                    }
                     if (trade.type.includes("flash")) {
                         console.log("Executing flash swap for trade: " + trade.ticker);
                         let tx = await flash(trade);
