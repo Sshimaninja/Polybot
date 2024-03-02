@@ -1,6 +1,6 @@
 import { BigNumber as BN } from "bignumber.js";
 import { getMaxTokenIn, getMaxTokenOut, tradeToPrice } from "../modules/tradeMath";
-import { Pair, ReservesData, TradePair } from "../../../constants/interfaces";
+import { Pair, ReservesData, Size, TradePair } from "../../../constants/interfaces";
 import { Prices } from "./Prices";
 import { Token, Amounts } from "../../../constants/interfaces";
 import { BigInt2BN, fu, pu } from "../../modules/convertBN";
@@ -9,26 +9,37 @@ import { slip } from "../../../constants/environment";
 /**
  * @description
  * This class holds amounts in/out for a pair, as well as the trade size.
- * Target priceTarget is re-intitialized as the average of two priceTargets.
+ * Target pricesTarget is re-intitialized as the average of two pricesTargets.
  */
 export class AmountConverter {
     tokenIn: Token;
     tokenOut: Token;
     reservesLoanPool: ReservesData;
     reservesTarget: ReservesData;
-    priceLoanPool: Prices;
-    priceTarget: Prices;
-    targetPrice: BN;
+    pricesLoanPool: Prices;
+    pricesTarget: Prices;
+    targetPriceToken0: BN;
+    targetPriceToken1: BN;
     slip: BN;
+    sizeToken0: Size;
+    sizeToken1: Size;
 
-    constructor(priceLoanPool: Prices, priceTarget: Prices, pair: TradePair, targetPrice: BN) {
-        this.reservesLoanPool = priceLoanPool.reserves;
-        this.reservesTarget = priceTarget.reserves;
-        this.priceLoanPool = priceLoanPool;
-        this.priceTarget = priceTarget;
-        this.targetPrice = targetPrice;
+    constructor(pricesLoanPool: Prices, pricesTarget: Prices, pair: TradePair) {
+        this.reservesLoanPool = pricesLoanPool.reserves;
+        this.reservesTarget = pricesTarget.reserves;
+        this.pricesLoanPool = pricesLoanPool;
+        this.pricesTarget = pricesTarget;
+        this.targetPriceToken0 = pricesTarget.priceInBN; //.plus(pricesLoanPool.priceInBN).div(2);
+        this.targetPriceToken1 = pricesLoanPool.priceOutBN; //.plus(pricesTarget.priceOutBN).div(2);
         this.slip = slip;
-        // DETERMINE DIRECTION OF TRADE HERE TOKEN0 -> TOKEN1 OR TOKEN1 -> TOKEN0
+        this.sizeToken0 = {
+            token0: { size: 0n, sizeBN: BN(0) },
+            token1: { size: 0n, sizeBN: BN(0) },
+        };
+        this.sizeToken1 = {
+            token0: { size: 0n, sizeBN: BN(0) },
+            token1: { size: 0n, sizeBN: BN(0) },
+        }; // DETERMINE DIRECTION OF TRADE HERE TOKEN0 -> TOKEN1 OR TOKEN1 -> TOKEN0
         this.tokenIn = pair.token1; // direction tokenIn-tokenOut reults in WMATIC pairs more often, making pricing easier.
         this.tokenOut = pair.token0;
     }
@@ -36,14 +47,11 @@ export class AmountConverter {
     /**
      * @returns Amounts in/out for a trade. Should never be negative.
      */
-    // tradeToPrice gets a mid-level between priceTarget of pool and target priceTarget, and returns the amount of tokenIn needed to reach that priceTarget
+    // tradeToPrice gets a mid-level between pricesTarget of pool and target pricesTarget, and returns the amount of tokenIn needed to reach that pricesTarget
     // can be limited by slip if uniswap returns 'EXCESSIVE_INPUT_AMOUNT'
     // can be limited by maxIn if uniswap returns 'INSUFFICIENT_INPUT_AMOUNT'
 
-    async getSize(): Promise<{
-        size: bigint;
-        sizeBN: BN;
-    }> {
+    async getSize(): Promise<Size> {
         const p = await this.tradeToPrice();
         const size = async (): Promise<bigint> => {
             const toPrice = p.tradeSize;
@@ -99,16 +107,16 @@ export class AmountConverter {
         return { size: await size(), sizeBN: await sizeBN() };
     }
     async tradeToPrice(): Promise<{ tradeSize: bigint; tradeSizeBN: BN }> {
-        // this.targetPrice = this.priceTarget.priceTargetOutBN.plus(this.targetPrice).div(2);// average of two priceTargets
+        // this.targetPriceToken1 = this.pricesTarget.pricesTargetOutBN.plus(this.targetPriceToken1).div(2);// average of two pricesTargets
         // console.log({
         // 	reservesTargetInBN: this.reservesTarget.reserveInBN.toString(),
         // 	reserveOutBN: this.reservesTarget.reserveOutBN.toString(),
-        // 	targetPrice:  this.targetPrice,
+        // 	targetPriceToken1:  this.targetPriceToken1,
         // 	slip: this.slip})
         const tradeSize = await tradeToPrice(
             this.reservesTarget.reserveInBN,
             this.reservesTarget.reserveOutBN,
-            this.targetPrice,
+            this.targetPriceToken1,
             this.slip,
         );
         // console.log("tradeSize: ", tradeSize.toFixed(this.tokenIn.decimals)); //DEBUG

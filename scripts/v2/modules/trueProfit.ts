@@ -14,21 +14,19 @@ require("dotenv").config();
 export async function trueProfit(trade: BoolTrade): Promise<BoolTrade> {
     try {
         // Get gas prices
-        let gasPrices = await fetchGasPrice(trade);
+        let gas = await fetchGasPrice(trade);
         // update trade with gaPrices
         trade.gas = {
-            gasPrice: gasPrices.gasPrice,
-            gasEstimate: gasPrices.gasEstimate,
-            maxFee: gasPrices.maxFee,
-            maxPriorityFee: gasPrices.maxPriorityFee,
+            gasPrice: gas.gasPrice,
+            gasEstimate: gas.gasEstimate,
+            maxFee: gas.maxFee,
+            maxPriorityFee: gas.maxPriorityFee,
         };
 
         // Calculate profit & compare to gas cost
         let WMATICprofit = new WMATICProfit(trade, gasTokens, uniswapV2Exchange);
         let profitInWMATIC = await WMATICprofit.getWMATICProfit();
-
         trade.profits.WMATICProfit = profitInWMATIC;
-
         return trade;
     } catch (error: any) {
         logger.error("Error in trueProfit: ", error);

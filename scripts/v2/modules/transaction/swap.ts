@@ -32,7 +32,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         trade.profits.tokenProfit,
         trade.tokenOut,
     );
-    if (trade.wallet.tokenInBalance < trade.target.tradeSize.size) {
+    if (trade.wallet.tokenInBalance < trade.target.tradeSize.token0.size) {
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
         return null;
     }
@@ -40,9 +40,9 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         const p = {
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
-            tradeSize: trade.target.tradeSize.size,
-            amountOutA: trade.quotes.target.out, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.in, //high Output tokenOut to tokenIn
+            tradeSize: trade.target.tradeSize.token0.size,
+            amountOutA: trade.quotes.target.token1, //high Output tokenIn to tokenOut
+            amountOutB: trade.quotes.loanPool.token0, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.id, trade.tokenOut.id],
             path1: [trade.tokenOut.id, trade.tokenIn.id],
             to: await signer.getAddress(),

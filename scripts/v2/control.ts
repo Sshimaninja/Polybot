@@ -3,7 +3,7 @@ require("colors");
 import fs from "fs";
 import { BigNumber as BN } from "bignumber.js";
 import { Prices } from "./classes/Prices";
-import { FactoryPair, TradePair } from "../../constants/interfaces";
+import { BoolTrade, FactoryPair, TradePair } from "../../constants/interfaces";
 import { Trade } from "./Trade";
 import { Reserves } from "./modules/reserves";
 import { tradeLogs } from "./modules/tradeLog";
@@ -12,6 +12,8 @@ import { logger } from "../../constants/logger";
 import { slip } from "../../constants/environment";
 import { flash } from "./modules/transaction/flash";
 import { swap } from "./modules/transaction/swap";
+import { trueProfit } from "./modules/trueProfit";
+import { filterTrade } from "./modules/filterTrade";
 // import { filterMatches } from "./filterMatches";
 /*
 TODO:
@@ -35,51 +37,41 @@ export async function control(data: FactoryPair[], gasData: any) {
                 const r = new Reserves(match);
                 const reserves = await r.getReserves(match);
 
-                //TODO: Arrange tokenIn/tokenOut so that the pool with higher reserves is loanPool and pool with lower reserves is target.
-                //This will allow for more profitable trades, as the loanPool will have more liquidity to move the target price without requiring excess repayment.
-                //Reversing the trade requires changing the token0/token1 assignment to token1/token0 in the Reserves class.
+                // Use a second Trade class to get the reverse route
+
                 if (reserves[0] !== undefined || reserves[1] !== undefined) {
-                    // console.log("ExchangeA: " + pair.exchangeA + " ExchangeB: " + pair.exchangeB + " matches: " + pair.matches.length, " gasData: " + gasData.fast.maxFee + " " + gasData.fast.maxPriorityFee);
                     const p0 = new Prices(match.poolAID, reserves[0]);
                     const p1 = new Prices(match.poolBID, reserves[1]);
 
-                    // console.log("Starting trade for " + match.poolAID + " and " + match.poolBID);
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
-                    const trade = await t.getTrade();
-
-                    if (trade.target.tradeSize.size == 0n) {
-                        console.log("Trade size is 0. Skipping trade.");
-                        return;
-                    }
+                    let trade: BoolTrade = await t.getTrade();
 
                     if (pendingTransactions[trade.ID] == true) {
                         console.log("Pending transaction on ", trade.ticker, " Skipping trade.");
                         return;
                     }
 
-                    await rollDamage(trade);
-                    const logs = await tradeLogs(trade);
-                    console.log(logs);
+                    await trueProfit(trade);
+
+                    await filterTrade(trade);
+
+                    let log = await tradeLogs(trade);
+
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
+                        console.log("No profit after trueProfit: ", log.tinyData);
                         return;
                     }
-                    console.log(
-                        "Trade: " +
-                            trade.ticker +
-                            " | " +
-                            trade.type +
-                            " | " +
-                            trade.loanPool.exchange +
-                            " | " +
-                            trade.target.exchange,
-                    );
+
                     if (trade.type.includes("flash")) {
                         console.log("Executing flash swap for trade: " + trade.ticker);
                         let tx = await flash(trade);
                     }
-                    if (trade.type == "flashSingle") {
+                    if (trade.type == "single") {
                         console.log("Executing swap for trade: " + trade.ticker);
                         let tx = await swap(trade);
+                    }
+                    if (trade.type.includes("filtered")) {
+                        console.log("Filtered trade: " + trade.ticker);
                     }
                 } else {
                     console.log(

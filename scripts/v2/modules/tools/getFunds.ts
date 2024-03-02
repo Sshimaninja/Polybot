@@ -7,11 +7,13 @@ import { BigInt2BN } from "../../../modules/convertBN";
 
 export async function getFunds(trade: BoolTrade): Promise<Size> {
     const tokenInContract = new ethers.Contract(trade.tokenIn.id, IERC20, provider);
-    const balance = trade.wallet.tokenInBalance;
-    const balanceBN = BigInt2BN(balance, trade.tokenIn.decimals);
+    const balance0 = trade.wallet.token0Balance;
+    const balance1 = trade.wallet.token1Balance;
+    const balance0BN = BigInt2BN(balance0, trade.tokenIn.decimals);
+    const balance1BN = BigInt2BN(balance1, trade.tokenOut.decimals);
     let size: Size = {
-        size: balance,
-        sizeBN: balanceBN,
+        token0: { size: balance0, sizeBN: balance0BN },
+        token1: { size: balance1, sizeBN: balance1BN },
     };
     return size;
 }
