@@ -25,7 +25,7 @@ export class ProfitCalculator {
                     ? this.quotes.target.flashToken1Out - this.repays.flashMulti
                     : 0n;
             const profitBN = BigInt2BN(profit.flashProfit, this.trade.tokenOut.decimals);
-            console.log(profit);
+            // console.log(profit);
             return profit;
         } catch (error: any) {
             console.log("Error in getMultiProfit: " + error.message);
@@ -46,7 +46,6 @@ export class ProfitCalculator {
                     ? this.quotes.target.flashToken1Out - repays.flashSingle
                     : 0n;
             const profCalcs = { singleProfit, flashProfit };
-            console.log(profCalcs);
             return profCalcs;
         } catch (error: any) {
             console.log("Error in getSingleProfit: " + error.trace);
