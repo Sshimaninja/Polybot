@@ -99,7 +99,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             };
 
             if (p.amountOutB < p.tradeSize) {
-                logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
+                // logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
                 return g;
             }
             const profit = p.amountOutB - p.tradeSize;

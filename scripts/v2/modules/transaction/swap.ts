@@ -27,9 +27,12 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         return null;
     }
     logger.info(
-        ":::::::::::::::::::sending swap tx" + trade.ticker,
-        trade.profits.tokenProfit,
-        trade.tokenOut,
+        ":::::::::::::::::::sending swap tx ",
+        trade.ticker,
+        trade.loanPool.exchange,
+        trade.target.exchange,
+        fu(trade.profits.tokenProfit, trade.tokenOut.decimals),
+        trade.tokenOut.symbol,
     );
     if (trade.wallet.token0Balance < trade.tradeSizes.pool0.token0.size) {
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
