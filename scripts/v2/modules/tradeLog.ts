@@ -79,6 +79,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                         " " +
                         trade.tokenIn.symbol,
                 },
+
+                //WHAT IN THE FLYING FUCK IS WRONG WITH THE DECIMAL PLACES???????????????????????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 target: {
                     out:
                         fu(trade.quotes.target.out, trade.tokenOut.decimals) +
