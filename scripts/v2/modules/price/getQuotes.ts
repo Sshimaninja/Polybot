@@ -31,29 +31,27 @@ export async function getQuotes(trade: BoolTrade): Promise<BoolTrade> {
         tokenOut: bigint;
     }
     let walletTradeSize = async (): Promise<WalletTradeSizes> => {
-        let sizes = {
+        let size: WalletTradeSizes = {
             tokenIn: trade.target.tradeSize.size,
             tokenOut: trade.wallet.tokenOutBalance,
         };
         let funds = trade.wallet.tokenInBalance;
 
         if (funds > trade.target.tradeSize.size) {
-            sizes.tokenIn = trade.target.tradeSize.size;
+            size.tokenIn = trade.target.tradeSize.size;
         }
-        let tradeSizeTokenOut = await tradeToPrice(
+        let tradeSizeTokenOutBN = await tradeToPrice(
             trade.loanPool.reserveOutBN,
             trade.loanPool.reserveInBN,
             BN(trade.target.priceIn),
             slip,
         );
-        let size = {
-            tokenIn: sizes.tokenIn,
-            tokenOut: pu(
-                tradeSizeTokenOut.toFixed(trade.tokenOut.decimals),
-                trade.tokenOut.decimals,
-            ),
+        let tradeSizeTokenOut = BN2BigInt(tradeSizeTokenOutBN, trade.tokenOut.decimals);
+        size = {
+            tokenIn: size.tokenIn,
+            tokenOut: tradeSizeTokenOut,
         };
-        return sizes;
+        return size;
     };
 
     let wallet = await walletTradeSize();
