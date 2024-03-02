@@ -29,22 +29,23 @@ export async function rollDamage(trade: BoolTrade): Promise<BoolTrade> {
         WMATICProfit: trade.profits.WMATICProfit,
     };
     trade.profits.WMATICProfit = trade.profits.WMATICProfit;
-
-    // Only populate after wmaticprofit is in:
-    const log = await tradeLogs(trade);
-    if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
-        logger.info("[damage]:");
-        logger.info(log);
-        // console.log(
-        //     "Trade Type: ",
-        //     trade.type,
-        //     " | ",
-        //     trade.ticker,
-        //     " | ",
-        //     trade.loanPool.exchange,
-        //     " | ",
-        //     trade.target.exchange,
-        // );
-    }
     return trade;
+    // Only populate after wmaticprofit is in:
+    // const log = await tradeLogs(trade);
+    // if (trade.profits.tokenProfit > 0n) {
+    //     console.log(log);
+    // }
+    // if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
+    //     logger.info("[damage]:");
+    //     logger.info(log);
+    // console.log(
+    //     "Trade Type: ",
+    //     trade.type,
+    //     " | ",
+    //     trade.ticker,
+    //     " | ",
+    //     trade.loanPool.exchange,
+    //     " | ",
+    //     trade.target.exchange,
+    // );
 }
