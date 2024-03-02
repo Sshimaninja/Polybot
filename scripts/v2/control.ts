@@ -43,7 +43,7 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const p0 = new Prices(match.poolAID, reserves[0]);
                     const p1 = new Prices(match.poolBID, reserves[1]);
 
-                    console.log("Starting trade for " + match.poolAID + " and " + match.poolBID);
+                    // console.log("Starting trade for " + match.poolAID + " and " + match.poolBID);
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     const trade = await t.getTrade();
 
@@ -58,7 +58,8 @@ export async function control(data: FactoryPair[], gasData: any) {
                     }
 
                     await rollDamage(trade);
-
+                    const logs = await tradeLogs(trade);
+                    console.log(logs);
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                         return;
                     }
