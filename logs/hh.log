@@ -73,5 +73,5 @@ WARNING: These accounts, and their private keys, are publicly known.
 Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 
 Mined empty block #53054773 with base fee 2899360517
-Mined empty block range #53054773 to #53054774
-Mined empty block range #53054773 to #53054775
+eth_getBlockByNumber
+Mined empty block #53054774 with base fee 2536940453
