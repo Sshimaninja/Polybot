@@ -51,12 +51,12 @@ export async function control(data: FactoryPair[], gasData: any) {
                         return;
                     }
 
-                    await trueProfit(trade);
-
+                    trade = await trueProfit(trade);
+                    // console.log(rade);
                     await filterTrade(trade);
 
-                    let log = await tradeLogs(trade);
-
+                    const log = await tradeLogs(trade);
+                    // logger.info(log);
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                         console.log("No profit after trueProfit: ", log.tinyData);
                         return;

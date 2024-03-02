@@ -10,7 +10,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             ticker: trade.ticker,
             direction: trade.direction,
             tradeSize:
-                fu(trade.target.tradeSize.token0.size, trade.tokenIn.decimals) +
+                fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.decimals) +
                 " " +
                 trade.tokenIn.symbol,
             tokenIn: { symbol: trade.tokenIn.symbol, decimals: trade.tokenIn.decimals },
@@ -56,44 +56,35 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     " " +
                     trade.tokenOut.symbol,
                 // amountOutToken0for1:
-                //     fu(trade.quotes.target.token1Token0for1, trade.tokenIn.decimals) +
+                //     fu(trade.quotes.target.token1OutToken0for1, trade.tokenIn.decimals) +
                 //     " " +
                 //     trade.tokenIn.symbol,
                 amountOut:
-                    fu(trade.quotes.target.token1, trade.tokenOut.decimals) +
+                    fu(trade.quotes.target.token1Out, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
             },
             quotes: {
-                loanPool: {
-                    out:
-                        fu(trade.quotes.loanPool.out, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
-                    flashOut:
-                        fu(trade.quotes.loanPool.flashOut, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
-                    in:
-                        fu(trade.quotes.loanPool.in, trade.tokenIn.decimals) +
-                        " " +
-                        trade.tokenIn.symbol,
-                },
-                target: {
-                    out:
-                        fu(trade.quotes.target.token1, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
-                    flashOut:
-                        fu(trade.quotes.target.token1, trade.tokenOut.decimals) +
-                        " " +
-                        trade.tokenOut.symbol,
-                    in:
-                        fu(trade.quotes.target.token0, trade.tokenIn.decimals) +
-                        " " +
-                        trade.tokenIn.symbol,
-                },
+                loanPoolToken0:
+                    fu(trade.quotes.loanPool.token0Out, trade.tokenIn.decimals) +
+                    " " +
+                    trade.tokenIn.symbol,
+
+                loanPoolToken1:
+                    fu(trade.quotes.loanPool.token1Out, trade.tokenOut.decimals) +
+                    " " +
+                    trade.tokenOut.symbol,
+
+                targetToken0:
+                    fu(trade.quotes.target.token0Out, trade.tokenIn.decimals) +
+                    " " +
+                    trade.tokenIn.symbol,
+                targetToken1:
+                    fu(trade.quotes.target.token1Out, trade.tokenOut.decimals) +
+                    " " +
+                    trade.tokenOut.symbol,
             },
+
             gas: {
                 gasEstimate: trade.gas.gasEstimate,
                 maxFee: trade.gas.maxFee,

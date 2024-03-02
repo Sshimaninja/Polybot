@@ -161,7 +161,7 @@ export interface DeployedPools {
     block: number;
 }
 export interface Profcalcs {
-    profit: bigint;
+    singleProfit: bigint;
     flashProfit: bigint;
 }
 export interface Valid3Pool {
@@ -356,10 +356,11 @@ export interface BoolTrade {
     tokenIn: Token;
     tokenOut: Token;
     flash: Contract;
+    tradeSizes: Sizes;
     wallet: {
         token0Balance: bigint;
         token1Balance: bigint;
-        gasBalance: bigint;
+        maticBalance: bigint;
     };
     loanPool: {
         exchange: string;
@@ -386,24 +387,26 @@ export interface BoolTrade {
         reserveOutBN: BN;
         priceIn: string;
         priceOut: string;
-        tradeSize: Size;
-        walletSize: Size;
     };
-    quotes: Quotes;
+    quotes: FinalQuotes;
     gas: GasData;
     k: K;
     differenceTokenOut: string;
     differencePercent: string;
     profits: TradeProfit;
 }
-export interface Size {
-    token0: {
-        size: bigint;
-        sizeBN: BN;
+export interface Sizes {
+    pool0: {
+        token0: {
+            size: bigint;
+            sizeBN: BN;
+        };
     };
-    token1: {
-        size: bigint;
-        sizeBN: BN;
+    pool1: {
+        token1: {
+            size: bigint;
+            sizeBN: BN;
+        };
     };
 }
 
@@ -416,17 +419,28 @@ export interface TradeProfit {
     WMATICProfit: bigint;
 }
 
-export interface Quotes {
+export interface FinalQuotes {
     target: {
-        token0: bigint;
-        token1: bigint;
-        flashToken0: bigint;
-        flashToken1: bigint;
+        token0Out: bigint;
+        token1Out: bigint;
     };
     loanPool: {
-        token0: bigint;
-        token1: bigint;
-        flashToken0: bigint;
-        flashToken1: bigint;
+        token0Out: bigint;
+        token1Out: bigint;
+    };
+}
+
+export interface Quotes {
+    target: {
+        token0Out: bigint;
+        token1Out: bigint;
+        flashToken0Out: bigint;
+        flashToken1Out: bigint;
+    };
+    loanPool: {
+        token0Out: bigint;
+        token1Out: bigint;
+        flashToken0Out: bigint;
+        flashToken1Out: bigint;
     };
 }

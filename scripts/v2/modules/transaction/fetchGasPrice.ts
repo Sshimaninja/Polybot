@@ -33,16 +33,12 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         maxFee: maxFeeGasData,
         maxPriorityFee: maxPriorityFeeGasData,
     };
-    if (
-        trade.type === "flashMultI" ||
-        trade.type === "flashSingle"
-        // trade.type.includes("filtered")
-    ) {
+    if (trade.type.includes("flash")) {
         logger.info("EstimatingGas for trade: " + trade.ticker + "...");
         try {
             // const fix = await fixEstimateGas(trade);
             // logger.info(fix);
-            if (trade.wallet.tokenInBalance < trade.target.tradeSize.token0.size) {
+            if (trade.wallet.token0Balance < trade.tradeSizes.pool0.token0.size) {
                 logger.info("Insufficient balance for trade. Skipping trade.");
                 return g;
             }
@@ -57,8 +53,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.target.router,
                 trade.tokenIn.id,
                 trade.tokenOut.id,
-                trade.target.tradeSize,
-                trade.quotes.target.token1,
+                trade.tradeSizes.pool0.token0.size,
+                trade.quotes.target.token1Out,
                 trade.loanPool.amountRepay,
             );
             logger.info(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
@@ -89,15 +85,13 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     }
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
-        let nonce = await signer.getNonce();
-
         try {
             const p = {
                 routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
                 routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
-                tradeSize: trade.wallet.tokenInBalance,
-                amountOutA: trade.quotes.target.token1, //high Output tokenIn to tokenOut
-                amountOutB: trade.quotes.loanPool.token0, //high Output tokenOut to tokenIn
+                tradeSize: trade.tradeSizes.pool0.token0.size,
+                amountOutA: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
+                amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
                 path0: [trade.tokenIn.id, trade.tokenOut.id],
                 path1: [trade.tokenOut.id, trade.tokenIn.id],
                 to: await signer.getAddress(),
@@ -113,7 +107,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             // logger.info("Checking balances: ");
             const bal = await walletBal(trade.tokenIn, trade.tokenOut);
             // logger.info(bal);
-            if (bal.tokenIn < trade.target.tradeSize.token0.size) {
+            if (bal.tokenIn < trade.tradeSizes.pool0.token0.size) {
                 logger.info(
                     "tokenIn Balance: ",
                     fu(bal.tokenIn, trade.tokenIn.decimals),
@@ -121,7 +115,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 );
                 logger.info(
                     "tokenIn tradeSize: ",
-                    fu(trade.target.tradeSize.token0.size, trade.tokenIn.decimals),
+                    fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.decimals),
                     trade.tokenIn.symbol,
                 );
                 logger.error("Token0 balance too low for trade.");
@@ -136,12 +130,12 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             let approveTokenIn = await checkApproval(
                 trade.tokenIn.id,
                 swapSingleAddress,
-                trade.target.tradeSize.token0.size,
+                trade.tradeSizes.pool0.token0.size,
             );
             let approveTokenOut = await checkApproval(
                 trade.tokenOut.id,
                 swapSingleAddress,
-                trade.quotes.target.token1,
+                trade.quotes.target.token1Out,
             );
             if (!approveTokenIn || !approveTokenOut) {
                 logger.info(">>>>>>>>>>>>>>>>>>>>>ERROR: APPROVAL FAILED");

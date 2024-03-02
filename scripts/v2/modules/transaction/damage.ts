@@ -20,9 +20,6 @@ export async function rollDamage(trade: BoolTrade): Promise<BoolTrade> {
         return trade;
     }
 
-    if (trade.type.includes("filtered")) {
-        return trade;
-    }
     trade = await trueProfit(trade);
     trade.profits = {
         tokenProfit: trade.profits.tokenProfit,
