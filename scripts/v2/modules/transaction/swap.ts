@@ -8,7 +8,6 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { tradeLogs } from "../../modules/tradeLog";
 import { walletBal } from "../tools/walletBal";
 import { pendingTransactions } from "../../control";
-import { getMaxTokenOut } from "../tradeMath";
 import { checkApproval } from "./approvals";
 import { TransactionResponse } from "alchemy-sdk";
 
@@ -32,7 +31,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         trade.profits.tokenProfit,
         trade.tokenOut,
     );
-    if (trade.wallet.tokenInBalance < trade.target.tradeSize.token0.size) {
+    if (trade.wallet.token0Balance < trade.tradeSizes.pool0.token0.size) {
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
         return null;
     }
@@ -40,9 +39,9 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         const p = {
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
-            tradeSize: trade.target.tradeSize.token0.size,
-            amountOutA: trade.quotes.target.token1, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.token0, //high Output tokenOut to tokenIn
+            tradeSize: trade.tradeSizes.pool0.token0.size,
+            amountOutA: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
+            amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.id, trade.tokenOut.id],
             path1: [trade.tokenOut.id, trade.tokenIn.id],
             to: await signer.getAddress(),

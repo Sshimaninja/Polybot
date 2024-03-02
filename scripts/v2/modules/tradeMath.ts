@@ -12,8 +12,8 @@ import { slip } from "../../../constants/environment";
 /*
 
 */
-export async function getMaxTokenIn(reserveIn: BN, slip: BN): Promise<BN> {
-    const maxTokenIn = reserveIn.multipliedBy(BN(1).plus(slip)).minus(reserveIn);
+export async function getMaxIn(reserve: BN, slip: BN): Promise<BN> {
+    const maxTokenIn = reserve.multipliedBy(BN(1).plus(slip)).minus(reserve);
     //1000 * 1.002 = 1002 - 1000 = 2
     return maxTokenIn;
 }
@@ -29,8 +29,8 @@ export async function getMaxTokenIn(reserveIn: BN, slip: BN): Promise<BN> {
 - maxToken1Out = reserveOut - targetReserves = 1580000 - 1576840 = 3160
 */
 
-export async function getMaxTokenOut(reserveOut: BN, slip: BN): Promise<BN> {
-    const maxTokenOut = reserveOut.multipliedBy(BN(1).minus(slip)).minus(reserveOut);
+export async function getMaxOut(reserve: BN, slip: BN): Promise<BN> {
+    const maxTokenOut = reserve.multipliedBy(BN(1).minus(slip)).minus(reserve);
     return maxTokenOut;
 }
 
@@ -67,7 +67,7 @@ export async function tradeToPrice(
     }
     // Calculate the maximum trade size that would result in a slippage equal to slip
     let tradeSize = diff.multipliedBy(reserveIn); // 0.00036739705188571405169115024159 * 123348 = 45.285714285714285714285714285714
-    const maxTradeSize = await getMaxTokenIn(reserveOut, slip); // 123348 * 0.002 = 246.696
+    const maxTradeSize = await getMaxIn(reserveOut, slip); // 123348 * 0.002 = 246.696
     if (tradeSize.gt(maxTradeSize)) {
         return tradeSize; // 45.285714285714285714285714285714
     } else {

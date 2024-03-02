@@ -19,6 +19,7 @@ import { provider, signer } from "../../constants/provider";
 import { Prices } from "./classes/Prices";
 import { getQuotes } from "./modules/price/getQuotes";
 import { getK } from "./modules/tools/getK";
+import { walletTradeSize } from "./modules/tools/walletTradeSizes";
 import { getFunds } from "./modules/tools/getFunds";
 import { BoolTrade } from "../../constants/interfaces";
 import { PopulateRepays } from "./classes/Repays";
@@ -62,18 +63,8 @@ export class Trade {
         this.slip = slip;
         this.gasData = gasData;
         // Pass in the opposing pool's priceOut as target
-        this.calcA = new AmountConverter(
-            this.priceB,
-            this.priceA,
-            this.match,
-            this.priceB.priceOutBN,
-        );
-        this.calcB = new AmountConverter(
-            this.priceA,
-            this.priceB,
-            this.match,
-            this.priceA.priceOutBN,
-        );
+        this.calcA = new AmountConverter(this.priceB, this.priceA, this.match);
+        this.calcB = new AmountConverter(this.priceA, this.priceB, this.match);
     }
 
     async direction() {
@@ -86,17 +77,17 @@ export class Trade {
     }
 
     async getBal(): Promise<{
-        tokenInBalance: bigint;
-        tokenOutBalance: bigint;
-        gasBalance: bigint;
+        token0Balance: bigint;
+        token1Balance: bigint;
+        maticBalance: bigint;
     }> {
         const signerID = await signer.getAddress();
         const tokenIn: Contract = new Contract(this.match.token1.id, IERC20, provider);
         const tokenOut: Contract = new Contract(this.match.token0.id, IERC20, provider);
         let bal = {
-            tokenInBalance: await tokenIn.balanceOf(signerID),
-            tokenOutBalance: await tokenOut.balanceOf(signerID),
-            gasBalance: await provider.getBalance(signerID),
+            token0Balance: await tokenIn.balanceOf(signerID),
+            token1Balance: await tokenOut.balanceOf(signerID),
+            maticBalance: await provider.getBalance(signerID),
         };
         return bal;
     }
@@ -116,10 +107,25 @@ export class Trade {
             block: await provider.getBlockNumber(),
             direction: dir.dir,
             type: "filtered",
-            ticker: this.match.token0.symbol + "/" + this.match.token1.symbol,
+            ticker: this.match.token1.symbol + "/" + this.match.token0.symbol,
             tokenIn: this.match.token1,
             tokenOut: this.match.token0,
-            flash: flashMulti, // flashMulti, // This has to be set initially, but must be changed later per type. Likely to be flashMulti uneless other protocols are added for single swaps.
+            flash: flashMulti,
+            // TradeSizes must default to toPrice/flash sizes in order to calculate repays later. If flash is not used, these will be reassigned.
+            tradeSizes: {
+                pool0: {
+                    token0: {
+                        size: size.pool0.token0.size,
+                        sizeBN: BigInt2BN(size.pool0.token0.size, this.match.token0.decimals),
+                    },
+                },
+                pool1: {
+                    token1: {
+                        size: size.pool1.token1.size,
+                        sizeBN: BigInt2BN(size.pool1.token1.size, this.match.token1.decimals),
+                    },
+                },
+            },
             wallet: await this.getBal(),
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
@@ -178,22 +184,15 @@ export class Trade {
                 priceOut: A
                     ? this.priceA.priceOutBN.toFixed(this.match.token0.decimals)
                     : this.priceB.priceOutBN.toFixed(this.match.token0.decimals),
-                tradeSize: size,
-                walletSize: size,
             },
             quotes: {
                 target: {
-                    token0: 0n,
-                    token1: 0n,
-                    // flashOut: 0n,
-
-                    // flashIn: 0n,
+                    token0Out: 0n,
+                    token1Out: 0n,
                 },
                 loanPool: {
-                    token0: 0n,
-                    token1: 0n,
-                    // flashOut: 0n,
-                    // flashIn: 0n,
+                    token0Out: 0n,
+                    token1Out: 0n,
                 },
             },
             gas: this.gasData,
@@ -212,12 +211,12 @@ export class Trade {
         };
         // const debug = await debugAmounts(trade);
         // logger.info(">>>>>>>>>>>>>DEBUG: ", debug);
-        const quote = await getQuotes(trade);
+        const quotes = await getQuotes(trade);
 
-        const r = new PopulateRepays(trade, this.calcA);
+        const r = new PopulateRepays(trade, trade.direction === "A" ? this.calcA : this.calcB);
         const repays = await r.getRepays();
 
-        const p = new ProfitCalculator(trade, this.calcA, repays);
+        const p = new ProfitCalculator(trade, this.calcA, repays, quotes);
         const multi = await p.getMultiProfit();
         const single = await p.getSingleProfit();
 
@@ -232,18 +231,20 @@ export class Trade {
             tradeType = "flashMulti";
         }
 
-        if (single.profit > maxProfit) {
+        if (single.singleProfit > maxProfit) {
             tradeType = "single";
         }
 
         trade.loanPool.repays = repays;
 
-        trade.target.tradeSize =
-            trade.type === "single" ? trade.target.walletSize : trade.target.tradeSize;
+        let walletTradeSizes = await walletTradeSize(trade);
+        // this has to be assigned using profit calculator
+        trade.tradeSizes.pool0.token0.size =
+            trade.type === "single" ? walletTradeSizes.token0 : trade.tradeSizes.pool0.token0.size;
 
         trade.profits.tokenProfit =
             trade.type === "single"
-                ? single.profit
+                ? single.singleProfit
                 : trade.type === "flashMulti"
                 ? multi.flashProfit
                 : trade.type === "flashSingle"
@@ -257,9 +258,31 @@ export class Trade {
                 ? repays.flashSingle
                 : repays.single;
 
+        trade.type === "single"
+            ? (trade.quotes = {
+                  target: {
+                      token0Out: quotes.target.token0Out,
+                      token1Out: quotes.target.token1Out,
+                  },
+                  loanPool: {
+                      token0Out: quotes.loanPool.token0Out,
+                      token1Out: quotes.loanPool.token1Out,
+                  },
+              })
+            : (trade.quotes = {
+                  target: {
+                      token0Out: quotes.target.flashToken0Out,
+                      token1Out: quotes.target.flashToken1Out,
+                  },
+                  loanPool: {
+                      token0Out: quotes.loanPool.flashToken0Out,
+                      token1Out: quotes.loanPool.flashToken1Out,
+                  },
+              });
+
         trade.k = await getK(
             trade.type,
-            trade.target.tradeSize.token0.size,
+            trade.tradeSizes.pool0.token0.size,
             trade.loanPool.reserveIn,
             trade.loanPool.reserveOut,
             this.calcA,

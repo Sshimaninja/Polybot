@@ -8,62 +8,62 @@ import { tradeComparator } from "@cryptoalgebra/integral-sdk";
 
 export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade> {
     // const swap: swap = {
-    //     amount0Out: trade.target.tradeSize.token0.size,
+    //     amount0Out: trade.tradeSizes.pool0.token0.size,
     //     amount1Out: 0n,
     //     to: await trade.target.pool.getAddress(),
     //     data: "none",
     // };
-    if (trade.target.tradeSize.token0.size < 0n || trade.quotes.target.token1 < 0n) {
-        trade.type = "filtered: amountOut || tradeSize < zero";
-    }
-    if (trade.target.tradeSize.token0.size > trade.target.reserveIn) {
-        trade.type = "filtered: trade.target.tradeSize.token0.size > trade.target.reserveIn";
-    }
-    if (trade.quotes.target.token1 > trade.target.reserveOut) {
-        trade.type = "filtered:trade.quotes.target.token1 > trade.target.reserveOut";
-    }
 
-    let balance0 = trade.target.reserveIn;
-    let balance1 = trade.target.reserveOut;
-    const postTradeReservesIn =
-        balance0 > trade.target.reserveIn - trade.target.tradeSize.token0.size
-            ? balance0 - (trade.target.reserveIn - trade.target.tradeSize.token0.size)
-            : 0n;
-    const postTradeReservesOut =
-        balance1 > trade.target.reserveOut - trade.quotes.target.token1
-            ? balance1 - (trade.target.reserveOut - trade.quotes.target.token1)
-            : 0n;
-    if (postTradeReservesIn < 0) {
-        trade.type = "filtered: postTradeReservesIn < 0 (INSUFFICIENT_INPUT_AMOUNT)";
-        console.log(
-            "INSUFFICIENT INPUT AMOUNT",
-            postTradeReservesIn,
-            trade.ticker,
-            " ",
-            trade.target.exchange,
-        );
+    if (trade.tradeSizes.pool0.token0.size > trade.target.reserveIn) {
+        trade.type = "filtered: trade.tradeSizes.pool0.token0.size > trade.target.reserveIn";
     }
-    if (postTradeReservesOut < 0) {
-        trade.type = "filtered: postTradeReservesOut < 0 (INSUFFICIENT_INPUT_AMOUNT)";
-        console.log(
-            "INSUFFICIENT INPUT AMOUNT",
-            postTradeReservesOut,
-            trade.ticker,
-            " ",
-            trade.target.exchange,
-        );
+    if (trade.quotes.target.token1Out > trade.target.reserveOut) {
+        trade.type = "filtered:trade.quotes.target.token1Out > trade.target.reserveOut";
     }
-    const balance0Adjusted = balance0 * 1000n - postTradeReservesIn * 1n;
-    const balance1Adjusted = balance1 * 1000n - postTradeReservesOut * 1n;
-    const k = {
-        kPost: balance0Adjusted * balance1Adjusted,
-        rPost: trade.target.reserveIn * trade.target.reserveOut * 1000n ** 2n,
-    };
-    if (k.kPost < k.rPost) {
+    if (trade.type.includes("flash") && trade.k.uniswapKPositive === false) {
         trade.type = "filtered: K";
-        // console.log("No Trade: K: ", trade.ticker, " ", trade.target.exchange);
-        // console.log(k);
     }
+    // let balance0 = trade.target.reserveIn;
+    // let balance1 = trade.target.reserveOut;
+    // const postTradeReservesIn =
+    //     balance0 > trade.target.reserveIn - trade.tradeSizes.pool0.token0.size
+    //         ? balance0 - (trade.target.reserveIn - trade.tradeSizes.pool0.token0.size)
+    //         : 0n;
+    // const postTradeReservesOut =
+    //     balance1 > trade.target.reserveOut - trade.quotes.target.token1Out
+    //         ? balance1 - (trade.target.reserveOut - trade.quotes.target.token1Out)
+    //         : 0n;
+    // if (postTradeReservesIn < 0) {
+    //     trade.type = "filtered: postTradeReservesIn < 0 (INSUFFICIENT_INPUT_AMOUNT)";
+    //     console.log(
+    //         "INSUFFICIENT INPUT AMOUNT",
+    //         postTradeReservesIn,
+    //         trade.ticker,
+    //         " ",
+    //         trade.target.exchange,
+    //     );
+    // }
+    // if (postTradeReservesOut < 0) {
+    //     trade.type = "filtered: postTradeReservesOut < 0 (INSUFFICIENT_INPUT_AMOUNT)";
+    //     console.log(
+    //         "INSUFFICIENT INPUT AMOUNT",
+    //         postTradeReservesOut,
+    //         trade.ticker,
+    //         " ",
+    //         trade.target.exchange,
+    //     );
+    // }
+    // const balance0Adjusted = balance0 * 1000n - postTradeReservesIn * 1n;
+    // const balance1Adjusted = balance1 * 1000n - postTradeReservesOut * 1n;
+    // const k = {
+    //     kPost: balance0Adjusted * balance1Adjusted,
+    //     rPost: trade.target.reserveIn * trade.target.reserveOut * 1000n ** 2n,
+    // };
+    // if (k.kPost < k.rPost) {
+    //     trade.type = "filtered: K";
+    //     // console.log("No Trade: K: ", trade.ticker, " ", trade.target.exchange);
+    //     // console.log(k);
+    // }
     return trade;
 }
 
