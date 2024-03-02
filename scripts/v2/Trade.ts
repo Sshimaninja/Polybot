@@ -234,21 +234,21 @@ export class Trade {
                 ? "filtered: 0 profit"
                 : "filtered: unknown";
 
-        logger.info(
-            "CHECK CALCS: maxProfit: ",
-            fu(maxProfit, trade.tokenOut.decimals),
-            " tradeType: ",
-            trade.type,
-        );
+        // logger.info(
+        //     "CHECK CALCS: maxProfit: ",
+        //     fu(maxProfit, trade.tokenOut.decimals),
+        //     " tradeType: ",
+        //     trade.type,
+        // );
 
         trade.profits.tokenProfit = maxProfit;
 
-        logger.info(
-            "CHECK CALCS: trade.profits.tokenProfit: ",
-            fu(trade.profits.tokenProfit, trade.tokenOut.decimals),
-            " tradeType: ",
-            trade.type,
-        );
+        // logger.info(
+        //     "CHECK CALCS: trade.profits.tokenProfit: ",
+        //     fu(trade.profits.tokenProfit, trade.tokenOut.decimals),
+        //     " tradeType: ",
+        //     trade.type,
+        // );
 
         let walletTradeSizes = await walletTradeSize(trade);
 
@@ -264,12 +264,12 @@ export class Trade {
                 ? single.flashProfit
                 : 0n;
 
-        logger.info(
-            "CHECK CALCS: trade.profits.tokenProfit: ",
-            trade.profits.tokenProfit,
-            " tradeType: ",
-            trade.type,
-        );
+        // logger.info(
+        //     "CHECK CALCS: trade.profits.tokenProfit: ",
+        //     trade.profits.tokenProfit,
+        //     " tradeType: ",
+        //     trade.type,
+        // );
 
         trade.loanPool.amountRepay =
             trade.type === "flashMulti"
