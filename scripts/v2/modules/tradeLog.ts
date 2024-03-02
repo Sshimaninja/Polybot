@@ -10,7 +10,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             ticker: trade.ticker,
             direction: trade.direction,
             tradeSize:
-                fu(trade.target.tradeSize.size, trade.tokenIn.decimals) +
+                fu(trade.target.tradeSize.token0.size, trade.tokenIn.decimals) +
                 " " +
                 trade.tokenIn.symbol,
             tokenIn: { symbol: trade.tokenIn.symbol, decimals: trade.tokenIn.decimals },
@@ -56,11 +56,11 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     " " +
                     trade.tokenOut.symbol,
                 // amountOutToken0for1:
-                //     fu(trade.quotes.target.flashOutToken0for1, trade.tokenIn.decimals) +
+                //     fu(trade.quotes.target.token1Token0for1, trade.tokenIn.decimals) +
                 //     " " +
                 //     trade.tokenIn.symbol,
                 amountOut:
-                    fu(trade.quotes.target.flashOut, trade.tokenOut.decimals) +
+                    fu(trade.quotes.target.token1, trade.tokenOut.decimals) +
                     " " +
                     trade.tokenOut.symbol,
             },
@@ -79,19 +79,17 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                         " " +
                         trade.tokenIn.symbol,
                 },
-
-                //WHAT IN THE FLYING FUCK IS WRONG WITH THE DECIMAL PLACES???????????????????????????!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 target: {
                     out:
-                        fu(trade.quotes.target.out, trade.tokenOut.decimals) +
+                        fu(trade.quotes.target.token1, trade.tokenOut.decimals) +
                         " " +
                         trade.tokenOut.symbol,
                     flashOut:
-                        fu(trade.quotes.target.flashOut, trade.tokenOut.decimals) +
+                        fu(trade.quotes.target.token1, trade.tokenOut.decimals) +
                         " " +
                         trade.tokenOut.symbol,
                     in:
-                        fu(trade.quotes.target.in, trade.tokenIn.decimals) +
+                        fu(trade.quotes.target.token0, trade.tokenIn.decimals) +
                         " " +
                         trade.tokenIn.symbol,
                 },
@@ -113,7 +111,21 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             },
         };
 
-        return data;
+        const tinyData =
+            "Trade: " +
+            trade.ticker +
+            " | " +
+            trade.type +
+            " | " +
+            trade.loanPool.exchange +
+            " | " +
+            trade.target.exchange +
+            " | Gas: " +
+            fu(trade.gas.gasPrice, 18) +
+            " | Profit: " +
+            fu(trade.profits.WMATICProfit, 18);
+
+        return { data, tinyData };
     } catch (error: any) {
         console.log("Error in tradeLog.ts: " + error.message);
         console.log(error);

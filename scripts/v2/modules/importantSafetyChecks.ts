@@ -6,54 +6,65 @@ import { tradeComparator } from "@cryptoalgebra/integral-sdk";
 
 //Safety checks which should be called on target pool before trade.
 
-export async function importantSafetyChecks(trade: BoolTrade): Promise<boolean> {
-    const swap: swap = {
-        amount0Out: trade.target.tradeSize.size,
-        amount1Out: 0n,
-        to: await trade.target.pool.getAddress(),
-        data: "none",
-    };
-    if (swap.amount0Out < 0n || swap.amount1Out < 0n) {
-        console.log("amountOut < zero", trade.ticker, " ", trade.target.exchange);
-        return false;
+export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade> {
+    // const swap: swap = {
+    //     amount0Out: trade.target.tradeSize.token0.size,
+    //     amount1Out: 0n,
+    //     to: await trade.target.pool.getAddress(),
+    //     data: "none",
+    // };
+    if (trade.target.tradeSize.token0.size < 0n || trade.quotes.target.token1 < 0n) {
+        trade.type = "filtered: amountOut || tradeSize < zero";
     }
-    if (swap.amount0Out > trade.target.reserveIn || swap.amount1Out > trade.target.reserveOut) {
-        console.log("INSUFFICIENT LIQUIDITY FOR TRADE: ", trade.ticker, " ", trade.target.exchange);
-        return false;
+    if (trade.target.tradeSize.token0.size > trade.target.reserveIn) {
+        trade.type = "filtered: trade.target.tradeSize.token0.size > trade.target.reserveIn";
     }
+    if (trade.quotes.target.token1 > trade.target.reserveOut) {
+        trade.type = "filtered:trade.quotes.target.token1 > trade.target.reserveOut";
+    }
+
     let balance0 = trade.target.reserveIn;
     let balance1 = trade.target.reserveOut;
-    const amount0In =
-        balance0 > trade.target.reserveIn - swap.amount0Out
-            ? balance0 - (trade.target.reserveIn - swap.amount0Out)
+    const postTradeReservesIn =
+        balance0 > trade.target.reserveIn - trade.target.tradeSize.token0.size
+            ? balance0 - (trade.target.reserveIn - trade.target.tradeSize.token0.size)
             : 0n;
-    const amount1In =
-        balance1 > trade.target.reserveOut - swap.amount1Out
-            ? balance1 - (trade.target.reserveOut - swap.amount1Out)
+    const postTradeReservesOut =
+        balance1 > trade.target.reserveOut - trade.quotes.target.token1
+            ? balance1 - (trade.target.reserveOut - trade.quotes.target.token1)
             : 0n;
-    if (amount0In < 0 || amount1In < 0) {
+    if (postTradeReservesIn < 0) {
+        trade.type = "filtered: postTradeReservesIn < 0 (INSUFFICIENT_INPUT_AMOUNT)";
         console.log(
             "INSUFFICIENT INPUT AMOUNT",
-            amount0In,
-            amount1In,
+            postTradeReservesIn,
             trade.ticker,
             " ",
             trade.target.exchange,
         );
-        return false;
     }
-    const balance0Adjusted = balance0 * 1000n - amount0In * 1n;
-    const balance1Adjusted = balance1 * 1000n - amount1In * 1n;
+    if (postTradeReservesOut < 0) {
+        trade.type = "filtered: postTradeReservesOut < 0 (INSUFFICIENT_INPUT_AMOUNT)";
+        console.log(
+            "INSUFFICIENT INPUT AMOUNT",
+            postTradeReservesOut,
+            trade.ticker,
+            " ",
+            trade.target.exchange,
+        );
+    }
+    const balance0Adjusted = balance0 * 1000n - postTradeReservesIn * 1n;
+    const balance1Adjusted = balance1 * 1000n - postTradeReservesOut * 1n;
     const k = {
         kPost: balance0Adjusted * balance1Adjusted,
         rPost: trade.target.reserveIn * trade.target.reserveOut * 1000n ** 2n,
     };
     if (k.kPost < k.rPost) {
+        trade.type = "filtered: K";
         // console.log("No Trade: K: ", trade.ticker, " ", trade.target.exchange);
         // console.log(k);
-        return false;
     }
-    return true;
+    return trade;
 }
 
 //   // this low-level function should be called from a contract which performs important safety checks

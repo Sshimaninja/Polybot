@@ -75429,3 +75429,7 @@
 [2024-03-02T00:30:10.932] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
 [2024-03-02T00:30:32.111] [INFO] default - Control.ts: pendingTransactions: [object Object]
 [2024-03-02T00:30:32.236] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-02T08:03:23.640] [INFO] default - Control.ts: pendingTransactions: [object Object]
+[2024-03-02T08:03:23.775] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-02T08:25:33.587] [INFO] default - Control.ts: pendingTransactions: [object Object]
+[2024-03-02T08:25:33.723] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found

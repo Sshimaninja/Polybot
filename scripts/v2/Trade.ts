@@ -183,16 +183,16 @@ export class Trade {
             },
             quotes: {
                 target: {
-                    out: 0n,
-                    in: 0n,
-                    flashOut: 0n,
+                    token0: 0n,
+                    token1: 0n,
+                    // flashOut: 0n,
 
                     // flashIn: 0n,
                 },
                 loanPool: {
-                    out: 0n,
-                    in: 0n,
-                    flashOut: 0n,
+                    token0: 0n,
+                    token1: 0n,
+                    // flashOut: 0n,
                     // flashIn: 0n,
                 },
             },
@@ -259,7 +259,7 @@ export class Trade {
 
         trade.k = await getK(
             trade.type,
-            trade.target.tradeSize.size,
+            trade.target.tradeSize.token0.size,
             trade.loanPool.reserveIn,
             trade.loanPool.reserveOut,
             this.calcA,

@@ -42,7 +42,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         try {
             // const fix = await fixEstimateGas(trade);
             // logger.info(fix);
-            if (trade.wallet.tokenInBalance < trade.target.tradeSize.size) {
+            if (trade.wallet.tokenInBalance < trade.target.tradeSize.token0.size) {
                 logger.info("Insufficient balance for trade. Skipping trade.");
                 return g;
             }
@@ -58,7 +58,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.tokenIn.id,
                 trade.tokenOut.id,
                 trade.target.tradeSize,
-                trade.quotes.target.flashOut,
+                trade.quotes.target.token1,
                 trade.loanPool.amountRepay,
             );
             logger.info(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
@@ -96,8 +96,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
                 routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
                 tradeSize: trade.wallet.tokenInBalance,
-                amountOutA: trade.quotes.target.out, //high Output tokenIn to tokenOut
-                amountOutB: trade.quotes.loanPool.in, //high Output tokenOut to tokenIn
+                amountOutA: trade.quotes.target.token1, //high Output tokenIn to tokenOut
+                amountOutB: trade.quotes.loanPool.token0, //high Output tokenOut to tokenIn
                 path0: [trade.tokenIn.id, trade.tokenOut.id],
                 path1: [trade.tokenOut.id, trade.tokenIn.id],
                 to: await signer.getAddress(),
@@ -113,7 +113,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             // logger.info("Checking balances: ");
             const bal = await walletBal(trade.tokenIn, trade.tokenOut);
             // logger.info(bal);
-            if (bal.tokenIn < trade.target.tradeSize.size) {
+            if (bal.tokenIn < trade.target.tradeSize.token0.size) {
                 logger.info(
                     "tokenIn Balance: ",
                     fu(bal.tokenIn, trade.tokenIn.decimals),
@@ -121,7 +121,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 );
                 logger.info(
                     "tokenIn tradeSize: ",
-                    fu(trade.target.tradeSize.size, trade.tokenIn.decimals),
+                    fu(trade.target.tradeSize.token0.size, trade.tokenIn.decimals),
                     trade.tokenIn.symbol,
                 );
                 logger.error("Token0 balance too low for trade.");
@@ -136,12 +136,12 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             let approveTokenIn = await checkApproval(
                 trade.tokenIn.id,
                 swapSingleAddress,
-                trade.target.tradeSize.size,
+                trade.target.tradeSize.token0.size,
             );
             let approveTokenOut = await checkApproval(
                 trade.tokenOut.id,
                 swapSingleAddress,
-                trade.quotes.target.out,
+                trade.quotes.target.token1,
             );
             if (!approveTokenIn || !approveTokenOut) {
                 logger.info(">>>>>>>>>>>>>>>>>>>>>ERROR: APPROVAL FAILED");
