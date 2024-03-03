@@ -23,7 +23,7 @@ contract SwapSingle {
         address routerAID,
         address routerBID,
         uint256 tradeSize,
-        uint256 amountOutA,
+        uint256 amountOut,
         // uint256 amountOutB,
         address[] memory path0,
         address[] memory path1,
@@ -32,7 +32,7 @@ contract SwapSingle {
     ) external {
         console.log("SwapSingle: swapSingle contract entered");
         IERC20 tokenIn = IERC20(path0[0]);
-        IERC20 tokenOut = IERC20(path0[path0.length - 1]);
+        IERC20 tokenOut = IERC20(path0[1]);
         IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
         IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
         tokenIn.approve(routerAID, type(uint256).max);
@@ -43,10 +43,10 @@ contract SwapSingle {
         console.log("SwapSingle: tokenIn balance check passed");
         console.log("signer balance TokenIn:", tokenIn.balanceOf(msg.sender));
         console.log("SwapSingle: tradeSize: ", tradeSize);
-        console.log("SwapSingle: amountOutA: ", amountOutA);
+        console.log("SwapSingle: amountOut: ", amountOut);
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountOutA,
+            amountOut,
             path0,
             address(this),
             deadline
