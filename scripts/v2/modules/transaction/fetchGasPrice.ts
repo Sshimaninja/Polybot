@@ -87,6 +87,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     if (trade.type === "single") {
         try {
             const p = {
+                poolAID: await trade.target.pool.getAddress(),
+                poolBID: await trade.loanPool.pool.getAddress(),
                 routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
                 routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
                 tradeSize: trade.tradeSizes.pool0.token0.size,

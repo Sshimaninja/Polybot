@@ -10,6 +10,7 @@ import { walletBal } from "../tools/walletBal";
 import { pendingTransactions } from "../../control";
 import { checkApproval } from "./approvals";
 import { TransactionResponse } from "alchemy-sdk";
+import { check } from "prettier";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
     const swapSingleAddress = await swapSingle.getAddress();
@@ -38,13 +39,16 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
         return null;
     }
+
     try {
         const p = {
+            targetPoolID: await trade.target.pool.getAddress(),
+            loanPoolID: await trade.loanPool.pool.getAddress(),
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.pool0.token0.size,
-            amountOutA: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
-            // amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
+            amountOut: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
+            amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.id, trade.tokenOut.id],
             path1: [trade.tokenOut.id, trade.tokenIn.id],
             to: await signer.getAddress(),
@@ -54,6 +58,16 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         //     //message describing trade for my own info/debug
         // };
         // // console.log(m);
+        await checkApproval(
+            trade.tokenIn.id,
+            swapSingleAddress,
+            trade.tradeSizes.pool0.token0.size,
+        );
+        await checkApproval(trade.tokenOut.id, swapSingleAddress, trade.quotes.target.token1Out);
+        await checkApproval(trade.tokenIn.id, p.routerAID, trade.tradeSizes.pool0.token0.size);
+        await checkApproval(trade.tokenOut.id, p.routerAID, trade.quotes.target.token1Out);
+        await checkApproval(trade.tokenOut.id, p.routerBID, trade.quotes.loanPool.token0Out);
+        await checkApproval(trade.tokenIn.id, p.routerBID, trade.quotes.loanPool.token0Out);
 
         const oldBal = await walletBal(trade.tokenIn, trade.tokenOut);
         pendingTransactions[trade.ID] = true;
@@ -61,7 +75,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
             p.routerAID,
             p.routerBID,
             p.tradeSize,
-            p.amountOutA,
+            p.amountOut,
             // p.amountOutB,
             p.path0,
             p.path1,
