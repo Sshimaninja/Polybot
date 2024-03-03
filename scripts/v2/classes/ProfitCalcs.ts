@@ -24,7 +24,7 @@ export class ProfitCalculator {
                 this.quotes.target.flashToken1Out > this.repays.flashMulti
                     ? this.quotes.target.flashToken1Out - this.repays.flashMulti
                     : 0n;
-            const profitBN = BigInt2BN(profit.flashProfit, this.trade.tokenOut.decimals);
+            const profitBN = BigInt2BN(profit.flashProfit, this.trade.tokenOut.data.decimals);
             // console.log(profit);
             return profit;
         } catch (error: any) {

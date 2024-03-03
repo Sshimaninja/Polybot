@@ -8,11 +8,9 @@ import { logger } from "./constants/logger";
 import { telegramInfo } from "./scripts/v2/modules/transaction/notify";
 
 async function main() {
-    // // Set up Telegram message
     const message = `Polybot V2 Started: ${Date.now()}`;
     await telegramInfo(message);
-    // full path to matches dataDir : '/mnt/d/code/arbitrage/polybot-live/polybotv3/data/matches/v2/'
-    let matchDir = path.join(__dirname, "./data/matches/v2/"); // path.join(__dirname, '/data/matches/v2/');
+    let matchDir = path.join(__dirname, "./data/matches/v2/");
     async function dataFeed() {
         const pairList: FactoryPair[] = [];
         const files = await fs.promises.readdir(matchDir);

@@ -29,7 +29,7 @@ export async function flash(trade: BoolTrade): Promise<TransactionReceipt | null
         return null;
     }
     // Set the pending transaction flag for this pool
-    const oldBal = await walletBal(trade.tokenIn, trade.tokenOut);
+    const oldBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
     logger.info(
         ":::::::::::Sending Transaction: " +
             trade.loanPool.exchange +
@@ -48,8 +48,8 @@ export async function flash(trade: BoolTrade): Promise<TransactionReceipt | null
         trade.loanPool.factory,
         trade.loanPool.router,
         trade.target.router,
-        trade.tokenIn.id,
-        trade.tokenOut.id,
+        trade.tokenIn.data.id,
+        trade.tokenOut.data.id,
         trade.tradeSizes.pool0.token0.size,
         trade.quotes.target.token1Out,
         trade.loanPool.amountRepay,
@@ -72,7 +72,7 @@ export async function flash(trade: BoolTrade): Promise<TransactionReceipt | null
         logger.info("TRANSACTION COMPLETE: " + trade.ticker, receipt.hash);
 
         //Print balances after trade
-        const newBal = await walletBal(trade.tokenIn, trade.tokenOut);
+        const newBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ", oldBal);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ", newBal);
         logger.info("::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::");

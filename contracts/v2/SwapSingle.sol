@@ -18,13 +18,13 @@ contract SwapSingle {
     function checkOwner() public view returns (address) {
         return owner;
     }
-
     function swapSingle(
+        address target,
         address routerAID,
         address routerBID,
         uint256 tradeSize,
-        uint256 amountOut,
-        // uint256 amountOutB,
+        uint256 amountOutA,
+        uint256 amountOutB,
         address[] memory path0,
         address[] memory path1,
         address to,
@@ -35,15 +35,58 @@ contract SwapSingle {
         IERC20 tokenOut = IERC20(path0[1]);
         IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
         IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
+        approveTokens(tokenIn, tokenOut, routerAID, routerBID);
+        performSwap(
+            target,
+            routerA,
+            routerB,
+            tradeSize,
+            amountOutA,
+            amountOutB,
+            path0,
+            path1,
+            to,
+            deadline
+        );
+        tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));
+    }
+
+    function approveTokens(
+        IERC20 tokenIn,
+        IERC20 tokenOut,
+        address routerAID,
+        address routerBID
+    ) internal {
         tokenIn.approve(routerAID, type(uint256).max);
         tokenIn.approve(routerBID, type(uint256).max);
         tokenOut.approve(routerAID, type(uint256).max);
         tokenOut.approve(routerBID, type(uint256).max);
-        console.log("SwapSingle: tokenIn approved");
-        console.log("SwapSingle: tokenIn balance check passed");
-        console.log("signer balance TokenIn:", tokenIn.balanceOf(msg.sender));
-        console.log("SwapSingle: tradeSize: ", tradeSize);
-        console.log("SwapSingle: amountOut: ", amountOut);
+        console.log("SwapSingle: tokens approved");
+    }
+
+    // function safeTransferFrom(address token, address from, address to, uint value) internal {
+    //     // bytes4(keccak256(bytes('transferFrom(address,address,uint256)')));
+    //     (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x23b872dd, from, to, value));
+    //     require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: TRANSFER_FROM_FAILED');
+    // }
+
+    function performSwap(
+        address target,
+        IUniswapV2Router02 routerA,
+        IUniswapV2Router02 routerB,
+        uint256 tradeSize,
+        uint256 amountOut,
+        uint256 amountOutB,
+        address[] memory path0,
+        address[] memory path1,
+        address to,
+        uint256 deadline
+    ) internal {
+        IERC20 tokenOut = IERC20(path0[1]);
+        // IERC20 tokenOut = IERC20(path0[1]);
+        console.log("SwapSingle: tradeSize::: ", tradeSize);
+        console.log("SwapSingle: amountOutA:: ", amountOut);
+        console.log("target balance tokenOut: ", tokenOut.balanceOf(target));
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
             amountOut,
@@ -53,12 +96,12 @@ contract SwapSingle {
         );
         console.log("SwapSingle: first swap completed");
         console.log("SwapSingle: swapIn[1]: ", swapIn[1]);
-        tokenOut.approve(routerBID, type(uint256).max);
         uint256[] memory amountsOut = routerB.getAmountsOut(swapIn[1], path1);
-        require(amountsOut[1] > tradeSize, "Error SwapSingle: Insufficient output: Target");
-        routerB.swapTokensForExactTokens(swapIn[1], tradeSize, path1, to, deadline);
+        require(amountsOut[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
+        // console.log("SwapSingle: amountOutB::: ", tradeSize);
+        // console.log("loanPool Balance tokenIn: ", tokenOut.balanceOf(loanPool));
+        routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
         console.log("SwapSingle: second swap completed");
-        tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));
     }
 }
 
@@ -68,7 +111,10 @@ interface IUniswapV2Factory {
 
 interface IUniswapV2Pair {
     function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;
-
+    function getReserves()
+        external
+        view
+        returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast);
     function token0() external view returns (address);
 
     function token1() external view returns (address);

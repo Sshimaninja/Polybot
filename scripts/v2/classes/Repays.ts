@@ -36,8 +36,8 @@ export class PopulateRepays {
 
         const getSingle = async (): Promise<bigint> => {
             const repayInTokenOut = await getAmountsIn(this.trade.loanPool.router, loanPlusFee, [
-                this.trade.tokenOut.id,
-                this.trade.tokenIn.id,
+                this.trade.tokenOut.data.id,
+                this.trade.tokenIn.data.id,
             ]);
             return repayInTokenOut; //falsely inflated to force multi trade (this isn't a real trade, just a placeholder for now)
         };
@@ -47,7 +47,7 @@ export class PopulateRepays {
             const repayByGetAmountsIn = await getAmountsIn(
                 this.trade.loanPool.router,
                 this.trade.tradeSizes.pool0.token0.size, //tradeSize in tokenIn
-                [this.trade.tokenOut.id, this.trade.tokenIn.id],
+                [this.trade.tokenOut.data.id, this.trade.tokenIn.data.id],
             );
             return repayByGetAmountsIn;
         };

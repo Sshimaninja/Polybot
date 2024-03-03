@@ -28,6 +28,7 @@ import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertB
 import { filterTrade } from "./modules/filterTrade";
 import { logger } from "../../constants/logger";
 import { ProfitCalculator } from "./classes/ProfitCalcs";
+import { params } from "./modules/transaction/params";
 // import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmounts/getAmountsIOBN";
 
 /**
@@ -81,8 +82,8 @@ export class Trade {
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const signerID = await signer.getAddress();
-        const tokenIn: Contract = new Contract(this.match.token1.id, IERC20, provider);
-        const tokenOut: Contract = new Contract(this.match.token0.id, IERC20, provider);
+        const tokenIn: Contract = new Contract(this.match.token1.id, IERC20, signer);
+        const tokenOut: Contract = new Contract(this.match.token0.id, IERC20, signer);
 
         const size = A
             ? await this.calcA.getSize() //this.getSize(this.calcB, this.calcA)
@@ -96,8 +97,14 @@ export class Trade {
             direction: dir.dir,
             type: "filtered",
             ticker: this.match.token1.symbol + "/" + this.match.token0.symbol,
-            tokenIn: this.match.token1,
-            tokenOut: this.match.token0,
+            tokenIn: {
+                data: this.match.token1,
+                contract: new Contract(this.match.token1.id, IERC20, signer),
+            },
+            tokenOut: {
+                data: this.match.token0,
+                contract: new Contract(this.match.token0.id, IERC20, signer),
+            },
             flash: flashMulti,
             // TradeSizes must default to toPrice/flash sizes in order to calculate repays later. If flash is not used, these will be reassigned.
             tradeSizes: {
@@ -122,14 +129,14 @@ export class Trade {
             loanPool: {
                 exchange: A ? this.pair.exchangeB : this.pair.exchangeA,
                 factory: A
-                    ? new Contract(this.pair.factoryB_id, IFactory, provider)
-                    : new Contract(this.pair.factoryA_id, IFactory, provider),
+                    ? new Contract(this.pair.factoryB_id, IFactory, signer)
+                    : new Contract(this.pair.factoryA_id, IFactory, signer),
                 router: A
-                    ? new Contract(this.pair.routerB_id, IRouter, provider)
-                    : new Contract(this.pair.routerA_id, IRouter, provider),
+                    ? new Contract(this.pair.routerB_id, IRouter, signer)
+                    : new Contract(this.pair.routerA_id, IRouter, signer),
                 pool: A
-                    ? new Contract(this.match.poolBID, IPair, provider)
-                    : new Contract(this.match.poolAID, IPair, provider),
+                    ? new Contract(this.match.poolBID, IPair, signer)
+                    : new Contract(this.match.poolAID, IPair, signer),
                 reserveIn: A ? this.priceB.reserves.reserveIn : this.priceA.reserves.reserveIn,
                 reserveInBN: A
                     ? this.priceB.reserves.reserveInBN
@@ -154,14 +161,14 @@ export class Trade {
             target: {
                 exchange: A ? this.pair.exchangeA : this.pair.exchangeB,
                 factory: A
-                    ? new Contract(this.pair.factoryA_id, IFactory, provider)
-                    : new Contract(this.pair.factoryB_id, IFactory, provider),
+                    ? new Contract(this.pair.factoryA_id, IFactory, signer)
+                    : new Contract(this.pair.factoryB_id, IFactory, signer),
                 router: A
-                    ? new Contract(this.pair.routerA_id, IRouter, provider)
-                    : new Contract(this.pair.routerB_id, IRouter, provider),
+                    ? new Contract(this.pair.routerA_id, IRouter, signer)
+                    : new Contract(this.pair.routerB_id, IRouter, signer),
                 pool: A
-                    ? new Contract(this.match.poolAID, IPair, provider)
-                    : new Contract(this.match.poolBID, IPair, provider),
+                    ? new Contract(this.match.poolAID, IPair, signer)
+                    : new Contract(this.match.poolBID, IPair, signer),
                 reserveIn: A ? this.priceA.reserves.reserveIn : this.priceB.reserves.reserveIn,
                 reserveInBN: A
                     ? this.priceA.reserves.reserveInBN
@@ -200,6 +207,7 @@ export class Trade {
                 tokenProfit: 0n,
                 WMATICProfit: 0n,
             },
+            params: "no trade",
         };
         // const debug = await debugAmounts(trade);
         // logger.info(">>>>>>>>>>>>>DEBUG: ", debug);
@@ -213,7 +221,12 @@ export class Trade {
         const multi = await p.getMultiProfit();
         const single = await p.getSingleProfit();
 
-        if (multi.flashProfit <= 0n && single.flashProfit <= 0n && single.singleProfit <= 0n) {
+        if (
+            multi.flashProfit <= 0n &&
+            multi.singleProfit <= 0n &&
+            single.flashProfit <= 0n &&
+            single.singleProfit <= 0n
+        ) {
             trade.type = "filtered: 0 profit";
             return trade;
         }
@@ -236,7 +249,7 @@ export class Trade {
 
         // logger.info(
         //     "CHECK CALCS: maxProfit: ",
-        //     fu(maxProfit, trade.tokenOut.decimals),
+        //     fu(maxProfit, trade.tokenOut.data.decimals),
         //     " tradeType: ",
         //     trade.type,
         // );
@@ -245,7 +258,7 @@ export class Trade {
 
         // logger.info(
         //     "CHECK CALCS: trade.profits.tokenProfit: ",
-        //     fu(trade.profits.tokenProfit, trade.tokenOut.decimals),
+        //     fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
         //     " tradeType: ",
         //     trade.type,
         // );
@@ -266,8 +279,12 @@ export class Trade {
 
         // logger.info(
         //     "CHECK CALCS: trade.profits.tokenProfit: ",
-        //     trade.profits.tokenProfit,
-        //     " tradeType: ",
+        //     fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
+        //     // trade.tokenOut.data.decimals,
+        //     // "WMATICProfit: ",
+        //     // fu(trade.profits.WMATICProfit, 18),
+        //     // "WMATIC",
+        //     "tradeType: ",
         //     trade.type,
         // );
 
@@ -309,7 +326,7 @@ export class Trade {
         );
 
         trade.flash = trade.type === "flashSingle" ? flashSingle : flashMulti;
-
+        trade.params = await params(trade);
         return trade;
     }
 }

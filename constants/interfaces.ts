@@ -353,8 +353,8 @@ export interface BoolTrade {
     direction: string;
     type: string;
     ticker: string;
-    tokenIn: Token;
-    tokenOut: Token;
+    tokenIn: { data: Token; contract: Contract };
+    tokenOut: { data: Token; contract: Contract };
     flash: Contract;
     tradeSizes: Sizes;
     wallet: {
@@ -394,6 +394,7 @@ export interface BoolTrade {
     differenceTokenOut: string;
     differencePercent: string;
     profits: TradeProfit;
+    params: any;
 }
 export interface Sizes {
     pool0: {
