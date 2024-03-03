@@ -33,23 +33,23 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
     // }
     const walletQuotes = async () => {
         const singleTargetToken1Out = await getAmountsOut(trade.target.router, wallet.token0, [
-            trade.tokenIn.id,
-            trade.tokenOut.id,
+            trade.tokenIn.data.id,
+            trade.tokenOut.data.id,
         ]);
 
         const singleLoanPoolToken1Out = await getAmountsOut(trade.loanPool.router, wallet.token0, [
-            trade.tokenIn.id,
-            trade.tokenOut.id,
+            trade.tokenIn.data.id,
+            trade.tokenOut.data.id,
         ]);
 
         const singleTargetToken0Out = await getAmountsOut(trade.target.router, wallet.token1, [
-            trade.tokenOut.id,
-            trade.tokenIn.id,
+            trade.tokenOut.data.id,
+            trade.tokenIn.data.id,
         ]);
 
         const singleLoanPoolToken0Out = await getAmountsOut(trade.loanPool.router, wallet.token1, [
-            trade.tokenOut.id,
-            trade.tokenIn.id,
+            trade.tokenOut.data.id,
+            trade.tokenIn.data.id,
         ]);
         return {
             singleLoanPoolToken0Out,
@@ -62,13 +62,13 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
         const flashTargetToken1Out = await getAmountsOut(
             trade.target.router,
             trade.tradeSizes.pool0.token0.size,
-            [trade.tokenIn.id, trade.tokenOut.id],
+            [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
         const flashTargetToken0Out = await getAmountsOut(
             trade.target.router,
             trade.tradeSizes.pool0.token0.size,
-            [trade.tokenOut.id, trade.tokenIn.id],
+            [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
         return {
             flashTargetToken0Out,
@@ -80,13 +80,13 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
         const flashLoanPoolToken1Out = await getAmountsOut(
             trade.loanPool.router,
             trade.tradeSizes.pool0.token0.size,
-            [trade.tokenIn.id, trade.tokenOut.id],
+            [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
         const flashLoanPoolToken0Out = await getAmountsOut(
             trade.loanPool.router,
             trade.tradeSizes.pool0.token0.size,
-            [trade.tokenOut.id, trade.tokenIn.id],
+            [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
         return {
             flashLoanPoolToken0Out,

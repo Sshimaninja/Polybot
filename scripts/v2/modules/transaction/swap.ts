@@ -1,4 +1,4 @@
-import { Transaction, TransactionReceipt, ethers } from "ethers";
+import { MaxInt256, Transaction, TransactionReceipt, ethers } from "ethers";
 import { swapSingle } from "../../../../constants/environment";
 import { BoolTrade } from "../../../../constants/interfaces";
 import { fu, pu } from "../../../modules/convertBN";
@@ -9,8 +9,6 @@ import { tradeLogs } from "../../modules/tradeLog";
 import { walletBal } from "../tools/walletBal";
 import { pendingTransactions } from "../../control";
 import { checkApproval } from "./approvals";
-import { TransactionResponse } from "alchemy-sdk";
-import { check } from "prettier";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
     const swapSingleAddress = await swapSingle.getAddress();
@@ -22,7 +20,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
                 " " +
                 trade.profits.tokenProfit +
                 " " +
-                trade.tokenOut +
+                trade.tokenOut.data +
                 " PENDING",
         );
         return null;
@@ -32,8 +30,8 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         trade.ticker,
         trade.loanPool.exchange,
         trade.target.exchange,
-        fu(trade.profits.tokenProfit, trade.tokenOut.decimals),
-        trade.tokenOut.symbol,
+        fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
+        trade.tokenOut.data.symbol,
     );
     if (trade.wallet.token0Balance < trade.tradeSizes.pool0.token0.size) {
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
@@ -41,42 +39,34 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
     }
 
     try {
-        const p = {
-            targetPoolID: await trade.target.pool.getAddress(),
-            loanPoolID: await trade.loanPool.pool.getAddress(),
-            routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
-            routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
-            tradeSize: trade.tradeSizes.pool0.token0.size,
-            amountOut: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
-            path0: [trade.tokenIn.id, trade.tokenOut.id],
-            path1: [trade.tokenOut.id, trade.tokenIn.id],
-            to: await signer.getAddress(),
-            deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes
-        };
-        // const m = {
-        //     //message describing trade for my own info/debug
-        // };
-        // // console.log(m);
-        await checkApproval(
-            trade.tokenIn.id,
-            swapSingleAddress,
-            trade.tradeSizes.pool0.token0.size,
-        );
-        await checkApproval(trade.tokenOut.id, swapSingleAddress, trade.quotes.target.token1Out);
-        await checkApproval(trade.tokenIn.id, p.routerAID, trade.tradeSizes.pool0.token0.size);
-        await checkApproval(trade.tokenOut.id, p.routerAID, trade.quotes.target.token1Out);
-        await checkApproval(trade.tokenOut.id, p.routerBID, trade.quotes.loanPool.token0Out);
-        await checkApproval(trade.tokenIn.id, p.routerBID, trade.quotes.loanPool.token0Out);
+        let swapSingleAddress = await swapSingle.getAddress();
 
-        const oldBal = await walletBal(trade.tokenIn, trade.tokenOut);
+        let p = trade.params;
+
+        let approveRouter = await trade.tokenIn.contract.approve(trade.target.router, MaxInt256);
+        let approveSwapSingle = await trade.tokenIn.contract.approve(swapSingleAddress, MaxInt256);
+
+        // Wait for the approval transactions to be mined
+        await approveRouter.wait();
+        await approveSwapSingle.wait();
+        console.log(
+            "Target router approval amount: ",
+            trade.tokenIn.contract.allowance(await signer.getAddress(), trade.target.router),
+        );
+        console.log(
+            "SwapSingle approval amount: ",
+            trade.tokenIn.contract.allowance(await signer.getAddress(), swapSingleAddress),
+        );
+        const oldBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         pendingTransactions[trade.ID] = true;
+
         let tx: Transaction = await swapSingle.swapSingle(
+            p.target,
             p.routerAID,
             p.routerBID,
             p.tradeSize,
-            p.amountOut,
-            // p.amountOutB,
+            p.amountOutA,
+            p.amountOutB,
             p.path0,
             p.path1,
             p.to,
@@ -88,9 +78,14 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
                 maxPriorityFeePerGas: trade.gas.maxPriorityFee,
             },
         );
+
         const txResponse = await signer.sendTransaction(tx);
+        const txHash = txResponse.hash;
+
         const receipt = await txResponse.wait(30);
-        pendingTransactions[await trade.target.pool.getAddress()] = false;
+        if (receipt) {
+            pendingTransactions[trade.ID] = false;
+        }
         if (!receipt) {
             logger.info("Transaction failed with txResponse: " + txResponse);
             return null;
@@ -98,7 +93,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         logger.info("TRANSACTION COMPLETE: " + trade.ticker, receipt.hash);
 
         //Print balances after trade
-        const newBal = await walletBal(trade.tokenIn, trade.tokenOut);
+        const newBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ", oldBal);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ", newBal);
         logger.info("::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::");

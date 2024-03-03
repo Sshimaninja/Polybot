@@ -13,9 +13,9 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
     };
 
     const liquidityThresholdIn =
-        liquidityThresholds[trade.tokenIn.symbol] || liquidityThresholds.default;
+        liquidityThresholds[trade.tokenIn.data.symbol] || liquidityThresholds.default;
     const liquidityThresholdOut =
-        liquidityThresholds[trade.tokenOut.symbol] || liquidityThresholds.default;
+        liquidityThresholds[trade.tokenOut.data.symbol] || liquidityThresholds.default;
 
     if (!checkLiquidity(trade, "tokenIn", liquidityThresholdIn)) {
         return undefined;
@@ -35,25 +35,25 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
 async function checkLiquidity(trade: BoolTrade, path: string, liquidityThreshold: number) {
     if (path === "tokenIn") {
         if (trade.loanPool.reserveInBN.lt(BN(liquidityThreshold))) {
-            trade.type = "filtered: Low " + trade.tokenIn.symbol + " liquidity on loanPool";
-            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.loanPool.exchange, trade.loanPool.reserveInBN.toFixed(trade.tokenIn.decimals), trade.tokenIn.symbol);
+            trade.type = "filtered: Low " + trade.tokenIn.data.symbol + " liquidity on loanPool";
+            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.loanPool.exchange, trade.loanPool.reserveInBN.toFixed(trade.tokenIn.data.decimals), trade.tokenIn.data.symbol);
             return false;
         }
         if (trade.target.reserveInBN.lt(BN(liquidityThreshold))) {
-            trade.type = "filtered: Low " + trade.tokenIn.symbol + " liquidity on target";
-            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.target.exchange, trade.target.reserveInBN.toFixed(trade.tokenIn.decimals), trade.tokenIn.symbol);
+            trade.type = "filtered: Low " + trade.tokenIn.data.symbol + " liquidity on target";
+            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.target.exchange, trade.target.reserveInBN.toFixed(trade.tokenIn.data.decimals), trade.tokenIn.data.symbol);
             return false;
         }
     }
     if (path === "tokenOut") {
         if (trade.loanPool.reserveOutBN.lt(BN(liquidityThreshold))) {
-            trade.type = "filtered: Low " + trade.tokenOut.symbol + " liquidity on loanPool";
-            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.loanPool.exchange, trade.loanPool.reserveOutBN.toFixed(trade.tokenOut.decimals), trade.tokenOut.symbol);
+            trade.type = "filtered: Low " + trade.tokenOut.data.symbol + " liquidity on loanPool";
+            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.loanPool.exchange, trade.loanPool.reserveOutBN.toFixed(trade.tokenOut.data.decimals), trade.tokenOut.data.symbol);
             return false;
         }
         if (trade.target.reserveOutBN.lt(BN(liquidityThreshold))) {
-            trade.type = "filtered: Low " + trade.tokenOut.symbol + " liquidity on target";
-            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.target.exchange, trade.target.reserveOutBN.toFixed(trade.tokenOut.decimals), trade.tokenOut.symbol);
+            trade.type = "filtered: Low " + trade.tokenOut.data.symbol + " liquidity on target";
+            // console.log("[filteredTrade]: Insufficient liquidity: ", trade.ticker, trade.target.exchange, trade.target.reserveOutBN.toFixed(trade.tokenOut.data.decimals), trade.tokenOut.data.symbol);
             return false;
         }
     }

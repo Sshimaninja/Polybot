@@ -18,12 +18,12 @@ export async function debugAmounts(
     const amountOutJS = await getAmountOutJS(
         trade.target.router,
         trade.tradeSizes.pool0.token0.size,
-        [trade.tokenIn.id, trade.tokenOut.id],
+        [trade.tokenIn.data.id, trade.tokenOut.data.id],
     );
     const amountInJS = await getAmountsInJS(
         trade.loanPool.router,
         trade.tradeSizes.pool0.token0.size,
-        [trade.tokenOut.id, trade.tokenIn.id],
+        [trade.tokenOut.data.id, trade.tokenIn.data.id],
     );
     const amountOutBN = await getAmountsOutBN(
         trade.tradeSizes.pool0.token0.sizeBN,
@@ -38,22 +38,24 @@ export async function debugAmounts(
 
     // CHECKING AMOUNTS AS THEY ARE DIFFERENT FROM WHAT THE CONTRACT RETURNS
     const allAmountsRaw = {
-        amountOutEVM: fu(await amountOutJS, trade.tokenOut.decimals) + trade.tokenOut.symbol,
-        amountOutBN: amountOutBN.toFixed(trade.tokenOut.decimals) + trade.tokenOut.symbol,
-        amountInEVM: fu(await amountInJS, trade.tokenOut.decimals) + trade.tokenOut.symbol,
-        amountInBN: amountInBN.toFixed(trade.tokenOut.decimals) + trade.tokenOut.symbol,
+        amountOutEVM:
+            fu(await amountOutJS, trade.tokenOut.data.decimals) + trade.tokenOut.data.symbol,
+        amountOutBN: amountOutBN.toFixed(trade.tokenOut.data.decimals) + trade.tokenOut.data.symbol,
+        amountInEVM:
+            fu(await amountInJS, trade.tokenOut.data.decimals) + trade.tokenOut.data.symbol,
+        amountInBN: amountInBN.toFixed(trade.tokenOut.data.decimals) + trade.tokenOut.data.symbol,
     };
     return allAmountsRaw;
     // console.log(">>>>>>>>>>>>CHECK AMOUNTS::::::::::::::");
     // console.log(allAmountsRaw);
 
     // const allAmounts = {
-    //     amountOutLocal: fu(trade.quotes.target.token1Out, trade.tokenOut.decimals),
-    //     amountOutEVM: fu(await amountOutJS[1], trade.tokenOut.decimals),
-    //     amountOutBN: amountOutBN.toFixed(trade.tokenOut.decimals),
-    //     amountInLocal: fu(trade.loanPool.amountRepay, trade.tokenIn.decimals),
-    //     amountInEVM: fu(await amountInJS[0], trade.tokenIn.decimals),
-    //     amountInBN: amountInBN.toFixed(trade.tokenIn.decimals),
+    //     amountOutLocal: fu(trade.quotes.target.token1Out, trade.tokenOut.data.decimals),
+    //     amountOutEVM: fu(await amountOutJS[1], trade.tokenOut.data.decimals),
+    //     amountOutBN: amountOutBN.toFixed(trade.tokenOut.data.decimals),
+    //     amountInLocal: fu(trade.loanPool.amountRepay, trade.tokenIn.data.decimals),
+    //     amountInEVM: fu(await amountInJS[0], trade.tokenIn.data.decimals),
+    //     amountInBN: amountInBN.toFixed(trade.tokenIn.data.decimals),
     // // };
     // logger.info(">>>>>>>>>>>>CHECK AMOUNTSOUT::::::::::::::");
     // // logger.info(allAmounts);

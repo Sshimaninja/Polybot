@@ -57,7 +57,9 @@ export class WMATICProfit {
         this.profitInWMATIC = 0n;
         this.gasRouter = trade.loanPool.router;
         this.gasPool = trade.target.pool;
-        this.tokenProfitBN = BN(fu(this.trade.profits.tokenProfit, this.trade.tokenOut.decimals));
+        this.tokenProfitBN = BN(
+            fu(this.trade.profits.tokenProfit, this.trade.tokenOut.data.decimals),
+        );
     }
 
     //  async getProfitInWMATIC(trade: BoolTrade) {
@@ -73,10 +75,10 @@ export class WMATICProfit {
 
     async getWMATICProfit(): Promise<bigint> {
         let profitInWMATIC: bigint | undefined;
-        if (this.trade.tokenIn.id === this.wmaticID) {
+        if (this.trade.tokenIn.data.id === this.wmaticID) {
             profitInWMATIC = await this.tokenInisWMATIC();
         }
-        if (this.trade.tokenOut.id === this.wmaticID) {
+        if (this.trade.tokenOut.data.id === this.wmaticID) {
             profitInWMATIC = await this.tokenOutisWMATIC();
         }
         if (profitInWMATIC === undefined) {
@@ -89,7 +91,7 @@ export class WMATICProfit {
             //     "Profit token has no value: ",
             //     this.trade.ticker,
             //     "Profit in tokenOut: ",
-            //     fu(this.trade.profits.tokenProfit, this.trade.tokenOut.decimals),
+            //     fu(this.trade.profits.tokenProfit, this.trade.tokenOut.data.decimals),
             // );
             profitInWMATIC = 0n;
         }
@@ -105,7 +107,7 @@ export class WMATICProfit {
     }
 
     async tokenOutisWMATIC(): Promise<bigint | undefined> {
-        if (this.trade.tokenOut.id == this.wmaticID) {
+        if (this.trade.tokenOut.data.id == this.wmaticID) {
             // console.log("[getProfitInWmatic]: tokenOut is WMATIC");
             let profitInWMATIC = this.trade.profits.tokenProfit;
             let gasRouter = this.trade.target.router;
@@ -123,12 +125,12 @@ export class WMATICProfit {
     }
 
     async tokenInisWMATIC(): Promise<bigint | undefined> {
-        if (this.trade.tokenIn.id == this.wmaticID) {
+        if (this.trade.tokenIn.data.id == this.wmaticID) {
             // console.log("[getprofitInWMATIC]: tokenIn is WMATIC");
             // console.log(
             //     "[getProfitInWmatic] CHECK TOKENPROFIT TO BN CONVERSION: ",
             //     this.tokenProfitBN,
-            //     this.tokenProfitBN.toFixed(this.trade.tokenOut.decimals),
+            //     this.tokenProfitBN.toFixed(this.trade.tokenOut.data.decimals),
             // );
             let inMatic = await getAmountsOutBN(
                 this.tokenProfitBN,
@@ -137,12 +139,12 @@ export class WMATICProfit {
             );
             // let inMatic = await this.trade.loanPool.router.getAmountsOut(
             //     this.trade.profits.tokenProfit,
-            //     [this.trade.tokenOut.id, wmatic],
+            //     [this.trade.tokenOut.data.id, wmatic],
             // );
             // console.log(
             //     "[getProfitInWmatic] CHECK TOKENPROFITBN TO WMATIC CONVERSION: ",
             //     inMatic,
-            //     inMatic.toFixed(this.trade.tokenOut.decimals),
+            //     inMatic.toFixed(this.trade.tokenOut.data.decimals),
             // );
 
             let gasRouter = this.trade.loanPool.router;
@@ -169,10 +171,10 @@ export class WMATICProfit {
             // CHECK TOKENOUT -> WMATIC FIRST:
             let factory = new Contract(f.factory, IUniswapV2Factory, provider);
             let router = new Contract(f.router, IUniswapv2Router02, provider);
-            let pair = await factory.getPair(this.trade.tokenOut.id, wmatic);
+            let pair = await factory.getPair(this.trade.tokenOut.data.id, wmatic);
             pair !== zero ? pair : undefined;
             if (!pair) {
-                console.log("Pair not found for token: " + this.trade.tokenOut.id);
+                console.log("Pair not found for token: " + this.trade.tokenOut.data.id);
                 return undefined;
             }
             if (pair) {
@@ -200,7 +202,10 @@ export class WMATICProfit {
                 } else {
                     return undefined;
                 }
-                let profitInWMATIC = pu(profitInWMATICBN.toFixed(this.trade.tokenOut.decimals), 18);
+                let profitInWMATIC = pu(
+                    profitInWMATICBN.toFixed(this.trade.tokenOut.data.decimals),
+                    18,
+                );
                 // console.log(
                 //     ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]: profitInWMATICBN: ",
                 //     profitInWMATICBN,
@@ -227,7 +232,7 @@ export class WMATICProfit {
         let gasToken: ToWMATICPool;
         let gasWMATICPrice: BN;
         for (gasToken of Object.values(toWMATIC)) {
-            if (gasToken.tokenIn.id == this.trade.tokenOut.id) {
+            if (gasToken.tokenIn.id == this.trade.tokenOut.data.id) {
                 if (
                     ethers.getAddress(gasToken.tokenIn.id) < ethers.getAddress(gasToken.tokenOut.id)
                 ) {
@@ -236,12 +241,12 @@ export class WMATICProfit {
                     gasWMATICPrice = gasToken.reserves.reserve1BN.div(gasToken.reserves.reserve0BN);
                 }
                 profitInWMATICBN = this.tokenProfitBN.multipliedBy(gasWMATICPrice);
-                let profitString = profitInWMATICBN.toFixed(18);
-                profitInWMATIC = pu(profitString, 18);
-                console.log("[gasTokentoWMATICPrice]: profitInWMATIC: ", profitString);
+                let profitString = profitInWMATICBN.toFixed(this.trade.tokenOut.data.decimals);
+                profitInWMATIC = pu(profitString, this.trade.tokenOut.data.decimals);
+                logger.info("[gasTokentoWMATICPrice]: profitInWMATIC: ", profitString, "WMATIC");
                 return profitInWMATIC;
             }
-            if (gasToken.tokenIn.id == this.trade.tokenIn.id) {
+            if (gasToken.tokenIn.id == this.trade.tokenIn.data.id) {
                 if (
                     ethers.getAddress(gasToken.tokenIn.id) < ethers.getAddress(gasToken.tokenOut.id)
                 ) {

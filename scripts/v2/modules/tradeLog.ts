@@ -10,39 +10,45 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             ticker: trade.ticker,
             direction: trade.direction,
             tradeSize:
-                fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.decimals) +
+                fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.data.decimals) +
                 " " +
-                trade.tokenIn.symbol,
-            tokenIn: { symbol: trade.tokenIn.symbol, decimals: trade.tokenIn.decimals },
-            tokenOut: { symbol: trade.tokenOut.symbol, decimals: trade.tokenOut.decimals },
+                trade.tokenIn.data.symbol,
+            tokenIn: { symbol: trade.tokenIn.data.symbol, decimals: trade.tokenIn.data.decimals },
+            tokenOut: {
+                symbol: trade.tokenOut.data.symbol,
+                decimals: trade.tokenOut.data.decimals,
+            },
             loanPool: {
                 exchange: trade.loanPool.exchange,
                 priceIn: trade.loanPool.priceIn,
                 priceOut: trade.loanPool.priceOut,
                 reservesIn:
-                    fu(trade.loanPool.reserveIn, trade.tokenIn.decimals) +
+                    fu(trade.loanPool.reserveIn, trade.tokenIn.data.decimals) +
                     " " +
-                    trade.tokenIn.symbol,
+                    trade.tokenIn.data.symbol,
                 reservesOut:
-                    fu(trade.loanPool.reserveOut, trade.tokenOut.decimals) +
+                    fu(trade.loanPool.reserveOut, trade.tokenOut.data.decimals) +
                     " " +
-                    trade.tokenOut.symbol,
+                    trade.tokenOut.data.symbol,
                 repays: {
-                    single: fu(trade.loanPool.repays.single, trade.tokenOut.decimals),
-                    flashSingle: fu(trade.loanPool.repays.flashSingle, trade.tokenOut.decimals),
-                    flashMulti: fu(trade.loanPool.repays.flashMulti, trade.tokenOut.decimals),
+                    single: fu(trade.loanPool.repays.single, trade.tokenOut.data.decimals),
+                    flashSingle: fu(
+                        trade.loanPool.repays.flashSingle,
+                        trade.tokenOut.data.decimals,
+                    ),
+                    flashMulti: fu(trade.loanPool.repays.flashMulti, trade.tokenOut.data.decimals),
                 },
 
                 amountRepay:
                     trade.loanPool.amountRepay +
                     ": " +
-                    fu(trade.loanPool.amountRepay, trade.tokenOut.decimals) +
+                    fu(trade.loanPool.amountRepay, trade.tokenOut.data.decimals) +
                     " " +
-                    trade.tokenOut.symbol,
+                    trade.tokenOut.data.symbol,
                 // : trade.type === "flashSingle"
-                // ? fu(trade.loanPool.amountRepay, trade.tokenIn.decimals) +
+                // ? fu(trade.loanPool.amountRepay, trade.tokenIn.data.decimals) +
                 //   " " +
-                //   trade.tokenIn.symbol
+                //   trade.tokenIn.data.symbol
                 // : "no trade",
             },
             target: {
@@ -50,39 +56,41 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 priceIn: trade.target.priceIn,
                 priceOut: trade.target.priceOut,
                 reservesIn:
-                    fu(trade.target.reserveIn, trade.tokenIn.decimals) + " " + trade.tokenIn.symbol,
+                    fu(trade.target.reserveIn, trade.tokenIn.data.decimals) +
+                    " " +
+                    trade.tokenIn.data.symbol,
                 reservesOut:
-                    fu(trade.target.reserveOut, trade.tokenOut.decimals) +
+                    fu(trade.target.reserveOut, trade.tokenOut.data.decimals) +
                     " " +
-                    trade.tokenOut.symbol,
+                    trade.tokenOut.data.symbol,
                 // amountOutToken0for1:
-                //     fu(trade.quotes.target.token1OutToken0for1, trade.tokenIn.decimals) +
+                //     fu(trade.quotes.target.token1OutToken0for1, trade.tokenIn.data.decimals) +
                 //     " " +
-                //     trade.tokenIn.symbol,
+                //     trade.tokenIn.data.symbol,
                 amountOut:
-                    fu(trade.quotes.target.token1Out, trade.tokenOut.decimals) +
+                    fu(trade.quotes.target.token1Out, trade.tokenOut.data.decimals) +
                     " " +
-                    trade.tokenOut.symbol,
+                    trade.tokenOut.data.symbol,
             },
             quotes: {
                 loanPoolToken0:
-                    fu(trade.quotes.loanPool.token0Out, trade.tokenIn.decimals) +
+                    fu(trade.quotes.loanPool.token0Out, trade.tokenIn.data.decimals) +
                     " " +
-                    trade.tokenIn.symbol,
+                    trade.tokenIn.data.symbol,
 
                 loanPoolToken1:
-                    fu(trade.quotes.loanPool.token1Out, trade.tokenOut.decimals) +
+                    fu(trade.quotes.loanPool.token1Out, trade.tokenOut.data.decimals) +
                     " " +
-                    trade.tokenOut.symbol,
+                    trade.tokenOut.data.symbol,
 
                 targetToken0:
-                    fu(trade.quotes.target.token0Out, trade.tokenIn.decimals) +
+                    fu(trade.quotes.target.token0Out, trade.tokenIn.data.decimals) +
                     " " +
-                    trade.tokenIn.symbol,
+                    trade.tokenIn.data.symbol,
                 targetToken1:
-                    fu(trade.quotes.target.token1Out, trade.tokenOut.decimals) +
+                    fu(trade.quotes.target.token1Out, trade.tokenOut.data.decimals) +
                     " " +
-                    trade.tokenOut.symbol,
+                    trade.tokenOut.data.symbol,
             },
 
             gas: {
@@ -95,9 +103,9 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 uniswapkPosT: trade.k.uniswapKPost > 0n ? trade.k.uniswapKPost.toString() : 0,
                 uniswapKPositive: trade.k.uniswapKPositive,
                 tokenProfit:
-                    fu(trade.profits.tokenProfit, trade.tokenOut.decimals) +
+                    fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals) +
                     " " +
-                    trade.tokenOut.symbol,
+                    trade.tokenOut.data.symbol,
                 wmaticProfit: fu(trade.profits.WMATICProfit, 18) + " WMATIC",
             },
         };

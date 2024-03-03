@@ -13,6 +13,9 @@ import { flash } from "./modules/transaction/flash";
 import { swap } from "./modules/transaction/swap";
 import { trueProfit } from "./modules/trueProfit";
 import { filterTrade } from "./modules/filterTrade";
+import { signer } from "../../constants/provider";
+import { checkApproval } from "./modules/transaction/approvals";
+import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
 // import { filterMatches } from "./filterMatches";
 /*
 TODO:
@@ -35,10 +38,23 @@ export async function control(data: FactoryPair[], gasData: any) {
         for (const pair of data) {
             for (const match of pair.matches) {
                 const r = new Reserves(match);
+
                 const reserves = await r.getReserves(match);
 
                 // Use a second Trade class to get the reverse route
-
+                if (
+                    pendingTransactions[match.poolBID + match.poolAID] == true ||
+                    pendingTransactions[match.poolAID + match.poolBID] == true
+                ) {
+                    console.log(
+                        "Pending transaction on ",
+                        match.ticker,
+                        pair.exchangeA,
+                        pair.exchangeB,
+                        " Skipping trade.",
+                    );
+                    return;
+                }
                 if (reserves[0] !== undefined || reserves[1] !== undefined) {
                     const p0 = new Prices(match.poolAID, reserves[0]);
                     const p1 = new Prices(match.poolBID, reserves[1]);
@@ -46,24 +62,21 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     let trade: BoolTrade = await t.getTrade();
 
-                    if (pendingTransactions[trade.ID] == true) {
-                        console.log(
-                            "Pending transaction on ",
-                            trade.ticker,
-                            trade.loanPool.exchange,
-                            trade.target.exchange,
-                            " Skipping trade.",
-                        );
+                    if (trade.profits.tokenProfit <= 0) {
+                        console.log("No profit for trade: " + trade.ticker);
                         return;
                     }
 
-                    if (trade.profits.tokenProfit <= 0) {
-                        // console.log("No profit for trade: " + trade.ticker);
-                        return;
-                    }
+                    // return;
+                    await fetchGasPrice(trade);
+
+                    // return;
+
+                    return;
 
                     await trueProfit(trade);
 
+                    // return;
                     await filterTrade(trade);
 
                     const log = await tradeLogs(trade);

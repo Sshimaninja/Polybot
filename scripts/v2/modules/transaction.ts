@@ -27,7 +27,7 @@ export async function sortTx(trade: BoolTrade): Promise<TransactionReceipt | und
             trade.target.exchange,
             " | ",
             "Trade Size: ",
-            fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.decimals),
+            fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.data.decimals),
             "Profit: ",
             fu(trade.profits.WMATICProfit, 18),
             "Gas Cost: ",
