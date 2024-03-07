@@ -62,12 +62,16 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     let trade: BoolTrade = await t.getTrade();
 
-                    if (trade.profits.tokenProfit <= 0) {
-                        console.log("No profit for trade: " + trade.ticker);
-                        return;
+                    // if (trade.profits.tokenProfit <= 0) {
+                    //     console.log("No profit for trade: " + trade.ticker);
+                    //     return;
+                    // }
+                    if (trade.type == "single") {
+                        await checkApproval(trade);
                     }
 
                     // return;
+
                     await fetchGasPrice(trade);
 
                     // return;
