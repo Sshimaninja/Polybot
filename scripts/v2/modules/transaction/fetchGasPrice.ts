@@ -89,20 +89,22 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     }
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
+        let p = await trade.params;
         try {
-            let p = await trade.params;
             if (p.amountOutB < p.tradeSize) {
                 // logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
                 return g;
             }
+
             const profit = p.amountOutA - p.tradeSize;
+
             logger.info(
                 "Profit in tokenIn: " + fu(profit, trade.tokenIn.data.decimals),
                 trade.tokenIn.data.symbol,
             );
-            // logger.info("Checking balances: ");
+
             const bal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
-            // logger.info(bal);
+
             if (bal.tokenIn < trade.tradeSizes.pool0.token0.size) {
                 logger.info(
                     "tokenIn Balance: ",
@@ -117,7 +119,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 logger.error("Token0 balance too low for trade.");
                 return g;
             }
-            let swapSingleAddress = await swapSingle.getAddress();
+
+            const swapSingleAddress = await swapSingle.getAddress();
+
             if (pendingTransactions[trade.ID] == true) {
                 logger.info("Pending gasEstimate. Skipping gasEstimate.");
                 return g;
@@ -157,17 +161,22 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             // [2024-03-03T22:19:18.951] [INFO] default - TargetAllowanceTokenIn:  57896044618658097711785492504343953926634992332820282019728792003956564819967n DAI
             // [2024-03-03T22:19:18.951] [INFO] default - TargetAllowanceTokenOut:  3569124090114451318145n WMATIC
 
-            await trade.tokenIn.contract.approve(await trade.target.router.getAddress(), MaxInt256);
-            let allowanceTokenIn = await trade.tokenIn.contract.allowance(
-                await signer.getAddress(),
-                await trade.target.router.getAddress(),
-            );
-            let allowanceTokenOut = await trade.tokenOut.contract.allowance(
-                await signer.getAddress(),
-                await trade.target.router.getAddress(),
-            );
-            logger.info("TargetAllowanceTokenIn: ", allowanceTokenIn, trade.tokenIn.data.symbol);
-            logger.info("TargetAllowanceTokenOut: ", allowanceTokenOut, trade.tokenOut.data.symbol);
+            const targetRouterID = await trade.target.router.getAddress();
+
+            let walletBalance = {
+                walletID: await signer.getAddress(),
+                tokenIn: fu(bal.tokenIn, trade.tokenIn.data.decimals),
+                tokenOut: fu(bal.tokenOut, trade.tokenOut.data.decimals),
+                gas: fu(bal.gas, 18),
+            };
+            logger.info("walletBalance: ");
+            logger.info(walletBalance);
+            let tradeData = {
+                tradeSize: fu(p.tradeSize, trade.tokenIn.data.decimals),
+            };
+            logger.info("tradeData: ");
+            logger.info(tradeData);
+
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.target,
                 p.routerAID,
