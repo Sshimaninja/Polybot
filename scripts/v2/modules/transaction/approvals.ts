@@ -3,6 +3,7 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { signer } from "../../../../constants/provider";
 import { pendingTransactions } from "../../control";
 import { BoolTrade } from "../../../../constants/interfaces";
+import { swapSingle, swapSingleID } from "../../../../constants/environment";
 export async function checkApproval(trade: BoolTrade): Promise<boolean> {
     if (pendingTransactions[trade.ID] == true) {
         return false;
@@ -16,25 +17,38 @@ export async function checkApproval(trade: BoolTrade): Promise<boolean> {
 
     // let nonce = await signer.getNonce();
     let ownerAddress = await signer.getAddress();
-
+    let swapContract = swapSingle;
     let routerID = trade.target.router.getAddress();
-    let allowance = await tokenIn.allowance(ownerAddress, routerID);
+    let tokenInAllowance = await tokenIn.allowance(ownerAddress, routerID);
+    let tokenOutAllowance = await tokenOut.allowance(ownerAddress, routerID);
     let maxInt = ethers.MaxInt256;
-    console.log("maxInt: ", maxInt);
+    // console.log("maxInt: ", maxInt);
     try {
-        if (allowance > trade.tradeSizes.pool0.token0.size) {
-            console.log("Already approved: ", trade.tokenIn.data.symbol, allowance);
+        if (tokenInAllowance > trade.tradeSizes.loanPool.tradeSizeToken0.size) {
+            console.log("Already approved: ", trade.tokenIn.data.symbol, tokenInAllowance);
             return true;
         }
         // let maxUintValue = maxInt;
-        let approveIn: Transaction = await tokenIn.approve(routerID, maxInt);
-        let receipt = approveIn.hash;
+        let approveInRouter: Transaction = await tokenIn.approve(routerID, maxInt);
+        let approveInSwapContract: Transaction = await tokenIn.approve(
+            await swapContract.getAddress(),
+            maxInt,
+        );
+        let receiptRotuer = approveInRouter.hash;
+        let receiptSwapContract = approveInSwapContract.hash;
         console.log(
-            "Approved : ",
+            "Approved Router: ",
             trade.tokenIn.data.symbol,
             await tokenIn.allowance(routerID, trade.tokenIn.data.id),
             "receipt: ",
-            receipt,
+            receiptRotuer,
+        );
+        console.log(
+            "Approved SwapContract: ",
+            trade.tokenIn.data.symbol,
+            await tokenIn.allowance(await swapContract.getAddress(), trade.tokenIn.data.id),
+            "receipt: ",
+            receiptSwapContract,
         );
     } catch (error: any) {
         console.log("error in tokenIn checkApproval:");
@@ -42,19 +56,30 @@ export async function checkApproval(trade: BoolTrade): Promise<boolean> {
         return false;
     }
     try {
-        if (allowance > trade.tradeSizes.pool1.token1.size) {
-            console.log("Already approved: ", trade.tokenOut.data.symbol, allowance);
+        if (tokenOutAllowance > trade.tradeSizes.target.tradeSizeToken1.size) {
+            console.log("Already approved: ", trade.tokenOut.data.symbol, tokenOutAllowance);
             return true;
         }
-        // let maxUintValue = maxInt;
-        let approveIn: Transaction = await tokenOut.approve(routerID, maxInt);
-        let receipt = approveIn.hash;
+        let approveOutRouter: Transaction = await tokenOut.approve(routerID, maxInt);
+        let approveOutSwapContract: Transaction = await tokenOut.approve(
+            await swapContract.getAddress(),
+            maxInt,
+        );
+        let receiptRotuer = approveOutRouter.hash;
+        let receiptSwapContract = approveOutSwapContract.hash;
         console.log(
-            "Approved : ",
+            "Approved Router: ",
             trade.tokenOut.data.symbol,
-            await tokenIn.allowance(routerID, trade.tokenIn.data.id),
+            await tokenOut.allowance(routerID, trade.tokenOut.data.id),
             "receipt: ",
-            receipt,
+            receiptRotuer,
+        );
+        console.log(
+            "Approved SwapContract: ",
+            trade.tokenOut.data.symbol,
+            await tokenOut.allowance(await swapContract.getAddress(), trade.tokenOut.data.id),
+            "receipt: ",
+            receiptSwapContract,
         );
     } catch (error: any) {
         console.log("error in tokenOut checkApproval:");

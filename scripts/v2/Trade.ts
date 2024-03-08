@@ -84,7 +84,6 @@ export class Trade {
         const signerID = await signer.getAddress();
         const tokenIn: Contract = new Contract(this.match.token1.id, IERC20, signer);
         const tokenOut: Contract = new Contract(this.match.token0.id, IERC20, signer);
-
         const size = A
             ? await this.calcA.getSize() //this.getSize(this.calcB, this.calcA)
             : await this.calcB.getSize(); //this.getSize(this.calcA, this.calcB);
@@ -107,17 +106,26 @@ export class Trade {
             },
             flash: flashMulti,
             // TradeSizes must default to toPrice/flash sizes in order to calculate repays later. If flash is not used, these will be reassigned.
+            // if
             tradeSizes: {
-                pool0: {
-                    token0: {
-                        size: size.pool0.token0.size,
-                        sizeBN: BigInt2BN(size.pool0.token0.size, this.match.token0.decimals),
+                // becuase loanPool has a lower price, it will always use token0 to trade into token1
+                loanPool: {
+                    tradeSizeToken0: {
+                        size: size.loanPool.tradeSizeToken0.size,
+                        sizeBN: BigInt2BN(
+                            size.loanPool.tradeSizeToken0.size,
+                            this.match.token0.decimals,
+                        ),
                     },
                 },
-                pool1: {
-                    token1: {
-                        size: size.pool1.token1.size,
-                        sizeBN: BigInt2BN(size.pool1.token1.size, this.match.token1.decimals),
+                // becuase target has a higher price, it will always use token1 to trade into token0
+                target: {
+                    tradeSizeToken1: {
+                        size: size.target.tradeSizeToken1.size,
+                        sizeBN: BigInt2BN(
+                            size.target.tradeSizeToken1.size,
+                            this.match.token1.decimals,
+                        ),
                     },
                 },
             },
@@ -265,8 +273,10 @@ export class Trade {
 
         let walletTradeSizes = await walletTradeSize(trade);
 
-        trade.tradeSizes.pool0.token0.size =
-            trade.type === "single" ? walletTradeSizes.token0 : trade.tradeSizes.pool0.token0.size;
+        trade.tradeSizes.loanPool.tradeSizeToken0.size =
+            trade.type === "single"
+                ? walletTradeSizes.token0
+                : trade.tradeSizes.loanPool.tradeSizeToken0.size;
 
         trade.profits.tokenProfit =
             trade.type === "single"
@@ -319,7 +329,7 @@ export class Trade {
 
         trade.k = await getK(
             trade.type,
-            trade.tradeSizes.pool0.token0.size,
+            trade.tradeSizes.loanPool.tradeSizeToken0.size,
             trade.loanPool.reserveIn,
             trade.loanPool.reserveOut,
             this.calcA,

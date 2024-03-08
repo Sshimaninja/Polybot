@@ -69,7 +69,9 @@ contract SwapSingle {
     //     (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x23b872dd, from, to, value));
     //     require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: TRANSFER_FROM_FAILED');
     // }
-
+    // function approveContract(IERC20 token, uint256 amount) external {
+    //     token.approve(address(this), type(uint256).max);
+    // }
     function performSwap(
         address target,
         IUniswapV2Router02 routerA,
@@ -82,11 +84,16 @@ contract SwapSingle {
         address to,
         uint256 deadline
     ) internal {
-        IERC20 tokenOut = IERC20(path0[1]);
-        // IERC20 tokenOut = IERC20(path0[1]);
-        console.log("SwapSingle: tradeSize::: ", tradeSize);
-        console.log("SwapSingle: amountOutA:: ", amountOut);
-        console.log("target balance tokenOut: ", tokenOut.balanceOf(target));
+        IERC20 tokenIn = IERC20(path0[0]);
+
+        // Check that the 'from' address has enough tokens
+        uint256 balance = tokenIn.balanceOf(msg.sender);
+        require(balance >= tradeSize, "SwapSingle: INSUFFICIENT_INPUT_AMOUNT");
+
+        // Check that the 'from' address has approved the contract to transfer tokens
+        uint256 allowance = tokenIn.allowance(msg.sender, address(this));
+        require(allowance >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED");
+
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
             amountOut,
@@ -94,14 +101,11 @@ contract SwapSingle {
             address(this),
             deadline
         );
-        console.log("SwapSingle: first swap completed");
-        console.log("SwapSingle: swapIn[1]: ", swapIn[1]);
+
         uint256[] memory amountsOut = routerB.getAmountsOut(swapIn[1], path1);
         require(amountsOut[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
-        // console.log("SwapSingle: amountOutB::: ", tradeSize);
-        // console.log("loanPool Balance tokenIn: ", tokenOut.balanceOf(loanPool));
+
         routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
-        console.log("SwapSingle: second swap completed");
     }
 }
 
@@ -141,6 +145,8 @@ interface IUniswapV2Library {
 
 interface IERC20 {
     function approve(address spender, uint256 amount) external returns (bool);
+
+    function allowance(address owner, address spender) external view returns (uint256);
 
     function balanceOf(address account) external view returns (uint256);
 

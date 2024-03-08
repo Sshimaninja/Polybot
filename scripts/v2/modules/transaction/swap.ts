@@ -33,7 +33,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
         trade.tokenOut.data.symbol,
     );
-    if (trade.wallet.token0Balance < trade.tradeSizes.pool0.token0.size) {
+    if (trade.wallet.token0Balance < trade.tradeSizes.loanPool.tradeSizeToken0.size) {
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
         return null;
     }
@@ -43,12 +43,12 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
 
         let p = trade.params;
 
-        let approveRouter = await trade.tokenIn.contract.approve(trade.target.router, MaxInt256);
-        let approveSwapSingle = await trade.tokenIn.contract.approve(swapSingleAddress, MaxInt256);
+        // let approveRouter = await trade.tokenIn.contract.approve(trade.target.router, MaxInt256);
+        // let approveSwapSingle = await trade.tokenIn.contract.approve(swapSingleAddress, MaxInt256);
 
         // Wait for the approval transactions to be mined
-        await approveRouter.wait();
-        await approveSwapSingle.wait();
+        // await approveRouter.wait();
+        // await approveSwapSingle.wait();
         console.log(
             "Target router approval amount: ",
             trade.tokenIn.contract.allowance(await signer.getAddress(), trade.target.router),
