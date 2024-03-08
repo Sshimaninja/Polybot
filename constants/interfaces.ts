@@ -397,14 +397,14 @@ export interface BoolTrade {
     params: any;
 }
 export interface Sizes {
-    pool0: {
-        token0: {
+    loanPool: {
+        tradeSizeToken0: {
             size: bigint;
             sizeBN: BN;
         };
     };
-    pool1: {
-        token1: {
+    target: {
+        tradeSizeToken1: {
             size: bigint;
             sizeBN: BN;
         };

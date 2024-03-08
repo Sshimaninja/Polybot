@@ -10,7 +10,7 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             ticker: trade.ticker,
             direction: trade.direction,
             tradeSize:
-                fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.data.decimals) +
+                fu(trade.tradeSizes.loanPool.tradeSizeToken0.size, trade.tokenIn.data.decimals) +
                 " " +
                 trade.tokenIn.data.symbol,
             tokenIn: { symbol: trade.tokenIn.data.symbol, decimals: trade.tokenIn.data.decimals },

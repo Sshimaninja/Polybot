@@ -42,10 +42,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         try {
             // const fix = await fixEstimateGas(trade);
             // logger.info(fix);
-            if (trade.wallet.token0Balance < trade.tradeSizes.pool0.token0.size) {
-                logger.info("Insufficient balance for trade. Skipping trade.");
-                return g;
-            }
+
             if (pendingTransactions[trade.ID] == true) {
                 logger.info("Pending transaction. Skipping trade.");
                 return g;
@@ -57,7 +54,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.target.router,
                 trade.tokenIn.data.id,
                 trade.tokenOut.data.id,
-                trade.tradeSizes.pool0.token0.size,
+                trade.tradeSizes.loanPool.tradeSizeToken0.size,
                 trade.quotes.target.token1Out,
                 trade.loanPool.amountRepay,
             );
@@ -105,7 +102,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 
             const bal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
 
-            if (bal.tokenIn < trade.tradeSizes.pool0.token0.size) {
+            if (bal.tokenIn < trade.tradeSizes.loanPool.tradeSizeToken0.size) {
                 logger.info(
                     "tokenIn Balance: ",
                     fu(bal.tokenIn, trade.tokenIn.data.decimals),
@@ -113,7 +110,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 );
                 logger.info(
                     "tokenIn tradeSize: ",
-                    fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.data.decimals),
+                    fu(trade.tradeSizes.loanPool.tradeSizeToken0.size, trade.tokenIn.data.decimals),
                     trade.tokenIn.data.symbol,
                 );
                 logger.error("Token0 balance too low for trade.");

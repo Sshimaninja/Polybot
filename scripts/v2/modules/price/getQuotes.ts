@@ -29,8 +29,10 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
 
     // if (wallet.token0 <= 0 && wallet.token1 <= 0) {
     // }
-    // if (trade.tradeSizes.pool0.token0.size <= 0) {
+    // if (trade.tradeSizes.loanPool.token0.size <= 0) {
     // }
+
+    // in single/non-flash trades, profit must be returned to tokenIn, so this calc is needed to work out trade .
     const walletQuotes = async () => {
         const singleTargetToken1Out = await getAmountsOut(trade.target.router, wallet.token0, [
             trade.tokenIn.data.id,
@@ -51,6 +53,7 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
             trade.tokenOut.data.id,
             trade.tokenIn.data.id,
         ]);
+
         return {
             singleLoanPoolToken0Out,
             singleLoanPoolToken1Out,
@@ -58,18 +61,21 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
             singleTargetToken1Out,
         };
     };
+
     const flashTargetQuotes = async () => {
+        // flashing token0 into token1
         const flashTargetToken1Out = await getAmountsOut(
             trade.target.router,
-            trade.tradeSizes.pool0.token0.size,
+            trade.tradeSizes.loanPool.tradeSizeToken0.size,
             [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
         const flashTargetToken0Out = await getAmountsOut(
             trade.target.router,
-            trade.tradeSizes.pool0.token0.size,
+            trade.tradeSizes.target.tradeSizeToken1.size,
             [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
+
         return {
             flashTargetToken0Out,
             flashTargetToken1Out,
@@ -77,15 +83,17 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
     };
 
     const flashLoanPoolQuotes = async () => {
+        // tradeSize = token1 from loanPool
         const flashLoanPoolToken1Out = await getAmountsOut(
             trade.loanPool.router,
-            trade.tradeSizes.pool0.token0.size,
+            trade.tradeSizes.loanPool.tradeSizeToken0.size,
             [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
+        // tradeSize = token1 from loanPool
         const flashLoanPoolToken0Out = await getAmountsOut(
             trade.loanPool.router,
-            trade.tradeSizes.pool0.token0.size,
+            trade.tradeSizes.target.tradeSizeToken1.size,
             [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
         return {
@@ -108,6 +116,6 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
             flashToken1Out: (await flashLoanPoolQuotes()).flashLoanPoolToken1Out,
         },
     };
-    // console.log("quotes: ", quotes);
+    console.log("quotes: ", quotes);
     return quotes;
 }

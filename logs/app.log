@@ -311,3 +311,1457 @@
     }
   }
 }
+[2024-03-07T21:47:41.955] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T21:47:41.956] [INFO] default - {}
+[2024-03-07T21:47:42.090] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T21:47:42.769] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:47:42.769] [INFO] default - Insufficient balance for trade. Skipping trade.
+[2024-03-07T21:47:42.769] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:47:42.769] [INFO] default - Insufficient balance for trade. Skipping trade.
+[2024-03-07T21:47:42.769] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:47:42.769] [INFO] default - Insufficient balance for trade. Skipping trade.
+[2024-03-07T21:47:42.770] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T21:47:42.770] [INFO] default - Insufficient balance for trade. Skipping trade.
+[2024-03-07T21:49:14.704] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T21:49:14.705] [INFO] default - {}
+[2024-03-07T21:49:14.830] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T21:49:15.529] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:49:15.529] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:49:15.529] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:49:15.530] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T21:49:15.573] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:49:15.573] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:49:15.573] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:49:15.573] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:55:58.561] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T21:55:58.562] [INFO] default - {}
+[2024-03-07T21:55:58.691] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T21:55:59.328] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:55:59.328] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:55:59.329] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:55:59.329] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T21:55:59.364] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:55:59.364] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:55:59.364] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:55:59.364] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:58:18.866] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T21:58:18.866] [INFO] default - {}
+[2024-03-07T21:58:18.995] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T21:58:19.828] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:58:19.828] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:58:19.828] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T21:58:19.828] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T21:58:19.859] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:58:19.859] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:58:19.859] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T21:58:19.859] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:27:53.077] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T22:27:53.078] [INFO] default - {}
+[2024-03-07T22:27:53.226] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T22:27:54.032] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:27:54.032] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:27:54.033] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:27:54.033] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T22:27:54.081] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:27:54.081] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:27:54.081] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:27:54.081] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:36:29.503] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T22:36:29.504] [INFO] default - {}
+[2024-03-07T22:36:29.653] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T22:36:30.195] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:36:30.196] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:36:30.196] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:36:30.196] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T22:36:30.237] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:36:30.237] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:36:30.237] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:36:30.237] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:38:45.957] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T22:38:45.957] [INFO] default - {}
+[2024-03-07T22:38:46.103] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T22:38:46.934] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:38:46.934] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:38:46.935] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:38:46.935] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T22:38:46.974] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:38:46.975] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:38:46.975] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:38:46.975] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:43:39.172] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T22:43:39.173] [INFO] default - {}
+[2024-03-07T22:43:39.328] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T22:43:39.879] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:43:39.879] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:43:39.879] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:43:39.880] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T22:43:39.927] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:43:39.927] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:43:39.927] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:43:39.927] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:44:42.591] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T22:44:42.592] [INFO] default - {}
+[2024-03-07T22:44:42.738] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T22:44:43.644] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:44:43.644] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:44:43.644] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:44:43.644] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T22:44:43.676] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:44:43.676] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:44:43.676] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:44:43.676] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:51:55.587] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T22:51:55.588] [INFO] default - {}
+[2024-03-07T22:51:55.735] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T22:51:56.424] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:51:56.425] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:51:56.425] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:51:56.425] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T22:51:56.465] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:51:56.466] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:51:56.466] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:51:56.466] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:52:43.763] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-07T22:52:43.763] [INFO] default - {}
+[2024-03-07T22:52:43.908] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-07T22:52:44.748] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:52:44.748] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:52:44.748] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-07T22:52:44.748] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-07T22:52:44.779] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:52:44.779] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:52:44.779] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-07T22:52:44.779] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T12:31:07.742] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T12:31:07.743] [INFO] default - {}
+[2024-03-08T12:31:07.883] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T12:31:08.571] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-08T12:31:08.572] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-08T12:31:08.572] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-08T12:31:08.572] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-08T12:31:08.613] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T12:31:08.613] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T12:31:08.613] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T12:31:08.613] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T13:07:13.064] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T13:07:13.064] [INFO] default - {}
+[2024-03-08T13:07:13.348] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T13:07:14.047] [INFO] default - EstimatingGas for trade: USDT/WMATIC...
+[2024-03-08T13:07:14.047] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-08T13:07:14.047] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-08T13:07:14.047] [INFO] default - EstimatingGas for trade: DAI/WMATIC...
+[2024-03-08T13:07:14.093] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T13:07:14.093] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti ApeSwap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T13:07:14.093] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti Jetswap: INSUFFICIENT_INPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T13:07:14.093] [ERROR] default - >>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC flashMulti PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<
+[2024-03-08T13:09:49.569] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T13:09:49.570] [INFO] default - {}
+[2024-03-08T13:09:49.698] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T13:09:52.515] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T13:09:52.746] [INFO] default - walletBalance: 
+[2024-03-08T13:09:52.746] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.998137584001501495'
+}
+[2024-03-08T13:09:52.746] [INFO] default - tradeData: 
+[2024-03-08T13:09:52.746] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T13:09:52.822] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb0f4c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb0f4c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 764,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T13:09:52.827] [INFO] default - Profit in tokenIn: 2862782562.766279 USDT
+[2024-03-08T13:09:52.903] [INFO] default - walletBalance: 
+[2024-03-08T13:09:52.903] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '749.241884',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T13:09:52.903] [INFO] default - tradeData: 
+[2024-03-08T13:09:52.903] [INFO] default - { tradeSize: '0.002283' }
+[2024-03-08T13:09:53.149] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000b2b39b54a82aedcab018eb601e8fcd19bc6ec8ab000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e592300000000000000000000000000000000000000000000000000000000000008eb000000000000000000000000000000000000000000000000000a2baf81b916b200000000000000000000000000000000000000000000000000000000000008f7000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb0f4c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000b2b39b54a82aedcab018eb601e8fcd19bc6ec8ab000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e592300000000000000000000000000000000000000000000000000000000000008eb000000000000000000000000000000000000000000000000000a2baf81b916b200000000000000000000000000000000000000000000000000000000000008f7000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb0f4c0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 778,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T13:09:53.150] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T13:09:53.187] [INFO] default - walletBalance: 
+[2024-03-08T13:09:53.187] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T13:09:53.187] [INFO] default - tradeData: 
+[2024-03-08T13:09:53.187] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T13:09:53.216] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb0f4c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb0f4c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 787,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T13:45:12.183] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T13:45:12.183] [INFO] default - {}
+[2024-03-08T13:45:12.310] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T13:47:59.252] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T13:47:59.253] [INFO] default - {}
+[2024-03-08T13:47:59.385] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T13:48:02.328] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T13:48:02.329] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T13:48:02.369] [INFO] default - walletBalance: 
+[2024-03-08T13:48:02.369] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T13:48:02.369] [INFO] default - tradeData: 
+[2024-03-08T13:48:02.369] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T13:48:02.369] [INFO] default - walletBalance: 
+[2024-03-08T13:48:02.369] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T13:48:02.370] [INFO] default - tradeData: 
+[2024-03-08T13:48:02.370] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T13:48:02.414] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb183e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb183e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 768,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T13:48:02.417] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb183e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb183e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 769,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:01:36.837] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:01:36.837] [INFO] default - {}
+[2024-03-08T14:01:37.100] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:01:40.143] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:01:40.144] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T14:01:40.186] [INFO] default - walletBalance: 
+[2024-03-08T14:01:40.186] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:01:40.186] [INFO] default - tradeData: 
+[2024-03-08T14:01:40.186] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:01:40.187] [INFO] default - walletBalance: 
+[2024-03-08T14:01:40.187] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:01:40.187] [INFO] default - tradeData: 
+[2024-03-08T14:01:40.187] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T14:01:40.236] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1b7000000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1b7000000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 768,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:01:40.238] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1b7000000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1b7000000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 769,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:02:48.004] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:02:48.004] [INFO] default - {}
+[2024-03-08T14:02:48.130] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:02:51.061] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:02:51.062] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T14:02:51.102] [INFO] default - walletBalance: 
+[2024-03-08T14:02:51.102] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:02:51.102] [INFO] default - tradeData: 
+[2024-03-08T14:02:51.102] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:02:51.103] [INFO] default - walletBalance: 
+[2024-03-08T14:02:51.103] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:02:51.103] [INFO] default - tradeData: 
+[2024-03-08T14:02:51.103] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T14:02:51.146] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1bb700000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1bb700000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 768,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:02:51.148] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1bb700000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1bb700000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 769,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:05:35.280] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:05:35.280] [INFO] default - {}
+[2024-03-08T14:05:35.404] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:05:38.317] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:05:38.317] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T14:05:38.363] [INFO] default - walletBalance: 
+[2024-03-08T14:05:38.363] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:05:38.363] [INFO] default - tradeData: 
+[2024-03-08T14:05:38.363] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:05:38.364] [INFO] default - walletBalance: 
+[2024-03-08T14:05:38.364] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:05:38.364] [INFO] default - tradeData: 
+[2024-03-08T14:05:38.364] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T14:05:38.431] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1c5e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1c5e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 768,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:05:38.433] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1c5e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1c5e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 769,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:09:01.843] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:09:01.844] [INFO] default - {}
+[2024-03-08T14:09:01.971] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:09:04.772] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:09:04.773] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T14:09:04.819] [INFO] default - walletBalance: 
+[2024-03-08T14:09:04.819] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:09:04.819] [INFO] default - tradeData: 
+[2024-03-08T14:09:04.820] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:09:04.820] [INFO] default - walletBalance: 
+[2024-03-08T14:09:04.820] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:09:04.820] [INFO] default - tradeData: 
+[2024-03-08T14:09:04.820] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T14:09:04.877] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d2c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d2c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 780,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:09:04.879] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d2c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d2c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 781,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:09:43.521] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:09:43.521] [INFO] default - {}
+[2024-03-08T14:09:43.654] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:09:46.622] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:09:46.622] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T14:09:46.663] [INFO] default - walletBalance: 
+[2024-03-08T14:09:46.663] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:09:46.663] [INFO] default - tradeData: 
+[2024-03-08T14:09:46.663] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:09:46.664] [INFO] default - walletBalance: 
+[2024-03-08T14:09:46.664] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997877215909512695'
+}
+[2024-03-08T14:09:46.664] [INFO] default - tradeData: 
+[2024-03-08T14:09:46.664] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T14:09:46.711] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d5600000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d5600000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 780,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:09:46.712] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d5600000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d5600000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 781,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:10:39.823] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:10:39.824] [INFO] default - {}
+[2024-03-08T14:10:39.960] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:10:42.847] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:10:42.847] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T14:10:43.942] [INFO] default - walletBalance: 
+[2024-03-08T14:10:43.942] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997513489906966613'
+}
+[2024-03-08T14:10:43.942] [INFO] default - tradeData: 
+[2024-03-08T14:10:43.942] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:10:43.943] [INFO] default - walletBalance: 
+[2024-03-08T14:10:43.943] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997513489906966613'
+}
+[2024-03-08T14:10:43.943] [INFO] default - tradeData: 
+[2024-03-08T14:10:43.943] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T14:10:44.009] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d8e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d8e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 806,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:10:44.013] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d8e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d8e00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 807,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:10:44.199] [INFO] default - Profit in tokenIn: 2862782562.766279 USDT
+[2024-03-08T14:10:44.237] [INFO] default - walletBalance: 
+[2024-03-08T14:10:44.237] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '749.241884',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997289355905397675'
+}
+[2024-03-08T14:10:44.237] [INFO] default - tradeData: 
+[2024-03-08T14:10:44.237] [INFO] default - { tradeSize: '0.002283' }
+[2024-03-08T14:10:44.273] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000b2b39b54a82aedcab018eb601e8fcd19bc6ec8ab000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e592300000000000000000000000000000000000000000000000000000000000008eb000000000000000000000000000000000000000000000000000a2baf81b916b200000000000000000000000000000000000000000000000000000000000008f7000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d900000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000b2b39b54a82aedcab018eb601e8fcd19bc6ec8ab000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e592300000000000000000000000000000000000000000000000000000000000008eb000000000000000000000000000000000000000000000000000a2baf81b916b200000000000000000000000000000000000000000000000000000000000008f7000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1d900000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 846,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:16:31.608] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:16:31.609] [INFO] default - {}
+[2024-03-08T14:16:31.757] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:16:34.654] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:16:34.655] [INFO] default - Profit in tokenIn: 7.211990856286091887 DAI
+[2024-03-08T14:16:34.655] [INFO] default - Profit in tokenIn: 2862782562.766279 USDT
+[2024-03-08T14:16:34.697] [INFO] default - walletBalance: 
+[2024-03-08T14:16:34.698] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997289355905397675'
+}
+[2024-03-08T14:16:34.698] [INFO] default - tradeData: 
+[2024-03-08T14:16:34.698] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:16:34.698] [INFO] default - walletBalance: 
+[2024-03-08T14:16:34.698] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156568602498633231',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997289355905397675'
+}
+[2024-03-08T14:16:34.698] [INFO] default - tradeData: 
+[2024-03-08T14:16:34.698] [INFO] default - { tradeSize: '16.663494792587769876' }
+[2024-03-08T14:16:34.698] [INFO] default - walletBalance: 
+[2024-03-08T14:16:34.698] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '749.241884',
+  tokenOut: '3569.124446240517593239',
+  gas: '999.997289355905397675'
+}
+[2024-03-08T14:16:34.698] [INFO] default - tradeData: 
+[2024-03-08T14:16:34.698] [INFO] default - { tradeSize: '0.002283' }
+[2024-03-08T14:16:34.758] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1eee00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1eee00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 797,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:16:34.762] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1eee00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a03a14c3f8140000000000000000000000000000000000000000000000014b56c3b32d10328300000000000000000000000000000000000000000000000108d802dcd5419cc0000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1eee00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 798,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:16:34.763] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000b2b39b54a82aedcab018eb601e8fcd19bc6ec8ab000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e592300000000000000000000000000000000000000000000000000000000000008eb000000000000000000000000000000000000000000000000000a2baf81b916b200000000000000000000000000000000000000000000000000000000000008f7000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1eee0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000b2b39b54a82aedcab018eb601e8fcd19bc6ec8ab000000000000000000000000bd13225f0a45bead8510267b4d6a7c78146be4590000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e592300000000000000000000000000000000000000000000000000000000000008eb000000000000000000000000000000000000000000000000000a2baf81b916b200000000000000000000000000000000000000000000000000000000000008f7000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb1eee0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f0000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270000000000000000000000000c2132d05d31c914a87c6611c10748aeb04b58e8f',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 799,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:44:56.607] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:44:56.608] [INFO] default - {}
+[2024-03-08T14:44:56.739] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:44:59.944] [INFO] default - Profit in tokenIn: 7.211990892147511403 DAI
+[2024-03-08T14:45:00.021] [INFO] default - walletBalance: 
+[2024-03-08T14:45:00.021] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156575960733351605',
+  tokenOut: '3569.124493079160374697',
+  gas: '999.998035142058398027'
+}
+[2024-03-08T14:45:00.021] [INFO] default - tradeData: 
+[2024-03-08T14:45:00.021] [INFO] default - { tradeSize: '16.663494777871300439' }
+[2024-03-08T14:45:00.054] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a036a79877570000000000000000000000000000000000000000000000014b56c3b8196687c200000000000000000000000000000000000000000000000108d802e0c45474a9000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb259700000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a036a79877570000000000000000000000000000000000000000000000014b56c3b8196687c200000000000000000000000000000000000000000000000108d802e0c45474a9000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb259700000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 796,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:45:04.078] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:45:04.117] [INFO] default - walletBalance: 
+[2024-03-08T14:45:04.117] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156575960733351605',
+  tokenOut: '3569.124493079160374697',
+  gas: '999.998035142058398027'
+}
+[2024-03-08T14:45:04.117] [INFO] default - tradeData: 
+[2024-03-08T14:45:04.117] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:45:04.152] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single TransferHelper: TRANSFER_FROM_FAILED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "TransferHelper: TRANSFER_FROM_FAILED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000", reason="TransferHelper: TRANSFER_FROM_FAILED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb259c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "TransferHelper: TRANSFER_FROM_FAILED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000245472616e7366657248656c7065723a205452414e534645525f46524f4d5f4641494c454400000000000000000000000000000000000000000000000000000000',
+  reason: 'TransferHelper: TRANSFER_FROM_FAILED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb259c00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'TransferHelper: TRANSFER_FROM_FAILED' ]
+  },
+  shortMessage: 'execution reverted: "TransferHelper: TRANSFER_FROM_FAILED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 810,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:49:25.117] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:49:25.117] [INFO] default - {}
+[2024-03-08T14:49:25.252] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:58:05.201] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T14:58:05.202] [INFO] default - {}
+[2024-03-08T14:58:05.334] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T14:58:08.564] [INFO] default - Profit in tokenIn: 7.2119905535330862 DAI
+[2024-03-08T14:58:08.630] [INFO] default - walletBalance: 
+[2024-03-08T14:58:08.630] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156506482043877476',
+  tokenOut: '3569.124050814457291434',
+  gas: '999.997699828963472551'
+}
+[2024-03-08T14:58:08.630] [INFO] default - tradeData: 
+[2024-03-08T14:58:08.630] [INFO] default - { tradeSize: '16.663494916828679387' }
+[2024-03-08T14:58:08.668] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single SwapSingle: CONTRACT_NOT_APPROVED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000", reason="SwapSingle: CONTRACT_NOT_APPROVED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a0570219ccdb0000000000000000000000000000000000000000000000014b56c3899ce9c6d300000000000000000000000000000000000000000000000108d802bb9f3c1a7f000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb28ac00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "SwapSingle: CONTRACT_NOT_APPROVED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000',
+  reason: 'SwapSingle: CONTRACT_NOT_APPROVED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a0570219ccdb0000000000000000000000000000000000000000000000014b56c3899ce9c6d300000000000000000000000000000000000000000000000108d802bb9f3c1a7f000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb28ac00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'SwapSingle: CONTRACT_NOT_APPROVED' ]
+  },
+  shortMessage: 'execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'SwapSingle: CONTRACT_NOT_APPROVED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 795,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T14:58:12.686] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T14:58:12.723] [INFO] default - walletBalance: 
+[2024-03-08T14:58:12.723] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156506482043877476',
+  tokenOut: '3569.124050814457291434',
+  gas: '999.997699828963472551'
+}
+[2024-03-08T14:58:12.723] [INFO] default - tradeData: 
+[2024-03-08T14:58:12.723] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T14:58:12.750] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single SwapSingle: CONTRACT_NOT_APPROVED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000", reason="SwapSingle: CONTRACT_NOT_APPROVED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb28b000000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "SwapSingle: CONTRACT_NOT_APPROVED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000',
+  reason: 'SwapSingle: CONTRACT_NOT_APPROVED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb28b000000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'SwapSingle: CONTRACT_NOT_APPROVED' ]
+  },
+  shortMessage: 'execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'SwapSingle: CONTRACT_NOT_APPROVED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 806,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T18:57:31.034] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-08T18:57:31.035] [INFO] default - {}
+[2024-03-08T18:57:31.162] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-08T18:57:34.274] [INFO] default - Profit in tokenIn: 7.211990586315370211 DAI
+[2024-03-08T18:57:34.366] [INFO] default - walletBalance: 
+[2024-03-08T18:57:34.366] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156513208485433624',
+  tokenOut: '3569.124093631437256757',
+  gas: '999.996911226782166974'
+}
+[2024-03-08T18:57:34.366] [INFO] default - tradeData: 
+[2024-03-08T18:57:34.366] [INFO] default - { tradeSize: '16.663494903375796275' }
+[2024-03-08T18:57:34.395] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single SwapSingle: CONTRACT_NOT_APPROVED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000", reason="SwapSingle: CONTRACT_NOT_APPROVED", transaction={ "data": "0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a053e03f18330000000000000000000000000000000000000000000000014b56c38e1d09071600000000000000000000000000000000000000000000000108d802bf37d6c636000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb60ca00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "SwapSingle: CONTRACT_NOT_APPROVED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000',
+  reason: 'SwapSingle: CONTRACT_NOT_APPROVED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000eef611894ceae652979c9d0dae1deb597790c6ee000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000e740a053e03f18330000000000000000000000000000000000000000000000014b56c38e1d09071600000000000000000000000000000000000000000000000108d802bf37d6c636000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb60ca00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'SwapSingle: CONTRACT_NOT_APPROVED' ]
+  },
+  shortMessage: 'execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'SwapSingle: CONTRACT_NOT_APPROVED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 796,
+      jsonrpc: '2.0'
+    }
+  }
+}
+[2024-03-08T18:57:38.428] [INFO] default - Profit in tokenIn: 0.003027101590609788 DAI
+[2024-03-08T18:57:38.467] [INFO] default - walletBalance: 
+[2024-03-08T18:57:38.467] [INFO] default - {
+  walletID: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+  tokenIn: '601.156513208485433624',
+  tokenOut: '3569.124093631437256757',
+  gas: '999.996911226782166974'
+}
+[2024-03-08T18:57:38.467] [INFO] default - tradeData: 
+[2024-03-08T18:57:38.467] [INFO] default - { tradeSize: '0.01186393499625846' }
+[2024-03-08T18:57:38.500] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single SwapSingle: CONTRACT_NOT_APPROVED <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Error: execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED" (action="estimateGas", data="0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000", reason="SwapSingle: CONTRACT_NOT_APPROVED", transaction={ "data": "0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb60ce00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063", "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "to": "0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797" }, invocation=null, revert={ "args": [ "SwapSingle: CONTRACT_NOT_APPROVED" ], "name": "Error", "signature": "Error(string)" }, code=CALL_EXCEPTION, version=6.10.0)
+    at makeError (/root/polybotv2/node_modules/ethers/src.ts/utils/errors.ts:694:21)
+    at getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:118:21)
+    at Function.getBuiltinCallException (/root/polybotv2/node_modules/ethers/src.ts/abi/abi-coder.ts:235:16)
+    at JsonRpcProvider.getRpcError (/root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:979:32)
+    at /root/polybotv2/node_modules/ethers/src.ts/providers/provider-jsonrpc.ts:563:45
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'CALL_EXCEPTION',
+  action: 'estimateGas',
+  data: '0x08c379a0000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000215377617053696e676c653a20434f4e54524143545f4e4f545f415050524f56454400000000000000000000000000000000000000000000000000000000000000',
+  reason: 'SwapSingle: CONTRACT_NOT_APPROVED',
+  transaction: {
+    to: '0xE28a1b108B07C9Cfa4636165Ee7cA3927ee17797',
+    data: '0x3730ace2000000000000000000000000dc30d23c4d1195a9e8d35452d72d754572d1ce1c0000000000000000000000005c6ec38fb0e2609672bdf628b1fd605a523e5923000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000000000000000000000000000002a262f9f171e9c0000000000000000000000000000000000000000000000000034e751a218fe18000000000000000000000000000000000000000000000000002a37494ed71712000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065eb60ce00000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf127000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a063',
+    from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
+  },
+  invocation: null,
+  revert: {
+    signature: 'Error(string)',
+    name: 'Error',
+    args: [ 'SwapSingle: CONTRACT_NOT_APPROVED' ]
+  },
+  shortMessage: 'execution reverted: "SwapSingle: CONTRACT_NOT_APPROVED"',
+  info: {
+    error: {
+      code: -32603,
+      message: "Error: VM Exception while processing transaction: reverted with reason string 'SwapSingle: CONTRACT_NOT_APPROVED'",
+      data: [Object]
+    },
+    payload: {
+      method: 'eth_estimateGas',
+      params: [Array],
+      id: 810,
+      jsonrpc: '2.0'
+    }
+  }
+}

@@ -27,12 +27,14 @@ export class PopulateRepays {
             flashSingle: 0n,
             flashMulti: 0n,
         };
-        if (this.trade.tradeSizes.pool0.token0.size <= 0) {
+        if (this.trade.tradeSizes.loanPool.tradeSizeToken0.size <= 0) {
             return r;
         }
 
         // getSingle() Will only be used if I for triangular arbitrage, which requries extra protocol integration.
-        let loanPlusFee = await this.calc.addFee(this.trade.tradeSizes.pool0.token0.size);
+        let loanPlusFee = await this.calc.addFee(
+            this.trade.tradeSizes.loanPool.tradeSizeToken0.size,
+        );
 
         const getSingle = async (): Promise<bigint> => {
             const repayInTokenOut = await getAmountsIn(this.trade.loanPool.router, loanPlusFee, [
@@ -46,7 +48,7 @@ export class PopulateRepays {
         const getMultiFlash = async (): Promise<bigint> => {
             const repayByGetAmountsIn = await getAmountsIn(
                 this.trade.loanPool.router,
-                this.trade.tradeSizes.pool0.token0.size, //tradeSize in tokenIn
+                this.trade.tradeSizes.loanPool.tradeSizeToken0.size, //tradeSize in tokenIn
                 [this.trade.tokenOut.data.id, this.trade.tokenIn.data.id],
             );
             return repayByGetAmountsIn;

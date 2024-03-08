@@ -1,0 +1,145 @@
+
+```
+this is all relevant info. See if it gives you any extra clues:
+
+
+router function: 
+
+```
+    function swapExactTokensForTokens(
+        uint amountIn,
+        uint amountOutMin,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external virtual override ensure(deadline) returns (uint[] memory amounts) {
+        amounts = PolydexLibrary.getAmountsOut(factory, amountIn, path);
+        require(amounts[amounts.length - 1] >= amountOutMin, 'PolydexRouter: INSUFFICIENT_OUTPUT_AMOUNT');
+        TransferHelper.safeTransferFrom(
+            path[0], _msgSender(), PolydexLibrary.pairFor(factory, path[0], path[1]), amounts[0]
+        );
+        _swap(amounts, path, to);
+    }
+    function swapTokensForExactTokens(
+        uint amountOut,
+        uint amountInMax,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external virtual override ensure(deadline) returns (uint[] memory amounts) {
+        amounts = PolydexLibrary.getAmountsIn(factory, amountOut, path);
+        require(amounts[0] <= amountInMax, 'PolydexRouter: EXCESSIVE_INPUT_AMOUNT');
+        TransferHelper.safeTransferFrom(
+            path[0], _msgSender(), PolydexLibrary.pairFor(factory, path[0], path[1]), amounts[0]
+        );
+        _swap(amounts, path, to);
+    }
+```
+swap function on router contract:
+```
+    // **** SWAP ****
+    // requires the initial amount to have already been sent to the first pair
+    function _swap(uint[] memory amounts, address[] memory path, address _to) internal virtual {
+        for (uint i; i < path.length - 1; i++) {
+            (address input, address output) = (path[i], path[i + 1]);
+            (address token0,) = PolydexLibrary.sortTokens(input, output);
+            uint amountOut = amounts[i + 1];
+            (uint amount0Out, uint amount1Out) = input == token0 ? (uint(0), amountOut) : (amountOut, uint(0));
+            address to = i < path.length - 2 ? PolydexLibrary.pairFor(factory, output, path[i + 2]) : _to;
+            IPolydexPair(PolydexLibrary.pairFor(factory, input, output)).swap(
+                amount0Out, amount1Out, to, new bytes(0)
+            );
+        }
+    }
+    
+```
+
+transferHelper function:
+```
+
+function safeTransferFrom(address token, address from, address to, uint value) internal {
+    // bytes4(keccak256(bytes('transferFrom(address,address,uint256)')));
+    (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x23b872dd, from, to, value));
+    require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: TRANSFER_FROM_FAILED');
+}
+
+```
+
+swap function on local app:
+```
+p = {
+    target: await trade.target.pool.getAddress(),
+    routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
+    routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
+    tradeSize: trade.tradeSizes.loanPool.tradeSizeToken0.size,
+    amountOutA: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
+    amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
+    path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
+    path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
+    to: await signer.getAddress(),
+    deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes}
+};
+
+
+```
+swapSingle function on SwapSingle contract:
+```
+function performSwap(
+    address target,
+    IUniswapV2Router02 routerA,
+    IUniswapV2Router02 routerB,
+    uint256 tradeSize,
+    uint256 amountOut,
+    uint256 amountOutB,
+    address[] memory path0,
+    address[] memory path1,
+    address to,
+    uint256 deadline
+) internal {
+    IERC20 tokenOut = IERC20(path0[1]);
+    // IERC20 tokenOut = IERC20(path0[1]);
+    console.log("SwapSingle: tradeSize:::: ", tradeSize);
+    console.log("SwapSingle: amountOutA::: ", amountOut);
+    console.log("target balance tokenOutA: ", tokenOut.balanceOf(target));
+    uint256[] memory swapIn = routerA.swapExactTokensForTokens(
+        tradeSize,
+        amountOut,
+        path0,
+        address(this),
+        deadline
+    );
+    console.log("SwapSingle: first swap completed");
+    console.log("SwapSingle: swapIn[1]: ", swapIn[1]);
+    uint256[] memory amountsOut = routerB.getAmountsOut(swapIn[1], path1);
+    require(amountsOut[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
+    // console.log("SwapSingle: amountOutB::: ", tradeSize);
+    // console.log("loanPool Balance tokenIn: ", tokenOut.balanceOf(loanPool));
+    routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
+    console.log("SwapSingle: second swap completed");
+}
+
+```
+
+Error message (hardhat):
+```
+
+console.log:
+SwapSingle: swapSingle contract entered
+SwapSingle: tokens approved
+SwapSingle: tradeSize:::  2283
+SwapSingle: amountOutA::  2862782562768562
+target balance tokenOut:  1438548581780257548
+
+Error: VM Exception while processing transaction: reverted with reason string 'TransferHelper: TRANSFER_FROM_FAILED'
+  at <UnrecognizedContract>.<unknown> (0xbd13225f0a45bead8510267b4d6a7c78146be459)
+  at SwapSingle.performSwap (contracts/v2/SwapSingle.sol:90)
+  at SwapSingle.swapSingle (contracts/v2/SwapSingle.sol:39)
+  at async EthModule._estimateGasAction (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/modules/eth.ts:439:7)
+  at async HardhatNetworkProvider._sendWithLogging (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:145:22)
+  at async HardhatNetworkProvider.request (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:122:18)
+  at async JsonRpcHandler._handleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:191:20)
+  at async JsonRpcHandler._handleSingleRequest (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:152:17)
+  at async Promise.all (index 0)
+  at async Server.JsonRpcHandler.handleHttp (/root/polybotv2/node_modules/hardhat/src/internal/hardhat-network/jsonrpc/handler.ts:42:25)
+
+```
