@@ -34,10 +34,10 @@ export class AmountConverter {
         this.slip = slip;
         this.tradeSizes = {
             loanPool: {
-                tradeSizeToken0: { size: 0n, sizeBN: BN(0) },
+                tradeSizeTokenIn: { size: 0n, sizeBN: BN(0) },
             },
             target: {
-                tradeSizeToken1: { size: 0n, sizeBN: BN(0) },
+                tradeSizeTokenOut: { size: 0n, sizeBN: BN(0) },
             },
         };
         // }; // DETERMINE DIRECTION OF TRADE HERE TOKEN0 -> TOKEN1 OR TOKEN1 -> TOKEN0
@@ -55,21 +55,21 @@ export class AmountConverter {
     async tradeToPrice(): Promise<Sizes> {
         let tradeSizes: Sizes = {
             loanPool: {
-                tradeSizeToken0: { size: 0n, sizeBN: BN(0) },
+                tradeSizeTokenIn: { size: 0n, sizeBN: BN(0) },
             },
             target: {
-                tradeSizeToken1: { size: 0n, sizeBN: BN(0) },
+                tradeSizeTokenOut: { size: 0n, sizeBN: BN(0) },
             },
         };
 
-        const tradeSizeToken0 = await tradeToPrice(
+        const tradeSizeTokenIn = await tradeToPrice(
             this.reservestarget.reserveInBN,
             this.reservestarget.reserveOutBN,
             this.targetPriceToken1,
             this.slip,
         );
         // Can only trade into token0Price on loanPool if trading to token1 on target (as prices are correlated)
-        const tradeSizeToken1 = await tradeToPrice(
+        const tradeSizeTokenOut = await tradeToPrice(
             this.reservesloanPool.reserveOutBN,
             this.reservesloanPool.reserveInBN,
             this.targetPriceToken0,
@@ -77,20 +77,20 @@ export class AmountConverter {
         );
         // console.log("tradeSize: ", tradeSize.toFixed(this.tokenIn.decimals)); //DEBUG
         const tradeSize0JS = pu(
-            tradeSizeToken0.toFixed(this.tokenIn.decimals),
+            tradeSizeTokenIn.toFixed(this.tokenIn.decimals),
             this.tokenIn.decimals,
         );
         const tradeSize1JS = pu(
-            tradeSizeToken1.toFixed(this.tokenOut.decimals),
+            tradeSizeTokenOut.toFixed(this.tokenOut.decimals),
             this.tokenOut.decimals,
         );
         // console.log("tradeSizeJS: ", fu(tradeSizeJS, this.tokenIn.decimals)); //DEBUG
         tradeSizes = {
             loanPool: {
-                tradeSizeToken0: { size: tradeSize0JS, sizeBN: tradeSizeToken0 },
+                tradeSizeTokenIn: { size: tradeSize0JS, sizeBN: tradeSizeTokenIn },
             },
             target: {
-                tradeSizeToken1: { size: tradeSize1JS, sizeBN: tradeSizeToken1 },
+                tradeSizeTokenOut: { size: tradeSize1JS, sizeBN: tradeSizeTokenOut },
             },
         };
         return tradeSizes;
@@ -174,7 +174,7 @@ export class AmountConverter {
         let p = await this.tradeToPrice();
 
         const sizetargetToken1 = async (): Promise<bigint> => {
-            const toPrice1 = p.target.tradeSizeToken1.size;
+            const toPrice1 = p.target.tradeSizeTokenOut.size;
             if (toPrice1 === 1n) {
                 return 1n;
             }
@@ -200,7 +200,7 @@ export class AmountConverter {
         };
 
         const size1BN = async (): Promise<BN> => {
-            const toPrice1 = p.target.tradeSizeToken1.sizeBN;
+            const toPrice1 = p.target.tradeSizeTokenOut.sizeBN;
             if (toPrice1.eq(BN(1))) {
                 return BN(1);
             }
@@ -223,7 +223,7 @@ export class AmountConverter {
         };
 
         const sizeloanPoolToken0 = async (): Promise<bigint> => {
-            const toPrice0 = p.loanPool.tradeSizeToken0.size;
+            const toPrice0 = p.loanPool.tradeSizeTokenIn.size;
             if (toPrice0 === 0n) {
                 return 0n;
             }
@@ -249,7 +249,7 @@ export class AmountConverter {
         };
 
         const size0BN = async (): Promise<BN> => {
-            const toPrice0 = p.loanPool.tradeSizeToken0.sizeBN;
+            const toPrice0 = p.loanPool.tradeSizeTokenIn.sizeBN;
             if (toPrice0.eq(BN(0))) {
                 return BN(0);
             }
@@ -273,23 +273,23 @@ export class AmountConverter {
 
         p = {
             loanPool: {
-                tradeSizeToken0: { size: await sizeloanPoolToken0(), sizeBN: await size0BN() },
+                tradeSizeTokenIn: { size: await sizeloanPoolToken0(), sizeBN: await size0BN() },
             },
             target: {
-                tradeSizeToken1: { size: await sizetargetToken1(), sizeBN: await size1BN() },
+                tradeSizeTokenOut: { size: await sizetargetToken1(), sizeBN: await size1BN() },
             },
         };
 
         const tradeSizes = {
             loanPool: {
-                tradeSizeToken0:
-                    fu(p.loanPool.tradeSizeToken0.size, this.tokenIn.decimals) +
+                tradeSizeTokenIn:
+                    fu(p.loanPool.tradeSizeTokenIn.size, this.tokenIn.decimals) +
                     " " +
                     this.tokenIn.symbol,
             },
             target: {
-                tradeSizeToken1:
-                    fu(p.target.tradeSizeToken1.size, this.tokenOut.decimals) +
+                tradeSizeTokenOut:
+                    fu(p.target.tradeSizeTokenOut.size, this.tokenOut.decimals) +
                     " " +
                     this.tokenOut.symbol,
             },

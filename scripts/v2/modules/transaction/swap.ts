@@ -8,7 +8,6 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { tradeLogs } from "../../modules/tradeLog";
 import { walletBal } from "../tools/walletBal";
 import { pendingTransactions } from "../../control";
-import { checkApproval } from "./approvals";
 
 export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt | null> {
     const swapSingleAddress = await swapSingle.getAddress();
@@ -33,7 +32,7 @@ export async function swap(trade: BoolTrade): Promise<ethers.TransactionReceipt 
         fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
         trade.tokenOut.data.symbol,
     );
-    if (trade.wallet.token0Balance < trade.tradeSizes.loanPool.tradeSizeToken0.size) {
+    if (trade.wallet.token0Balance < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
         return null;
     }

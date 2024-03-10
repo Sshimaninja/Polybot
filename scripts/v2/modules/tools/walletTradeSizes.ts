@@ -11,12 +11,12 @@ export async function walletTradeSize(trade: BoolTrade): Promise<WalletTradeSize
     };
     // let funds = trade.wallet.token0Balance;
 
-    if (trade.wallet.token0Balance > trade.tradeSizes.loanPool.tradeSizeToken0.size) {
-        walletTradeSizes.token0 = trade.tradeSizes.loanPool.tradeSizeToken0.size;
+    if (trade.wallet.token0Balance > trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
+        walletTradeSizes.token0 = trade.tradeSizes.loanPool.tradeSizeTokenIn.size;
     }
 
-    if (trade.wallet.token1Balance > trade.tradeSizes.target.tradeSizeToken1.size) {
-        walletTradeSizes.token1 = trade.tradeSizes.target.tradeSizeToken1.size;
+    if (trade.wallet.token1Balance > trade.tradeSizes.target.tradeSizeTokenOut.size) {
+        walletTradeSizes.token1 = trade.tradeSizes.target.tradeSizeTokenOut.size;
     }
 
     walletTradeSizes = {

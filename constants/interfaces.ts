@@ -398,13 +398,13 @@ export interface BoolTrade {
 }
 export interface Sizes {
     loanPool: {
-        tradeSizeToken0: {
+        tradeSizeTokenIn: {
             size: bigint;
             sizeBN: BN;
         };
     };
     target: {
-        tradeSizeToken1: {
+        tradeSizeTokenOut: {
             size: bigint;
             sizeBN: BN;
         };

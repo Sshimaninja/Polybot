@@ -110,20 +110,20 @@ export class Trade {
             tradeSizes: {
                 // becuase loanPool has a lower price, it will always use token0 to trade into token1
                 loanPool: {
-                    tradeSizeToken0: {
-                        size: size.loanPool.tradeSizeToken0.size,
+                    tradeSizeTokenIn: {
+                        size: size.loanPool.tradeSizeTokenIn.size,
                         sizeBN: BigInt2BN(
-                            size.loanPool.tradeSizeToken0.size,
+                            size.loanPool.tradeSizeTokenIn.size,
                             this.match.token0.decimals,
                         ),
                     },
                 },
                 // becuase target has a higher price, it will always use token1 to trade into token0
                 target: {
-                    tradeSizeToken1: {
-                        size: size.target.tradeSizeToken1.size,
+                    tradeSizeTokenOut: {
+                        size: size.target.tradeSizeTokenOut.size,
                         sizeBN: BigInt2BN(
-                            size.target.tradeSizeToken1.size,
+                            size.target.tradeSizeTokenOut.size,
                             this.match.token1.decimals,
                         ),
                     },
@@ -273,10 +273,10 @@ export class Trade {
 
         let walletTradeSizes = await walletTradeSize(trade);
 
-        trade.tradeSizes.loanPool.tradeSizeToken0.size =
+        trade.tradeSizes.loanPool.tradeSizeTokenIn.size =
             trade.type === "single"
                 ? walletTradeSizes.token0
-                : trade.tradeSizes.loanPool.tradeSizeToken0.size;
+                : trade.tradeSizes.loanPool.tradeSizeTokenIn.size;
 
         trade.profits.tokenProfit =
             trade.type === "single"
@@ -329,14 +329,14 @@ export class Trade {
 
         trade.k = await getK(
             trade.type,
-            trade.tradeSizes.loanPool.tradeSizeToken0.size,
+            trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             trade.loanPool.reserveIn,
             trade.loanPool.reserveOut,
             this.calcA,
         );
 
         trade.flash = trade.type === "flashSingle" ? flashSingle : flashMulti;
-        trade.params = await params(trade);
+
         return trade;
     }
 }

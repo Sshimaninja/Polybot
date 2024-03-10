@@ -66,13 +66,13 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
         // flashing token0 into token1
         const flashTargetToken1Out = await getAmountsOut(
             trade.target.router,
-            trade.tradeSizes.loanPool.tradeSizeToken0.size,
+            trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
         const flashTargetToken0Out = await getAmountsOut(
             trade.target.router,
-            trade.tradeSizes.target.tradeSizeToken1.size,
+            trade.tradeSizes.target.tradeSizeTokenOut.size,
             [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
 
@@ -86,14 +86,14 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
         // tradeSize = token1 from loanPool
         const flashLoanPoolToken1Out = await getAmountsOut(
             trade.loanPool.router,
-            trade.tradeSizes.loanPool.tradeSizeToken0.size,
+            trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
         // tradeSize = token1 from loanPool
         const flashLoanPoolToken0Out = await getAmountsOut(
             trade.loanPool.router,
-            trade.tradeSizes.target.tradeSizeToken1.size,
+            trade.tradeSizes.target.tradeSizeTokenOut.size,
             [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
         return {
