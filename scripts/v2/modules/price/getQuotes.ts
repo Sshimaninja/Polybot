@@ -116,6 +116,37 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
             flashToken1Out: (await flashLoanPoolQuotes()).flashLoanPoolToken1Out,
         },
     };
-    console.log("quotes: ", quotes);
+    const qStrings = {
+        target: {
+            token0Out:
+                fu(quotes.target.token0Out, trade.tokenIn.data.decimals) +
+                trade.tokenIn.data.symbol,
+            token1Out:
+                fu(quotes.target.token1Out, trade.tokenOut.data.decimals) +
+                trade.tokenOut.data.symbol,
+            flashToken0Out:
+                fu(quotes.target.flashToken0Out, trade.tokenIn.data.decimals) +
+                trade.tokenIn.data.symbol,
+            flashToken1Out:
+                fu(quotes.target.flashToken1Out, trade.tokenOut.data.decimals) +
+                trade.tokenOut.data.symbol,
+        },
+        loanPool: {
+            token0Out:
+                fu(quotes.loanPool.token0Out, trade.tokenIn.data.decimals) +
+                trade.tokenIn.data.symbol,
+            token1Out:
+                fu(quotes.loanPool.token1Out, trade.tokenOut.data.decimals) +
+                trade.tokenOut.data.symbol,
+            flashToken0Out:
+                fu(quotes.loanPool.flashToken0Out, trade.tokenIn.data.decimals) +
+                trade.tokenIn.data.symbol,
+            flashToken1Out:
+                fu(quotes.loanPool.flashToken1Out, trade.tokenOut.data.decimals) +
+                trade.tokenOut.data.symbol,
+        },
+    };
+
+    console.log("quotes: ", qStrings);
     return quotes;
 }

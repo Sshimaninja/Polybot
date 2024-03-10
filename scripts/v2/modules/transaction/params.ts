@@ -50,6 +50,7 @@ export async function params(trade: BoolTrade): Promise<any> {
                 " " +
                 trade.tokenIn.data.symbol,
         );
+
         p = {
             target: await trade.target.pool.getAddress(),
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut

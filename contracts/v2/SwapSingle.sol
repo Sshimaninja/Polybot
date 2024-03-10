@@ -32,12 +32,19 @@ contract SwapSingle {
     ) external {
         console.log("SwapSingle: swapSingle contract entered");
         IERC20 tokenIn = IERC20(path0[0]);
-        IERC20 tokenOut = IERC20(path0[1]);
         IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
         IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
-        approveTokens(tokenIn, tokenOut, routerAID, routerBID);
+
+        approveTokensIn(tokenIn, routerAID);
+        // Check that the 'from' address has enough tokens
+        uint256 balance = tokenIn.balanceOf(msg.sender);
+        require(balance >= tradeSize, "SwapSingle: INSUFFICIENT_INPUT_AMOUNT");
+
+        // Check that the 'from' address has approved the contract to transfer tokens
+        uint256 allowance = tokenIn.allowance(msg.sender, address(this));
+        require(allowance >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED");
+
         performSwap(
-            target,
             routerA,
             routerB,
             tradeSize,
@@ -51,16 +58,9 @@ contract SwapSingle {
         tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));
     }
 
-    function approveTokens(
-        IERC20 tokenIn,
-        IERC20 tokenOut,
-        address routerAID,
-        address routerBID
-    ) internal {
+    function approveTokensIn(IERC20 tokenIn, address routerAID) internal {
         tokenIn.approve(routerAID, type(uint256).max);
-        tokenIn.approve(routerBID, type(uint256).max);
-        tokenOut.approve(routerAID, type(uint256).max);
-        tokenOut.approve(routerBID, type(uint256).max);
+        console.log("tokenIn: ", address(tokenIn));
         console.log("SwapSingle: tokens approved");
     }
 
@@ -73,7 +73,6 @@ contract SwapSingle {
     //     token.approve(address(this), type(uint256).max);
     // }
     function performSwap(
-        address target,
         IUniswapV2Router02 routerA,
         IUniswapV2Router02 routerB,
         uint256 tradeSize,
@@ -85,23 +84,16 @@ contract SwapSingle {
         uint256 deadline
     ) internal {
         IERC20 tokenIn = IERC20(path0[0]);
-
-        // Check that the 'from' address has enough tokens
-        uint256 balance = tokenIn.balanceOf(msg.sender);
-        require(balance >= tradeSize, "SwapSingle: INSUFFICIENT_INPUT_AMOUNT");
-
-        uint256 allowanceRouter = tokenIn.allowance(msg.sender, address(routerA));
-        require(allowanceRouter >= tradeSize, "SwapSingle: ROUTER_NOT_APPROVED");
-
-        // Check that the 'from' address has approved the contract to transfer tokens
-        uint256 allowance = tokenIn.allowance(msg.sender, address(this));
-        require(allowance >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED");
-
+        console.log(path0[0]);
+        console.log(path0[1]);
         uint256[] memory amountsOutA = routerA.getAmountsOut(tradeSize, path0);
         require(
             amountsOutA[1] >= amountOut,
             "Error SwapSingle: routerA.getAmountsOut < amountOutA"
         );
+
+        uint256 allowanceRouter = tokenIn.allowance(msg.sender, address(routerA));
+        require(allowanceRouter >= tradeSize, "SwapSingle: ROUTER_NOT_APPROVED");
 
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,

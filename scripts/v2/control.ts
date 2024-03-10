@@ -86,8 +86,6 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     // return;
 
-                    return;
-
                     await trueProfit(trade);
 
                     // return;

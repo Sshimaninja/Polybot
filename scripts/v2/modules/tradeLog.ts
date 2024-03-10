@@ -13,10 +13,15 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 fu(trade.tradeSizes.loanPool.tradeSizeTokenIn.size, trade.tokenIn.data.decimals) +
                 " " +
                 trade.tokenIn.data.symbol,
-            tokenIn: { symbol: trade.tokenIn.data.symbol, decimals: trade.tokenIn.data.decimals },
+            tokenIn: {
+                symbol: trade.tokenIn.data.symbol,
+                decimals: trade.tokenIn.data.decimals,
+                id: trade.tokenIn.data.id,
+            },
             tokenOut: {
                 symbol: trade.tokenOut.data.symbol,
                 decimals: trade.tokenOut.data.decimals,
+                id: trade.tokenOut.data.id,
             },
             loanPool: {
                 exchange: trade.loanPool.exchange,

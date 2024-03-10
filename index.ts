@@ -32,29 +32,29 @@ async function main() {
 
     const pairList = await dataFeed();
 
-    // provider.on("block", async (blockNumber: any) => {
-    //     if (blockNumber === null || undefined) return;
-    //     console.log("New block received: Block # " + blockNumber);
-    try {
-        const gasData = await getGasData();
-        await Promise.all(
-            pairList.map(async (pairList: any) => {
-                await control(pairList, gasData);
-                // console.log("Pairlist loop complete. New loop starting...");
-            }),
-        );
-    } catch (error: any) {
-        if (error.code === "ECONNRESET") {
-            console.log("PROVIDER ERROR: ECONNRESET: Connection reset by peer. Retrying.");
-        } else {
-            //Verbose:
-            logger.error(`PROVIDER ERROR: ${error.stack}`);
-            //Concise:
-            // logger.error("PROVIDER ERROR: " + error.message);
-            // return
+    provider.on("block", async (blockNumber: any) => {
+        if (blockNumber === null || undefined) return;
+        console.log("New block received: Block # " + blockNumber);
+        try {
+            const gasData = await getGasData();
+            await Promise.all(
+                pairList.map(async (pairList: any) => {
+                    await control(pairList, gasData);
+                    // console.log("Pairlist loop complete. New loop starting...");
+                }),
+            );
+        } catch (error: any) {
+            if (error.code === "ECONNRESET") {
+                console.log("PROVIDER ERROR: ECONNRESET: Connection reset by peer. Retrying.");
+            } else {
+                //Verbose:
+                logger.error(`PROVIDER ERROR: ${error.stack}`);
+                //Concise:
+                // logger.error("PROVIDER ERROR: " + error.message);
+                // return
+            }
         }
-    }
-    // });
+    });
 }
 
 main().catch((error) => {
