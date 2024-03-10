@@ -76,9 +76,11 @@ export async function control(data: FactoryPair[], gasData: any) {
                         approved = await checkApprovalSingle(trade);
                     }
 
-                    trade.params = await params(trade);
+                    if (approved < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
+                        return;
+                    }
 
-                    // return;
+                    trade.params = await params(trade);
 
                     await fetchGasPrice(trade);
 
