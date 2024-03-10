@@ -2,15 +2,15 @@ import { BoolTrade } from "../../../../constants/interfaces";
 import { signer } from "../../../../constants/provider";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { ethers } from "ethers";
+import { checkApproval } from "./approvals";
 
 export async function params(trade: BoolTrade): Promise<any> {
     let p: any = {};
     // Create a new Contract instance for the token
-    const tokenContract = new ethers.Contract(trade.tokenIn.data.id, IERC20, signer);
 
     // Check the balance and allowance
-    const balance = await tokenContract.balanceOf(await signer.getAddress());
-    const allowance = await tokenContract.allowance(
+    const balance = await trade.tokenIn.contract.balanceOf(await signer.getAddress());
+    const allowance = await trade.tokenIn.contract.allowance(
         await signer.getAddress(),
         await trade.target.router.getAddress(),
     );
@@ -26,23 +26,17 @@ export async function params(trade: BoolTrade): Promise<any> {
         );
     }
 
-    if (allowance < trade.tradeSizes.loanPool.tradeSizeToken0.size) {
-        console.log("[params]: Insufficient allowance for the trade. Approving more tokens...");
-
-        // Approve the maximum possible amount of tokens
-        const maxUint256 = ethers.MaxUint256;
-        try {
-            const approveTx = await tokenContract.approve(
-                await trade.target.router.getAddress(),
-                maxUint256,
-            );
-            await approveTx.wait(); // Wait for the transaction to be mined
-        } catch (error: any) {
-            throw new Error("[params]: Failed to approve tokens: " + error.message);
-        }
-
-        console.log("[params]: Successfully approved tokens for the trade.");
-    }
+    console.log("[params]: Balance: " + balance + " " + trade.tokenIn.data.symbol);
+    console.log("[params]: Allowance: " + allowance + " " + trade.tokenIn.data.symbol);
+    // if (allowance < trade.tradeSizes.loanPool.tradeSizeToken0.size) {
+    //     console.log("[params]: Insufficient allowance for the trade. Approving more tokens...");
+    //     let approval = await checkApproval(trade);
+    //     if (approval) {
+    //         console.log("[params]: Approval successful");
+    //     } else {
+    //         throw new Error("[params]: Approval failed");
+    //     }
+    // }
 
     if (trade.type == "single") {
         // address target,

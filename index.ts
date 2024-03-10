@@ -33,8 +33,8 @@ async function main() {
     const pairList = await dataFeed();
 
     // provider.on("block", async (blockNumber: any) => {
-    // if (blockNumber === null || undefined) return;
-    // console.log("New block received: Block # " + blockNumber);
+    //     if (blockNumber === null || undefined) return;
+    //     console.log("New block received: Block # " + blockNumber);
     try {
         const gasData = await getGasData();
         await Promise.all(

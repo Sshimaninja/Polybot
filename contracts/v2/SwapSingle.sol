@@ -90,6 +90,9 @@ contract SwapSingle {
         uint256 balance = tokenIn.balanceOf(msg.sender);
         require(balance >= tradeSize, "SwapSingle: INSUFFICIENT_INPUT_AMOUNT");
 
+        uint256 allowanceRouter = tokenIn.allowance(msg.sender, address(routerA));
+        require(allowanceRouter >= tradeSize, "SwapSingle: ROUTER_NOT_APPROVED");
+
         // Check that the 'from' address has approved the contract to transfer tokens
         uint256 allowance = tokenIn.allowance(msg.sender, address(this));
         require(allowance >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED");
