@@ -31,6 +31,8 @@ TODO:
  */
 let filteredTrades: string[]; // Array to store filtered trades
 export let pendingTransactions: { [poolAddress: string]: boolean } = {};
+export let pendingApprovals: { [address: string]: string } = {};
+
 logger.info("Control.ts: pendingTransactions: ");
 logger.info(pendingTransactions);
 export async function control(data: FactoryPair[], gasData: any) {
@@ -93,6 +95,7 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     const log = await tradeLogs(trade);
                     // logger.info(log);
+
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                         console.log("No profit after trueProfit: ", log.tinyData);
                         return;
@@ -103,8 +106,16 @@ export async function control(data: FactoryPair[], gasData: any) {
                         let tx = await flash(trade);
                     }
                     if (trade.type == "single") {
-                        console.log("Executing swap for trade: " + trade.ticker);
+                        console.log(
+                            "Executing swap for trade: " +
+                                trade.ticker +
+                                " for profit: " +
+                                trade.profits.WMATICProfit,
+                        );
                         let tx = await swap(trade);
+                        if (tx !== null) {
+                            promises.push(tx);
+                        }
                     }
                     if (trade.type.includes("filtered")) {
                         console.log("Filtered trade: " + trade.ticker);

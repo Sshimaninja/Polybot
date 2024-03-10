@@ -92,11 +92,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 return g;
             }
 
-            const profit = p.amountOutA - p.tradeSize;
+            const profit = p.amountOutA - trade.quotes.loanPool.token1Out;
 
             logger.info(
-                "Profit in tokenIn: " + fu(profit, trade.tokenIn.data.decimals),
-                trade.tokenIn.data.symbol,
+                "Profit in tokenIn: " + fu(profit, trade.tokenOut.data.decimals),
+                trade.tokenOut.data.symbol,
             );
 
             const bal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
@@ -126,50 +126,14 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 return g;
             }
 
-            // await trade.tokenIn.contract.approve(swapSingleAddress, MaxInt256);
-            // const allowanceSwapSingle = await trade.tokenIn.contract.allowance(
-            //     await signer.getAddress(),
-            //     swapSingleAddress,
-            // );
-            // await trade.tokenIn.contract.approve(p.routerAID, MaxInt256);
-            // const allowanceTarget = await trade.tokenIn.contract.allowance(
-            //     await signer.getAddress(),
-            //     p.routerAID,
-            // );
-            // await trade.target.router.approve;
-            // console.log(
-            //     "Allowance for swapSingle: ",
-            //     allowanceSwapSingle,
-            //     trade.tokenIn.data.symbol,
-            //     "Allowance for target: ",
-            //     allowanceTarget,
-            //     trade.tokenIn.data.symbol,
-            // );
-
-            // await trade.target.pool.approve(await trade.target.router.getAddress(), MaxInt256);
-
-            // let targetAllowance = await trade.target.pool.allowance(
-            //     await signer.getAddress(),
-            //     p.routerAID,
-            // );
-            // const tokenContract = new ethers.Contract(trade.target.pool, IERC20, signer);
-
-            // why 0n?:
-            // [2024-03-03T22:19:18.950] [INFO] default - TargetAllowanceTokenIn:  57896044618658097711785492504343953926634992332820282019728792003956564819967n DAI
-            // [2024-03-03T22:19:18.950] [INFO] default - TargetAllowanceTokenOut:  0n WMATIC
-            // [2024-03-03T22:19:18.951] [INFO] default - TargetAllowanceTokenIn:  57896044618658097711785492504343953926634992332820282019728792003956564819967n DAI
-            // [2024-03-03T22:19:18.951] [INFO] default - TargetAllowanceTokenOut:  3569124090114451318145n WMATIC
-
-            const targetRouterID = await trade.target.router.getAddress();
-
             let walletBalance = {
                 walletID: await signer.getAddress(),
                 tokenIn: fu(bal.tokenIn, trade.tokenIn.data.decimals),
                 tokenOut: fu(bal.tokenOut, trade.tokenOut.data.decimals),
                 gas: fu(bal.gas, 18),
             };
-            logger.info("walletBalance: ");
-            logger.info(walletBalance);
+            // logger.info("walletBalance: ");
+            // logger.info(walletBalance);
             let tradeData = {
                 tradeSize: fu(p.tradeSize, trade.tokenIn.data.decimals),
             };
@@ -188,9 +152,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 p.to,
                 p.deadline,
             );
-            logger.info(">>>>>>>>>>swapSingle gasEstimate SUCCESS: ", gasEstimate);
+            // logger.info(">>>>>>>>>>swapSingle gasEstimate SUCCESS: ", gasEstimate);
             let gasPrice = gasEstimate * trade.gas.maxFee;
-            logger.info("swapSingle GASLOGS: ", gasPrice);
+            // logger.info("swapSingle GASLOGS: ", gasPrice);
             logger.info("swapSingle GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
             pendingTransactions[trade.ID] == false;
             return {
@@ -208,9 +172,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 const data = await tradeLogs(trade);
                 logger.error(
                     `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
-                    error.reason,
-                    data,
-                    `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                    // error.reason,
+                    // data,
+                    // `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
                 );
                 return g;
             }
