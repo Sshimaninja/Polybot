@@ -64,6 +64,13 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         //     trade.tokenIn.contract.allowance(await signer.getAddress(), swapSingleAddress),
         // );
         const oldBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
+        logger.info(
+            ">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ",
+            "TokenIn: ",
+            fu(oldBal.tokenIn, trade.tokenIn.data.decimals) + " " + trade.tokenIn.data.symbol,
+            "TokenOut: ",
+            fu(oldBal.tokenOut, trade.tokenOut.data.decimals) + " " + trade.tokenOut.data.symbol,
+        );
         pendingTransactions[trade.ID] = true;
 
         let tx: TransactionRequest = await swapSingle.swapSingle(
@@ -102,13 +109,6 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         //Print balances after trade
         const newBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         logger.info(
-            ">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ",
-            "TokenIn: ",
-            fu(oldBal.tokenIn, trade.tokenIn.data.decimals) + " " + trade.tokenIn.data.symbol,
-            "TokenOut: ",
-            fu(oldBal.tokenOut, trade.tokenOut.data.decimals) + " " + trade.tokenOut.data.symbol,
-        );
-        logger.info(
             ">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ",
             "TokenIn: ",
             fu(newBal.tokenIn, trade.tokenIn.data.decimals) + " " + trade.tokenIn.data.symbol,
@@ -123,16 +123,16 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         return txResponse;
     } catch (error: any) {
         if (error.message.includes("INSUFFICIENT_INPUT_AMOUNT")) {
-            logger.error(">>>>>>>>>>>>>>>>>>>>Error in swap: ");
-            logger.error(error);
-            logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
-            logger.error(logs);
-            logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            logger.error(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error.reason);
+            // logger.error(error.reason);
+            // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            // logger.error(logs);
+            // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
         } else {
-            logger.info(logs);
-            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: ");
-            logger.info(error);
-            logger.info(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            // logger.info(logs);
+            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error.reason);
+            // logger.info(error.reason);
+            // logger.info(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
         }
         return null;
     }

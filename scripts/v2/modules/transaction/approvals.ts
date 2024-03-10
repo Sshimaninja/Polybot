@@ -3,6 +3,7 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { signer } from "../../../../constants/provider";
 import { BoolTrade } from "../../../../constants/interfaces";
 import { swapSingleID } from "../../../../constants/environment";
+import { pendingApprovals } from "../../control";
 
 async function approveToken(
     tokenAddress: string,
@@ -18,14 +19,9 @@ async function approveToken(
             // console.log(`Already approved ${tokenAddress} for ${spender} for: ${allowance}`);
             return allowance;
         }
-
         const approvalTx: TransactionRequest = await token.approve(spender, maxInt);
-        const receipt = await signer.sendTransaction(approvalTx);
-
-        if (receipt.hash) {
-            // console.log(`Approved ${tokenAddress} for ${spender}: ${receipt.hash}`);
-            return await token.allowance(ownerAddress, spender);
-        }
+        const response = await signer.sendTransaction(approvalTx);
+        await response.wait(); // Wait for the transaction to be mined
     } catch (error: any) {
         console.error(`Error in token approval for ${tokenAddress}:`, error.message);
         return await token.allowance(await signer.getAddress(), spender);
@@ -36,7 +32,7 @@ async function approveToken(
 export async function checkApprovalRouter(trade: BoolTrade): Promise<bigint> {
     const maxInt = ethers.MaxInt256;
     const routerAddress = await trade.target.router.getAddress();
-
+    pendingApprovals[routerAddress] = trade.tokenIn.data.id;
     const approveTokenInForRouter = await approveToken(
         trade.tokenIn.data.id,
         routerAddress,
@@ -47,21 +43,13 @@ export async function checkApprovalRouter(trade: BoolTrade): Promise<bigint> {
 }
 
 export async function checkApprovalSingle(trade: BoolTrade): Promise<bigint> {
-    if (
-        (await trade.tokenIn.contract.allowance(
-            await signer.getAddress(),
-            await trade.target.router.getAddress(),
-        )) > trade.tradeSizes.loanPool.tradeSizeTokenIn.size
-    ) {
-        const maxInt = ethers.MaxInt256;
-        const swapContractID = swapSingleID;
-
-        const approveTokenInForRouter = await approveToken(
-            trade.tokenIn.data.id,
-            swapContractID,
-            trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-        );
-        return approveTokenInForRouter;
-    }
-    return 0n; //&& approveTokenInForSwapContract;
+    const maxInt = ethers.MaxInt256;
+    const swapContractID = swapSingleID;
+    pendingApprovals[swapContractID] = trade.tokenIn.data.id;
+    const approveTokenInForRouter = await approveToken(
+        trade.tokenIn.data.id,
+        swapContractID,
+        trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
+    );
+    return approveTokenInForRouter;
 }
