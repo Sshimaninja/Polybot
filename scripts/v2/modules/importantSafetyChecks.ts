@@ -8,15 +8,15 @@ import { tradeComparator } from "@cryptoalgebra/integral-sdk";
 
 export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade> {
     // const swap: swap = {
-    //     amount0Out: trade.tradeSizes.loanPool.tradeSizeToken0.size,
+    //     amount0Out: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
     //     amount1Out: 0n,
     //     to: await trade.target.pool.getAddress(),
     //     data: "none",
     // };
     if (trade.type.includes("flash")) {
-        if (trade.tradeSizes.loanPool.tradeSizeToken0.size > trade.loanPool.reserveIn) {
+        if (trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.loanPool.reserveIn) {
             trade.type =
-                "filtered flash: trade.tradeSizes.loanPool.tradeSizeToken0.size > trade.target.reserveIn";
+                "filtered flash: trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.target.reserveIn";
         }
         if (trade.quotes.target.token1Out > trade.target.reserveOut) {
             trade.type = "filteredflash: trade.quotes.target.token1Out > trade.target.reserveOut";
@@ -31,9 +31,9 @@ export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade
         // }
     }
     if (trade.type === "single") {
-        if (trade.tradeSizes.loanPool.tradeSizeToken0.size > trade.wallet.token0Balance) {
+        if (trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.token0Balance) {
             trade.type =
-                "filtered single: trade.tradeSizes.loanPool.tradeSizeToken0.size > trade.wallet.token0Balance";
+                "filtered single: trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.token0Balance";
         }
         if (trade.quotes.loanPool.token0Out > trade.loanPool.reserveIn) {
             trade.type = "filtered single: trade.quotes.target.token1Out > trade.target.reserveOut";

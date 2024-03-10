@@ -50,7 +50,7 @@ export async function flash(trade: BoolTrade): Promise<TransactionReceipt | null
         trade.target.router,
         trade.tokenIn.data.id,
         trade.tokenOut.data.id,
-        trade.tradeSizes.loanPool.tradeSizeToken0.size,
+        trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
         trade.quotes.target.token1Out,
         trade.loanPool.amountRepay,
         {

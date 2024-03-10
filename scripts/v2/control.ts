@@ -14,8 +14,9 @@ import { swap } from "./modules/transaction/swap";
 import { trueProfit } from "./modules/trueProfit";
 import { filterTrade } from "./modules/filterTrade";
 import { signer } from "../../constants/provider";
-import { checkApproval } from "./modules/transaction/approvals";
+import { checkApprovalRouter, checkApprovalSingle } from "./modules/transaction/approvals";
 import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
+import { params } from "./modules/transaction/params";
 // import { filterMatches } from "./filterMatches";
 /*
 TODO:
@@ -67,9 +68,15 @@ export async function control(data: FactoryPair[], gasData: any) {
                         return;
                     }
 
+                    let approved = 0n;
                     if (trade.type == "single") {
-                        await checkApproval(trade);
+                        approved = await checkApprovalRouter(trade);
                     }
+                    if (trade.type == "single" && approved > 0n) {
+                        approved = await checkApprovalSingle(trade);
+                    }
+
+                    trade.params = await params(trade);
 
                     // return;
 

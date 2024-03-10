@@ -13,7 +13,6 @@ import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 import { debug } from "console";
 import { ethers } from "hardhat";
 import { pendingTransactions } from "../../control";
-import { checkApproval } from "./approvals";
 import { MaxInt256 } from "ethers";
 import { swap } from "./swap";
 
@@ -54,7 +53,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.target.router,
                 trade.tokenIn.data.id,
                 trade.tokenOut.data.id,
-                trade.tradeSizes.loanPool.tradeSizeToken0.size,
+                trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
                 trade.quotes.target.token1Out,
                 trade.loanPool.amountRepay,
             );
@@ -102,7 +101,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 
             const bal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
 
-            if (bal.tokenIn < trade.tradeSizes.loanPool.tradeSizeToken0.size) {
+            if (bal.tokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
                 logger.info(
                     "tokenIn Balance: ",
                     fu(bal.tokenIn, trade.tokenIn.data.decimals),
@@ -110,7 +109,10 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 );
                 logger.info(
                     "tokenIn tradeSize: ",
-                    fu(trade.tradeSizes.loanPool.tradeSizeToken0.size, trade.tokenIn.data.decimals),
+                    fu(
+                        trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
+                        trade.tokenIn.data.decimals,
+                    ),
                     trade.tokenIn.data.symbol,
                 );
                 logger.error("Token0 balance too low for trade.");

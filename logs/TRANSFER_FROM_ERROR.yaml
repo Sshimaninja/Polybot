@@ -71,7 +71,7 @@ p = {
     target: await trade.target.pool.getAddress(),
     routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
     routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
-    tradeSize: trade.tradeSizes.loanPool.tradeSizeToken0.size,
+    tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
     amountOutA: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
     amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
     path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
