@@ -295,7 +295,7 @@ export class AmountConverter {
             },
         };
 
-        console.log("[AmountConverter]: ", tradeSizes);
+        // console.log("[AmountConverter]: ", tradeSizes);
         return p;
     }
 }
