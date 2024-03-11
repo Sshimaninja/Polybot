@@ -151,16 +151,16 @@ export class WMATICProfit {
             let gasPool = this.trade.target.pool;
 
             let profitInWMATIC = pu(inMatic.toFixed(18), 18);
-            console.log(
-                ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]:  profitInWMATICBN:  " + inMatic,
-                " string: ",
-                inMatic.toFixed(18),
-                " bigint: ",
-                profitInWMATIC,
-                "<<<<<<<<<<<<<<<<<<<<<<<<<",
-                " bigint string: ",
-                fu(profitInWMATIC, 18),
-            );
+            // console.log(
+            //     ">>[getProfitInWmatic]:  profitInWMATICBN:  " + inMatic,
+            //     " string: ",
+            //     inMatic.toFixed(18),
+            //     " bigint: ",
+            //     profitInWMATIC,
+            //     "<<",
+            //     " bigint string: ",
+            //     fu(profitInWMATIC, 18),
+            // );
             return profitInWMATIC;
         }
     }

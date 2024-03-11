@@ -65,8 +65,9 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     let trade: BoolTrade = await t.getTrade();
 
+                    // return;
                     if (trade.profits.tokenProfit <= 0) {
-                        console.log("No profit for trade: " + trade.ticker);
+                        // console.log("No profit for trade: " + trade.ticker);
                         return;
                     }
 
@@ -78,10 +79,6 @@ export async function control(data: FactoryPair[], gasData: any) {
                         approved = await checkApprovalSingle(trade);
                     }
 
-                    if (approved < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
-                        return;
-                    }
-
                     trade.params = await params(trade);
 
                     await fetchGasPrice(trade);
@@ -89,7 +86,6 @@ export async function control(data: FactoryPair[], gasData: any) {
                     // return;
 
                     await trueProfit(trade);
-
                     // return;
                     await filterTrade(trade);
 
@@ -99,6 +95,9 @@ export async function control(data: FactoryPair[], gasData: any) {
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                         console.log("No profit after trueProfit: ", log.tinyData);
                         return;
+                    }
+                    if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
+                        logger.info(log.tinyData);
                     }
 
                     if (trade.type.includes("flash")) {

@@ -21,12 +21,12 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
     const logs = await tradeLogs(trade);
     if (pendingTransactions[trade.ID]) {
         logger.info(
-            "::::::::::::::::TRADE " +
+            "::::::::TRADE " +
                 trade.ticker +
+                " profit: " +
+                fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals) +
                 " " +
-                trade.profits.tokenProfit +
-                " " +
-                trade.tokenOut.data +
+                trade.tokenOut.data.id +
                 " PENDING",
         );
         return null;
@@ -39,7 +39,7 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
         trade.tokenOut.data.symbol,
     );
-    if (trade.wallet.token0Balance < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
+    if (trade.wallet.tokenInBalance < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
         logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
         return null;
     }

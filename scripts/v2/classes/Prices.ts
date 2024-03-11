@@ -16,8 +16,8 @@ export class Prices {
         }
         this.poolID = poolID;
         this.reserves = reserves;
-        reserves.reserveIn = reserves.reserveIn;
-        reserves.reserveOut = reserves.reserveOut;
+        // reserves.reserveIn = reserves.reserveIn;
+        // reserves.reserveOut = reserves.reserveOut;
         this.priceInBN = reserves.reserveInBN.div(reserves.reserveOutBN);
         this.priceOutBN = reserves.reserveOutBN.div(reserves.reserveInBN);
     }

@@ -69,31 +69,31 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                     " " +
                     trade.tokenOut.data.symbol,
                 // amountOutToken0for1:
-                //     fu(trade.quotes.target.token1OutToken0for1, trade.tokenIn.data.decimals) +
+                //     fu(trade.quotes.target.tokenOutOutToken0for1, trade.tokenIn.data.decimals) +
                 //     " " +
                 //     trade.tokenIn.data.symbol,
                 amountOut:
-                    fu(trade.quotes.target.token1Out, trade.tokenOut.data.decimals) +
+                    fu(trade.quotes.target.tokenOutOut, trade.tokenOut.data.decimals) +
                     " " +
                     trade.tokenOut.data.symbol,
             },
             quotes: {
                 loanPoolToken0:
-                    fu(trade.quotes.loanPool.token0Out, trade.tokenIn.data.decimals) +
+                    fu(trade.quotes.loanPool.tokenInOut, trade.tokenIn.data.decimals) +
                     " " +
                     trade.tokenIn.data.symbol,
 
                 loanPoolToken1:
-                    fu(trade.quotes.loanPool.token1Out, trade.tokenOut.data.decimals) +
+                    fu(trade.quotes.loanPool.tokenOutOut, trade.tokenOut.data.decimals) +
                     " " +
                     trade.tokenOut.data.symbol,
 
                 targetToken0:
-                    fu(trade.quotes.target.token0Out, trade.tokenIn.data.decimals) +
+                    fu(trade.quotes.target.tokenInOut, trade.tokenIn.data.decimals) +
                     " " +
                     trade.tokenIn.data.symbol,
                 targetToken1:
-                    fu(trade.quotes.target.token1Out, trade.tokenOut.data.decimals) +
+                    fu(trade.quotes.target.tokenOutOut, trade.tokenOut.data.decimals) +
                     " " +
                     trade.tokenOut.data.symbol,
             },

@@ -18,8 +18,8 @@ export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade
             trade.type =
                 "filtered flash: trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.target.reserveIn";
         }
-        if (trade.quotes.target.token1Out > trade.target.reserveOut) {
-            trade.type = "filteredflash: trade.quotes.target.token1Out > trade.target.reserveOut";
+        if (trade.quotes.target.tokenOutOut > trade.target.reserveOut) {
+            trade.type = "filteredflash: trade.quotes.target.tokenOutOut > trade.target.reserveOut";
         }
         if (trade.k.uniswapKPositive === false) {
             trade.type = "filtered flash: K";
@@ -31,12 +31,13 @@ export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade
         // }
     }
     if (trade.type === "single") {
-        if (trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.token0Balance) {
+        if (trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.tokenInBalance) {
             trade.type =
-                "filtered single: trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.token0Balance";
+                "filtered single: trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.tokenInBalance";
         }
-        if (trade.quotes.loanPool.token0Out > trade.loanPool.reserveIn) {
-            trade.type = "filtered single: trade.quotes.target.token1Out > trade.target.reserveOut";
+        if (trade.quotes.loanPool.tokenInOut > trade.loanPool.reserveIn) {
+            trade.type =
+                "filtered single: trade.quotes.target.tokenOutOut > trade.target.reserveOut";
         }
     }
     return trade;

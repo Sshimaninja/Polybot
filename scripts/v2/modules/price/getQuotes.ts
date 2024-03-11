@@ -10,143 +10,153 @@ import { walletTradeSize } from "../tools/walletTradeSizes";
 export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
     let quotes: Quotes = {
         target: {
-            token0Out: trade.quotes.target.token0Out,
-            token1Out: trade.quotes.target.token1Out,
-            flashToken0Out: trade.quotes.target.token0Out,
-            flashToken1Out: trade.quotes.target.token1Out,
+            tokenInOut: trade.quotes.target.tokenInOut,
+            tokenOutOut: trade.quotes.target.tokenOutOut,
+            flashTokenInOut: trade.quotes.target.tokenInOut,
+            flashTokenOutOut: trade.quotes.target.tokenOutOut,
         },
         loanPool: {
-            token1Out: trade.quotes.loanPool.token1Out,
-            token0Out: trade.quotes.loanPool.token0Out,
-            flashToken0Out: trade.quotes.loanPool.token0Out,
-            flashToken1Out: trade.quotes.loanPool.token1Out,
+            tokenInOut: trade.quotes.loanPool.tokenInOut,
+            tokenOutOut: trade.quotes.loanPool.tokenOutOut,
+            flashTokenInOut: trade.quotes.loanPool.tokenInOut,
+            flashTokenOutOut: trade.quotes.loanPool.tokenOutOut,
         },
     };
 
     let wallet = await walletTradeSize(trade);
 
-    // ///YOU CAN'T PASS IN TRADESIZE TO GET AMOUTN OF token0 OUT
+    // ///YOU CAN'T PASS IN TRADESIZE TO GET AMOUTN OF tokenIn OUT
 
-    // if (wallet.token0 <= 0 && wallet.token1 <= 0) {
+    // if (wallet.tokenIn <= 0 && wallet.tokenOut <= 0) {
     // }
-    // if (trade.tradeSizes.loanPool.token0.size <= 0) {
+    // if (trade.tradeSizes.loanPool.tokenIn.size <= 0) {
     // }
 
     // in single/non-flash trades, profit must be returned to tokenIn, so this calc is needed to work out trade .
+    // const walletString = {
+    //     tokenIn: fu(wallet.tokenIn, trade.tokenIn.data.decimals) + trade.tokenIn.data.symbol,
+    //     tokenOut: fu(wallet.tokenOut, trade.tokenOut.data.decimals) + trade.tokenOut.data.symbol,
+    // };
+    // console.log("WalletBalances: ");
+    // console.log(walletString);
     const walletQuotes = async () => {
-        const singleTargetToken1Out = await getAmountsOut(trade.target.router, wallet.token0, [
-            trade.tokenIn.data.id,
+        // If you only have WMATIC in your wallet (to simplify the bot) singleLoanPoolTokenInOut == 0.
+        const singleLoanPooltokenInOut = await getAmountsOut(
+            trade.loanPool.router,
+            wallet.tokenOut,
+            [trade.tokenOut.data.id, trade.tokenIn.data.id],
+        );
+
+        const singleLoanPooltokenOutOut = await getAmountsOut(
+            trade.loanPool.router,
+            wallet.tokenIn,
+            [trade.tokenIn.data.id, trade.tokenOut.data.id],
+        );
+
+        const singleTargettokenInOut = await getAmountsOut(trade.target.router, wallet.tokenOut, [
             trade.tokenOut.data.id,
+            trade.tokenIn.data.id,
         ]);
 
-        const singleLoanPoolToken1Out = await getAmountsOut(trade.loanPool.router, wallet.token0, [
+        const singleTargettokenOutOut = await getAmountsOut(trade.target.router, wallet.tokenIn, [
             trade.tokenIn.data.id,
             trade.tokenOut.data.id,
-        ]);
-
-        const singleTargetToken0Out = await getAmountsOut(trade.target.router, wallet.token1, [
-            trade.tokenOut.data.id,
-            trade.tokenIn.data.id,
-        ]);
-
-        const singleLoanPoolToken0Out = await getAmountsOut(trade.loanPool.router, wallet.token1, [
-            trade.tokenOut.data.id,
-            trade.tokenIn.data.id,
         ]);
 
         return {
-            singleLoanPoolToken0Out,
-            singleLoanPoolToken1Out,
-            singleTargetToken0Out,
-            singleTargetToken1Out,
+            singleLoanPooltokenInOut,
+            singleLoanPooltokenOutOut,
+            singleTargettokenInOut,
+            singleTargettokenOutOut,
         };
     };
 
     const flashTargetQuotes = async () => {
-        // flashing token0 into token1
-        const flashTargetToken1Out = await getAmountsOut(
-            trade.target.router,
-            trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-            [trade.tokenIn.data.id, trade.tokenOut.data.id],
-        );
-
-        const flashTargetToken0Out = await getAmountsOut(
+        const flashTargettokenInOut = await getAmountsOut(
             trade.target.router,
             trade.tradeSizes.target.tradeSizeTokenOut.size,
             [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
 
+        // flashing tokenIn into tokenOut
+        const flashTargettokenOutOut = await getAmountsOut(
+            trade.target.router,
+            trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
+            [trade.tokenIn.data.id, trade.tokenOut.data.id],
+        );
+
         return {
-            flashTargetToken0Out,
-            flashTargetToken1Out,
+            flashTargettokenInOut,
+            flashTargettokenOutOut,
         };
     };
 
     const flashLoanPoolQuotes = async () => {
-        // tradeSize = token1 from loanPool
-        const flashLoanPoolToken1Out = await getAmountsOut(
+        const flashLoanPooltokenInOut = await getAmountsOut(
+            trade.loanPool.router,
+            trade.tradeSizes.target.tradeSizeTokenOut.size,
+            [trade.tokenOut.data.id, trade.tokenIn.data.id],
+        );
+        // tradeSize = tokenOut from loanPool
+        const flashLoanPooltokenOutOut = await getAmountsOut(
             trade.loanPool.router,
             trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
-        // tradeSize = token1 from loanPool
-        const flashLoanPoolToken0Out = await getAmountsOut(
-            trade.loanPool.router,
-            trade.tradeSizes.target.tradeSizeTokenOut.size,
-            [trade.tokenOut.data.id, trade.tokenIn.data.id],
-        );
+        // tradeSize = tokenOut from loanPool
+
         return {
-            flashLoanPoolToken0Out,
-            flashLoanPoolToken1Out,
+            flashLoanPooltokenInOut,
+            flashLoanPooltokenOutOut,
         };
     };
 
     quotes = {
         target: {
-            token0Out: (await walletQuotes()).singleTargetToken0Out,
-            token1Out: (await walletQuotes()).singleTargetToken1Out,
-            flashToken0Out: (await flashTargetQuotes()).flashTargetToken0Out,
-            flashToken1Out: (await flashTargetQuotes()).flashTargetToken1Out,
+            tokenInOut: (await walletQuotes()).singleTargettokenInOut,
+            tokenOutOut: (await walletQuotes()).singleTargettokenOutOut,
+            flashTokenInOut: (await flashTargetQuotes()).flashTargettokenInOut,
+            flashTokenOutOut: (await flashTargetQuotes()).flashTargettokenOutOut,
         },
         loanPool: {
-            token0Out: (await walletQuotes()).singleLoanPoolToken0Out,
-            token1Out: (await walletQuotes()).singleLoanPoolToken1Out,
-            flashToken0Out: (await flashLoanPoolQuotes()).flashLoanPoolToken0Out,
-            flashToken1Out: (await flashLoanPoolQuotes()).flashLoanPoolToken1Out,
+            tokenInOut: (await walletQuotes()).singleLoanPooltokenInOut,
+            tokenOutOut: (await walletQuotes()).singleLoanPooltokenOutOut,
+            flashTokenInOut: (await flashLoanPoolQuotes()).flashLoanPooltokenInOut,
+            flashTokenOutOut: (await flashLoanPoolQuotes()).flashLoanPooltokenOutOut,
         },
     };
     const qStrings = {
         target: {
-            token0Out:
-                fu(quotes.target.token0Out, trade.tokenIn.data.decimals) +
+            tokenInOut:
+                fu(quotes.target.tokenInOut, trade.tokenIn.data.decimals) +
                 trade.tokenIn.data.symbol,
-            token1Out:
-                fu(quotes.target.token1Out, trade.tokenOut.data.decimals) +
+            tokenOutOut:
+                fu(quotes.target.tokenOutOut, trade.tokenOut.data.decimals) +
                 trade.tokenOut.data.symbol,
-            flashToken0Out:
-                fu(quotes.target.flashToken0Out, trade.tokenIn.data.decimals) +
+            flashTokenInOut:
+                fu(quotes.target.flashTokenInOut, trade.tokenIn.data.decimals) +
                 trade.tokenIn.data.symbol,
-            flashToken1Out:
-                fu(quotes.target.flashToken1Out, trade.tokenOut.data.decimals) +
+            flashTokenOutOut:
+                fu(quotes.target.flashTokenOutOut, trade.tokenOut.data.decimals) +
                 trade.tokenOut.data.symbol,
         },
         loanPool: {
-            token0Out:
-                fu(quotes.loanPool.token0Out, trade.tokenIn.data.decimals) +
+            tokenInOut:
+                fu(quotes.loanPool.tokenInOut, trade.tokenIn.data.decimals) +
                 trade.tokenIn.data.symbol,
-            token1Out:
-                fu(quotes.loanPool.token1Out, trade.tokenOut.data.decimals) +
+            tokenOutOut:
+                fu(quotes.loanPool.tokenOutOut, trade.tokenOut.data.decimals) +
                 trade.tokenOut.data.symbol,
-            flashToken0Out:
-                fu(quotes.loanPool.flashToken0Out, trade.tokenIn.data.decimals) +
+            flashTokenInOut:
+                fu(quotes.loanPool.flashTokenInOut, trade.tokenIn.data.decimals) +
                 trade.tokenIn.data.symbol,
-            flashToken1Out:
-                fu(quotes.loanPool.flashToken1Out, trade.tokenOut.data.decimals) +
+            flashTokenOutOut:
+                fu(quotes.loanPool.flashTokenOutOut, trade.tokenOut.data.decimals) +
                 trade.tokenOut.data.symbol,
         },
     };
 
-    console.log("quotes: ", qStrings);
+    // console.log("quotes: ", qStrings);
     return quotes;
 }

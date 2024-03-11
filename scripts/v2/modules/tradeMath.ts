@@ -19,14 +19,14 @@ export async function getMaxIn(reserve: BN, slip: BN): Promise<BN> {
 }
 
 /*
-- getMaxToken1Out:
+- getMaxtokenOutOut:
 - ex: this pool's reserveIn/reserveOut: 1000 / 1580000 = 1/1580
 - currentPrice = 1580
 - slippage = 0.002 = 0.2%
 - slippageNum = currentPrice * slippage = 1580 * 0.002 = 3.16
 - lowestPrice = currentPrice - slippageNum = 1580 - 3.16 = 1576.84
 - targetReserves = reserveIn * lowestPrice = 1000 * 1576.84 = 1576840
-- maxToken1Out = reserveOut - targetReserves = 1580000 - 1576840 = 3160
+- maxtokenOutOut = reserveOut - targetReserves = 1580000 - 1576840 = 3160
 */
 
 export async function getMaxOut(reserve: BN, slip: BN): Promise<BN> {
