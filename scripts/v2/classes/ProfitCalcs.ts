@@ -21,8 +21,8 @@ export class ProfitCalculator {
         try {
             let profit: Profcalcs = { singleProfit: 0n, flashProfit: 0n };
             profit.flashProfit =
-                this.quotes.target.flashToken1Out > this.repays.flashMulti
-                    ? this.quotes.target.flashToken1Out - this.repays.flashMulti
+                this.quotes.target.flashTokenOutOut > this.repays.flashMulti
+                    ? this.quotes.target.flashTokenOutOut - this.repays.flashMulti
                     : 0n;
             const profitBN = BigInt2BN(profit.flashProfit, this.trade.tokenOut.data.decimals);
             // console.log(profit);
@@ -39,11 +39,11 @@ export class ProfitCalculator {
             const repays = this.repays;
             // This actually gets traded back into tokenIn, but for now we're representing it as tokenOut until I add the switch in the logs.
             // *update: I'll keep the profit in tokenOut but just trade back for my original tradeSize amount, to keep things easier.
-            let singleProfit = this.quotes.target.token1Out - this.quotes.loanPool.token1Out;
+            let singleProfit = this.quotes.target.tokenOutOut - this.quotes.loanPool.tokenOutOut;
 
             const flashProfit =
-                this.quotes.target.flashToken1Out > repays.flashSingle
-                    ? this.quotes.target.flashToken1Out - repays.flashSingle
+                this.quotes.target.flashTokenOutOut > repays.flashSingle
+                    ? this.quotes.target.flashTokenOutOut - repays.flashSingle
                     : 0n;
             const profCalcs = { singleProfit, flashProfit };
             return profCalcs;

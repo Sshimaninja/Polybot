@@ -56,8 +56,8 @@ export async function params(trade: BoolTrade): Promise<any> {
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-            amountOutA: trade.quotes.target.token1Out, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.token0Out, //high Output tokenOut to tokenIn
+            amountOutA: trade.quotes.target.tokenOutOut, //high Output tokenIn to tokenOut
+            amountOutB: trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
             path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
             to: await signer.getAddress(),
@@ -80,7 +80,7 @@ export async function params(trade: BoolTrade): Promise<any> {
             token0ID: trade.tokenIn.data.id,
             token1ID: trade.tokenOut.data.id,
             amountIn: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-            amountOut: trade.quotes.target.token1Out,
+            amountOut: trade.quotes.target.tokenOutOut,
             amountToRepay: trade.loanPool.amountRepay,
         };
     }

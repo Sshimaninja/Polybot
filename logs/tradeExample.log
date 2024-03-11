@@ -21,7 +21,7 @@
     Token1::::::::::::::::::::::  0
     ____________swapExactTokensForTokens_______________
     Swap complete
-    swap[0](token0Out):::::::::  209184252499933
+    swap[0](tokenInOut):::::::::  209184252499933
     swap[1](token1In)::::::::::  188673222385907
     Token balances: 
     Token0:::::::::::::::::::::  0
@@ -89,7 +89,7 @@ eth_sendRawTransaction
     Token1::::::::::::::::::::::  0
     ____________swapExactTokensForTokens_______________
     Swap complete
-    swap[0](token0Out):::::::::  2950
+    swap[0](tokenInOut):::::::::  2950
     swap[1](token1In)::::::::::  13717338134021061
     Token balances: 
     Token0:::::::::::::::::::::  0
@@ -154,7 +154,7 @@ eth_sendRawTransaction
     Token1::::::::::::::::::::::  0
     ____________swapExactTokensForTokens_______________
     Swap complete
-    swap[0](token0Out):::::::::  71450575222165937
+    swap[0](tokenInOut):::::::::  71450575222165937
     swap[1](token1In)::::::::::  5569
     Token balances: 
     Token0:::::::::::::::::::::  0

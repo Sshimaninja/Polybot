@@ -358,8 +358,8 @@ export interface BoolTrade {
     flash: Contract;
     tradeSizes: Sizes;
     wallet: {
-        token0Balance: bigint;
-        token1Balance: bigint;
+        tokenInBalance: bigint;
+        tokenOutBalance: bigint;
         maticBalance: bigint;
     };
     loanPool: {
@@ -385,8 +385,8 @@ export interface BoolTrade {
         reserveInBN: BN;
         reserveOut: bigint;
         reserveOutBN: BN;
-        priceIn: string;
-        priceOut: string;
+        priceIn: BN;
+        priceOut: BN;
     };
     quotes: FinalQuotes;
     gas: GasData;
@@ -422,26 +422,26 @@ export interface TradeProfit {
 
 export interface FinalQuotes {
     target: {
-        token0Out: bigint;
-        token1Out: bigint;
+        tokenInOut: bigint;
+        tokenOutOut: bigint;
     };
     loanPool: {
-        token0Out: bigint;
-        token1Out: bigint;
+        tokenInOut: bigint;
+        tokenOutOut: bigint;
     };
 }
 
 export interface Quotes {
     target: {
-        token0Out: bigint;
-        token1Out: bigint;
-        flashToken0Out: bigint;
-        flashToken1Out: bigint;
+        tokenInOut: bigint;
+        tokenOutOut: bigint;
+        flashTokenInOut: bigint;
+        flashTokenOutOut: bigint;
     };
     loanPool: {
-        token0Out: bigint;
-        token1Out: bigint;
-        flashToken0Out: bigint;
-        flashToken1Out: bigint;
+        tokenInOut: bigint;
+        tokenOutOut: bigint;
+        flashTokenInOut: bigint;
+        flashTokenOutOut: bigint;
     };
 }

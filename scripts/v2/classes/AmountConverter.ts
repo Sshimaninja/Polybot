@@ -1,6 +1,6 @@
 import { BigNumber as BN } from "bignumber.js";
 import { getMaxIn, getMaxOut, tradeToPrice } from "../modules/tradeMath";
-import { Pair, ReservesData, Sizes, TradePair } from "../../../constants/interfaces";
+import { BoolTrade, Pair, ReservesData, Sizes, TradePair } from "../../../constants/interfaces";
 import { Prices } from "./Prices";
 import { Token, Amounts } from "../../../constants/interfaces";
 import { BigInt2BN, fu, pu } from "../../modules/convertBN";
@@ -13,25 +13,10 @@ import { slip } from "../../../constants/environment";
  */
 
 export class AmountConverter {
-    tokenIn: Token;
-    tokenOut: Token;
-    reservesloanPool: ReservesData;
-    reservestarget: ReservesData;
-    pricesloanPool: Prices;
-    pricestarget: Prices;
-    targetPriceToken0: BN;
-    targetPriceToken1: BN;
-    slip: BN;
+    trade: BoolTrade;
     tradeSizes: Sizes;
 
-    constructor(pricesloanPool: Prices, pricestarget: Prices, pair: TradePair) {
-        this.reservesloanPool = pricesloanPool.reserves;
-        this.reservestarget = pricestarget.reserves;
-        this.pricesloanPool = pricesloanPool;
-        this.pricestarget = pricestarget;
-        this.targetPriceToken0 = pricestarget.priceInBN; //.plus(pricesloanPool.priceInBN).div(2);
-        this.targetPriceToken1 = pricesloanPool.priceOutBN; //.plus(pricestarget.priceOutBN).div(2);
-        this.slip = slip;
+    constructor(trade: BoolTrade) {
         this.tradeSizes = {
             loanPool: {
                 tradeSizeTokenIn: { size: 0n, sizeBN: BN(0) },
@@ -40,9 +25,7 @@ export class AmountConverter {
                 tradeSizeTokenOut: { size: 0n, sizeBN: BN(0) },
             },
         };
-        // }; // DETERMINE DIRECTION OF TRADE HERE TOKEN0 -> TOKEN1 OR TOKEN1 -> TOKEN0
-        this.tokenIn = pair.token1; // direction tokenIn-tokenOut reults in WMATIC pairs more often, making pricing easier.
-        this.tokenOut = pair.token0;
+        this.trade = trade;
     }
 
     /**
@@ -63,93 +46,124 @@ export class AmountConverter {
         };
 
         const tradeSizeTokenIn = await tradeToPrice(
-            this.reservestarget.reserveInBN,
-            this.reservestarget.reserveOutBN,
-            this.targetPriceToken1,
-            this.slip,
+            this.trade.target.reserveInBN,
+            this.trade.target.reserveOutBN,
+            this.trade.target.priceOut,
+            slip,
         );
         // Can only trade into token0Price on loanPool if trading to token1 on target (as prices are correlated)
         const tradeSizeTokenOut = await tradeToPrice(
-            this.reservesloanPool.reserveOutBN,
-            this.reservesloanPool.reserveInBN,
-            this.targetPriceToken0,
-            this.slip,
+            this.trade.loanPool.reserveOutBN,
+            this.trade.loanPool.reserveInBN,
+            this.trade.target.priceIn,
+            slip,
         );
-        // console.log("tradeSize: ", tradeSize.toFixed(this.tokenIn.decimals)); //DEBUG
-        const tradeSize0JS = pu(
-            tradeSizeTokenIn.toFixed(this.tokenIn.decimals),
-            this.tokenIn.decimals,
+
+        // console.log(
+        //     "tradeSizeTokenIn: ",
+        //     tradeSizeTokenIn.toFixed(this.trade.tokenIn.data.decimals),
+        //     "tradeSizeTokenOut: ",
+        //     tradeSizeTokenOut.toFixed(this.trade.tokenOut.data.decimals),
+        // ); //DEBUG
+
+        const tradeSizeInJS = pu(
+            tradeSizeTokenIn.toFixed(this.trade.tokenIn.data.decimals),
+            this.trade.tokenIn.data.decimals,
         );
-        const tradeSize1JS = pu(
-            tradeSizeTokenOut.toFixed(this.tokenOut.decimals),
-            this.tokenOut.decimals,
+        const tradeSizeOutJS = pu(
+            tradeSizeTokenOut.toFixed(this.trade.tokenOut.data.decimals),
+            this.trade.tokenOut.data.decimals,
         );
-        // console.log("tradeSizeJS: ", fu(tradeSizeJS, this.tokenIn.decimals)); //DEBUG
+        // console.log("tradeSizeJS: ", fu(tradeSizeJS, this.trade.tokenIn.data.decimals)); //DEBUG
         tradeSizes = {
             loanPool: {
-                tradeSizeTokenIn: { size: tradeSize0JS, sizeBN: tradeSizeTokenIn },
+                tradeSizeTokenIn: { size: tradeSizeInJS, sizeBN: tradeSizeTokenIn },
             },
             target: {
-                tradeSizeTokenOut: { size: tradeSize1JS, sizeBN: tradeSizeTokenOut },
+                tradeSizeTokenOut: { size: tradeSizeOutJS, sizeBN: tradeSizeTokenOut },
             },
         };
         return tradeSizes;
     }
 
-    async getMaxToken0IOtarget(): Promise<{
+    async getMaxTokenInIOtarget(): Promise<{
         maxIn: bigint;
         maxInBN: BN;
         maxOut: bigint;
         maxOutBN: BN;
     }> {
-        const maxInBN = await getMaxIn(this.reservestarget.reserveInBN, this.slip);
-        const maxOutBN = await getMaxOut(this.reservestarget.reserveInBN, this.slip);
-        const maxIn = pu(maxInBN.toFixed(this.tokenIn.decimals), this.tokenIn.decimals!);
-        const maxOut = pu(maxOutBN.toFixed(this.tokenIn.decimals), this.tokenIn.decimals!);
+        const maxInBN = await getMaxIn(this.trade.target.reserveInBN, slip);
+        const maxOutBN = await getMaxOut(this.trade.target.reserveInBN, slip);
+        const maxIn = pu(
+            maxInBN.toFixed(this.trade.tokenIn.data.decimals),
+            this.trade.tokenIn.data.decimals!,
+        );
+        const maxOut = pu(
+            maxOutBN.toFixed(this.trade.tokenIn.data.decimals),
+            this.trade.tokenIn.data.decimals!,
+        );
         return { maxIn, maxInBN, maxOut, maxOutBN };
     }
 
-    async getMaxToken1IOtarget(): Promise<{
+    async getMaxTokenOutIOtarget(): Promise<{
         maxIn: bigint;
         maxInBN: BN;
         maxOut: bigint;
         maxOutBN: BN;
     }> {
-        const maxInBN = await getMaxIn(this.reservestarget.reserveOutBN, this.slip);
-        const maxOutBN = await getMaxOut(this.reservestarget.reserveOutBN, this.slip);
-        const maxIn = pu(maxInBN.toFixed(this.tokenOut.decimals), this.tokenOut.decimals!);
-        const maxOut = pu(maxOutBN.toFixed(this.tokenOut.decimals), this.tokenOut.decimals!);
+        const maxInBN = await getMaxIn(this.trade.target.reserveOutBN, slip);
+        const maxOutBN = await getMaxOut(this.trade.target.reserveOutBN, slip);
+        const maxIn = pu(
+            maxInBN.toFixed(this.trade.tokenOut.data.decimals),
+            this.trade.tokenOut.data.decimals!,
+        );
+        const maxOut = pu(
+            maxOutBN.toFixed(this.trade.tokenOut.data.decimals),
+            this.trade.tokenOut.data.decimals!,
+        );
         return { maxIn, maxInBN, maxOut, maxOutBN };
     }
 
-    async getMaxToken0IOloanPool(): Promise<{
+    async getMaxTokenInIOloanPool(): Promise<{
         maxIn: bigint;
         maxInBN: BN;
         maxOut: bigint;
         maxOutBN: BN;
     }> {
-        const maxInBN = await getMaxIn(this.reservesloanPool.reserveInBN, this.slip);
-        const maxOutBN = await getMaxOut(this.reservesloanPool.reserveInBN, this.slip);
-        const maxIn = pu(maxInBN.toFixed(this.tokenIn.decimals), this.tokenIn.decimals!);
-        const maxOut = pu(maxOutBN.toFixed(this.tokenIn.decimals), this.tokenIn.decimals!);
+        const maxInBN = await getMaxIn(this.trade.loanPool.reserveInBN, slip);
+        const maxOutBN = await getMaxOut(this.trade.loanPool.reserveInBN, slip);
+        const maxIn = pu(
+            maxInBN.toFixed(this.trade.tokenIn.data.decimals),
+            this.trade.tokenIn.data.decimals!,
+        );
+        const maxOut = pu(
+            maxOutBN.toFixed(this.trade.tokenIn.data.decimals),
+            this.trade.tokenIn.data.decimals!,
+        );
         return { maxIn, maxInBN, maxOut, maxOutBN };
     }
-    async getMaxToken1IOloanPool(): Promise<{
+    async getMaxTokenOutIOloanPool(): Promise<{
         maxIn: bigint;
         maxInBN: BN;
         maxOut: bigint;
         maxOutBN: BN;
     }> {
-        const maxInBN = await getMaxIn(this.reservesloanPool.reserveOutBN, this.slip);
-        const maxOutBN = await getMaxOut(this.reservesloanPool.reserveInBN, this.slip);
-        const maxIn = pu(maxInBN.toFixed(this.tokenOut.decimals), this.tokenOut.decimals!);
-        const maxOut = pu(maxOutBN.toFixed(this.tokenOut.decimals), this.tokenOut.decimals!);
+        const maxInBN = await getMaxIn(this.trade.loanPool.reserveOutBN, slip);
+        const maxOutBN = await getMaxOut(this.trade.loanPool.reserveInBN, slip);
+        const maxIn = pu(
+            maxInBN.toFixed(this.trade.tokenOut.data.decimals),
+            this.trade.tokenOut.data.decimals!,
+        );
+        const maxOut = pu(
+            maxOutBN.toFixed(this.trade.tokenOut.data.decimals),
+            this.trade.tokenOut.data.decimals!,
+        );
         return { maxIn, maxInBN, maxOut, maxOutBN };
     }
 
     async subSlippage(amountOut: bigint, decimals: number): Promise<bigint> {
         const amount = BigInt2BN(amountOut, decimals);
-        const slippage = amount.times(this.slip);
+        const slippage = amount.times(slip);
         const adjAmountBN = amount.minus(slippage);
         const adjAmountJS = pu(adjAmountBN.toFixed(decimals), decimals);
         // 12000 * 0.005 = 60
@@ -173,15 +187,15 @@ export class AmountConverter {
     async getSize(): Promise<Sizes> {
         let p = await this.tradeToPrice();
 
-        const sizetargetToken1 = async (): Promise<bigint> => {
+        const sizetargetTokenOut = async (): Promise<bigint> => {
             const toPrice1 = p.target.tradeSizeTokenOut.size;
             if (toPrice1 === 1n) {
                 return 1n;
             }
             // use max1Intarget to make sure the trade doesn't revert due to too much slippage on target
-            let max1Intarget = (await this.getMaxToken1IOtarget()).maxIn;
+            let max1Intarget = (await this.getMaxTokenOutIOtarget()).maxIn;
             // use max1OutloanPool to ensure trade doesn't revert due to insufficient liq on loanPool
-            let max1OutloanPool = (await this.getMaxToken1IOloanPool()).maxOut;
+            let max1OutloanPool = (await this.getMaxTokenOutIOloanPool()).maxOut;
 
             max1OutloanPool = max1OutloanPool < 1n ? max1OutloanPool * -1n : max1OutloanPool;
 
@@ -194,7 +208,7 @@ export class AmountConverter {
                 bestSize = max1OutloanPool;
             }
 
-            const safeReserves = (this.reservestarget.reserveOut * 820n) / 1000n;
+            const safeReserves = (this.trade.target.reserveOut * 820n) / 1000n;
             const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
             return size;
         };
@@ -204,8 +218,8 @@ export class AmountConverter {
             if (toPrice1.eq(BN(1))) {
                 return BN(1);
             }
-            let max1Intarget = (await this.getMaxToken1IOtarget()).maxInBN;
-            let max1OutloanPool = (await this.getMaxToken1IOloanPool()).maxOutBN;
+            let max1Intarget = (await this.getMaxTokenOutIOtarget()).maxInBN;
+            let max1OutloanPool = (await this.getMaxTokenOutIOloanPool()).maxOutBN;
 
             max1OutloanPool.abs();
             let bestSize: BN = toPrice1;
@@ -215,22 +229,22 @@ export class AmountConverter {
             if (toPrice1.gt(max1OutloanPool)) {
                 bestSize = max1OutloanPool;
             }
-            const safeReserves = this.reservestarget.reserveInBN.times(820).div(1000);
+            const safeReserves = this.trade.target.reserveInBN.times(820).div(1000);
             const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
-            // console.log("sizeBN: ", size.toFixed(this.tokenIn.decimals), this.tokenIn.symbol); //DEBUG
+            // console.log("sizeBN: ", size.toFixed(this.trade.tokenIn.data.decimals), this.tokenIn.symbol); //DEBUG
 
             return size;
         };
 
-        const sizeloanPoolToken0 = async (): Promise<bigint> => {
+        const sizeloanPoolTokenIn = async (): Promise<bigint> => {
             const toPrice0 = p.loanPool.tradeSizeTokenIn.size;
             if (toPrice0 === 0n) {
                 return 0n;
             }
             // use max0Intarget to make sure the trade doesn't revert due to too much slippage on target
-            let max0Intarget = (await this.getMaxToken0IOtarget()).maxIn;
+            let max0Intarget = (await this.getMaxTokenInIOtarget()).maxIn;
             // use max0OutloanPool to ensure trade doesn't revert due to insufficient liq on loanPool
-            let max0OutloanPool = (await this.getMaxToken0IOloanPool()).maxOut;
+            let max0OutloanPool = (await this.getMaxTokenInIOloanPool()).maxOut;
 
             max0OutloanPool = max0OutloanPool < 0n ? max0OutloanPool * -1n : max0OutloanPool;
 
@@ -243,7 +257,7 @@ export class AmountConverter {
                 bestSize = max0OutloanPool;
             }
 
-            const safeReserves = (this.reservesloanPool.reserveIn * 820n) / 1000n;
+            const safeReserves = (this.trade.loanPool.reserveIn * 820n) / 1000n;
             const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
             return size;
         };
@@ -253,8 +267,8 @@ export class AmountConverter {
             if (toPrice0.eq(BN(0))) {
                 return BN(0);
             }
-            let max0Intarget = (await this.getMaxToken0IOtarget()).maxInBN;
-            let max0OutloanPool = (await this.getMaxToken0IOloanPool()).maxOutBN;
+            let max0Intarget = (await this.getMaxTokenInIOtarget()).maxInBN;
+            let max0OutloanPool = (await this.getMaxTokenInIOloanPool()).maxOutBN;
 
             max0OutloanPool.abs();
             let bestSize: BN = toPrice0;
@@ -264,34 +278,34 @@ export class AmountConverter {
             if (toPrice0.gt(max0OutloanPool)) {
                 bestSize = max0OutloanPool;
             }
-            const safeReserves = this.reservestarget.reserveInBN.times(820).div(1000);
+            const safeReserves = this.trade.target.reserveInBN.times(820).div(1000);
             const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
-            // console.log("sizeBN: ", size.toFixed(this.tokenIn.decimals), this.tokenIn.symbol); //DEBUG
+            // console.log("sizeBN: ", size.toFixed(this.trade.tokenIn.data.decimals), this.tokenIn.symbol); //DEBUG
 
             return size;
         };
 
         p = {
             loanPool: {
-                tradeSizeTokenIn: { size: await sizeloanPoolToken0(), sizeBN: await size0BN() },
+                tradeSizeTokenIn: { size: await sizeloanPoolTokenIn(), sizeBN: await size0BN() },
             },
             target: {
-                tradeSizeTokenOut: { size: await sizetargetToken1(), sizeBN: await size1BN() },
+                tradeSizeTokenOut: { size: await sizetargetTokenOut(), sizeBN: await size1BN() },
             },
         };
 
         const tradeSizes = {
             loanPool: {
                 tradeSizeTokenIn:
-                    fu(p.loanPool.tradeSizeTokenIn.size, this.tokenIn.decimals) +
+                    fu(p.loanPool.tradeSizeTokenIn.size, this.trade.tokenIn.data.decimals) +
                     " " +
-                    this.tokenIn.symbol,
+                    this.trade.tokenIn.data.symbol,
             },
             target: {
                 tradeSizeTokenOut:
-                    fu(p.target.tradeSizeTokenOut.size, this.tokenOut.decimals) +
+                    fu(p.target.tradeSizeTokenOut.size, this.trade.tokenOut.data.decimals) +
                     " " +
-                    this.tokenOut.symbol,
+                    this.trade.tokenOut.data.symbol,
             },
         };
 

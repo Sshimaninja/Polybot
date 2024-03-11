@@ -1572,3 +1572,1380 @@
 [2024-03-10T22:47:32.493] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002312947
 [2024-03-10T22:47:32.960] [INFO] default - [gasTokentoWMATICPrice]: profitInWMATIC:  0.000217134322507839 WMATIC
 [2024-03-10T22:47:32.960] [INFO] default - [gasTokentoWMATICPrice]: profitInWMATIC:  0.000217134322507839 WMATIC
+[2024-03-11T00:01:46.943] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:01:46.943] [INFO] default - {}
+[2024-03-11T00:01:47.077] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:03:15.770] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:03:15.770] [INFO] default - {}
+[2024-03-11T00:03:15.897] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:17:59.329] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:17:59.330] [INFO] default - {}
+[2024-03-11T00:17:59.455] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:22:15.681] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:22:15.682] [INFO] default - {}
+[2024-03-11T00:22:15.815] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:22:30.072] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:22:30.072] [INFO] default - {}
+[2024-03-11T00:22:30.199] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:22:47.035] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:22:47.036] [INFO] default - {}
+[2024-03-11T00:22:47.162] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:23:15.186] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:23:15.187] [INFO] default - {}
+[2024-03-11T00:23:15.325] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:24:22.923] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:24:22.924] [INFO] default - {}
+[2024-03-11T00:24:23.049] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:24:35.943] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:24:35.944] [INFO] default - {}
+[2024-03-11T00:24:36.081] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:30:20.142] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:30:20.142] [INFO] default - {}
+[2024-03-11T00:30:20.272] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:30:32.426] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:30:32.427] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:30:32.427] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:30:32.428] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:30:32.428] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:30:32.428] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:30:32.484] [INFO] default - tradeData: 
+[2024-03-11T00:30:32.485] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:30:32.485] [INFO] default - tradeData: 
+[2024-03-11T00:30:32.485] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:30:32.485] [INFO] default - tradeData: 
+[2024-03-11T00:30:32.485] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:30:32.485] [INFO] default - tradeData: 
+[2024-03-11T00:30:32.485] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:30:32.486] [INFO] default - tradeData: 
+[2024-03-11T00:30:32.486] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:30:32.486] [INFO] default - tradeData: 
+[2024-03-11T00:30:32.486] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:30:32.504] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002147185
+[2024-03-11T00:30:32.504] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002147185
+[2024-03-11T00:30:32.504] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002146165
+[2024-03-11T00:30:32.504] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002146165
+[2024-03-11T00:30:32.504] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002146165
+[2024-03-11T00:30:32.504] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002146165
+[2024-03-11T00:30:32.506] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:30:32.506] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:30:32.506] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:30:32.506] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:30:32.557] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:30:32.557] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:30:32.557] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:30:32.557] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:30:32.629] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x287f6b64d32c4783e6d34d95651f33d33993d930b05fe2f3daa5da5b3bf85070
+[2024-03-11T00:30:32.629] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x1a6c725dd6ab0dc688a7353ec62b434e58ac3102b4a13cdecbccac5295055ebd
+[2024-03-11T00:30:32.630] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x253a144af16ef5947635b79d715fca641bb3b2ae3ffd3a7f837e8f66f511e53f
+[2024-03-11T00:30:32.630] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x2af5bc68204aaea4b6e28ada3977eb483a6ce3e2433c66a12f1babffbdb6f941
+[2024-03-11T00:30:32.677] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:30:32.677] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:30:32.677] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:30:32.677] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:30:32.678] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:30:32.678] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:30:32.678] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:30:32.678] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:01.301] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:32:01.302] [INFO] default - {}
+[2024-03-11T00:32:01.426] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:32:08.955] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:32:08.955] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:32:08.956] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:32:08.956] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:32:08.956] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:32:08.956] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:32:09.007] [INFO] default - tradeData: 
+[2024-03-11T00:32:09.007] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:09.007] [INFO] default - tradeData: 
+[2024-03-11T00:32:09.007] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:09.008] [INFO] default - tradeData: 
+[2024-03-11T00:32:09.008] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:09.008] [INFO] default - tradeData: 
+[2024-03-11T00:32:09.008] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:09.008] [INFO] default - tradeData: 
+[2024-03-11T00:32:09.008] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:09.008] [INFO] default - tradeData: 
+[2024-03-11T00:32:09.008] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:09.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00202088
+[2024-03-11T00:32:09.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00202088
+[2024-03-11T00:32:09.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00201992
+[2024-03-11T00:32:09.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00201992
+[2024-03-11T00:32:09.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00201992
+[2024-03-11T00:32:09.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00201992
+[2024-03-11T00:32:09.026] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:32:09.026] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:32:09.026] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:32:09.026] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:32:09.073] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:09.073] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:09.074] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:09.074] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:09.174] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0xb0a16a676cc2ed209adb2df000626a0eea4d7ea687949e537ee6433a512b22b4
+[2024-03-11T00:32:09.174] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x775f034f32bd0285071c4f3f3f5dcc3e938457ef5dc5d9fd519adbcf87cbaa91
+[2024-03-11T00:32:09.175] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x67cfd98ab528aaa839500bfd71643610fa8e2659739d1c01f6592095f4df11e1
+[2024-03-11T00:32:09.175] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x7629caffa3256882df2c9495576ce7ac0c16fc2796af8b64ada901185fecb908
+[2024-03-11T00:32:09.223] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:09.223] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:09.223] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:09.223] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:09.223] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:09.224] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:09.224] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  8999.93173138974519683 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:09.224] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:46.273] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:32:46.274] [INFO] default - {}
+[2024-03-11T00:32:46.420] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:32:54.081] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:32:54.081] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:32:54.082] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:32:54.082] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:32:54.083] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:32:54.083] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:32:54.142] [INFO] default - tradeData: 
+[2024-03-11T00:32:54.142] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:54.143] [INFO] default - tradeData: 
+[2024-03-11T00:32:54.143] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:54.143] [INFO] default - tradeData: 
+[2024-03-11T00:32:54.143] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:54.143] [INFO] default - tradeData: 
+[2024-03-11T00:32:54.143] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:54.143] [INFO] default - tradeData: 
+[2024-03-11T00:32:54.143] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:54.143] [INFO] default - tradeData: 
+[2024-03-11T00:32:54.144] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:32:54.160] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002172446
+[2024-03-11T00:32:54.160] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002172446
+[2024-03-11T00:32:54.160] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002171414
+[2024-03-11T00:32:54.160] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002171414
+[2024-03-11T00:32:54.160] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002171414
+[2024-03-11T00:32:54.160] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002171414
+[2024-03-11T00:32:54.162] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:32:54.162] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:32:54.162] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:32:54.162] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:32:54.212] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:54.213] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:54.213] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:54.213] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:32:54.294] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0xb1e96970c4d6fa06d40bbe0979c8279262aa110afeb68c1388e442d78de498c3
+[2024-03-11T00:32:54.294] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x306c00f7d206e4c589d0ffa0eeffa46aa869a0ec80251e7d625a71174efd56da
+[2024-03-11T00:32:54.294] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x40a2509a80a127af27155befb4aa428fa5ee8747633bbf280f9bbd796fde835b
+[2024-03-11T00:32:54.295] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x546938f53950438f3747b1a4114cb0e1962ac9f79a91330dff9f59a125cdf5c8
+[2024-03-11T00:32:54.347] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:54.348] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:54.348] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:54.348] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:54.348] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:54.348] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:32:54.348] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:32:54.348] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:40:50.683] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:40:50.683] [INFO] default - {}
+[2024-03-11T00:40:50.808] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:41:00.029] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:41:00.030] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:41:00.030] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:41:00.030] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:41:00.031] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:41:00.031] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:41:00.031] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:41:00.032] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:41:00.032] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:41:00.301] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.301] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.301] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.301] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.301] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.301] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.302] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.302] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.302] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.302] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.302] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.302] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.302] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.302] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.302] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.302] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.302] [INFO] default - tradeData: 
+[2024-03-11T00:41:00.302] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002121924
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002121924
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002121924
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002120916
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002120916
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002120916
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002120916
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002120916
+[2024-03-11T00:41:00.383] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002120916
+[2024-03-11T00:41:00.389] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:41:00.389] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:41:00.389] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI CAT APE 0.017789616903166424 DAI
+[2024-03-11T00:41:00.389] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:41:00.389] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:41:00.389] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:41:00.644] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:41:00.644] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:41:00.644] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:41:00.644] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:41:00.644] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:41:00.644] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:43:27.792] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:43:27.793] [INFO] default - {}
+[2024-03-11T00:43:27.923] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:44:13.017] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:44:13.017] [INFO] default - {}
+[2024-03-11T00:44:13.186] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:44:20.556] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:44:20.557] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:44:20.557] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:44:20.558] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:44:20.558] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:44:20.559] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:44:20.616] [INFO] default - tradeData: 
+[2024-03-11T00:44:20.617] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:44:20.617] [INFO] default - tradeData: 
+[2024-03-11T00:44:20.617] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:44:20.618] [INFO] default - tradeData: 
+[2024-03-11T00:44:20.618] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:44:20.618] [INFO] default - tradeData: 
+[2024-03-11T00:44:20.618] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:44:20.619] [INFO] default - tradeData: 
+[2024-03-11T00:44:20.619] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:44:20.619] [INFO] default - tradeData: 
+[2024-03-11T00:44:20.619] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:44:20.638] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002677666
+[2024-03-11T00:44:20.639] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002677666
+[2024-03-11T00:44:20.639] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002676394
+[2024-03-11T00:44:20.639] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002676394
+[2024-03-11T00:44:20.639] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002676394
+[2024-03-11T00:44:20.639] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002676394
+[2024-03-11T00:44:20.642] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:44:20.642] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:44:20.684] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:44:20.685] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:44:20.758] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x09d380b73ca1a6677e95cafb46a9be0d7c815682775858e6833f793897483cf2
+[2024-03-11T00:44:20.759] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x934b938713d2dfc5a10197a01accf3b07465230a52cbeb64b404b62106d7eea6
+[2024-03-11T00:44:20.804] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:44:20.804] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:44:20.804] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:44:20.804] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:46:45.061] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:46:45.061] [INFO] default - {}
+[2024-03-11T00:46:45.211] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:46:52.621] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:46:52.622] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:46:52.622] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:46:52.622] [INFO] default - Profit in tokenIn: 0.017789616903166424 DAI
+[2024-03-11T00:46:52.623] [INFO] default - Profit in tokenIn: 0.034248441466001222 DAI
+[2024-03-11T00:46:52.623] [INFO] default - Profit in tokenIn: 0.003947679706604395 DAI
+[2024-03-11T00:46:52.675] [INFO] default - tradeData: 
+[2024-03-11T00:46:52.675] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:46:52.675] [INFO] default - tradeData: 
+[2024-03-11T00:46:52.675] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:46:52.675] [INFO] default - tradeData: 
+[2024-03-11T00:46:52.675] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:46:52.675] [INFO] default - tradeData: 
+[2024-03-11T00:46:52.676] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:46:52.676] [INFO] default - tradeData: 
+[2024-03-11T00:46:52.676] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:46:52.676] [INFO] default - tradeData: 
+[2024-03-11T00:46:52.676] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:46:52.691] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002955537
+[2024-03-11T00:46:52.692] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002955537
+[2024-03-11T00:46:52.692] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002954133
+[2024-03-11T00:46:52.692] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002954133
+[2024-03-11T00:46:52.692] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002954133
+[2024-03-11T00:46:52.692] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.002954133
+[2024-03-11T00:46:52.693] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:46:52.693] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 0.034248441466001222 DAI
+[2024-03-11T00:46:52.734] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:46:52.735] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI
+[2024-03-11T00:46:52.796] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0xc397c5149acd89b1e0ccde685fe0cc24b913b759d13a5892a48d8d870a6701b2
+[2024-03-11T00:46:52.797] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0xec30923bddaa888d9438d25ae8b39e05c250939daf7724b2c3e5d28e7c8752ae
+[2024-03-11T00:46:52.837] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:46:52.838] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:46:52.838] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  9899.909009343624341597 WMATIC TokenOut:  0.0 DAI Profit:  0.0 DAI
+[2024-03-11T00:46:52.838] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+[2024-03-11T00:50:08.109] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T00:50:08.110] [INFO] default - {}
+[2024-03-11T00:50:08.260] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T00:50:16.098] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:16.098] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:16.098] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:16.115] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:16.116] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:16.116] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:16.150] [INFO] default - tradeData: 
+[2024-03-11T00:50:16.150] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:16.151] [INFO] default - tradeData: 
+[2024-03-11T00:50:16.151] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:16.151] [INFO] default - tradeData: 
+[2024-03-11T00:50:16.151] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:16.167] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T00:50:16.168] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:16.168] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:16.169] [INFO] default - tradeData: 
+[2024-03-11T00:50:16.170] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:16.170] [INFO] default - tradeData: 
+[2024-03-11T00:50:16.170] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:16.170] [INFO] default - tradeData: 
+[2024-03-11T00:50:16.170] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:16.172] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T00:50:16.172] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:16.172] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.243] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:24.243] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:24.244] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:24.244] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:24.244] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:24.245] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:24.245] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:24.245] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:24.246] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:24.246] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:24.246] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:24.246] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:24.247] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:24.247] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:24.269] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:24.661] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.661] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.662] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.662] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.662] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.662] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.662] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.662] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.662] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.662] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.663] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.663] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.663] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.663] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.663] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.663] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.663] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.663] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.664] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.664] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.664] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.664] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.664] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.664] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.664] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.664] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.664] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.664] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.684] [INFO] default - tradeData: 
+[2024-03-11T00:50:24.684] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.776] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.777] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:24.777] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T00:50:27.109] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:27.109] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:27.110] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:27.110] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:27.110] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:27.110] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:27.687] [INFO] default - tradeData: 
+[2024-03-11T00:50:27.688] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:27.688] [INFO] default - tradeData: 
+[2024-03-11T00:50:27.688] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:27.688] [INFO] default - tradeData: 
+[2024-03-11T00:50:27.688] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:27.688] [INFO] default - tradeData: 
+[2024-03-11T00:50:27.688] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:27.689] [INFO] default - tradeData: 
+[2024-03-11T00:50:27.689] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:27.689] [INFO] default - tradeData: 
+[2024-03-11T00:50:27.689] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:27.808] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003053677
+[2024-03-11T00:50:27.808] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003053677
+[2024-03-11T00:50:27.808] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:27.808] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:27.808] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:27.808] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:28.745] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:28.745] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:28.746] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:28.746] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:28.746] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:28.747] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:28.800] [INFO] default - tradeData: 
+[2024-03-11T00:50:28.800] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:28.800] [INFO] default - tradeData: 
+[2024-03-11T00:50:28.800] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:28.801] [INFO] default - tradeData: 
+[2024-03-11T00:50:28.801] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:28.801] [INFO] default - tradeData: 
+[2024-03-11T00:50:28.801] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:28.801] [INFO] default - tradeData: 
+[2024-03-11T00:50:28.801] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:28.801] [INFO] default - tradeData: 
+[2024-03-11T00:50:28.801] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:28.818] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003053677
+[2024-03-11T00:50:28.818] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003053677
+[2024-03-11T00:50:28.818] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:28.818] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:28.818] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:28.818] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003052225
+[2024-03-11T00:50:35.929] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:35.929] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:35.930] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:35.930] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T00:50:35.930] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T00:50:35.931] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T00:50:35.985] [INFO] default - tradeData: 
+[2024-03-11T00:50:35.985] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:35.986] [INFO] default - tradeData: 
+[2024-03-11T00:50:35.986] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:35.986] [INFO] default - tradeData: 
+[2024-03-11T00:50:35.986] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:35.986] [INFO] default - tradeData: 
+[2024-03-11T00:50:35.986] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:35.987] [INFO] default - tradeData: 
+[2024-03-11T00:50:35.987] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:35.987] [INFO] default - tradeData: 
+[2024-03-11T00:50:35.987] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T00:50:36.005] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003003203
+[2024-03-11T00:50:36.005] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003003203
+[2024-03-11T00:50:36.005] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T00:50:36.005] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T00:50:36.005] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T00:50:36.005] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T12:47:25.674] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T12:47:25.674] [INFO] default - {}
+[2024-03-11T12:47:25.807] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T12:47:33.678] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:33.678] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:33.679] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:33.679] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:33.679] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:33.679] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:33.735] [INFO] default - tradeData: 
+[2024-03-11T12:47:33.736] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:33.736] [INFO] default - tradeData: 
+[2024-03-11T12:47:33.736] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:33.736] [INFO] default - tradeData: 
+[2024-03-11T12:47:33.736] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:33.736] [INFO] default - tradeData: 
+[2024-03-11T12:47:33.736] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:33.736] [INFO] default - tradeData: 
+[2024-03-11T12:47:33.736] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:33.737] [INFO] default - tradeData: 
+[2024-03-11T12:47:33.737] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:33.754] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003230336
+[2024-03-11T12:47:33.754] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003230336
+[2024-03-11T12:47:33.754] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.0032288
+[2024-03-11T12:47:33.754] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.0032288
+[2024-03-11T12:47:33.754] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.0032288
+[2024-03-11T12:47:33.754] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.0032288
+[2024-03-11T12:47:42.325] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:42.325] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:42.325] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:42.325] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:42.326] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:42.326] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:42.326] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:42.326] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:42.327] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:42.327] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:42.327] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:42.327] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:42.328] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:42.328] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:42.328] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:42.768] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.768] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.768] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.768] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.768] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.769] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.769] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.769] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.769] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.769] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.769] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.769] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.769] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.769] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.769] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.769] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.770] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.770] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.770] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.770] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.770] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.770] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.770] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.770] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.770] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.770] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.770] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.770] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.770] [INFO] default - tradeData: 
+[2024-03-11T12:47:42.771] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003255573
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003255573
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003255573
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003255573
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003255573
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.898] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.899] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.899] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.899] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.899] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:42.899] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003254025
+[2024-03-11T12:47:43.989] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:43.989] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:43.990] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:43.990] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:43.991] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:43.991] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:44.203] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.203] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.203] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.203] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.204] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.204] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.204] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.204] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.204] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.204] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.205] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.205] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.278] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003003203
+[2024-03-11T12:47:44.278] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003003203
+[2024-03-11T12:47:44.278] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T12:47:44.278] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T12:47:44.278] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T12:47:44.278] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003001775
+[2024-03-11T12:47:44.658] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:44.658] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:44.659] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:44.701] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.701] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.701] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.701] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.701] [INFO] default - tradeData: 
+[2024-03-11T12:47:44.701] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:44.717] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T12:47:44.717] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T12:47:44.717] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T12:47:49.189] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:49.190] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:49.190] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:49.191] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:49.191] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:49.192] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:49.245] [INFO] default - tradeData: 
+[2024-03-11T12:47:49.245] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:49.245] [INFO] default - tradeData: 
+[2024-03-11T12:47:49.245] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:49.245] [INFO] default - tradeData: 
+[2024-03-11T12:47:49.245] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:49.246] [INFO] default - tradeData: 
+[2024-03-11T12:47:49.246] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:49.246] [INFO] default - tradeData: 
+[2024-03-11T12:47:49.246] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:49.246] [INFO] default - tradeData: 
+[2024-03-11T12:47:49.246] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:49.264] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T12:47:49.264] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003104151
+[2024-03-11T12:47:49.264] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T12:47:49.264] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T12:47:49.264] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T12:47:49.264] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003102675
+[2024-03-11T12:47:53.394] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:53.395] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:53.395] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:53.395] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T12:47:53.396] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T12:47:53.396] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T12:47:53.448] [INFO] default - tradeData: 
+[2024-03-11T12:47:53.448] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:53.449] [INFO] default - tradeData: 
+[2024-03-11T12:47:53.449] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:53.449] [INFO] default - tradeData: 
+[2024-03-11T12:47:53.449] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:53.450] [INFO] default - tradeData: 
+[2024-03-11T12:47:53.450] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:53.450] [INFO] default - tradeData: 
+[2024-03-11T12:47:53.450] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:53.451] [INFO] default - tradeData: 
+[2024-03-11T12:47:53.451] [INFO] default - { tradeSize: '0.0' }
+[2024-03-11T12:47:53.472] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003356521
+[2024-03-11T12:47:53.472] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003356521
+[2024-03-11T12:47:53.472] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003354925
+[2024-03-11T12:47:53.472] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003354925
+[2024-03-11T12:47:53.472] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003354925
+[2024-03-11T12:47:53.472] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003354925
+[2024-03-11T12:51:17.067] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T12:51:17.067] [INFO] default - {}
+[2024-03-11T12:51:17.263] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T12:54:39.311] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T12:54:39.311] [INFO] default - {}
+[2024-03-11T12:54:39.441] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:24:21.345] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:24:21.346] [INFO] default - {}
+[2024-03-11T13:24:21.480] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:28:35.474] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:28:35.475] [INFO] default - {}
+[2024-03-11T13:28:35.607] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:30:41.677] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:30:41.677] [INFO] default - {}
+[2024-03-11T13:30:41.804] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:36:24.774] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:36:24.774] [INFO] default - {}
+[2024-03-11T13:36:24.912] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:44:46.515] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:44:46.516] [INFO] default - {}
+[2024-03-11T13:44:46.642] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:44:57.831] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:44:57.832] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:44:57.833] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:44:57.834] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:44:57.834] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:44:57.835] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:44:57.836] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:44:57.837] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:44:57.838] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:44:57.838] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:44:57.839] [INFO] default - Profit in tokenIn: 2.663462868519936602 DAI
+[2024-03-11T13:44:57.840] [INFO] default - Profit in tokenIn: 2.663462868519936602 DAI
+[2024-03-11T13:44:57.841] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:44:57.841] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:44:57.842] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:44:57.843] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:44:57.843] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:44:57.844] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:44:57.845] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:44:57.845] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:44:57.846] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:44:57.847] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:44:57.848] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:44:57.848] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:44:58.447] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.447] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:44:58.447] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.447] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:44:58.448] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.448] [INFO] default - { tradeSize: '0.00000000000405659' }
+[2024-03-11T13:44:58.448] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.448] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:44:58.448] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.448] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:44:58.448] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.448] [INFO] default - { tradeSize: '0.00000000000405659' }
+[2024-03-11T13:44:58.448] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.448] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:44:58.449] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.449] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:44:58.449] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.449] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:44:58.449] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.449] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:44:58.449] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.449] [INFO] default - { tradeSize: '22.756031772750483046' }
+[2024-03-11T13:44:58.449] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.449] [INFO] default - { tradeSize: '22.756031772750483046' }
+[2024-03-11T13:44:58.449] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.449] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:44:58.449] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.449] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:44:58.450] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.450] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:44:58.450] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.450] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:44:58.450] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.450] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:44:58.450] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.450] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:44:58.450] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.450] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:44:58.450] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.450] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:44:58.450] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.451] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:44:58.451] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.451] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:44:58.451] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.451] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:44:58.451] [INFO] default - tradeData: 
+[2024-03-11T13:44:58.451] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00563991
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00563991
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00561327
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00561327
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005618598
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005618598
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005631918
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005631918
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005631918
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005631918
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005655894
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005655894
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.615] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005629254
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005629254
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005629254
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005629254
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.616] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005621262
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.018 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.018 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.018 | WMATIC Profit: 3.152334755804748446
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.018 | WMATIC Profit: 3.152334755804748446
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.018 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.018 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.018 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.018 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.018 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:44:58.635] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.018 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:44:58.637] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK JET 0.019737 USDT
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK JET 0.019737 USDT
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 2.663462868519936602 DAI
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 2.663462868519936602 DAI
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC POLYDEX MMF 0.018792 USDC
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC POLYDEX MMF 0.018792 USDC
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC QUICK MMF 0.058112 USDC
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC QUICK MMF 0.058112 USDC
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC SUSHI MMF 0.023362 USDC
+[2024-03-11T13:44:58.638] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC SUSHI MMF 0.023362 USDC
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  791.050725 USDT
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  791.050725 USDT
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  631.83159908952534502 DAI
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  631.83159908952534502 DAI
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  924.565016 USDC
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  924.565016 USDC
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  924.565016 USDC
+[2024-03-11T13:44:59.149] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  924.565016 USDC
+[2024-03-11T13:44:59.150] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  924.565016 USDC
+[2024-03-11T13:44:59.150] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.106873661054660996 WMATIC TokenOut:  924.565016 USDC
+[2024-03-11T13:44:59.479] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:44:59.480] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:45:06.220] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:45:06.220] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:45:06.220] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:45:06.221] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:45:06.221] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:45:06.221] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:45:06.221] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:45:06.222] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:45:06.222] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:45:06.222] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:45:06.222] [INFO] default - Profit in tokenIn: 2.663462868519936602 DAI
+[2024-03-11T13:45:06.222] [INFO] default - Profit in tokenIn: 2.663462868519936602 DAI
+[2024-03-11T13:45:06.223] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:45:06.223] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:45:06.225] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:45:06.225] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:45:06.226] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:45:06.226] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:45:06.227] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:45:06.227] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:45:06.228] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:45:06.228] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:45:06.229] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:45:06.229] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:45:07.339] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.339] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.339] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.340] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.340] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.340] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.340] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.340] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.340] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.340] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:45:07.347] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.347] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:45:07.347] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.347] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:45:07.348] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.348] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:45:07.348] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.348] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:45:07.348] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.348] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:45:07.348] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.348] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:45:07.349] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.349] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:45:07.349] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.349] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:45:07.349] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.349] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:45:07.350] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.350] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:45:07.350] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.350] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:45:07.350] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.350] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:45:07.350] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.350] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:45:07.351] [INFO] default - tradeData: 
+[2024-03-11T13:45:07.351] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:45:07.359] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.016 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.016 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.016 | WMATIC Profit: 3.152334755804748446
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.016 | WMATIC Profit: 3.152334755804748446
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.016 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.016 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.016 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.016 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.016 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:45:07.360] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.016 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:45:07.362] [INFO] default - ::::::::::::::::TRADE WMATIC/USDT 19737 [object Object] PENDING
+[2024-03-11T13:45:07.362] [INFO] default - ::::::::::::::::TRADE WMATIC/USDT 19737 [object Object] PENDING
+[2024-03-11T13:45:07.362] [INFO] default - ::::::::::::::::TRADE WMATIC/DAI 2663462868519936602 [object Object] PENDING
+[2024-03-11T13:45:07.362] [INFO] default - ::::::::::::::::TRADE WMATIC/DAI 2663462868519936602 [object Object] PENDING
+[2024-03-11T13:45:07.362] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 18792 [object Object] PENDING
+[2024-03-11T13:45:07.362] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 58112 [object Object] PENDING
+[2024-03-11T13:45:07.363] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 23362 [object Object] PENDING
+[2024-03-11T13:45:07.363] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 18792 [object Object] PENDING
+[2024-03-11T13:45:07.363] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 58112 [object Object] PENDING
+[2024-03-11T13:45:07.363] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 23362 [object Object] PENDING
+[2024-03-11T13:45:07.696] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: WMATIC/USDT single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDT/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:07.697] [ERROR] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: USDC/WMATIC single undefined <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-11T13:45:17.393] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:45:17.394] [INFO] default - {}
+[2024-03-11T13:50:38.275] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:50:38.276] [INFO] default - {}
+[2024-03-11T13:50:38.410] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:50:49.245] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:50:49.245] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:50:49.246] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:50:49.246] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:50:49.247] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:50:49.247] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:50:49.248] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:50:49.248] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:50:49.249] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:50:49.249] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:50:49.250] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:50:49.250] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:50:49.250] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:50:49.251] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:50:49.251] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:50:49.252] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:50:49.252] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:50:49.252] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:50:49.253] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:50:49.253] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:50:49.254] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:50:49.254] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:50:49.255] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:50:49.255] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:50:49.798] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.798] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:50:49.799] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.799] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:50:49.799] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.799] [INFO] default - { tradeSize: '0.00000000000405659' }
+[2024-03-11T13:50:49.800] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.800] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:50:49.800] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.800] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:50:49.800] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.800] [INFO] default - { tradeSize: '0.00000000000405659' }
+[2024-03-11T13:50:49.801] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.801] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:49.801] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.801] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:49.801] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.801] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:49.802] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.802] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:49.802] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.802] [INFO] default - { tradeSize: '22.756029281583024144' }
+[2024-03-11T13:50:49.802] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.802] [INFO] default - { tradeSize: '22.756029281583024144' }
+[2024-03-11T13:50:49.802] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.803] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:49.803] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.803] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:50:49.803] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.803] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:50:49.803] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.803] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:50:49.804] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.804] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:49.804] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.804] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:50:49.804] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.804] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:50:49.805] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.805] [INFO] default - { tradeSize: '0.000000000030539619' }
+[2024-03-11T13:50:49.805] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.805] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:49.805] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.805] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:50:49.806] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.806] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:49.806] [INFO] default - tradeData: 
+[2024-03-11T13:50:49.806] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:50:49.987] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005512885
+[2024-03-11T13:50:49.987] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005512885
+[2024-03-11T13:50:49.987] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005486845
+[2024-03-11T13:50:49.987] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005486845
+[2024-03-11T13:50:49.987] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005492053
+[2024-03-11T13:50:49.987] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005492053
+[2024-03-11T13:50:49.987] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005505073
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005505073
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005505073
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005505073
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005528509
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005528509
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005502469
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005502469
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005502469
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005502469
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:49.988] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:49.989] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:49.989] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005494657
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0196 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0196 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0196 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0196 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0196 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0196 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0196 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0196 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0196 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:50:50.007] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0196 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:50:50.008] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK JET 0.019737 USDT
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK JET 0.019737 USDT
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 2.663458978337696399 DAI
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 2.663458978337696399 DAI
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC POLYDEX MMF 0.018792 USDC
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC POLYDEX MMF 0.018792 USDC
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC QUICK MMF 0.058112 USDC
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC QUICK MMF 0.058112 USDC
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC SUSHI MMF 0.023362 USDC
+[2024-03-11T13:50:50.009] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC SUSHI MMF 0.023362 USDC
+[2024-03-11T13:50:50.584] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  791.049511 USDT
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  791.049511 USDT
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  631.830696051344948384 DAI
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  631.830696051344948384 DAI
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:50:50.585] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:50.955] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:50:56.867] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:50:56.868] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:50:56.868] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:50:56.868] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:50:56.869] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:50:56.869] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:50:56.869] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:50:56.869] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:50:56.870] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:50:56.870] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:50:56.870] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:50:56.870] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:50:56.870] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:50:56.871] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:50:56.871] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:50:56.871] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:50:56.872] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:50:56.872] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:50:56.872] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:50:56.872] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:50:56.873] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:50:56.873] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:50:56.873] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:50:56.873] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.747] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.748] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:50:57.757] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.757] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:50:57.757] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.757] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:50:57.758] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.758] [INFO] default - { tradeSize: '0.012213109034943217' }
+[2024-03-11T13:50:57.758] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.758] [INFO] default - { tradeSize: '0.000000000000002832' }
+[2024-03-11T13:50:57.758] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.758] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:57.759] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.759] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:57.759] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.759] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:57.759] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.759] [INFO] default - { tradeSize: '0.000209563655458543' }
+[2024-03-11T13:50:57.760] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.760] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:57.760] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.760] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:57.760] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.760] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:57.761] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.761] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:50:57.762] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.762] [INFO] default - { tradeSize: '0.000000000004815838' }
+[2024-03-11T13:50:57.762] [INFO] default - tradeData: 
+[2024-03-11T13:50:57.762] [INFO] default - { tradeSize: '0.00000000000424825' }
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0208 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0208 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0208 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0208 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0208 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0208 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0208 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0208 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0208 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:50:57.774] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0208 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDT 19737 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDT 19737 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/DAI 2663458978337696399 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/DAI 2663458978337696399 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 18792 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 58112 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 23362 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 18792 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 58112 [object Object] PENDING
+[2024-03-11T13:50:57.776] [INFO] default - ::::::::::::::::TRADE WMATIC/USDC 23362 [object Object] PENDING
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00528424
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00528424
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00525928
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00525928
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005276752
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005276752
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005276752
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005276752
+[2024-03-11T13:50:58.034] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005266768
+[2024-03-11T13:50:58.035] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005266768
+[2024-03-11T13:50:58.035] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005266768
+[2024-03-11T13:50:58.035] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005266768
+[2024-03-11T13:50:58.035] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005266768
+[2024-03-11T13:50:58.035] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.005266768
+[2024-03-11T13:57:43.017] [INFO] default - Control.ts: pendingTransactions: 
+[2024-03-11T13:57:43.017] [INFO] default - {}
+[2024-03-11T13:57:43.145] [ERROR] default - TELEGRAM ERROR [telegramInfo()]: Error: ETELEGRAM: 404 Not Found
+[2024-03-11T13:57:53.736] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:57:53.737] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:57:53.738] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:57:53.738] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:57:53.739] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:57:53.739] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:57:53.740] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:57:53.740] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:57:53.741] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:57:53.741] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:57:53.742] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:57:53.742] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003879621
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003879621
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003879621
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003879621
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.440] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:57:54.451] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0212 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:57:54.452] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0212 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:57:54.452] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0212 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:57:54.452] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0212 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:57:54.452] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0212 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:57:54.452] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0212 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:57:54.453] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC POLYDEX MMF 0.018792 USDC
+[2024-03-11T13:57:54.453] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC POLYDEX MMF 0.018792 USDC
+[2024-03-11T13:57:54.453] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC QUICK MMF 0.058112 USDC
+[2024-03-11T13:57:54.453] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC QUICK MMF 0.058112 USDC
+[2024-03-11T13:57:54.453] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC SUSHI MMF 0.023362 USDC
+[2024-03-11T13:57:54.453] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDC SUSHI MMF 0.023362 USDC
+[2024-03-11T13:57:54.798] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:57:54.799] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:57:54.800] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:57:54.800] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:57:54.801] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:57:54.802] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:57:54.803] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:57:54.803] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:57:54.804] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:57:54.804] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:57:54.805] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:57:54.805] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:57:54.957] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:57:54.958] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:57:54.958] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:57:54.958] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:57:54.958] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:57:54.958] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  924.563594 USDC
+[2024-03-11T13:57:55.283] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:55.284] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:55.284] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:55.284] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:55.284] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:55.284] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:55.442] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003868605
+[2024-03-11T13:57:55.442] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003868605
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003872277
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003872277
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003886965
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003886965
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003897981
+[2024-03-11T13:57:55.443] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003897981
+[2024-03-11T13:57:55.474] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0212 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:57:55.474] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0212 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:57:55.474] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:57:55.474] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:57:55.474] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK JET 0.019737 USDT
+[2024-03-11T13:57:55.474] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK JET 0.019737 USDT
+[2024-03-11T13:57:55.474] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 2.663458978337696399 DAI
+[2024-03-11T13:57:55.474] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 2.663458978337696399 DAI
+[2024-03-11T13:57:56.051] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  791.049511 USDT
+[2024-03-11T13:57:56.051] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  791.049511 USDT
+[2024-03-11T13:57:56.051] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  631.830696051344948384 DAI
+[2024-03-11T13:57:56.051] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  631.830696051344948384 DAI
+[2024-03-11T13:57:56.513] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:56.513] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:56.513] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:57:56.514] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:58:00.478] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:58:00.478] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:58:00.479] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:58:00.479] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:58:00.480] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:58:00.480] [INFO] default - Profit in tokenIn: 0.018792 USDC
+[2024-03-11T13:58:00.481] [INFO] default - Profit in tokenIn: 0.058112 USDC
+[2024-03-11T13:58:00.481] [INFO] default - Profit in tokenIn: 0.023362 USDC
+[2024-03-11T13:58:00.482] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:58:00.482] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:58:00.482] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:58:00.483] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:58:00.742] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:58:00.743] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:58:00.743] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:58:00.743] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:58:00.744] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:58:00.744] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:58:00.744] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:58:00.744] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:58:00.745] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:58:00.745] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:58:00.745] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:58:00.745] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:58:01.411] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.411] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.411] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.411] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.411] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.411] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.416] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0212 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:58:01.416] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0212 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:58:01.416] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0212 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:58:01.416] [INFO] default - Trade: WMATIC/USDC | single | POLYDEX | MMF | Gas: 0.0212 | WMATIC Profit: 0.022225262730122792
+[2024-03-11T13:58:01.416] [INFO] default - Trade: WMATIC/USDC | single | QUICK | MMF | Gas: 0.0212 | WMATIC Profit: 0.068728775648665153
+[2024-03-11T13:58:01.416] [INFO] default - Trade: WMATIC/USDC | single | SUSHI | MMF | Gas: 0.0212 | WMATIC Profit: 0.027630184811178804
+[2024-03-11T13:58:01.417] [INFO] default - ::::::::TRADE WMATIC/USDC profit: 0.018792 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 PENDING
+[2024-03-11T13:58:01.417] [INFO] default - ::::::::TRADE WMATIC/USDC profit: 0.058112 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 PENDING
+[2024-03-11T13:58:01.417] [INFO] default - ::::::::TRADE WMATIC/USDC profit: 0.023362 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 PENDING
+[2024-03-11T13:58:01.417] [INFO] default - ::::::::TRADE WMATIC/USDC profit: 0.018792 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 PENDING
+[2024-03-11T13:58:01.417] [INFO] default - ::::::::TRADE WMATIC/USDC profit: 0.058112 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 PENDING
+[2024-03-11T13:58:01.417] [INFO] default - ::::::::TRADE WMATIC/USDC profit: 0.023362 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174 PENDING
+[2024-03-11T13:58:01.655] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.655] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.655] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.655] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:01.670] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:58:01.670] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0212 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:58:01.670] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:58:01.670] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0212 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:58:01.670] [INFO] default - ::::::::TRADE WMATIC/DAI profit: 2.663458978337696399 0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063 PENDING
+[2024-03-11T13:58:01.670] [INFO] default - ::::::::TRADE WMATIC/USDT profit: 0.019737 0xc2132D05D31c914a87C6611C10748AEb04B58e8F PENDING
+[2024-03-11T13:58:01.670] [INFO] default - ::::::::TRADE WMATIC/DAI profit: 2.663458978337696399 0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063 PENDING
+[2024-03-11T13:58:01.671] [INFO] default - ::::::::TRADE WMATIC/USDT profit: 0.019737 0xc2132D05D31c914a87C6611C10748AEb04B58e8F PENDING
+[2024-03-11T13:58:01.706] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:58:01.706] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:58:01.706] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:58:01.707] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:58:01.707] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:58:01.707] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003874113
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003886965
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003886965
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003881457
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003868605
+[2024-03-11T13:58:02.024] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003868605
+[2024-03-11T13:58:07.196] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:58:07.197] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:58:07.197] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:58:07.197] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:58:07.197] [INFO] default - Profit in tokenIn: 0.002532 USDT
+[2024-03-11T13:58:07.198] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:58:07.198] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:58:07.198] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:58:07.198] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:58:07.199] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:58:07.199] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:58:07.199] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:58:07.199] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:58:07.200] [INFO] default - Profit in tokenIn: 0.002086 USDT
+[2024-03-11T13:58:07.200] [INFO] default - Profit in tokenIn: 0.010872 USDC
+[2024-03-11T13:58:07.200] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:58:07.200] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:58:07.201] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:58:07.201] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:58:07.201] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:58:07.201] [INFO] default - Profit in tokenIn: 0.019737 USDT
+[2024-03-11T13:58:07.201] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:58:07.202] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:58:07.202] [INFO] default - Profit in tokenIn: 2.663458978337696399 DAI
+[2024-03-11T13:58:07.202] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:58:07.202] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:58:07.203] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:58:07.203] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:58:07.203] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:58:07.203] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:58:07.204] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:58:07.204] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:58:07.204] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:58:07.204] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:58:07.204] [INFO] default - Profit in tokenIn: 0.000000117301231401 DAI
+[2024-03-11T13:58:07.205] [INFO] default - Profit in tokenIn: 0.00001352835278677 DAI
+[2024-03-11T13:58:07.205] [INFO] default - Profit in tokenIn: 0.000013409760584198 DAI
+[2024-03-11T13:58:07.205] [INFO] default - Profit in tokenIn: 0.00008 USDT
+[2024-03-11T13:58:07.788] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:07.788] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:07.788] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:07.814] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0208 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:58:07.814] [INFO] default - Trade: WMATIC/USDT | single | QUICK | JET | Gas: 0.0208 | WMATIC Profit: 0.023360538139908909
+[2024-03-11T13:58:07.814] [INFO] default - Trade: WMATIC/DAI | single | QUICK | APE | Gas: 0.0208 | WMATIC Profit: 3.152330151762374221
+[2024-03-11T13:58:07.817] [INFO] default - ::::::::TRADE WMATIC/DAI profit: 2.663458978337696399 0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063 PENDING
+[2024-03-11T13:58:07.817] [INFO] default - ::::::::TRADE WMATIC/USDT profit: 0.019737 0xc2132D05D31c914a87C6611C10748AEb04B58e8F PENDING
+[2024-03-11T13:58:07.817] [INFO] default - ::::::::TRADE WMATIC/DAI profit: 2.663458978337696399 0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063 PENDING
+[2024-03-11T13:58:07.976] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.976] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.976] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.976] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003747508
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00375994
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00375994
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00375994
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00375994
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00375994
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.977] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003754612
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00374218
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00374218
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00374218
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00374218
+[2024-03-11T13:58:07.978] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.00374218
+[2024-03-11T13:58:08.000] [INFO] default - Profit in tokenIn: 0.48748 USDT
+[2024-03-11T13:58:08.000] [INFO] default - Profit in tokenIn: 0.48748 USDT
+[2024-03-11T13:58:08.723] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003879621
+[2024-03-11T13:58:08.723] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.003879621
+[2024-03-11T13:58:08.733] [INFO] default - Trade: WMATIC/USDT | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 0.577128480295828842
+[2024-03-11T13:58:08.733] [INFO] default - Trade: WMATIC/USDT | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 0.577128480295828842
+[2024-03-11T13:58:08.734] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK APE 0.48748 USDT
+[2024-03-11T13:58:08.734] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/USDT QUICK APE 0.48748 USDT
+[2024-03-11T13:58:09.423] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  791.049511 USDT
+[2024-03-11T13:58:09.424] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3569.101382924614630941 WMATIC TokenOut:  791.049511 USDT
+[2024-03-11T13:58:09.828] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:58:09.828] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: undefined
+[2024-03-11T13:58:10.942] [INFO] default - Profit in tokenIn: 0.48748 USDT
+[2024-03-11T13:58:11.225] [INFO] default - Profit in tokenIn: 0.48748 USDT
+[2024-03-11T13:58:11.315] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:11.321] [INFO] default - Trade: WMATIC/USDT | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 0.577128480295828842
+[2024-03-11T13:58:11.322] [INFO] default - ::::::::TRADE WMATIC/USDT profit: 0.48748 0xc2132D05D31c914a87C6611C10748AEb04B58e8F PENDING
+[2024-03-11T13:58:11.500] [INFO] default - Pending gasEstimate. Skipping gasEstimate.
+[2024-03-11T13:58:11.504] [INFO] default - Trade: WMATIC/USDT | single | QUICK | APE | Gas: 0.0212 | WMATIC Profit: 0.577128480295828842
+[2024-03-11T13:58:11.505] [INFO] default - ::::::::TRADE WMATIC/USDT profit: 0.48748 0xc2132D05D31c914a87C6611C10748AEb04B58e8F PENDING

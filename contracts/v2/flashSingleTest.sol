@@ -182,7 +182,7 @@ contract flashSingleTest is IUniswapV2Callee {
             path //(token1, token0)
         ); // TOKEN1
         console.log("getRepay0 (token1Required): ", getRepay[0]);
-        console.log("getRepay1 (token0Output)::: ", getRepay[1]);
+        console.log("getRepay1 (tokenInOutput)::: ", getRepay[1]);
         console.log("calc'd amountRepay: ", amountRepay);
 
         console.log("___________swapTokensForExactTokens__________");
@@ -220,7 +220,7 @@ contract flashSingleTest is IUniswapV2Callee {
 //                 path //(token0, token1)
 //             ); // TOKEN1
 //         console.log("getRepay0 (token0Input):::: ", getRepay[0]);
-//         console.log("getRepay1 (token1Output)::: ", getRepay[1]);
+//         console.log("getRepay1 (tokenOutOutput)::: ", getRepay[1]);
 //         // console.log("calc'd amountRepay: ", amountRepay);
 
 //         console.log("___________swapTokensForExactTokens__________");

@@ -50,7 +50,7 @@ export async function debugAmounts(
     // console.log(allAmountsRaw);
 
     // const allAmounts = {
-    //     amountOutLocal: fu(trade.quotes.target.token1Out, trade.tokenOut.data.decimals),
+    //     amountOutLocal: fu(trade.quotes.target.tokenOutOut, trade.tokenOut.data.decimals),
     //     amountOutEVM: fu(await amountOutJS[1], trade.tokenOut.data.decimals),
     //     amountOutBN: amountOutBN.toFixed(trade.tokenOut.data.decimals),
     //     amountInLocal: fu(trade.loanPool.amountRepay, trade.tokenIn.data.decimals),

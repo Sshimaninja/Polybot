@@ -54,7 +54,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 trade.tokenIn.data.id,
                 trade.tokenOut.data.id,
                 trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-                trade.quotes.target.token1Out,
+                trade.quotes.target.tokenOutOut,
                 trade.loanPool.amountRepay,
             );
             logger.info(">>>>>>>>>>gasEstimate SUCCESS: ", gasEstimate);
@@ -92,7 +92,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 return g;
             }
 
-            const profit = p.amountOutA - trade.quotes.loanPool.token1Out;
+            const profit = p.amountOutA - trade.quotes.loanPool.tokenOutOut;
 
             logger.info(
                 "Profit in tokenIn: " + fu(profit, trade.tokenOut.data.decimals),
@@ -119,7 +119,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 return g;
             }
 
-            const swapSingleAddress = await swapSingle.getAddress();
+            // const swapSingleAddress = await swapSingle.getAddress();
 
             if (pendingTransactions[trade.ID] == true) {
                 logger.info("Pending gasEstimate. Skipping gasEstimate.");
@@ -134,11 +134,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             };
             // logger.info("walletBalance: ");
             // logger.info(walletBalance);
-            let tradeData = {
-                tradeSize: fu(p.tradeSize, trade.tokenIn.data.decimals),
-            };
-            logger.info("tradeData: ");
-            logger.info(tradeData);
+            // let tradeData = {
+            //     tradeSize: fu(p.tradeSize, trade.tokenIn.data.decimals),
+            // };
+            // logger.info("tradeData: ");
+            // logger.info(tradeData);
 
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.target,

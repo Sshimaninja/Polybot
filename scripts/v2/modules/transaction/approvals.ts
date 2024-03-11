@@ -38,7 +38,7 @@ export async function checkApprovalRouter(trade: BoolTrade): Promise<bigint> {
         routerAddress,
         trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
     );
-
+    delete pendingApprovals[routerAddress];
     return approveTokenInForRouter; //&& approveTokenInForSwapContract;
 }
 
@@ -51,5 +51,6 @@ export async function checkApprovalSingle(trade: BoolTrade): Promise<bigint> {
         swapContractID,
         trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
     );
+    delete pendingApprovals[swapContractID];
     return approveTokenInForRouter;
 }
