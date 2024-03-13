@@ -93,7 +93,7 @@ export async function control(data: FactoryPair[], gasData: any) {
                     // logger.info(log);
 
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
-                        console.log("No profit after trueProfit: ", log.tinyData);
+                        // console.log("No profit after trueProfit: ", log.tinyData);
                         return;
                     }
                     if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
@@ -105,12 +105,12 @@ export async function control(data: FactoryPair[], gasData: any) {
                         let tx = await flash(trade);
                     }
                     if (trade.type == "single") {
-                        console.log(
-                            "Executing swap for trade: " +
-                                trade.ticker +
-                                " for profit: " +
-                                trade.profits.WMATICProfit,
-                        );
+                        // console.log(
+                        //     "Executing swap for trade: " +
+                        //         trade.ticker +
+                        //         " for profit: " +
+                        //         trade.profits.WMATICProfit,
+                        // );
                         let tx = await swap(trade);
                         if (tx !== null) {
                             promises.push(tx);
