@@ -268,7 +268,7 @@ export class Trade {
 
         trade.tradeSizes.loanPool.tradeSizeTokenIn.size =
             trade.type === "single"
-                ? walletTradeSizes.tokenOut
+                ? walletTradeSizes.tokenIn
                 : trade.tradeSizes.loanPool.tradeSizeTokenIn.size;
 
         trade.profits.tokenProfit =

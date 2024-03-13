@@ -152,12 +152,12 @@ export class WMATICProfit {
 
             let profitInWMATIC = pu(inMatic.toFixed(18), 18);
             // console.log(
-            //     ">>[getProfitInWmatic]:  profitInWMATICBN:  " + inMatic,
+            //     ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]:  profitInWMATICBN:  " + inMatic,
             //     " string: ",
             //     inMatic.toFixed(18),
             //     " bigint: ",
             //     profitInWMATIC,
-            //     "<<",
+            //     "<<<<<<<<<<<<<<<<<<<<<<<<<",
             //     " bigint string: ",
             //     fu(profitInWMATIC, 18),
             // );
@@ -231,34 +231,24 @@ export class WMATICProfit {
         let profitInWMATICBN: BN | undefined;
         let gasToken: ToWMATICPool;
         let gasWMATICPrice: BN;
+        let profitString = "";
         for (gasToken of Object.values(toWMATIC)) {
             if (gasToken.tokenIn.id == this.trade.tokenOut.data.id) {
-                if (
-                    ethers.getAddress(gasToken.tokenIn.id) < ethers.getAddress(gasToken.tokenOut.id)
-                ) {
-                    gasWMATICPrice = gasToken.reserves.reserve0BN.div(gasToken.reserves.reserve1BN);
-                } else {
-                    gasWMATICPrice = gasToken.reserves.reserve1BN.div(gasToken.reserves.reserve0BN);
-                }
+                gasWMATICPrice = gasToken.reserves.reserve1BN.div(gasToken.reserves.reserve0BN);
                 profitInWMATICBN = this.tokenProfitBN.multipliedBy(gasWMATICPrice);
-                let profitString = profitInWMATICBN.toFixed(this.trade.tokenOut.data.decimals);
-                profitInWMATIC = pu(profitString, this.trade.tokenOut.data.decimals);
-                logger.info("[gasTokentoWMATICPrice]: profitInWMATIC: ", profitString, "WMATIC");
+                profitString = profitInWMATICBN.toFixed(18);
+                profitInWMATIC = pu(profitString, 18);
                 return profitInWMATIC;
             }
             if (gasToken.tokenIn.id == this.trade.tokenIn.data.id) {
-                if (
-                    ethers.getAddress(gasToken.tokenIn.id) < ethers.getAddress(gasToken.tokenOut.id)
-                ) {
-                    gasWMATICPrice = gasToken.reserves.reserve0BN.div(gasToken.reserves.reserve1BN);
-                } else {
-                    gasWMATICPrice = gasToken.reserves.reserve1BN.div(gasToken.reserves.reserve0BN);
-                }
+                gasWMATICPrice = gasToken.reserves.reserve0BN.div(gasToken.reserves.reserve1BN);
                 profitInWMATICBN = this.tokenProfitBN.multipliedBy(gasWMATICPrice);
-                profitInWMATIC = pu(profitInWMATICBN.toFixed(18), gasToken.tokenOut.decimals);
-                console.log("profitInWMATIC: ", profitInWMATIC);
+                profitString = profitInWMATICBN.toFixed(18);
+                profitInWMATIC = pu(profitString, 18);
+                // console.log("profitInWMATIC: ", fu(profitInWMATIC, 18));
                 return profitInWMATIC;
             }
+            logger.info("[gasTokentoWMATICPrice]: profitInWMATIC: ", profitString, "WMATIC");
         }
         return undefined;
     }

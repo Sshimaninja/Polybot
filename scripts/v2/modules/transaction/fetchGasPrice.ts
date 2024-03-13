@@ -15,6 +15,7 @@ import { ethers } from "hardhat";
 import { pendingTransactions } from "../../control";
 import { MaxInt256 } from "ethers";
 import { swap } from "./swap";
+import {} from "../transaction/approvals";
 
 /**
  * @param trade
@@ -94,10 +95,10 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 
             const profit = p.amountOutA - trade.quotes.loanPool.tokenOutOut;
 
-            logger.info(
-                "Profit in tokenIn: " + fu(profit, trade.tokenOut.data.decimals),
-                trade.tokenOut.data.symbol,
-            );
+            // logger.info(
+            //     "Profit in tokenIn: " + fu(profit, trade.tokenOut.data.decimals),
+            //     trade.tokenOut.data.symbol,
+            // );
 
             const bal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
 
@@ -119,6 +120,46 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 return g;
             }
 
+            let routerApproval = await trade.tokenIn.contract.allowance(
+                await signer.getAddress(),
+                p.routerAID,
+            );
+            let swapApproval = await trade.tokenIn.contract.allowance(
+                await signer.getAddress(),
+                swapSingle.getAddress(),
+            );
+            if (routerApproval < p.tradeSize) {
+                logger.info("RouterA allowance: ", fu(routerApproval, 18));
+                logger.error("RouterA allowance too low for trade.");
+                logger.info("Approving RouterA... ");
+                try {
+                    if (trade.tokenIn.data.symbol === "QUICK") {
+                        let maxInt = 2n ** 96n - 1n;
+                        await trade.tokenIn.contract.approve(p.routerAID, maxInt);
+                    }
+                    await trade.tokenIn.contract.approve(p.routerAID, MaxInt256);
+                } catch (e: any) {
+                    logger.error("[fetchGasPrice (routerApproval): ", e.reason);
+                }
+                return g;
+            }
+            if (swapApproval < p.tradeSize) {
+                logger.info("swapSingle allowance: ", fu(swapApproval, 18));
+                logger.error("swapSingle allowance too low for trade.");
+                try {
+                    if (trade.tokenIn.data.symbol === "QUICK") {
+                        let maxInt = 2n ** 96n - 1n;
+                        await trade.tokenIn.contract.approve(swapSingle.getAddress(), maxInt);
+                    }
+                    swapApproval = await trade.tokenIn.contract.approve(
+                        swapSingle.getAddress(),
+                        MaxInt256,
+                    );
+                } catch (e: any) {
+                    logger.error("[fetchGasPrice (swapContractApproval)]: ", e.reason);
+                }
+                return g;
+            }
             // const swapSingleAddress = await swapSingle.getAddress();
 
             if (pendingTransactions[trade.ID] == true) {
@@ -171,7 +212,9 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             } else {
                 const data = await tradeLogs(trade);
                 logger.error(
-                    `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                    `>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${
+                        trade.loanPool.exchange + trade.target.exchange
+                    } ${trade.type} ${error.reason} <<<<<<<<<<<<<<<`,
                     // error.reason,
                     // data,
                     // `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
@@ -189,10 +232,3 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         };
     }
 }
-
-/*
-	GAS EXAMPLE FROM ETHERS.JS ^6.0.0:
-	lastBaseFeePerGas = block.baseFeePerGas;
-	maxPriorityFeePerGas = BigInt("1500000000");
-	maxFeePerGas = block.baseFeePerGas * (2) + (maxPriorityFeePerGas);
-*/

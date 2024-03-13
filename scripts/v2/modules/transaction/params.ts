@@ -29,35 +29,42 @@ export async function params(trade: BoolTrade): Promise<any> {
                 "[params]: Insufficient balance for the trade. Balance: " +
                     fu(walletBalanceTokenIn, trade.tokenIn.data.decimals) +
                     " tradeSize: " +
-                    trade.tradeSizes.loanPool.tradeSizeTokenIn.size +
+                    fu(
+                        trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
+                        trade.tokenIn.data.decimals,
+                    ) +
                     " " +
                     trade.tokenIn.data.symbol,
             );
         }
-        console.log(
-            "[params]: wallet balance tokenIn::: ",
-            fu(walletBalanceTokenIn, trade.tokenIn.data.decimals),
-            trade.tokenIn.data.symbol,
-        );
-        console.log(
-            "[params]: router allowance tokenIn: ",
-            fu(routerAllowanceTokenIn, trade.tokenIn.data.decimals),
-            trade.tokenIn.data.symbol,
-        );
-        console.log(
-            "[params]: swapSingle allowance tokenIn: " +
-                fu(swapSingleAllowanceTokenIn, trade.tokenIn.data.decimals) +
-                " " +
+        if (
+            swapSingleAllowanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size ||
+            routerAllowanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size
+        ) {
+            console.log(
+                "[params]: wallet balance tokenIn::: ",
+                fu(walletBalanceTokenIn, trade.tokenIn.data.decimals),
                 trade.tokenIn.data.symbol,
-        );
-
+            );
+            console.log(
+                "[params]: router allowance tokenIn: ",
+                fu(routerAllowanceTokenIn, trade.tokenIn.data.decimals),
+                trade.tokenIn.data.symbol,
+            );
+            console.log(
+                "[params]: swapSingle allowance tokenIn: " +
+                    fu(swapSingleAllowanceTokenIn, trade.tokenIn.data.decimals) +
+                    " " +
+                    trade.tokenIn.data.symbol,
+            );
+        }
         p = {
             target: await trade.target.pool.getAddress(),
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             amountOutA: trade.quotes.target.tokenOutOut, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
+            amountOutB: trade.tradeSizes.loanPool.tradeSizeTokenIn.size, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
             path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
             to: await signer.getAddress(),
