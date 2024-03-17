@@ -1,9 +1,9 @@
 import { ethers, Transaction, TransactionRequest } from "ethers";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
-import { signer } from "../../../../constants/provider";
-import { BoolTrade } from "../../../../constants/interfaces";
-import { swapSingleID } from "../../../../constants/environment";
-import { pendingApprovals } from "../../control";
+import { signer } from "../constants/provider";
+import { BoolTrade } from "../constants/interfaces";
+import { swapSingleID } from "../constants/environment";
+import { pendingApprovals } from "../scripts/v2/control";
 
 async function approveToken(
     tokenAddress: string,

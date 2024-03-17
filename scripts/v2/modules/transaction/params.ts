@@ -3,8 +3,10 @@ import { signer } from "../../../../constants/provider";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { ethers } from "ethers";
 import { swapSingleID } from "../../../../constants/environment";
-import { checkApprovalRouter, checkApprovalSingle } from "./approvals";
+import { checkApprovalRouter, checkApprovalSingle } from "../../../../utils/approvals";
 import { fu } from "../../../modules/convertBN";
+import { logger } from "../../../../constants/logger";
+import { Console } from "console";
 
 export async function params(trade: BoolTrade): Promise<any> {
     let p: any = {};
@@ -16,48 +18,53 @@ export async function params(trade: BoolTrade): Promise<any> {
     const walletBalanceTokenIn = await trade.tokenIn.contract.balanceOf(await signer.getAddress());
     // const routerAllowanceTokenIn = await trade.tokenIn.contract.allowance(ownerID, targetRouterID);
     if (trade.type == "single") {
-        const swapSingleAllowanceTokenIn = await trade.tokenIn.contract.allowance(
-            await signer.getAddress(),
-            swapSingleID,
-        );
-        const routerAllowanceTokenIn = await trade.tokenIn.contract.allowance(
-            await signer.getAddress(),
-            await trade.target.router.getAddress(),
-        );
-        if (walletBalanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
-            throw new Error(
-                "[params]: Insufficient balance for the trade. Balance: " +
-                    fu(walletBalanceTokenIn, trade.tokenIn.data.decimals) +
-                    " tradeSize: " +
-                    fu(
-                        trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-                        trade.tokenIn.data.decimals,
-                    ) +
-                    " " +
-                    trade.tokenIn.data.symbol,
-            );
-        }
-        if (
-            swapSingleAllowanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size ||
-            routerAllowanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size
-        ) {
-            console.log(
-                "[params]: wallet balance tokenIn::: ",
-                fu(walletBalanceTokenIn, trade.tokenIn.data.decimals),
-                trade.tokenIn.data.symbol,
-            );
-            console.log(
-                "[params]: router allowance tokenIn: ",
-                fu(routerAllowanceTokenIn, trade.tokenIn.data.decimals),
-                trade.tokenIn.data.symbol,
-            );
-            console.log(
-                "[params]: swapSingle allowance tokenIn: " +
-                    fu(swapSingleAllowanceTokenIn, trade.tokenIn.data.decimals) +
-                    " " +
-                    trade.tokenIn.data.symbol,
-            );
-        }
+        // const swapSingleAllowanceTokenIn = await trade.tokenIn.contract.allowance(
+        //     await signer.getAddress(),
+        //     swapSingleID,
+        // );
+        // const routerAllowanceTokenIn = await trade.tokenIn.contract.allowance(
+        //     await signer.getAddress(),
+        //     await trade.target.router.getAddress(),
+        // );
+        // if (walletBalanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
+        //     logger.info(
+        //         "[params]: Insufficient balance for the trade. Balance: " +
+        //             fu(walletBalanceTokenIn, trade.tokenIn.data.decimals) +
+        //             " tradeSize: " +
+        //             fu(
+        //                 trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
+        //                 trade.tokenIn.data.decimals,
+        //             ) +
+        //             " " +
+        //             trade.tokenIn.data.symbol,
+        //     );
+        //     return;
+        // }
+        // if (routerAllowanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
+        //     console.log("[params]: Allowances insufficient:");
+        //     console.log(
+        //         "[params]: router allowance tokenIn: ",
+        //         fu(routerAllowanceTokenIn, trade.tokenIn.data.decimals),
+        //         trade.tokenIn.data.symbol,
+        //     );
+        //     let ar = await checkApprovalRouter(trade);
+        //     if (ar == 0n) {
+        //         return;
+        //     }
+        // }
+        // if (swapSingleAllowanceTokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
+        //     console.log(
+        //         "[params]: swapSingle allowance tokenIn: " +
+        //             fu(swapSingleAllowanceTokenIn, trade.tokenIn.data.decimals) +
+        //             " " +
+        //             trade.tokenIn.data.symbol,
+        //     );
+        //     let as = await checkApprovalSingle(trade);
+        //     if (as == 0n) {
+        //         return;
+        //     }
+        // }
+
         p = {
             target: await trade.target.pool.getAddress(),
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut

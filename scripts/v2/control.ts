@@ -14,7 +14,7 @@ import { swap } from "./modules/transaction/swap";
 import { trueProfit } from "./modules/trueProfit";
 import { filterTrade } from "./modules/filterTrade";
 import { signer } from "../../constants/provider";
-import { checkApprovalRouter, checkApprovalSingle } from "./modules/transaction/approvals";
+import { checkApprovalRouter, checkApprovalSingle } from "../../utils/approvals";
 import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
 import { params } from "./modules/transaction/params";
 // import { filterMatches } from "./filterMatches";
@@ -78,12 +78,16 @@ export async function control(data: FactoryPair[], gasData: any) {
                     if (trade.type == "single" && approved > 0n) {
                         approved = await checkApprovalSingle(trade);
                     }
-
+                    if (approved < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
+                        return;
+                    }
                     trade.params = await params(trade);
 
-                    await fetchGasPrice(trade);
-
-                    // return;
+                    let gas = await fetchGasPrice(trade);
+                    if (gas.tested == false) {
+                        console.log("Gas price not tested. Skipping trade.");
+                        return;
+                    }
 
                     await trueProfit(trade);
                     // return;

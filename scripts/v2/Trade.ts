@@ -146,12 +146,8 @@ export class Trade {
                 reserveOutBN: A
                     ? this.priceB.reserves.reserveOutBN
                     : this.priceA.reserves.reserveOutBN,
-                priceIn: A
-                    ? this.priceB.priceInBN.toFixed(this.match.token0.decimals)
-                    : this.priceA.priceInBN.toFixed(this.match.token0.decimals),
-                priceOut: A
-                    ? this.priceB.priceOutBN.toFixed(this.match.token1.decimals)
-                    : this.priceA.priceOutBN.toFixed(this.match.token1.decimals),
+                priceIn: A ? this.priceB.priceInBN : this.priceA.priceInBN,
+                priceOut: A ? this.priceB.priceOutBN : this.priceA.priceOutBN,
                 repays: {
                     single: 0n,
                     flashSingle: 0n,
@@ -311,7 +307,7 @@ export class Trade {
               })
             : (trade.quotes = {
                   target: {
-                      tokenInOut: quotes.target.flashTokenOutOut,
+                      tokenInOut: quotes.target.flashTokenInOut,
                       tokenOutOut: quotes.target.flashTokenOutOut,
                   },
                   loanPool: {
