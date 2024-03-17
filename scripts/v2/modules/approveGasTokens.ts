@@ -2,12 +2,12 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { ethers } from "ethers";
 import fs from "fs";
 import path from "path";
-import { FactoryPair, TradePair } from "../../../../constants/interfaces";
-import { signer } from "../../../../constants/provider";
-import { swapSingleID } from "../../../../constants/environment";
-import { swap } from "../../../../test/testFunds";
-import { gasTokens } from "../../../../constants/addresses";
-import { approve } from "./approve";
+import { FactoryPair, TradePair } from "../../../constants/interfaces";
+import { signer } from "../../../constants/provider";
+import { swapSingleID } from "../../../constants/environment";
+import { swap } from "../../../test/testFunds";
+import { gasTokens, uniswapV2Router as router } from "../../../constants/addresses";
+import { approve } from "./transaction/approve";
 
 export async function approveGasTokens() {
     for (let token in gasTokens) {
@@ -17,17 +17,17 @@ export async function approveGasTokens() {
         // let swapIn: bigint = 0n;
         // let routeIn: bigint = 0n;
         try {
-            let gasTokenAllowance = await approve(tokenID, swapSingleID, maxInt);
+            let gasTokenAllowanceSwapContract = await approve(tokenID, swapSingleID, maxInt);
             const a = {
                 ticker: token,
-                gasTokenAllowance: gasTokenAllowance,
+                allowanceSwapContract: gasTokenAllowanceSwapContract,
             };
             console.log("Approved: ", a);
         } catch (error: any) {
             if (error.reason && error.reason.includes("amount exceeds")) {
-                console.log("Error in token approval: ", error.reason);
+                console.log("Error in gasToken approval: ", error.reason);
             } else {
-                console.error(`Error in token approval for ${token}:`, error.message);
+                console.error(`Error in gasToken approval for ${token}:`, error.message);
             }
         }
     }

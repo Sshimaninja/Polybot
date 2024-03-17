@@ -14,7 +14,7 @@ import { swap } from "./modules/transaction/swap";
 import { trueProfit } from "./modules/trueProfit";
 import { filterTrade } from "./modules/filterTrade";
 import { signer } from "../../constants/provider";
-import { checkApprovalRouter, checkApprovalSingle } from "../../utils/approvals";
+// import { checkApprovalRouter, checkApprovalSingle } from "../../utils/approvals";
 import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
 import { params } from "./modules/transaction/params";
 // import { filterMatches } from "./filterMatches";
@@ -31,7 +31,7 @@ TODO:
  */
 let filteredTrades: string[]; // Array to store filtered trades
 export let pendingTransactions: { [poolAddress: string]: boolean } = {};
-export let pendingApprovals: { [address: string]: string } = {};
+// export let pendingApprovals: { [address: string]: string } = {};
 
 logger.info("Control.ts: pendingTransactions: ");
 logger.info(pendingTransactions);
@@ -71,16 +71,6 @@ export async function control(data: FactoryPair[], gasData: any) {
                         return;
                     }
 
-                    let approved = 0n;
-                    if (trade.type == "single") {
-                        approved = await checkApprovalRouter(trade);
-                    }
-                    if (trade.type == "single" && approved > 0n) {
-                        approved = await checkApprovalSingle(trade);
-                    }
-                    if (approved < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
-                        return;
-                    }
                     trade.params = await params(trade);
 
                     let gas = await fetchGasPrice(trade);

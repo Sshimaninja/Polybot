@@ -63,7 +63,7 @@
         "v2BotTest": "cross-env NODE_ENV=test npx ts-node index",
         "v2BotLive": "cross-env NODE_ENV=live npx ts-node index",
         "v2DeployTests": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/deploy/deployFlashTests.ts",
-        "deployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/deploy/deploySwapSingle.ts && cross-env NODE_ENV=test npx ts-node test/testFunds.ts && cross-env NODE_ENV=test npx ts-node scripts/v2/modules/transaction/approveGasTokens.ts",
+        "deployTest": "cross-env NODE_ENV=test npx hardhat run --network localhost scripts/deploy/deploySwapSingle.ts && cross-env NODE_ENV=test npx ts-node test/testFunds.ts && cross-env NODE_ENV=test npx ts-node scripts/v2/modules/approveGasTokens.ts && cross-env NODE_ENV=test npx ts-node scripts/v2/modules/approveRouters.ts",
         "deployLive": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deploy/deploySwapSingle.ts",
         "v2DeployLive": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deploy/deployFlash.ts",
         "deployTinyTest": "cross-env NODE_ENV=live npx hardhat run --network polygon scripts/deploy/deployTiny.ts",

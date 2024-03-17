@@ -3,10 +3,11 @@ import { signer } from "../../../../constants/provider";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { ethers } from "ethers";
 import { swapSingleID } from "../../../../constants/environment";
-import { checkApprovalRouter, checkApprovalSingle } from "../../../../utils/approvals";
+// import { checkApprovalRouter, checkApprovalSingle } from "../../../../utils/approvals";
 import { fu } from "../../../modules/convertBN";
 import { logger } from "../../../../constants/logger";
 import { Console } from "console";
+import { approve } from "./approve";
 
 export async function params(trade: BoolTrade): Promise<any> {
     let p: any = {};
@@ -15,7 +16,7 @@ export async function params(trade: BoolTrade): Promise<any> {
     // Check the balance and allowance
     // let ownerID = await signer.getAddress();
     // let targetRouterID = await trade.target.router.getAddress();
-    const walletBalanceTokenIn = await trade.tokenIn.contract.balanceOf(await signer.getAddress());
+    // const walletBalanceTokenIn = await trade.tokenIn.contract.balanceOf(await signer.getAddress());
     // const routerAllowanceTokenIn = await trade.tokenIn.contract.allowance(ownerID, targetRouterID);
     if (trade.type == "single") {
         // const swapSingleAllowanceTokenIn = await trade.tokenIn.contract.allowance(
@@ -71,7 +72,7 @@ export async function params(trade: BoolTrade): Promise<any> {
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             amountOutA: trade.quotes.target.tokenOutOut, //high Output tokenIn to tokenOut
-            amountOutB: trade.tradeSizes.loanPool.tradeSizeTokenIn.size, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
+            amountOutB: trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
             path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
             to: await signer.getAddress(),

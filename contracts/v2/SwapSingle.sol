@@ -125,14 +125,14 @@ contract SwapSingle {
 
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountOutB,
+            amountOut,
             path0,
             address(this),
             deadline
         );
 
-        uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
-        require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
+        // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
+        // require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
 
         routerB.swapExactTokensForTokens(swapIn[1], tradeSize, path1, to, deadline);
     }

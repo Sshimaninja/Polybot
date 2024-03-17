@@ -3,7 +3,7 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { signer } from "../../../../constants/provider";
 import { BoolTrade } from "../../../../constants/interfaces";
 import { swapSingleID } from "../../../../constants/environment";
-import { pendingApprovals } from "../../control";
+// import { pendingApprovals } from "../../control";
 
 export async function approve(token: string, spender: string, maxInt: bigint): Promise<bigint> {
     const tokenContract = new ethers.Contract(token, IERC20, signer);

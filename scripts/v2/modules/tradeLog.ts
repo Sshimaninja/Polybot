@@ -23,6 +23,16 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                 decimals: trade.tokenOut.data.decimals,
                 id: trade.tokenOut.data.id,
             },
+            wallet: {
+                balanceIn:
+                    fu(trade.wallet.tokenInBalance, trade.tokenIn.data.decimals) +
+                    " " +
+                    trade.tokenIn.data.symbol,
+                balanceOut:
+                    fu(trade.wallet.tokenOutBalance, trade.tokenOut.data.decimals) +
+                    " " +
+                    trade.tokenOut.data.symbol,
+            },
             loanPool: {
                 exchange: trade.loanPool.exchange,
                 priceIn: trade.loanPool.priceIn.toFixed(trade.tokenIn.data.decimals),
