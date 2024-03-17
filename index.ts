@@ -6,7 +6,6 @@ import path from "path";
 import { FactoryPair } from "./constants/interfaces";
 import { logger } from "./constants/logger";
 import { telegramInfo } from "./scripts/v2/modules/transaction/notify";
-import { pendingApprovals } from "./scripts/v2/control";
 async function main() {
     const message = `Polybot V2 Started: ${Date.now()}`;
     await telegramInfo(message);
@@ -35,10 +34,6 @@ async function main() {
     provider.on("block", async (blockNumber: any) => {
         if (blockNumber === null || undefined) return;
         console.log("New block received: Block # " + blockNumber);
-        if (Object.keys(pendingApprovals).length > 0) {
-            console.log("Skipping block due to pending approvals");
-            return;
-        }
         try {
             const gasData = await getGasData();
             await Promise.all(

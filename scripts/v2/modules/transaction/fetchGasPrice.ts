@@ -9,13 +9,12 @@ import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.js
 import { abi as IUniswapV2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IUniswapV2Pair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { walletBal } from "../tools/walletBal";
-import { fixEstimateGas } from "../../../../test/fixEstimateGas";
+// import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 import { debug } from "console";
 import { ethers } from "hardhat";
 import { pendingTransactions } from "../../control";
 import { MaxInt256 } from "ethers";
-import { swap } from "./swap";
-import {} from "../../../../utils/approvals";
+import { safetyChecks } from "../transaction/safetyChecks";
 
 /**
  * @param trade
@@ -87,100 +86,12 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
         let p = await trade.params;
+
+        let safe = await safetyChecks(trade);
+        if (!safe) {
+            return g;
+        }
         try {
-            if (p.amountOutB < p.tradeSize) {
-                // logger.error("AmountOut TokenIn on LoanPool lower than tradeSize.");
-                return g;
-            }
-
-            const profit = p.amountOutA - trade.quotes.loanPool.tokenOutOut;
-
-            // logger.info(
-            //     "Profit in tokenIn: " + fu(profit, trade.tokenOut.data.decimals),
-            //     trade.tokenOut.data.symbol,
-            // );
-
-            const bal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
-
-            if (bal.tokenIn < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
-                logger.info(
-                    "tokenIn Balance: ",
-                    fu(bal.tokenIn, trade.tokenIn.data.decimals),
-                    trade.tokenIn.data.symbol,
-                );
-                logger.info(
-                    "tokenIn tradeSize: ",
-                    fu(
-                        trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-                        trade.tokenIn.data.decimals,
-                    ),
-                    trade.tokenIn.data.symbol,
-                );
-                logger.error("Token0 balance too low for trade.");
-                return g;
-            }
-
-            let routerApproval = await trade.tokenIn.contract.allowance(
-                await signer.getAddress(),
-                p.routerAID,
-            );
-            let swapApproval = await trade.tokenIn.contract.allowance(
-                await signer.getAddress(),
-                swapSingle.getAddress(),
-            );
-            if (routerApproval < p.tradeSize) {
-                logger.info("RouterA allowance: ", fu(routerApproval, 18));
-                logger.error("RouterA allowance too low for trade.");
-                logger.info("Approving RouterA... ");
-                try {
-                    if (trade.tokenIn.data.symbol === "QUICK") {
-                        let maxInt = 2n ** 96n - 1n;
-                        await trade.tokenIn.contract.approve(p.routerAID, maxInt);
-                    }
-                    await trade.tokenIn.contract.approve(p.routerAID, MaxInt256);
-                } catch (e: any) {
-                    logger.error("[fetchGasPrice (routerApproval): ", e.reason);
-                }
-                return g;
-            }
-            if (swapApproval < p.tradeSize) {
-                logger.info("swapSingle allowance: ", fu(swapApproval, 18));
-                logger.error("swapSingle allowance too low for trade.");
-                try {
-                    if (trade.tokenIn.data.symbol === "QUICK") {
-                        let maxInt = 2n ** 96n - 1n;
-                        await trade.tokenIn.contract.approve(swapSingle.getAddress(), maxInt);
-                    }
-                    swapApproval = await trade.tokenIn.contract.approve(
-                        swapSingle.getAddress(),
-                        MaxInt256,
-                    );
-                } catch (e: any) {
-                    logger.error("[fetchGasPrice (swapContractApproval)]: ", e.reason);
-                }
-                return g;
-            }
-            // const swapSingleAddress = await swapSingle.getAddress();
-
-            if (pendingTransactions[trade.ID] == true) {
-                logger.info("Pending gasEstimate. Skipping gasEstimate.");
-                return g;
-            }
-
-            let walletBalance = {
-                walletID: await signer.getAddress(),
-                tokenIn: fu(bal.tokenIn, trade.tokenIn.data.decimals),
-                tokenOut: fu(bal.tokenOut, trade.tokenOut.data.decimals),
-                gas: fu(bal.gas, 18),
-            };
-            // logger.info("walletBalance: ");
-            // logger.info(walletBalance);
-            // let tradeData = {
-            //     tradeSize: fu(p.tradeSize, trade.tokenIn.data.decimals),
-            // };
-            // logger.info("tradeData: ");
-            // logger.info(tradeData);
-
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.target,
                 p.routerAID,
