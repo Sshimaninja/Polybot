@@ -123,16 +123,16 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         return txResponse;
     } catch (error: any) {
         if (error.message.includes("INSUFFICIENT_INPUT_AMOUNT")) {
-            logger.error(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error.reason);
+            logger.error(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error);
             // logger.error(error.reason);
             // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
-            // logger.error(logs);
-            // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            logger.error(logs);
+            logger.error(">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
         } else {
             // logger.info(logs);
-            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error.reason);
-            // logger.info(error.reason);
-            // logger.info(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error);
+            logger.info(error.reason);
+            logger.info(">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
         }
         return null;
     }

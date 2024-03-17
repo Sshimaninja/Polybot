@@ -52,7 +52,10 @@
         "logs/flashitBN.ts",
         "logs/flashAll.ts",
         "utils/getToWMATICPool.ts",
-        "utils/getToWMATICPool.ts"
+        "utils/getToWMATICPool.ts",
+        "utils/approvals.ts",
+        "utils/approveAll.ts",
+        "utils/approveAll.ts"
     ],
     "files": ["./hardhat.config.ts"]
 }

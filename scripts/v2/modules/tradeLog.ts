@@ -25,8 +25,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             },
             loanPool: {
                 exchange: trade.loanPool.exchange,
-                priceIn: trade.loanPool.priceIn,
-                priceOut: trade.loanPool.priceOut,
+                priceIn: trade.loanPool.priceIn.toFixed(trade.tokenIn.data.decimals),
+                priceOut: trade.loanPool.priceOut.toFixed(trade.tokenOut.data.decimals),
                 reservesIn:
                     fu(trade.loanPool.reserveIn, trade.tokenIn.data.decimals) +
                     " " +
@@ -58,8 +58,8 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             },
             target: {
                 exchange: trade.target.exchange,
-                priceIn: trade.target.priceIn,
-                priceOut: trade.target.priceOut,
+                priceIn: trade.target.priceIn.toFixed(trade.tokenIn.data.decimals),
+                priceOut: trade.target.priceOut.toFixed(trade.tokenOut.data.decimals),
                 reservesIn:
                     fu(trade.target.reserveIn, trade.tokenIn.data.decimals) +
                     " " +

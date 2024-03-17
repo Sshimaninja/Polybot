@@ -371,8 +371,8 @@ export interface BoolTrade {
         reserveInBN: BN;
         reserveOut: bigint;
         reserveOutBN: BN;
-        priceIn: string;
-        priceOut: string;
+        priceIn: BN;
+        priceOut: BN;
         repays: Repays;
         amountRepay: bigint;
     };
@@ -443,5 +443,16 @@ export interface Quotes {
         tokenOutOut: bigint;
         flashTokenInOut: bigint;
         flashTokenOutOut: bigint;
+    };
+}
+
+export interface walletSizes {
+    tokenIn: {
+        size: bigint;
+        sizeBN: BN;
+    };
+    tokenOut: {
+        size: bigint;
+        sizeBN: BN;
     };
 }

@@ -15,7 +15,7 @@ import { ethers } from "hardhat";
 import { pendingTransactions } from "../../control";
 import { MaxInt256 } from "ethers";
 import { swap } from "./swap";
-import {} from "../transaction/approvals";
+import {} from "../../../../utils/approvals";
 
 /**
  * @param trade
@@ -216,8 +216,8 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                         trade.loanPool.exchange + trade.target.exchange
                     } ${trade.type} ${error.reason} <<<<<<<<<<<<<<<`,
                     // error.reason,
-                    // data,
-                    // `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                    data,
+                    `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
                 );
                 return g;
             }
