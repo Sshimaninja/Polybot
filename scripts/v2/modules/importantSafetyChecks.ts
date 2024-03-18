@@ -6,7 +6,7 @@ import { tradeComparator } from "@cryptoalgebra/integral-sdk";
 
 //Safety checks which should be called on target pool before trade.
 
-export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade> {
+export async function importantSafetyChecks(trade: BoolTrade): Promise<boolean> {
     // const swap: swap = {
     //     amount0Out: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
     //     amount1Out: 0n,
@@ -17,12 +17,15 @@ export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade
         if (trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.loanPool.reserveIn) {
             trade.type =
                 "filtered flash: trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.target.reserveIn";
+            return false;
         }
         if (trade.quotes.target.tokenOutOut > trade.target.reserveOut) {
             trade.type = "filteredflash: trade.quotes.target.tokenOutOut > trade.target.reserveOut";
+            return false;
         }
         if (trade.k.uniswapKPositive === false) {
             trade.type = "filtered flash: K";
+            return false;
         }
         // function safeTransferFrom(address token, address from, address to, uint value) internal {
         //     // bytes4(keccak256(bytes('transferFrom(address,address,uint256)')));
@@ -34,11 +37,13 @@ export async function importantSafetyChecks(trade: BoolTrade): Promise<BoolTrade
         if (trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.tokenInBalance) {
             trade.type =
                 "filtered single: trade.tradeSizes.loanPool.tradeSizeTokenIn.size > trade.wallet.tokenInBalance";
+            return false;
         }
         if (trade.quotes.loanPool.tokenInOut > trade.loanPool.reserveIn) {
             trade.type =
                 "filtered single: trade.quotes.target.tokenOutOut > trade.target.reserveOut";
+            return false;
         }
     }
-    return trade;
+    return true;
 }
