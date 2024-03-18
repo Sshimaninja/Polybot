@@ -32,10 +32,11 @@ contract SwapSingle {
     ) external {
         console.log("SwapSingle: swapSingle contract entered");
         IERC20 tokenIn = IERC20(path0[0]);
+        IERC20 tokenOut = IERC20(path0[1]);
         IUniswapV2Router02 routerA = IUniswapV2Router02(routerAID);
         IUniswapV2Router02 routerB = IUniswapV2Router02(routerBID);
 
-        approveTokensIn(tokenIn, routerAID, routerBID);
+        approveTokens(tokenIn, tokenOut, routerAID, routerBID);
         // Check that the 'from' address has enough tokens
         uint256 balance = tokenIn.balanceOf(msg.sender);
         console.log("balance: ", balance);
@@ -61,9 +62,16 @@ contract SwapSingle {
         tokenIn.transfer(msg.sender, tokenIn.balanceOf(address(this)));
     }
 
-    function approveTokensIn(IERC20 tokenIn, address routerAID, address routerBID) internal {
-        tokenIn.approve(routerAID, type(uint256).max);
-        tokenIn.approve(routerBID, type(uint256).max);
+    function approveTokens(
+        IERC20 tokenIn,
+        IERC20 tokenOut,
+        address routerAID,
+        address routerBID
+    ) internal {
+        require(tokenIn.approve(routerAID, type(uint256).max), "approve routerA failed.");
+        require(tokenOut.approve(routerBID, type(uint256).max), "approve routerB failed.");
+        // end uniswap docs suggestions
+
         console.log("SwapSingle: tokens approved");
     }
 
@@ -73,8 +81,31 @@ contract SwapSingle {
     //     require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: TRANSFER_FROM_FAILED');
     // }
     // function approveContract(IERC20 token, uint256 amount) external {
-    //     token.approve(address(this), type(uint256).max);
+    //     token.approve(address(this), );
     // }
+
+    function transferTokensAndCheckAllowance(
+        IERC20 tokenIn,
+        IERC20 tokenOut,
+        address routerA,
+        address routerB,
+        uint256 tradeSize
+    ) internal {
+        uint256 allowanceIn = tokenIn.allowance(address(this), routerA);
+        console.log("Contract allowance for routerA: ", allowanceIn);
+
+        uint256 allowanceOut = tokenOut.allowance(address(this), routerB);
+        console.log("Contract allowance for routerB: ", allowanceOut);
+
+        require(allowanceIn >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERA");
+        require(allowanceOut >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERB");
+
+        require(
+            tokenIn.transferFrom(msg.sender, address(this), tradeSize),
+            "transferFrom msg.sender failed."
+        );
+    }
+
     function performSwap(
         IUniswapV2Router02 routerA,
         IUniswapV2Router02 routerB,
@@ -87,8 +118,7 @@ contract SwapSingle {
         uint256 deadline
     ) internal {
         IERC20 tokenIn = IERC20(path0[0]);
-        console.log(path0[0]);
-        console.log(path0[1]);
+        IERC20 tokenOut = IERC20(path0[1]);
         uint256[] memory amountsOutA = routerA.getAmountsOut(tradeSize, path0);
         require(
             amountsOutA[1] >= amountOut,
@@ -96,7 +126,6 @@ contract SwapSingle {
         );
 
         uint256 balance = tokenIn.balanceOf(msg.sender);
-        console.log("Wallet balance: ", balance);
         require(balance >= tradeSize, "SwapSingle: INSUFFICIENT_WALLET_BALANCE");
 
         // According to Uniswap docs this contract needs to own the tokens it wants to swap, not just have an allowance.
@@ -106,26 +135,19 @@ contract SwapSingle {
         uint amountIn = 50 * 10 ** DAI.decimals();
         require(DAI.transferFrom(msg.sender, address(this), amountIn), 'transferFrom failed.');
         */
-        require(
-            tokenIn.transferFrom(msg.sender, address(this), tradeSize),
-            "transferFrom msg.sender failed."
+        approveTokens(tokenIn, tokenOut, address(routerA), address(routerB));
+
+        transferTokensAndCheckAllowance(
+            tokenIn,
+            tokenOut,
+            address(routerA),
+            address(routerB),
+            tradeSize
         );
-
-        require(tokenIn.approve(address(routerA), tradeSize), "approve routerA failed.");
-
-        // end uniswap docs suggestions
-
-        // uint256 allowance = tokenIn.allowance(address(this), address(routerA));
-        // console.log("Contract allowance for routerA: ", allowance);
-        // require(allowance >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERA");
-
-        // allowance = tokenIn.allowance(address(this), address(routerB));
-        // console.log("Contract allowance for routerB: ", allowance);
-        // require(allowance >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERB");
 
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountOut,
+            0,
             path0,
             address(this),
             deadline
@@ -134,7 +156,7 @@ contract SwapSingle {
         // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
         // require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
 
-        routerB.swapExactTokensForTokens(swapIn[1], tradeSize, path1, to, deadline);
+        routerB.swapExactTokensForTokens(swapIn[1], 0, path1, to, deadline);
     }
 }
 
