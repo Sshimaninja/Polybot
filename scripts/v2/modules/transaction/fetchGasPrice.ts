@@ -87,10 +87,6 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     if (trade.type === "single") {
         let p = await trade.params;
 
-        let safe = await safetyChecks(trade);
-        if (!safe) {
-            return g;
-        }
         try {
             gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.target,

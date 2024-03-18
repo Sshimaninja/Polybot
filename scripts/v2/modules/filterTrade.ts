@@ -4,7 +4,7 @@ import { BigInt2BN } from "../../modules/convertBN";
 import { importantSafetyChecks } from "./importantSafetyChecks";
 import { tradeLogs } from "./tradeLog";
 
-export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefined> {
+export async function filterTrade(trade: BoolTrade): Promise<boolean> {
     const liquidityThresholds: { [key: string]: number } = {
         WBTC: 0.001,
         WETH: 0.01,
@@ -18,21 +18,25 @@ export async function filterTrade(trade: BoolTrade): Promise<BoolTrade | undefin
         liquidityThresholds[trade.tokenOut.data.symbol] || liquidityThresholds.default;
 
     if (!checkLiquidity(trade, "tokenIn", liquidityThresholdIn)) {
-        return undefined;
+        return false;
     }
     if (!checkLiquidity(trade, "tokenOut", liquidityThresholdOut)) {
-        return undefined;
+        return false;
     }
 
     const safe = await importantSafetyChecks(trade);
     if (!safe) {
         // trade.type = "filtered: failed safety checks";
-        return undefined;
+        return false;
     }
-    return trade;
+    return true;
 }
 
-async function checkLiquidity(trade: BoolTrade, path: string, liquidityThreshold: number) {
+async function checkLiquidity(
+    trade: BoolTrade,
+    path: string,
+    liquidityThreshold: number,
+): Promise<boolean> {
     if (path === "tokenIn") {
         if (trade.loanPool.reserveInBN.lt(BN(liquidityThreshold))) {
             trade.type = "filtered: Low " + trade.tokenIn.data.symbol + " liquidity on loanPool";

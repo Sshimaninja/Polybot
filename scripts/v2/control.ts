@@ -17,6 +17,7 @@ import { signer } from "../../constants/provider";
 // import { checkApprovalRouter, checkApprovalSingle } from "../../utils/approvals";
 import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
 import { params } from "./modules/transaction/params";
+import { safetyChecks } from "./modules/transaction/safetyChecks";
 // import { filterMatches } from "./filterMatches";
 /*
 TODO:
@@ -54,7 +55,7 @@ export async function control(data: FactoryPair[], gasData: any) {
                         match.ticker,
                         pair.exchangeA,
                         pair.exchangeB,
-                        " Skipping trade.",
+                        " waiting...",
                     );
                     return;
                 }
@@ -73,6 +74,16 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     trade.params = await params(trade);
 
+                    let safe = false;
+
+                    if ((trade.type = "single")) {
+                        safe = await safetyChecks(trade);
+                    }
+
+                    if (trade.type.includes("flash")) {
+                        safe = await filterTrade(trade);
+                    }
+
                     let gas = await fetchGasPrice(trade);
                     if (gas.tested == false) {
                         console.log("Gas price not tested. Skipping trade.");
@@ -80,39 +91,35 @@ export async function control(data: FactoryPair[], gasData: any) {
                     }
 
                     await trueProfit(trade);
-                    // return;
-                    await filterTrade(trade);
 
-                    const log = await tradeLogs(trade);
+                    // return;
+
+                    // const log = await tradeLogs(trade);
                     // logger.info(log);
 
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
-                        // console.log("No profit after trueProfit: ", log.tinyData);
+                        console.log(
+                            "No profit after trueProfit: ",
+                            trade.ticker,
+                            trade.loanPool.exchange + trade.target.exchange,
+                            trade.type,
+                        );
                         return;
                     }
-                    if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
-                        logger.info(log.tinyData);
-                    }
 
+                    // logger.info(log.tinyData);
+                    let tx = null;
                     if (trade.type.includes("flash")) {
-                        console.log("Executing flash swap for trade: " + trade.ticker);
                         let tx = await flash(trade);
                     }
+
                     if (trade.type == "single") {
-                        // console.log(
-                        //     "Executing swap for trade: " +
-                        //         trade.ticker +
-                        //         " for profit: " +
-                        //         trade.profits.WMATICProfit,
-                        // );
                         let tx = await swap(trade);
-                        if (tx !== null) {
-                            promises.push(tx);
-                        }
                     }
-                    if (trade.type.includes("filtered")) {
-                        console.log("Filtered trade: " + trade.ticker);
+                    if (tx !== null) {
+                        promises.push(tx);
                     }
+                    await Promise.all(promises);
                 } else {
                     console.log(
                         "Reserves not found for " + match.poolAID + " and " + match.poolBID,
