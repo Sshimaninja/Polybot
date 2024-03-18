@@ -119,7 +119,7 @@ contract SwapSingle {
     ) internal {
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[1]);
-        // uint256[] memory amountsOutA = routerA.getAmountsOut(tradeSize, path0);
+        uint256[] memory amountsInOut = routerA.getAmountsOut(tradeSize, path0);
         // require(
         //     amountsOutA[1] >= amountOut,
         //     "Error SwapSingle: routerA.getAmountsOut < amountOutA"
@@ -147,7 +147,7 @@ contract SwapSingle {
 
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountOut,
+            amountsInOut[1],
             path0,
             address(this),
             deadline
@@ -156,7 +156,7 @@ contract SwapSingle {
         // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
         // require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
 
-        routerB.swapExactTokensForTokens(swapIn[1], amountOutB, path1, to, deadline);
+        routerB.swapExactTokensForTokens(swapIn[1], tradeSize, path1, to, deadline);
     }
 }
 
