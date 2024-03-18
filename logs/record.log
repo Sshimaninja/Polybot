@@ -1,3 +1,149 @@
+FIRST PROFITABLE TRADE ON HARDHAT!!!:
+[2024-03-18T19:51:48.020] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 6.098710923114174597 DAI
+[2024-03-18T19:51:48.020] [INFO] default - :::::::::::::::::::sending swap tx  WMATIC/DAI QUICK APE 6.098710923114174597 DAI
+[2024-03-18T19:51:49.183] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3608.14261812706343486 WMATIC TokenOut:  631.834511512950706009 DAI
+[2024-03-18T19:51:49.183] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance:  TokenIn:  3608.14261812706343486 WMATIC TokenOut:  631.834511512950706009 DAI
+[2024-03-18T19:51:50.796] [INFO] default - >>>>>>>>>>>>>>>>>>>>Error in swap: Error: could not coalesce error (error={ "code": -32603, "data": { "data": "0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002b556e69737761705632526f757465723a20494e53554646494349454e545f4f55545055545f414d4f554e54000000000000000000000000000000000000000000", "message": "Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT'", "txHash": "0xd3ea3bb7d26f258063ba9e42adb893e0da77c5d6624cdd75cf26b12d10d6d910" }, "message": "Error: VM Exception while processing transaction: reverted with reason string 'UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT'" }, payload={ "id": 6273, "jsonrpc": "2.0", "method": "eth_sendRawTransaction", "params": [ "0x02f9027782053982099085089d5f3200850a02ffee0083061a809495142498886e95939afefe44461dcefccdeee68480b902043730ace2000000000000000000000000d32f3139a214034a0f9777c87ee0a064c1ff6ae2000000000000000000000000c0788a3ad43d79aa53b09c2eacc313a787d1d607000000000000000000000000a5e0829caced8ffdd4de3c43696c57f7d7a678ff000000000000000000000000000000000000000000000004ef36c68d36ece07d00000000000000000000000000000000000000000000000424cafed2b8b475bb0000000000000000000000000000000000000000000000063ab18dd7e15ea393000000000000000000000000000000000000000000000000000000000000014000000000000000000000000000000000000000000000000000000000000001a0000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000065f89c7a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf12700000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a06300000000000000000000000000000000000000000000000000000000000000020000000000000000000000008f3cf7ad23cd3cadbd9735aff958023239c6a0630000000000000000000000000d500b1d8e8ef31e21c99d1db9a6444d3adf1270c080a01bcd2b907d7d3b9d3c0d8cf07efd603fb2e398d2767a0331ae019258d7c63c63a00fbbecf75fa27d5bcf8663d0a93b2b48d443ab0916f01aa0b62e40a8f58ffc0b" ] }, code=UNKNOWN_ERROR, version=6.10.0)
+[2024-03-18T19:51:50.796] [INFO] default - undefined
+[2024-03-18T19:51:50.796] [INFO] default - >>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> 
+[2024-03-18T19:51:50.797] [INFO] default - TRANSACTION COMPLETE: WMATIC/DAI 0x21891039573f2f1fd476cf6ca75746ad418674aeab0ed69c94a106cad80dc96e
+[2024-03-18T19:51:50.799] [ERROR] default - AmountOutB in TokenIn on LoanPool lower than tradeSize. (no profit)
+[2024-03-18T19:51:51.415] [ERROR] default - >>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/USDC CATSUSHI single CatRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<< {
+  data: {
+    id: '0xC8174d091c288FF78De98303c2973140Cbcf3B230xCD578F016888B57F1b1e3f887f392F0159E26747',
+    block: 51513566,
+    trade: 'single',
+    ticker: 'DAI/USDC',
+    direction: 'B',
+    tradeSize: '145.655138 USDC',
+    tokenIn: {
+      symbol: 'USDC',
+      decimals: 6,
+      id: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174'
+    },
+    tokenOut: {
+      symbol: 'DAI',
+      decimals: 18,
+      id: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063'
+    },
+    wallet: {
+      balanceIn: '924.569599 USDC',
+      balanceOut: '631.834511512950706009 DAI'
+    },
+    loanPool: {
+      exchange: 'CAT',
+      priceIn: '1.000523',
+      priceOut: '0.999476843025279558',
+      reservesIn: '18206.892249 USDC',
+      reservesOut: '18197.367186331952095032 DAI',
+      repays: [Object],
+      amountRepay: '0: 0.0 DAI'
+    },
+    target: {
+      exchange: 'SUSHI',
+      priceIn: '0.998213',
+      priceOut: '1.001790423519651248',
+      reservesIn: '126328.478991 USDC',
+      reservesOut: '126554.660470987255017963 DAI',
+      amountOut: '145.311135342770851861 DAI'
+    },
+    quotes: {
+      loanPoolToken0: '144.22995 USDC',
+      loanPoolToken1: '144.079676962687694304 DAI',
+      targetToken0: '144.792489 USDC',
+      targetToken1: '145.311135342770851861 DAI'
+    },
+    gas: {
+      gasEstimate: 400000n,
+      maxFee: 43000000000n,
+      maxPriorityFee: 38000000000n
+    },
+    result: {
+      uniswapkPreT: '331317503577034157340077432206968',
+      uniswapkPosT: '2658491641314427737676687624545',
+      uniswapKPositive: false,
+      tokenProfit: '1.231458380083157557 DAI',
+      wmaticProfit: '0.0 WMATIC'
+    }
+  },
+  tinyData: 'Trade: DAI/USDC | single | CAT | SUSHI | Gas: 0.0152 | WMATIC Profit: 0.0'
+} >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/USDC single CatRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-18T19:51:51.577] [ERROR] default - AmountOutB in TokenIn on LoanPool lower than tradeSize. (no profit)
+[2024-03-18T19:51:51.995] [ERROR] default - >>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/USDC CATSUSHI single CatRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<< {
+  data: {
+    id: '0xC8174d091c288FF78De98303c2973140Cbcf3B230xCD578F016888B57F1b1e3f887f392F0159E26747',
+    block: 51513566,
+    trade: 'single',
+    ticker: 'DAI/USDC',
+    direction: 'B',
+    tradeSize: '145.655138 USDC',
+    tokenIn: {
+      symbol: 'USDC',
+      decimals: 6,
+      id: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174'
+    },
+    tokenOut: {
+      symbol: 'DAI',
+      decimals: 18,
+      id: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063'
+    },
+    wallet: {
+      balanceIn: '924.569599 USDC',
+      balanceOut: '631.834511512950706009 DAI'
+    },
+    loanPool: {
+      exchange: 'CAT',
+      priceIn: '1.000523',
+      priceOut: '0.999476843025279558',
+      reservesIn: '18206.892249 USDC',
+      reservesOut: '18197.367186331952095032 DAI',
+      repays: [Object],
+      amountRepay: '0: 0.0 DAI'
+    },
+    target: {
+      exchange: 'SUSHI',
+      priceIn: '0.998213',
+      priceOut: '1.001790423519651248',
+      reservesIn: '126328.478991 USDC',
+      reservesOut: '126554.660470987255017963 DAI',
+      amountOut: '145.311135342770851861 DAI'
+    },
+    quotes: {
+      loanPoolToken0: '144.22995 USDC',
+      loanPoolToken1: '144.079676962687694304 DAI',
+      targetToken0: '144.792489 USDC',
+      targetToken1: '145.311135342770851861 DAI'
+    },
+    gas: {
+      gasEstimate: 400000n,
+      maxFee: 43000000000n,
+      maxPriorityFee: 38000000000n
+    },
+    result: {
+      uniswapkPreT: '331317503577034157340077432206968',
+      uniswapkPosT: '2658491641314427737676687624545',
+      uniswapKPositive: false,
+      tokenProfit: '1.231458380083157557 DAI',
+      wmaticProfit: '0.0 WMATIC'
+    }
+  },
+  tinyData: 'Trade: DAI/USDC | single | CAT | SUSHI | Gas: 0.0152 | WMATIC Profit: 0.0'
+} >>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: DAI/USDC single CatRouter: INSUFFICIENT_OUTPUT_AMOUNT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[2024-03-18T19:51:54.418] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.013681009
+[2024-03-18T19:51:54.418] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.013733168
+[2024-03-18T19:51:54.418] [INFO] default - swapSingle GASESTIMATE SUCCESS:::::: 0.01367916
+[2024-03-18T19:51:54.433] [INFO] default - :::::::::::::::::::sending swap tx  DAI/WMATIC APE CAT 0.56844997597313536 DAI
+[2024-03-18T19:51:54.610] [INFO] default - >>>>>>>>>>>>>>>>>>>>>>>>>>New Balance:  TokenIn:  3617.036401214746548255 WMATIC TokenOut:  631.834511512950706009 DAI Profit:  0.0 DAI
+[2024-03-18T19:51:54.610] [INFO] default - ::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
 technical success!:
 
 

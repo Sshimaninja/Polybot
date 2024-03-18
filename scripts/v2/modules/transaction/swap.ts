@@ -114,10 +114,10 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
             fu(newBal.tokenIn, trade.tokenIn.data.decimals) + " " + trade.tokenIn.data.symbol,
             "TokenOut: ",
             fu(newBal.tokenOut, trade.tokenOut.data.decimals) + " " + trade.tokenOut.data.symbol,
-            "Profit: ",
-            fu(newBal.tokenOut - oldBal.tokenOut, trade.tokenOut.data.decimals) +
+            "Profit in TokenIn: ",
+            fu(newBal.tokenIn - oldBal.tokenIn, trade.tokenIn.data.decimals) +
                 " " +
-                trade.tokenOut.data.symbol,
+                trade.tokenIn.data.symbol,
         );
         logger.info("::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::");
         return txResponse;
