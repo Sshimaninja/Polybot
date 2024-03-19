@@ -41,27 +41,29 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
     // console.log(walletString);
     const walletQuotes = async () => {
         // If you only have WMATIC in your wallet (to simplify the bot) singleLoanPoolTokenInOut == 0.
-        const singleLoanPooltokenInOut = await getAmountsOut(
-            trade.loanPool.router,
-            wallet.tokenOut,
-            [trade.tokenOut.data.id, trade.tokenIn.data.id],
-        );
-
         const singleLoanPooltokenOutOut = await getAmountsOut(
             trade.loanPool.router,
             wallet.tokenIn,
             [trade.tokenIn.data.id, trade.tokenOut.data.id],
         );
 
-        const singleTargettokenInOut = await getAmountsOut(trade.target.router, wallet.tokenOut, [
-            trade.tokenOut.data.id,
-            trade.tokenIn.data.id,
-        ]);
+        const singleTargettokenOutOut = await getAmountsOut(
+            trade.target.router,
+            wallet.tokenIn,
+            [trade.tokenIn.data.id, trade.tokenOut.data.id],
+        );
 
-        const singleTargettokenOutOut = await getAmountsOut(trade.target.router, wallet.tokenIn, [
-            trade.tokenIn.data.id,
-            trade.tokenOut.data.id,
-        ]);
+        const singleLoanPooltokenInOut = await getAmountsOut(
+            trade.loanPool.router,
+            singleTargettokenOutOut, // Pass in tokenOut from target to compare profitability later
+            [trade.tokenOut.data.id, trade.tokenIn.data.id],
+        );
+
+        const singleTargettokenInOut = await getAmountsOut(
+            trade.target.router,
+            singleTargettokenOutOut, // Both tradeSizes should be the same for the amountsOut
+            [trade.tokenOut.data.id, trade.tokenIn.data.id],
+        );
 
         return {
             singleLoanPooltokenInOut,
@@ -117,13 +119,16 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
             tokenInOut: (await walletQuotes()).singleTargettokenInOut,
             tokenOutOut: (await walletQuotes()).singleTargettokenOutOut,
             flashTokenInOut: (await flashTargetQuotes()).flashTargettokenInOut,
-            flashTokenOutOut: (await flashTargetQuotes()).flashTargettokenOutOut,
+            flashTokenOutOut: (await flashTargetQuotes())
+                .flashTargettokenOutOut,
         },
         loanPool: {
             tokenInOut: (await walletQuotes()).singleLoanPooltokenInOut,
             tokenOutOut: (await walletQuotes()).singleLoanPooltokenOutOut,
-            flashTokenInOut: (await flashLoanPoolQuotes()).flashLoanPooltokenInOut,
-            flashTokenOutOut: (await flashLoanPoolQuotes()).flashLoanPooltokenOutOut,
+            flashTokenInOut: (await flashLoanPoolQuotes())
+                .flashLoanPooltokenInOut,
+            flashTokenOutOut: (await flashLoanPoolQuotes())
+                .flashLoanPooltokenOutOut,
         },
     };
     const qStrings = {
@@ -138,8 +143,10 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
                 fu(quotes.target.flashTokenInOut, trade.tokenIn.data.decimals) +
                 trade.tokenIn.data.symbol,
             flashTokenOutOut:
-                fu(quotes.target.flashTokenOutOut, trade.tokenOut.data.decimals) +
-                trade.tokenOut.data.symbol,
+                fu(
+                    quotes.target.flashTokenOutOut,
+                    trade.tokenOut.data.decimals,
+                ) + trade.tokenOut.data.symbol,
         },
         loanPool: {
             tokenInOut:
@@ -149,11 +156,15 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
                 fu(quotes.loanPool.tokenOutOut, trade.tokenOut.data.decimals) +
                 trade.tokenOut.data.symbol,
             flashTokenInOut:
-                fu(quotes.loanPool.flashTokenInOut, trade.tokenIn.data.decimals) +
-                trade.tokenIn.data.symbol,
+                fu(
+                    quotes.loanPool.flashTokenInOut,
+                    trade.tokenIn.data.decimals,
+                ) + trade.tokenIn.data.symbol,
             flashTokenOutOut:
-                fu(quotes.loanPool.flashTokenOutOut, trade.tokenOut.data.decimals) +
-                trade.tokenOut.data.symbol,
+                fu(
+                    quotes.loanPool.flashTokenOutOut,
+                    trade.tokenOut.data.decimals,
+                ) + trade.tokenOut.data.symbol,
         },
     };
 
