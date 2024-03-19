@@ -14,7 +14,7 @@ interface IUniswapV2Callee {
 
 contract flashMultiTest is IUniswapV2Callee {
     address owner;
-    IUniswapV2Pair pair;
+    IUniswapV2Pair loanPool;
     using SafeMath for uint256;
 
     event log(string message);
@@ -44,13 +44,13 @@ contract flashMultiTest is IUniswapV2Callee {
         uint256 amountToRepay // amountRepay in tokenIn (flashMulti)
     ) external {
         console.log("Contract flashMultiTest Entered");
-        require(msg.sender == address(owner), "Error: Only owner can call this function");
-        pair = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID));
+        require(msg.sender == address(owner), "Error: Only owner can call this function"); // because msg.sender for flashSwap is the owner
+        loanPool = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID));
         console.log("amountIn requested: ", amountIn);
         console.log("amountOut expected: ", amountOut);
         console.log("Contract Balance Before Swap: ", IERC20(token0ID).balanceOf(address(this)));
-        console.log("Pair address: ", address(pair));
-        require(address(pair) != address(0), "Error: Pair does not exist");
+        console.log("Pair address: ", address(loanPool));
+        require(address(loanPool) != address(0), "Error: Pair does not exist");
         bytes memory data = abi.encode(
             loanFactory,
             loanRouter,
@@ -59,9 +59,9 @@ contract flashMultiTest is IUniswapV2Callee {
             amountToRepay
         );
         console.log("Data encoded");
-        IERC20(token0ID).approve(address(pair), amountIn);
+        IERC20(token0ID).approve(address(loanPool), amountIn);
         console.log(amountIn, " of token0 approved for swap");
-        pair.swap(
+        loanPool.swap(
             amountIn, // requested borrow of token0
             0, // requested borrow of token1
             address(this),
@@ -90,12 +90,12 @@ contract flashMultiTest is IUniswapV2Callee {
             uint256 amountRepay
         ) = abi.decode(_data, (address, address, address, uint256, uint256));
         console.log("Loan Data Decoded");
-        path[0] = IUniswapV2Pair(msg.sender).token0();
+        path[0] = IUniswapV2Pair(msg.sender).token0(); // because msg.sender for uniswapv2call is the loanPair
         path[1] = IUniswapV2Pair(msg.sender).token1();
-        pair = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(path[0], path[1]));
-        console.log("Pair address: ", address(pair));
+        loanPool = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(path[0], path[1]));
+        console.log("Pair address: ", address(loanPool));
         console.log("msg.sender address: ", msg.sender);
-        require(msg.sender == address(pair), "Error: Unauthorized");
+        require(msg.sender == address(loanPool), "Error: Unauthorized");
         require(_sender == address(this), "Error: Not sender");
         require(_amount0 == 0 || _amount1 == 0, "Error: Invalid amounts");
         IERC20 token0 = IERC20(path[0]);
@@ -123,8 +123,8 @@ contract flashMultiTest is IUniswapV2Callee {
         console.log("Token0::::::::::::::::::::::: ", token0.balanceOf(address(this)));
         console.log("Token1::::::::::::::::::::::: ", token1.balanceOf(address(this)));
         console.log("Approving profit transfer.");
-        token1.approve(address(address(this)), token1.balanceOf(address(this)));
-        console.log("Approved. Sending profit to owner: ");
+        // token1.approve(address(address(this)), token1.balanceOf(address(this)));
+        // console.log("Approved. Sending profit to owner: "); //Contract doesn't need approval to spend its own tokens
         token1.transfer(owner, token1.balanceOf(address(this)));
         console.log("Transferred token1 to owner");
     }
@@ -181,10 +181,10 @@ contract flashMultiTest is IUniswapV2Callee {
         console.log("calc'd amountRepay::::::::: ", amountRepay);
 
         // console.log("___________swapTokensForExactTokens__________");
-        console.log("Approving loanRouter to spend token1");
+        // console.log("Approving loanRouter to spend token1");
         //If this doesn't work, I can try the swap on targetRouter
-        token1.approve(loanRouter, token1.balanceOf(address(this)));
-        console.log("Approved");
+        // token1.approve(loanRouter, token1.balanceOf(address(this)));
+        // console.log("Approved");
         // repay = IUniswapV2Router02(loanRouter).swapTokensForExactTokens(
         //     swap[1], //amountOut
         //     getRepay[0], //amountInMax
@@ -192,7 +192,7 @@ contract flashMultiTest is IUniswapV2Callee {
         //     msg.sender,
         //     deadline
         // );
-        token1.transfer(address(pair), getRepay[0]);
+        token1.transfer(address(loanPool), getRepay[0]);
         console.log("Repay complete");
         console.log("Token balances: ");
         console.log("Token0::::::::::::::::::: ", IERC20(path[0]).balanceOf(address(this)));

@@ -208,3 +208,22 @@ PercentImpact = intImpact * 100
 
 regex to get rid of script/hardhat bumf:
 ^(.*Mined empty block range #)(.*)$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 19 03 2024 DEVELOPMENT NOTES:
+
+check/change trade.tradeSizes.(loanPool/target.tokenOut) and make it so that you don't have to have the token in wallet for it to cnfigure tradeSize.
+
+
