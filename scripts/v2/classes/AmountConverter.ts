@@ -1,6 +1,12 @@
 import { BigNumber as BN } from "bignumber.js";
 import { getMaxIn, getMaxOut, tradeToPrice } from "../modules/tradeMath";
-import { BoolTrade, Pair, ReservesData, Sizes, TradePair } from "../../../constants/interfaces";
+import {
+    BoolTrade,
+    Pair,
+    ReservesData,
+    Sizes,
+    TradePair,
+} from "../../../constants/interfaces";
 import { Prices } from "./Prices";
 import { Token, Amounts } from "../../../constants/interfaces";
 import { BigInt2BN, fu, pu } from "../../modules/convertBN";
@@ -77,10 +83,16 @@ export class AmountConverter {
         // console.log("tradeSizeJS: ", fu(tradeSizeJS, this.trade.tokenIn.data.decimals)); //DEBUG
         tradeSizes = {
             loanPool: {
-                tradeSizeTokenIn: { size: tradeSizeInJS, sizeBN: tradeSizeTokenIn },
+                tradeSizeTokenIn: {
+                    size: tradeSizeInJS,
+                    sizeBN: tradeSizeTokenIn,
+                },
             },
             target: {
-                tradeSizeTokenOut: { size: tradeSizeOutJS, sizeBN: tradeSizeTokenOut },
+                tradeSizeTokenOut: {
+                    size: tradeSizeOutJS,
+                    sizeBN: tradeSizeTokenOut,
+                },
             },
         };
         return tradeSizes;
@@ -195,9 +207,11 @@ export class AmountConverter {
             // use max1Intarget to make sure the trade doesn't revert due to too much slippage on target
             let max1Intarget = (await this.getMaxTokenOutIOtarget()).maxIn;
             // use max1OutloanPool to ensure trade doesn't revert due to insufficient liq on loanPool
-            let max1OutloanPool = (await this.getMaxTokenOutIOloanPool()).maxOut;
+            let max1OutloanPool = (await this.getMaxTokenOutIOloanPool())
+                .maxOut;
 
-            max1OutloanPool = max1OutloanPool < 1n ? max1OutloanPool * -1n : max1OutloanPool;
+            max1OutloanPool =
+                max1OutloanPool < 1n ? max1OutloanPool * -1n : max1OutloanPool;
 
             let bestSize: bigint = toPrice1;
 
@@ -209,7 +223,8 @@ export class AmountConverter {
             }
 
             const safeReserves = (this.trade.target.reserveOut * 820n) / 1000n;
-            const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
+            const size =
+                bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
             return size;
         };
 
@@ -219,7 +234,8 @@ export class AmountConverter {
                 return BN(1);
             }
             let max1Intarget = (await this.getMaxTokenOutIOtarget()).maxInBN;
-            let max1OutloanPool = (await this.getMaxTokenOutIOloanPool()).maxOutBN;
+            let max1OutloanPool = (await this.getMaxTokenOutIOloanPool())
+                .maxOutBN;
 
             max1OutloanPool.abs();
             let bestSize: BN = toPrice1;
@@ -229,7 +245,9 @@ export class AmountConverter {
             if (toPrice1.gt(max1OutloanPool)) {
                 bestSize = max1OutloanPool;
             }
-            const safeReserves = this.trade.target.reserveInBN.times(820).div(1000);
+            const safeReserves = this.trade.target.reserveInBN
+                .times(820)
+                .div(1000);
             const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
             // console.log("sizeBN: ", size.toFixed(this.trade.tokenIn.data.decimals), this.tokenIn.symbol); //DEBUG
 
@@ -246,7 +264,8 @@ export class AmountConverter {
             // use max0OutloanPool to ensure trade doesn't revert due to insufficient liq on loanPool
             let max0OutloanPool = (await this.getMaxTokenInIOloanPool()).maxOut;
 
-            max0OutloanPool = max0OutloanPool < 0n ? max0OutloanPool * -1n : max0OutloanPool;
+            max0OutloanPool =
+                max0OutloanPool < 0n ? max0OutloanPool * -1n : max0OutloanPool;
 
             let bestSize: bigint = toPrice0;
 
@@ -258,7 +277,8 @@ export class AmountConverter {
             }
 
             const safeReserves = (this.trade.loanPool.reserveIn * 820n) / 1000n;
-            const size = bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
+            const size =
+                bestSize > BigInt(safeReserves) ? safeReserves : bestSize;
             return size;
         };
 
@@ -268,7 +288,8 @@ export class AmountConverter {
                 return BN(0);
             }
             let max0Intarget = (await this.getMaxTokenInIOtarget()).maxInBN;
-            let max0OutloanPool = (await this.getMaxTokenInIOloanPool()).maxOutBN;
+            let max0OutloanPool = (await this.getMaxTokenInIOloanPool())
+                .maxOutBN;
 
             max0OutloanPool.abs();
             let bestSize: BN = toPrice0;
@@ -278,7 +299,9 @@ export class AmountConverter {
             if (toPrice0.gt(max0OutloanPool)) {
                 bestSize = max0OutloanPool;
             }
-            const safeReserves = this.trade.target.reserveInBN.times(820).div(1000);
+            const safeReserves = this.trade.target.reserveInBN
+                .times(820)
+                .div(1000);
             const size = bestSize.gt(safeReserves) ? safeReserves : bestSize;
             // console.log("sizeBN: ", size.toFixed(this.trade.tokenIn.data.decimals), this.tokenIn.symbol); //DEBUG
 
@@ -287,23 +310,35 @@ export class AmountConverter {
 
         p = {
             loanPool: {
-                tradeSizeTokenIn: { size: await sizeloanPoolTokenIn(), sizeBN: await size0BN() },
+                tradeSizeTokenIn: {
+                    size: await sizeloanPoolTokenIn(),
+                    sizeBN: await size0BN(),
+                },
             },
             target: {
-                tradeSizeTokenOut: { size: await sizetargetTokenOut(), sizeBN: await size1BN() },
+                tradeSizeTokenOut: {
+                    size: await sizetargetTokenOut(),
+                    sizeBN: await size1BN(),
+                },
             },
         };
 
         const tradeSizes = {
             loanPool: {
                 tradeSizeTokenIn:
-                    fu(p.loanPool.tradeSizeTokenIn.size, this.trade.tokenIn.data.decimals) +
+                    fu(
+                        p.loanPool.tradeSizeTokenIn.size,
+                        this.trade.tokenIn.data.decimals,
+                    ) +
                     " " +
                     this.trade.tokenIn.data.symbol,
             },
             target: {
                 tradeSizeTokenOut:
-                    fu(p.target.tradeSizeTokenOut.size, this.trade.tokenOut.data.decimals) +
+                    fu(
+                        p.target.tradeSizeTokenOut.size,
+                        this.trade.tokenOut.data.decimals,
+                    ) +
                     " " +
                     this.trade.tokenOut.data.symbol,
             },

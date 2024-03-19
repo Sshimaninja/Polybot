@@ -6,7 +6,10 @@ import { FactoryPair, TradePair } from "../../../constants/interfaces";
 import { signer } from "../../../constants/provider";
 import { swapSingleID } from "../../../constants/environment";
 import { swap } from "../../../test/testFunds";
-import { gasTokens, uniswapV2Router as router } from "../../../constants/addresses";
+import {
+    gasTokens,
+    uniswapV2Router as router,
+} from "../../../constants/addresses";
 import { approve } from "./transaction/approve";
 
 export async function approveRouters() {
@@ -16,7 +19,11 @@ export async function approveRouters() {
             let tokenID = gasTokens[token];
             let maxInt = ethers.MaxInt256;
             try {
-                let gasTokenAllowanceRouterContract = await approve(tokenID, routerID, maxInt);
+                let gasTokenAllowanceRouterContract = await approve(
+                    tokenID,
+                    routerID,
+                    maxInt,
+                );
                 const a = {
                     router: id,
                     allowanceRouterContract: gasTokenAllowanceRouterContract,
@@ -26,7 +33,10 @@ export async function approveRouters() {
                 if (error.reason && error.reason.includes("amount exceeds")) {
                     console.log("Error in gasToken approval: ", error.reason);
                 } else {
-                    console.error(`Error in gasToken approval for ${id}:`, error.message);
+                    console.error(
+                        `Error in gasToken approval for ${id}:`,
+                        error.message,
+                    );
                 }
             }
         }

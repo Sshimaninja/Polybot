@@ -224,6 +224,9 @@ regex to get rid of script/hardhat bumf:
 
 # 19 03 2024 DEVELOPMENT NOTES:
 
-check/change trade.tradeSizes.(loanPool/target.tokenOut) and make it so that you don't have to have the token in wallet for it to cnfigure tradeSize.
+- check if approvals are needed in flashMulti.sol
+- make testFunds.ts live version
+
+done - check/change trade.tradeSizes.(loanPool/target.tokenOut) and make it so that you don't have to have the token in wallet for it to cnfigure tradeSize.
 
 

@@ -6,7 +6,10 @@ import { FactoryPair, TradePair } from "../../../constants/interfaces";
 import { signer } from "../../../constants/provider";
 import { swapSingleID } from "../../../constants/environment";
 import { swap } from "../../../test/testFunds";
-import { gasTokens, uniswapV2Router as router } from "../../../constants/addresses";
+import {
+    gasTokens,
+    uniswapV2Router as router,
+} from "../../../constants/addresses";
 import { approve } from "./transaction/approve";
 
 export async function approveGasTokens() {
@@ -17,7 +20,11 @@ export async function approveGasTokens() {
         // let swapIn: bigint = 0n;
         // let routeIn: bigint = 0n;
         try {
-            let gasTokenAllowanceSwapContract = await approve(tokenID, swapSingleID, maxInt);
+            let gasTokenAllowanceSwapContract = await approve(
+                tokenID,
+                swapSingleID,
+                maxInt,
+            );
             const a = {
                 ticker: token,
                 allowanceSwapContract: gasTokenAllowanceSwapContract,
@@ -27,7 +34,10 @@ export async function approveGasTokens() {
             if (error.reason && error.reason.includes("amount exceeds")) {
                 console.log("Error in gasToken approval: ", error.reason);
             } else {
-                console.error(`Error in gasToken approval for ${token}:`, error.message);
+                console.error(
+                    `Error in gasToken approval for ${token}:`,
+                    error.message,
+                );
             }
         }
     }

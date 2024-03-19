@@ -47,7 +47,8 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                 // Use a second Trade class to get the reverse route
                 if (
-                    pendingTransactions[match.poolBID + match.poolAID] == true ||
+                    pendingTransactions[match.poolBID + match.poolAID] ==
+                        true ||
                     pendingTransactions[match.poolAID + match.poolBID] == true
                 ) {
                     console.log(
@@ -122,7 +123,10 @@ export async function control(data: FactoryPair[], gasData: any) {
                     await Promise.all(promises);
                 } else {
                     console.log(
-                        "Reserves not found for " + match.poolAID + " and " + match.poolBID,
+                        "Reserves not found for " +
+                            match.poolAID +
+                            " and " +
+                            match.poolBID,
                     ) +
                         " reserves: " +
                         reserves;
@@ -131,7 +135,9 @@ export async function control(data: FactoryPair[], gasData: any) {
         }
     } catch (error: any) {
         if (error.code === "ECONNRESET") {
-            console.log("CONTROL ERROR: ECONNRESET: Connection reset by peer. Retrying.");
+            console.log(
+                "CONTROL ERROR: ECONNRESET: Connection reset by peer. Retrying.",
+            );
         }
         console.log("Error in control.ts: " + error.reason);
         console.log(error);
