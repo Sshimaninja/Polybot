@@ -36,6 +36,18 @@ export const swapSingleID = process.env.SWAP_SINGLE;
 export const flashMultiID = process.env.FLASH_MULTI;
 export const flashSingleID = process.env.FLASH_SINGLE;
 
-export const swapSingle = new ethers.Contract(swapSingleID, ISwapSingle, signer);
-export const flashMulti = new ethers.Contract(flashMultiID, IFlashMulti, signer);
-export const flashSingle = new ethers.Contract(flashSingleID, IFlashSingle, signer);
+export const swapSingle = new ethers.Contract(
+    swapSingleID,
+    ISwapSingle,
+    signer,
+);
+export const flashMulti = new ethers.Contract(
+    flashMultiID,
+    IFlashMulti,
+    signer,
+);
+export const flashSingle = new ethers.Contract(
+    flashSingleID,
+    IFlashSingle,
+    signer,
+);

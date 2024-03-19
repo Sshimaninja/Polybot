@@ -1,5 +1,12 @@
 import { logger } from "../../../../constants/logger";
-import { BoolTrade, Profit, TxData, V2Params, V2Tx, TxGas } from "../../../../constants/interfaces";
+import {
+    BoolTrade,
+    Profit,
+    TxData,
+    V2Params,
+    V2Tx,
+    TxGas,
+} from "../../../../constants/interfaces";
 import { walletBal, checkGasBal } from "../tools/walletBal";
 import { notify } from "./notify";
 import { pendingTransactions } from "../../control";
@@ -15,8 +22,14 @@ import { signer } from "../../../../constants/provider";
  * @description
  */
 
-export async function flash(trade: BoolTrade): Promise<TransactionReceipt | null> {
-    logger.info("::::::::::::BEGIN TRANSACTION: ", trade.ticker, "::::::::::::");
+export async function flash(
+    trade: BoolTrade,
+): Promise<TransactionReceipt | null> {
+    logger.info(
+        "::::::::::::BEGIN TRANSACTION: ",
+        trade.ticker,
+        "::::::::::::",
+    );
 
     var gasbalance = await checkGasBal();
     logger.info("Wallet Balance Matic: ", fu(gasbalance, 18), "MATIC");
@@ -49,7 +62,7 @@ export async function flash(trade: BoolTrade): Promise<TransactionReceipt | null
         trade.loanPool.router,
         trade.target.router,
         trade.tokenIn.data.id,
-        trade.tokenOut.data.id,
+        trade.tokenOut.data.id, //I could reasonably change this to amountRepay if I wanted profit in tokenIn (which I do).
         trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
         trade.quotes.target.tokenOutOut,
         trade.loanPool.amountRepay,
@@ -75,7 +88,9 @@ export async function flash(trade: BoolTrade): Promise<TransactionReceipt | null
         const newBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ", oldBal);
         logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ", newBal);
-        logger.info("::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::");
+        logger.info(
+            "::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::",
+        );
         return receipt;
         // Clear the pending transaction flag for this pool
     } catch (error: any) {

@@ -68,8 +68,14 @@ contract SwapSingle {
         address routerAID,
         address routerBID
     ) internal {
-        require(tokenIn.approve(routerAID, type(uint256).max), "approve routerA failed.");
-        require(tokenOut.approve(routerBID, type(uint256).max), "approve routerB failed.");
+        require(
+            tokenIn.approve(routerAID, type(uint256).max),
+            "approve routerA failed."
+        );
+        require(
+            tokenOut.approve(routerBID, type(uint256).max),
+            "approve routerB failed."
+        );
         // end uniswap docs suggestions
 
         console.log("SwapSingle: tokens approved");
@@ -97,8 +103,14 @@ contract SwapSingle {
         uint256 allowanceOut = tokenOut.allowance(address(this), routerB);
         console.log("Contract allowance for routerB: ", allowanceOut);
 
-        require(allowanceIn >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERA");
-        require(allowanceOut >= tradeSize, "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERB");
+        require(
+            allowanceIn >= tradeSize,
+            "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERA"
+        );
+        require(
+            allowanceOut >= tradeSize,
+            "SwapSingle: CONTRACT_NOT_APPROVED_FOR_ROUTERB"
+        );
 
         require(
             tokenIn.transferFrom(msg.sender, address(this), tradeSize),
@@ -126,7 +138,10 @@ contract SwapSingle {
         // );
 
         uint256 balance = tokenIn.balanceOf(msg.sender);
-        require(balance >= tradeSize, "SwapSingle: INSUFFICIENT_WALLET_BALANCE");
+        require(
+            balance >= tradeSize,
+            "SwapSingle: INSUFFICIENT_WALLET_BALANCE"
+        );
 
         // According to Uniswap docs this contract needs to own the tokens it wants to swap, not just have an allowance.
         // https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/trading-from-a-smart-contract
@@ -156,16 +171,30 @@ contract SwapSingle {
         // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
         // require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
 
-        routerB.swapExactTokensForTokens(swapIn[1], tradeSize, path1, to, deadline);
+        routerB.swapExactTokensForTokens( //this gets profit in tokenIn
+            swapIn[1],
+            tradeSize, //as much as possible of tokenIn
+            path1,
+            to,
+            deadline
+        );
     }
 }
 
 interface IUniswapV2Factory {
-    function getPair(address tokenA, address tokenB) external view returns (address pair);
+    function getPair(
+        address tokenA,
+        address tokenB
+    ) external view returns (address pair);
 }
 
 interface IUniswapV2Pair {
-    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;
+    function swap(
+        uint amount0Out,
+        uint amount1Out,
+        address to,
+        bytes calldata data
+    ) external;
     function getReserves()
         external
         view
@@ -180,7 +209,10 @@ interface IUniswapV2Library {
         address factory,
         address tokenA,
         address tokenB
-    ) external view returns (uint112 reserveA, uint112 reserveB, uint32 blockTimestampLast);
+    )
+        external
+        view
+        returns (uint112 reserveA, uint112 reserveB, uint32 blockTimestampLast);
 
     function getAmountsOut(
         uint amountIn,
@@ -197,11 +229,17 @@ interface IUniswapV2Library {
 interface IERC20 {
     function approve(address spender, uint256 amount) external returns (bool);
 
-    function allowance(address owner, address spender) external view returns (uint256);
+    function allowance(
+        address owner,
+        address spender
+    ) external view returns (uint256);
 
     function balanceOf(address account) external view returns (uint256);
 
-    function transfer(address recipient, uint256 amount) external returns (bool);
+    function transfer(
+        address recipient,
+        uint256 amount
+    ) external returns (bool);
 
     function transferFrom(
         address sender,

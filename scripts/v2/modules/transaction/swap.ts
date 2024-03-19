@@ -16,7 +16,9 @@ import { tradeLogs } from "../../modules/tradeLog";
 import { walletBal } from "../tools/walletBal";
 import { pendingTransactions } from "../../control";
 
-export async function swap(trade: BoolTrade): Promise<TransactionResponse | null> {
+export async function swap(
+    trade: BoolTrade,
+): Promise<TransactionResponse | null> {
     const swapSingleAddress = await swapSingle.getAddress();
     const logs = await tradeLogs(trade);
     if (pendingTransactions[trade.ID]) {
@@ -39,13 +41,18 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
         trade.tokenOut.data.symbol,
     );
-    if (trade.wallet.tokenInBalance < trade.tradeSizes.loanPool.tradeSizeTokenIn.size) {
-        logger.info("::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE");
+    if (
+        trade.wallet.tokenInBalance <
+        trade.tradeSizes.loanPool.tradeSizeTokenIn.size
+    ) {
+        logger.info(
+            "::::::::::::::::TRADE " + trade.ticker + " INSUFFICIENT BALANCE",
+        );
         return null;
     }
 
     try {
-        let swapSingleAddress = await swapSingle.getAddress();
+        // let swapSingleAddress = await swapSingle.getAddress();
 
         let p = trade.params;
 
@@ -67,9 +74,13 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         logger.info(
             ">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ",
             "TokenIn: ",
-            fu(oldBal.tokenIn, trade.tokenIn.data.decimals) + " " + trade.tokenIn.data.symbol,
+            fu(oldBal.tokenIn, trade.tokenIn.data.decimals) +
+                " " +
+                trade.tokenIn.data.symbol,
             "TokenOut: ",
-            fu(oldBal.tokenOut, trade.tokenOut.data.decimals) + " " + trade.tokenOut.data.symbol,
+            fu(oldBal.tokenOut, trade.tokenOut.data.decimals) +
+                " " +
+                trade.tokenOut.data.symbol,
         );
         pendingTransactions[trade.ID] = true;
 
@@ -104,22 +115,33 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
         //     logger.info("Transaction failed with txResponse: " + txResponse);
         //     return null;
         // }
-        logger.info("TRANSACTION COMPLETE: " + trade.ticker, receipt);
+        logger.info(
+            "TRANSACTION COMPLETE: ",
+            trade.ticker,
+            trade.loanPool.exchange + trade.target.exchange,
+            receipt,
+        );
 
         //Print balances after trade
         const newBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         logger.info(
             ">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ",
             "TokenIn: ",
-            fu(newBal.tokenIn, trade.tokenIn.data.decimals) + " " + trade.tokenIn.data.symbol,
+            fu(newBal.tokenIn, trade.tokenIn.data.decimals) +
+                " " +
+                trade.tokenIn.data.symbol,
             "TokenOut: ",
-            fu(newBal.tokenOut, trade.tokenOut.data.decimals) + " " + trade.tokenOut.data.symbol,
+            fu(newBal.tokenOut, trade.tokenOut.data.decimals) +
+                " " +
+                trade.tokenOut.data.symbol,
             "Profit in TokenIn: ",
             fu(newBal.tokenIn - oldBal.tokenIn, trade.tokenIn.data.decimals) +
                 " " +
                 trade.tokenIn.data.symbol,
         );
-        logger.info("::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::");
+        logger.info(
+            "::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::",
+        );
         return txResponse;
     } catch (error: any) {
         if (error.message.includes("INSUFFICIENT_INPUT_AMOUNT")) {
@@ -127,12 +149,16 @@ export async function swap(trade: BoolTrade): Promise<TransactionResponse | null
             // logger.error(error.reason);
             // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
             logger.error(logs);
-            logger.error(">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            logger.error(
+                ">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ",
+            );
         } else {
             // logger.info(logs);
             logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error);
             logger.info(error.reason);
-            logger.info(">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            logger.info(
+                ">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ",
+            );
         }
         return null;
     }
