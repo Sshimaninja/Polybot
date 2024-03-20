@@ -1,4 +1,8 @@
-import { BoolTrade, TradeGas, TradeProfit } from "../../../constants/interfaces";
+import {
+    BoolTrade,
+    TradeGas,
+    TradeProfit,
+} from "../../../constants/interfaces";
 import { Profit } from "../../../constants/interfaces";
 import { gasTokens, uniswapV2Exchange } from "../../../constants/addresses";
 import { fetchGasPrice } from "./transaction/fetchGasPrice";
@@ -16,11 +20,15 @@ require("dotenv").config();
 export async function trueProfit(trade: BoolTrade): Promise<BoolTrade> {
     try {
         // Calculate profit & compare to gas cost
-        let WMATICprofit = new WMATICProfit(trade, gasTokens, uniswapV2Exchange);
+        let WMATICprofit = new WMATICProfit(
+            trade,
+            gasTokens,
+            uniswapV2Exchange,
+        );
         let profitInWMATIC = await WMATICprofit.getWMATICProfit();
         trade.profits.WMATICProfit = profitInWMATIC;
 
-        let logs = await tradeLogs(trade);
+        // let logs = await tradeLogs(trade);
         return trade;
     } catch (error: any) {
         logger.error("Error in trueProfit: ", error);

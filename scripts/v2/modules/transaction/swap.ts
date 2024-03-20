@@ -38,8 +38,9 @@ export async function swap(
         trade.ticker,
         trade.loanPool.exchange,
         trade.target.exchange,
-        fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
-        trade.tokenOut.data.symbol,
+        "Projected profit:",
+        fu(trade.profits.tokenProfit, trade.tokenIn.data.decimals),
+        trade.tokenIn.data.symbol,
     );
     if (
         trade.wallet.tokenInBalance <
@@ -120,6 +121,7 @@ export async function swap(
             trade.ticker,
             trade.loanPool.exchange + trade.target.exchange,
             receipt,
+            logs.data,
         );
 
         //Print balances after trade
@@ -148,7 +150,7 @@ export async function swap(
             logger.error(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error);
             // logger.error(error.reason);
             // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
-            logger.error(logs);
+            // logger.error(logs);
             logger.error(
                 ">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ",
             );

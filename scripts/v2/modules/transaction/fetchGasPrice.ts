@@ -70,7 +70,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 maxPriorityFee: trade.gas.maxPriorityFee,
             };
         } catch (error: any) {
-            const data = await tradeLogs(trade);
+            // const data = await tradeLogs(trade);
             logger.error(
                 `>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<`,
             );
@@ -103,7 +103,10 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             // logger.info(">>>>>>>>>>swapSingle gasEstimate SUCCESS: ", gasEstimate);
             let gasPrice = gasEstimate * trade.gas.maxFee;
             // logger.info("swapSingle GASLOGS: ", gasPrice);
-            logger.info("swapSingle GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
+            logger.info(
+                "swapSingle GASESTIMATE SUCCESS::::::",
+                fu(gasPrice, 18),
+            );
             pendingTransactions[trade.ID] == false;
             return {
                 gasEstimate,
@@ -117,14 +120,16 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 logger.error("Nonce too high. Skipping trade.");
                 return g;
             } else {
-                const data = await tradeLogs(trade);
+                // const data = await tradeLogs(trade);
                 logger.error(
-                    `>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${
-                        trade.loanPool.exchange + trade.target.exchange
-                    } ${trade.type} ${error.reason} <<<<<<<<<<<<<<<`,
+                    `>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${
+                        trade.ticker
+                    } ${trade.loanPool.exchange + trade.target.exchange} ${
+                        trade.type
+                    } ${error.reason} <<<<<<<<<<<<<<<`,
                     // error.reason,
-                    data,
-                    `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                    // data,
+                    // `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
                 );
                 return g;
             }
