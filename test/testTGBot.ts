@@ -22,6 +22,7 @@ export async function testTGBot() {
             console.log("Chat ID: ", TELEGRAM_CHAT_ID);
             const bot = new TelegramBot(TELEGRAM_BOT_TOKEN);
             const note = await bot.sendMessage(TELEGRAM_CHAT_ID, message);
+            console.log("Telegram message sent: " + note.message_id);
         }
     } catch (error: any) {
         console.log("TELEGRAM ERROR [telegramInfo()]: " + error);
