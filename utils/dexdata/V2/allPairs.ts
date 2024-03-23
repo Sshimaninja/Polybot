@@ -39,7 +39,10 @@ export class AllV2Pairs {
             console.log("FactoryID: " + factoryID);
             const factoryContract = new Contract(factoryID, IFactory, provider);
             if (factoryContract.getAddress() != undefined) {
-                console.log("FactoryContract Initialised: " + factoryContract.getAddress());
+                console.log(
+                    "FactoryContract Initialised: " +
+                        factoryContract.getAddress(),
+                );
             } else {
                 console.log("FactoryContract not initialised");
             }
@@ -49,12 +52,13 @@ export class AllV2Pairs {
                 console.log("AllPairsLength: " + factory + `: ` + allPairsLen);
                 const pairs: string[] = [];
                 await Promise.all(
-                    Array.from({ length: allPairsLen.toNumber() }, (_, i) => i).map(
-                        async (index) => {
-                            const allPairs = await factoryContract.allPairs(index);
-                            pairs.push(allPairs);
-                        },
-                    ),
+                    Array.from(
+                        { length: allPairsLen.toNumber() },
+                        (_, i) => i,
+                    ).map(async (index) => {
+                        const allPairs = await factoryContract.allPairs(index);
+                        pairs.push(allPairs);
+                    }),
                 );
                 return pairs;
             }
@@ -73,8 +77,11 @@ export class AllV2Pairs {
                         const reserves = await pairContract.getReserves();
                         // console.log(reserves);
                         const blockTimeStampLast = reserves[2];
-                        const currentBlockNumber = await provider.getBlockNumber();
-                        const currentBlock = await provider.getBlock(currentBlockNumber);
+                        const currentBlockNumber =
+                            await provider.getBlockNumber();
+                        const currentBlock = await provider.getBlock(
+                            currentBlockNumber,
+                        );
                         if (currentBlock == undefined) {
                             console.log("Current block is undefined");
                             return;
@@ -89,10 +96,18 @@ export class AllV2Pairs {
                             blockTimeStampLast > block - 40000 * 12
                         ) {
                             const token0id = await pairContract.token0();
-                            const token0 = new Contract(token0id, IERC20, provider);
+                            const token0 = new Contract(
+                                token0id,
+                                IERC20,
+                                provider,
+                            );
 
                             const token1id = await pairContract.token1();
-                            const token1 = new Contract(token1id, IERC20, provider);
+                            const token1 = new Contract(
+                                token1id,
+                                IERC20,
+                                provider,
+                            );
 
                             const token0Symbol = await token0.symbol();
                             const token0Decimals = await token0.decimals();
@@ -104,9 +119,13 @@ export class AllV2Pairs {
                             console.log("Current: " + currentBlockTimestamp);
                             console.log("Symbol: " + ticker);
                             console.log("Token0: " + token0id);
-                            console.log("reserves0: " + fu(reserves[0], token0Decimals));
+                            console.log(
+                                "reserves0: " + fu(reserves[0], token0Decimals),
+                            );
                             console.log("Token1: " + token1id);
-                            console.log("reserves1: " + fu(reserves[1], token1Decimals));
+                            console.log(
+                                "reserves1: " + fu(reserves[1], token1Decimals),
+                            );
                             const tokenData = {
                                 ticker: ticker,
                                 poolID: pair,
@@ -136,7 +155,10 @@ export class AllV2Pairs {
                             pairs: validPairs,
                         },
                     ];
-                    fs.writeFileSync(pairsFile, JSON.stringify(factoryPair, null, 2) + "\n");
+                    fs.writeFileSync(
+                        pairsFile,
+                        JSON.stringify(factoryPair, null, 2) + "\n",
+                    );
                     console.log(`Valid pairs: ${validPairs.length}`);
                     console.log(`Valid pairs written to ${pairsFile}`);
                 }

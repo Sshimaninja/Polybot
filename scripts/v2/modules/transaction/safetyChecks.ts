@@ -19,14 +19,19 @@ import { MaxInt256 } from "ethers";
 export async function safetyChecks(trade: BoolTrade): Promise<boolean> {
     const p = trade.params;
 
-    let swapApproval: bigint = await trade.tokenIn.contract.allowance(ownerID, swapSingleID);
+    let swapApproval: bigint = await trade.tokenIn.contract.allowance(
+        ownerID,
+        swapSingleID,
+    );
     let routerApproval: bigint = await trade.tokenIn.contract.allowance(
         ownerID,
         await trade.target.router.getAddress(),
     );
 
     if (p.amountOutB < p.tradeSize) {
-        logger.error("AmountOutB in TokenIn on LoanPool lower than tradeSize. (no profit)");
+        logger.error(
+            "AmountOutB in TokenIn on LoanPool lower than tradeSize. (no profit)",
+        );
         return false;
     }
 
@@ -52,7 +57,10 @@ export async function safetyChecks(trade: BoolTrade): Promise<boolean> {
             fu(bal.tokenIn, trade.tokenIn.data.decimals),
             trade.tokenIn.data.symbol,
             "tokenIn tradeSize: ",
-            fu(trade.tradeSizes.loanPool.tradeSizeTokenIn.size, trade.tokenIn.data.decimals),
+            fu(
+                trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
+                trade.tokenIn.data.decimals,
+            ),
             trade.tokenIn.data.symbol,
         );
         return false;

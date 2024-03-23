@@ -20,12 +20,11 @@ export async function params(trade: BoolTrade): Promise<any> {
     // const routerAllowanceTokenIn = await trade.tokenIn.contract.allowance(ownerID, targetRouterID);
     if (trade.type == "single") {
         p = {
-            target: await trade.target.pool.getAddress(),
             routerAID: await trade.target.router.getAddress(), //high Output tokenIn to tokenOut
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             amountOutA: trade.quotes.target.tokenOutOut, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
+            amountOutB: trade.tradeSizes.loanPool.tradeSizeTokenIn.size, //  trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
             path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
             to: await signer.getAddress(),

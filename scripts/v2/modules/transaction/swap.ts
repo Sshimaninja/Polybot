@@ -86,7 +86,7 @@ export async function swap(
         pendingTransactions[trade.ID] = true;
 
         let tx: TransactionRequest = await swapSingle.swapSingle(
-            p.target,
+            // p.target,
             p.routerAID,
             p.routerBID,
             p.tradeSize,

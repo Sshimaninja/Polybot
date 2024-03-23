@@ -19,7 +19,6 @@ contract SwapSingle {
         return owner;
     }
     function swapSingle(
-        address target,
         address routerAID,
         address routerBID,
         uint256 tradeSize,
@@ -122,7 +121,7 @@ contract SwapSingle {
         IUniswapV2Router02 routerA,
         IUniswapV2Router02 routerB,
         uint256 tradeSize,
-        uint256 amountOut,
+        uint256 amountOutA,
         uint256 amountOutB,
         address[] memory path0,
         address[] memory path1,
@@ -131,7 +130,7 @@ contract SwapSingle {
     ) internal {
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[1]);
-        uint256[] memory amountsInOut = routerA.getAmountsOut(tradeSize, path0);
+        // uint256[] memory amountOutA = routerA.getAmountsOut(tradeSize, path0);
         // require(
         //     amountsOutA[1] >= amountOut,
         //     "Error SwapSingle: routerA.getAmountsOut < amountOutA"
@@ -162,7 +161,7 @@ contract SwapSingle {
 
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountsInOut[1],
+            amountOutA,
             path0,
             address(this),
             deadline
@@ -173,7 +172,7 @@ contract SwapSingle {
 
         routerB.swapExactTokensForTokens( //this gets profit in tokenIn
             swapIn[1],
-            tradeSize, //as much as possible of tokenIn
+            amountOutB, //as much as possible of tokenIn
             path1,
             to,
             deadline
