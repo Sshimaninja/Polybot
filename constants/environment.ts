@@ -11,7 +11,7 @@ export const dotenv = dotenvConfig({
     path: `.env.${process.env.NODE_ENV == "test" ? "test" : "live"}`,
 });
 
-export let slip = BN(0.008);
+export let slip = BN(0.02);
 
 if (
     process.env.FLASH_MULTI === undefined ||

@@ -64,6 +64,18 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const p0 = new Prices(match.poolAID, reserves[0]);
                     const p1 = new Prices(match.poolBID, reserves[1]);
 
+                    /* 
+                    TODO: Use dummy values to move fetchGasPrice to the top of the loop because latency is causing 
+                    INSUFFICIENT_OUTPUT_AMOUNT errors due to price changing between getTrade, fetchGasPrice and swap.
+
+                    trade/getAmounts needs to be as close as possible to swap.
+                    */
+                    let gas = await fetchGasPrice(trade);
+                    if (gas.tested == false) {
+                        console.log("Gas price not tested. Skipping trade.");
+                        return;
+                    }
+
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     let trade: BoolTrade = await t.getTrade();
 
@@ -83,12 +95,6 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     if (trade.type.includes("flash")) {
                         safe = await filterTrade(trade);
-                    }
-
-                    let gas = await fetchGasPrice(trade);
-                    if (gas.tested == false) {
-                        console.log("Gas price not tested. Skipping trade.");
-                        return;
                     }
 
                     await trueProfit(trade);

@@ -89,7 +89,7 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
 
         try {
             gasEstimate = await swapSingle.swapSingle.estimateGas(
-                p.target,
+                // p.target,
                 p.routerAID,
                 p.routerBID,
                 p.tradeSize,
@@ -109,10 +109,10 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             );
             pendingTransactions[trade.ID] == false;
             return {
-                gasEstimate,
+                gasEstimate: gasEstimate * 2n,
                 tested: true,
                 gasPrice,
-                maxFee: trade.gas.maxFee,
+                maxFee: trade.gas.maxFee * 2n,
                 maxPriorityFee: trade.gas.maxPriorityFee,
             };
         } catch (error: any) {
@@ -120,16 +120,16 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 logger.error("Nonce too high. Skipping trade.");
                 return g;
             } else {
-                // const data = await tradeLogs(trade);
+                const data = await tradeLogs(trade);
                 logger.error(
-                    `>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${
+                    `>>>>>>>>>>>>>START: Error in fetchGasPrice for trade: ${
                         trade.ticker
                     } ${trade.loanPool.exchange + trade.target.exchange} ${
                         trade.type
                     } ${error.reason} <<<<<<<<<<<<<<<`,
-                    // error.reason,
-                    // data,
-                    // `>>>>>>>>>>>>>>>>>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
+                    error,
+                    data.data,
+                    `>>>>>>>>>>>>>>>>>>>>>>>>>>END: Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
                 );
                 return g;
             }
