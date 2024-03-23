@@ -145,10 +145,6 @@ contract SwapSingle {
         // According to Uniswap docs this contract needs to own the tokens it wants to swap, not just have an allowance.
         // https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/trading-from-a-smart-contract
 
-        /*
-        uint amountIn = 50 * 10 ** DAI.decimals();
-        require(DAI.transferFrom(msg.sender, address(this), amountIn), 'transferFrom failed.');
-        */
         approveTokens(tokenIn, tokenOut, address(routerA), address(routerB));
 
         transferTokensAndCheckAllowance(
@@ -166,17 +162,16 @@ contract SwapSingle {
             address(this),
             deadline
         );
+        console.log("swapIn[1]: ", swapIn[1]);
 
-        // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
-        // require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
-
-        routerB.swapExactTokensForTokens( //this gets profit in tokenIn
+        uint256[] memory swapOut = routerB.swapExactTokensForTokens( //this gets profit in tokenIn
             swapIn[1],
             amountOutB, //as much as possible of tokenIn
             path1,
             to,
             deadline
         );
+        console.log("swapOut[1]: ", swapOut[1]);
     }
 }
 

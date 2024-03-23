@@ -32,6 +32,11 @@ export const wmatic = new ethers.Contract(
     IERC20,
     provider,
 );
+export const usdc = new ethers.Contract(
+    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    IERC20,
+    provider,
+);
 export const swapSingleID = process.env.SWAP_SINGLE;
 export const flashMultiID = process.env.FLASH_MULTI;
 export const flashSingleID = process.env.FLASH_SINGLE;

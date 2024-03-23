@@ -24,11 +24,19 @@ import { getFunds } from "./modules/tools/getFunds";
 import { BoolTrade } from "../../constants/interfaces";
 import { PopulateRepays } from "./classes/Repays";
 import { AmountConverter } from "./classes/AmountConverter";
-import { BigInt2BN, BigInt2String, BN2BigInt, fu, pu } from "../modules/convertBN";
+import {
+    BigInt2BN,
+    BigInt2String,
+    BN2BigInt,
+    fu,
+    pu,
+} from "../modules/convertBN";
 import { filterTrade } from "./modules/filterTrade";
 import { logger } from "../../constants/logger";
 import { ProfitCalculator } from "./classes/ProfitCalcs";
 import { params } from "./modules/transaction/params";
+import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
+import { populateTrade } from "./populateTrade";
 // import { getAmountsOut as getAmountOutBN, getAmountsIn as getAmountInBN } from "./modules/getAmounts/getAmountsIOBN";
 
 /**
@@ -84,8 +92,16 @@ export class Trade {
         const dir = await this.direction();
         const A = dir.dir == "A" ? true : false;
         const signerID = await signer.getAddress();
-        const tokenIn: Contract = new Contract(this.match.token0.id, IERC20, signer);
-        const tokenOut: Contract = new Contract(this.match.token1.id, IERC20, signer);
+        const tokenIn: Contract = new Contract(
+            this.match.token0.id,
+            IERC20,
+            signer,
+        );
+        const tokenOut: Contract = new Contract(
+            this.match.token1.id,
+            IERC20,
+            signer,
+        );
         const trade: BoolTrade = {
             ID: A
                 ? this.match.poolBID + this.match.poolAID
@@ -138,11 +154,15 @@ export class Trade {
                 pool: A
                     ? new Contract(this.match.poolBID, IPair, signer)
                     : new Contract(this.match.poolAID, IPair, signer),
-                reserveIn: A ? this.priceB.reserves.reserveIn : this.priceA.reserves.reserveIn,
+                reserveIn: A
+                    ? this.priceB.reserves.reserveIn
+                    : this.priceA.reserves.reserveIn,
                 reserveInBN: A
                     ? this.priceB.reserves.reserveInBN
                     : this.priceA.reserves.reserveInBN,
-                reserveOut: A ? this.priceB.reserves.reserveOut : this.priceA.reserves.reserveOut,
+                reserveOut: A
+                    ? this.priceB.reserves.reserveOut
+                    : this.priceA.reserves.reserveOut,
                 reserveOutBN: A
                     ? this.priceB.reserves.reserveOutBN
                     : this.priceA.reserves.reserveOutBN,
@@ -166,11 +186,15 @@ export class Trade {
                 pool: A
                     ? new Contract(this.match.poolAID, IPair, signer)
                     : new Contract(this.match.poolBID, IPair, signer),
-                reserveIn: A ? this.priceA.reserves.reserveIn : this.priceB.reserves.reserveIn,
+                reserveIn: A
+                    ? this.priceA.reserves.reserveIn
+                    : this.priceB.reserves.reserveIn,
                 reserveInBN: A
                     ? this.priceA.reserves.reserveInBN
                     : this.priceB.reserves.reserveInBN,
-                reserveOut: A ? this.priceA.reserves.reserveOut : this.priceB.reserves.reserveOut,
+                reserveOut: A
+                    ? this.priceA.reserves.reserveOut
+                    : this.priceB.reserves.reserveOut,
                 reserveOutBN: A
                     ? this.priceA.reserves.reserveOutBN
                     : this.priceB.reserves.reserveOutBN,
@@ -194,8 +218,11 @@ export class Trade {
                 uniswapKPositive: false,
             },
             differenceTokenOut:
-                dir.diff.toFixed(this.match.token1.decimals) + " " + this.match.token1.symbol,
-            differencePercent: dir.dperc.toFixed(this.match.token1.decimals) + "%",
+                dir.diff.toFixed(this.match.token1.decimals) +
+                " " +
+                this.match.token1.symbol,
+            differencePercent:
+                dir.dperc.toFixed(this.match.token1.decimals) + "%",
             profits: {
                 tokenProfit: 0n,
                 WMATICProfit: 0n,
@@ -203,129 +230,7 @@ export class Trade {
             params: "no trade",
         };
 
-        const calc = new AmountConverter(trade);
-        trade.tradeSizes = await calc.getSize();
-        // : await this.calcB.getSize(); //this.getSize(this.calcA, this.calcB);
-        // const debug = await debugAmounts(trade);
-        // logger.info(">>>>>>>>>>>>>DEBUG: ", debug);
-        const quotes = await getQuotes(trade);
-
-        const r = new PopulateRepays(trade, calc);
-        const repays = await r.getRepays();
-        trade.loanPool.repays = repays;
-
-        const p = new ProfitCalculator(trade, calc, repays, quotes);
-        const multi = await p.getMultiProfit();
-        const single = await p.getSingleProfit();
-
-        if (
-            multi.flashProfit <= 0n &&
-            multi.singleProfit <= 0n &&
-            single.flashProfit <= 0n &&
-            single.singleProfit <= 0n
-        ) {
-            trade.type = "filtered: 0 profit";
-            return trade;
-        }
-
-        let maxProfit =
-            multi.flashProfit > single.flashProfit ? multi.flashProfit : single.flashProfit;
-
-        maxProfit = maxProfit > single.singleProfit ? maxProfit : single.singleProfit;
-
-        trade.type =
-            maxProfit === single.singleProfit
-                ? "single"
-                : maxProfit === multi.flashProfit
-                ? "flashMulti"
-                : maxProfit === single.flashProfit
-                ? "flashSingle"
-                : maxProfit === 0n
-                ? "filtered: 0 profit"
-                : "filtered: unknown";
-
-        // logger.info(
-        //     "CHECK CALCS: maxProfit: ",
-        //     fu(maxProfit, trade.tokenOut.data.decimals),
-        //     " tradeType: ",
-        //     trade.type,
-        // );
-
-        trade.profits.tokenProfit = maxProfit;
-
-        // logger.info(
-        //     "CHECK CALCS: trade.profits.tokenProfit: ",
-        //     fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
-        //     " tradeType: ",
-        //     trade.type,
-        // );
-
-        let walletTradeSizes = await walletTradeSize(trade);
-
-        trade.tradeSizes.loanPool.tradeSizeTokenIn.size =
-            trade.type === "single"
-                ? walletTradeSizes.tokenIn
-                : trade.tradeSizes.loanPool.tradeSizeTokenIn.size;
-
-        trade.profits.tokenProfit =
-            trade.type === "single"
-                ? single.singleProfit
-                : trade.type === "flashMulti"
-                ? multi.flashProfit
-                : trade.type === "flashSingle"
-                ? single.flashProfit
-                : 0n;
-
-        // logger.info(
-        //     "CHECK CALCS: trade.profits.tokenProfit: ",
-        //     fu(trade.profits.tokenProfit, trade.tokenOut.data.decimals),
-        //     // trade.tokenOut.data.decimals,
-        //     // "WMATICProfit: ",
-        //     // fu(trade.profits.WMATICProfit, 18),
-        //     // "WMATIC",
-        //     "tradeType: ",
-        //     trade.type,
-        // );
-
-        trade.loanPool.amountRepay =
-            trade.type === "flashMulti"
-                ? repays.flashMulti
-                : trade.type === "flashSingle"
-                ? repays.flashSingle
-                : repays.single;
-
-        trade.type === "single"
-            ? (trade.quotes = {
-                  target: {
-                      tokenInOut: quotes.target.tokenInOut,
-                      tokenOutOut: quotes.target.tokenOutOut,
-                  },
-                  loanPool: {
-                      tokenInOut: quotes.loanPool.tokenInOut,
-                      tokenOutOut: quotes.loanPool.tokenOutOut,
-                  },
-              })
-            : (trade.quotes = {
-                  target: {
-                      tokenInOut: quotes.target.flashTokenInOut,
-                      tokenOutOut: quotes.target.flashTokenOutOut,
-                  },
-                  loanPool: {
-                      tokenInOut: quotes.loanPool.flashTokenInOut,
-                      tokenOutOut: quotes.loanPool.flashTokenOutOut,
-                  },
-              });
-
-        trade.k = await getK(
-            trade.type,
-            trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-            trade.loanPool.reserveIn,
-            trade.loanPool.reserveOut,
-            calc,
-        );
-
-        trade.flash = trade.type === "flashSingle" ? flashSingle : flashMulti;
-
+        await populateTrade(trade);
         return trade;
     }
 }
