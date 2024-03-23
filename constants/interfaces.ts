@@ -291,6 +291,7 @@ export interface Difference {
 }
 
 export interface GasData {
+    tested: boolean;
     gasEstimate: bigint;
     gasPrice: bigint;
     maxFee: bigint;

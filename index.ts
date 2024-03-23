@@ -6,6 +6,8 @@ import path from "path";
 import { FactoryPair } from "./constants/interfaces";
 import { logger } from "./constants/logger";
 import { telegramInfo } from "./scripts/v2/modules/transaction/notify";
+// import { fetchGasPriceOnce } from "./scripts/v2/modules/transaction/fetchGasPriceOnce";
+
 async function main() {
     const message = `Polybot V2 Started: ${Date.now()}`;
     await telegramInfo(message);
@@ -30,12 +32,12 @@ async function main() {
     }
 
     const pairList = await dataFeed();
-
     provider.on("block", async (blockNumber: any) => {
         if (blockNumber === null || undefined) return;
         console.log("New block received: Block # " + blockNumber);
         try {
-            const gasData = await getGasData();
+            let gasData = await getGasData();
+
             await Promise.all(
                 pairList.map(async (pairList: any) => {
                     await control(pairList, gasData);
@@ -44,7 +46,9 @@ async function main() {
             );
         } catch (error: any) {
             if (error.code === "ECONNRESET") {
-                console.log("PROVIDER ERROR: ECONNRESET: Connection reset by peer. Retrying.");
+                console.log(
+                    "PROVIDER ERROR: ECONNRESET: Connection reset by peer. Retrying.",
+                );
             } else {
                 //Verbose:
                 logger.error(`PROVIDER ERROR: ${error.stack}`);

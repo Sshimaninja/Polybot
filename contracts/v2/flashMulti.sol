@@ -41,8 +41,13 @@ contract flashMulti is IUniswapV2Callee {
         uint256 amountOut,
         uint256 amountToRepay
     ) external {
-        require(msg.sender == address(owner), "Error: Only owner can call this function");
-        pair = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID));
+        require(
+            msg.sender == address(owner),
+            "Error: Only owner can call this function"
+        );
+        pair = IUniswapV2Pair(
+            IUniswapV2Factory(loanFactory).getPair(token0ID, token1ID)
+        );
         require(address(pair) != address(0), "Error: Pair does not exist");
         bytes memory data = abi.encode(
             loanFactory,
@@ -73,7 +78,9 @@ contract flashMulti is IUniswapV2Callee {
 
         path[0] = IUniswapV2Pair(msg.sender).token0();
         path[1] = IUniswapV2Pair(msg.sender).token1();
-        pair = IUniswapV2Pair(IUniswapV2Factory(loanFactory).getPair(path[0], path[1]));
+        pair = IUniswapV2Pair(
+            IUniswapV2Factory(loanFactory).getPair(path[0], path[1])
+        );
 
         require(msg.sender == address(pair), "Error: Unauthorized");
         require(_sender == address(this), "Error: Not sender");
@@ -122,7 +129,10 @@ contract flashMulti is IUniswapV2Callee {
 
         path[0] = IUniswapV2Pair(msg.sender).token1();
         path[1] = IUniswapV2Pair(msg.sender).token0();
-        uint256[] memory getRepay = IUniswapV2Router02(loanRouter).getAmountsIn(_amount0, path);
+        uint256[] memory getRepay = IUniswapV2Router02(loanRouter).getAmountsIn(
+            _amount0,
+            path
+        );
 
         token1.approve(loanRouter, token1.balanceOf(address(this)));
 
@@ -131,11 +141,19 @@ contract flashMulti is IUniswapV2Callee {
 }
 
 interface IUniswapV2Factory {
-    function getPair(address tokenA, address tokenB) external view returns (address pair);
+    function getPair(
+        address tokenA,
+        address tokenB
+    ) external view returns (address pair);
 }
 
 interface IUniswapV2Pair {
-    function swap(uint amount0Out, uint amount1Out, address to, bytes calldata data) external;
+    function swap(
+        uint amount0Out,
+        uint amount1Out,
+        address to,
+        bytes calldata data
+    ) external;
 
     function token0() external view returns (address);
 
@@ -147,7 +165,10 @@ interface IUniswapV2Library {
         address factory,
         address tokenA,
         address tokenB
-    ) external view returns (uint112 reserveA, uint112 reserveB, uint32 blockTimestampLast);
+    )
+        external
+        view
+        returns (uint112 reserveA, uint112 reserveB, uint32 blockTimestampLast);
 
     function getAmountsOut(
         uint amountIn,
@@ -166,7 +187,10 @@ interface IERC20 {
 
     function balanceOf(address account) external view returns (uint256);
 
-    function transfer(address recipient, uint256 amount) external returns (bool);
+    function transfer(
+        address recipient,
+        uint256 amount
+    ) external returns (bool);
 
     function transferFrom(
         address sender,
