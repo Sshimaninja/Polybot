@@ -28,8 +28,13 @@ export class ProfitCalculator {
     }
 
     async getMultiProfit(): Promise<Profcalcs> {
+        let profit: Profcalcs = { singleProfit: 0n, flashProfit: 0n };
+
         try {
-            let profit: Profcalcs = { singleProfit: 0n, flashProfit: 0n };
+            profit.singleProfit =
+                this.quotes.target.tokenOutOut -
+                this.quotes.loanPool.tokenOutOut;
+
             profit.flashProfit =
                 this.quotes.target.flashTokenOutOut > this.repays.flashMulti
                     ? this.quotes.target.flashTokenOutOut -
@@ -39,34 +44,39 @@ export class ProfitCalculator {
                 profit.flashProfit,
                 this.trade.tokenOut.data.decimals,
             );
+
             // console.log(profit);
+
             return profit;
         } catch (error: any) {
             console.log("Error in getMultiProfit: " + error.message);
-            return { singleProfit: 0n, flashProfit: 0n };
+            return profit;
         }
     }
 
     async getSingleProfit(): Promise<Profcalcs> {
+        let profit: Profcalcs = { singleProfit: 0n, flashProfit: 0n };
+
         try {
             let wallet = await walletTradeSize(this.trade);
             const repays = this.repays;
             // This actually gets traded back into tokenIn, but for now we're representing it as tokenOut until I add the switch in the logs.
             // *update: I'll keep the profit in tokenOut but just trade back for my original tradeSize amount, to keep things easier.
-            let singleProfit =
-                this.quotes.target.tokenOutOut -
-                this.quotes.loanPool.tokenOutOut;
+            // *update: I'm changing the logs to show profit in tokenIn because it's more accurate.
+            profit.singleProfit =
+                this.quotes.loanPool.tokenInOut -
+                this.trade.tradeSizes.loanPool.tradeSizeTokenIn.size;
 
-            const flashProfit =
+            profit.flashProfit =
                 this.quotes.target.flashTokenOutOut > repays.flashSingle
                     ? this.quotes.target.flashTokenOutOut - repays.flashSingle
                     : 0n;
-            const profCalcs = { singleProfit, flashProfit };
-            return profCalcs;
+
+            return profit;
         } catch (error: any) {
             console.log("Error in getSingleProfit: " + error.trace);
             console.log(error);
-            return { singleProfit: 0n, flashProfit: 0n };
+            return profit;
         }
     }
 }

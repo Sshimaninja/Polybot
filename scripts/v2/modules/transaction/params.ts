@@ -24,7 +24,7 @@ export async function params(trade: BoolTrade): Promise<any> {
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             amountOutA: trade.quotes.target.tokenOutOut, //high Output tokenIn to tokenOut
-            amountOutB: trade.tradeSizes.loanPool.tradeSizeTokenIn.size, //  trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
+            amountOutB: trade.quotes.loanPool.tokenInOut, //  trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
             path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
             to: await signer.getAddress(),

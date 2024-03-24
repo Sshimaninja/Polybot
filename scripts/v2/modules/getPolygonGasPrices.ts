@@ -19,7 +19,11 @@ export async function getGasData(): Promise<GasData> {
         maxPriorityFee: 0n,
     };
     const ethersGas = await provider.getFeeData();
-    if (!ethersGas || ethersGas.maxPriorityFeePerGas == null) {
+    if (
+        !ethersGas ||
+        ethersGas.maxPriorityFeePerGas == null ||
+        ethersGas.maxFeePerGas == null
+    ) {
         console.log("Error in Polygon getGasData: Using default gasData");
         return gasData;
     }
@@ -36,14 +40,21 @@ export async function getGasData(): Promise<GasData> {
         tested: false,
         gasEstimate: gasEstimate,
         gasPrice: 0n,
-        maxFee: ethersGas.maxPriorityFeePerGas,
+        maxFee: ethersGas.maxFeePerGas,
         maxPriorityFee: ethersGas.maxPriorityFeePerGas,
     };
     gasData.gasPrice = gasData.maxFee * gasData.gasEstimate; // * baseFee!;
-    gasData.gasPrice; //+= gasMult;
-    gasData.maxFee; //+= gasMult;
-    gasData.maxPriorityFee; //+= gasMult;
-    console.log("EthersGas: ", gasData);
+    // gasData.gasPrice; //+= gasMult;
+    // gasData.maxFee; //+= gasMult;
+    // gasData.maxPriorityFee; //+= gasMult;
+    const gasString = {
+        gasPrice: fu(gasData.gasPrice, 18),
+        maxFee: fu(gasData.maxFee, 18),
+        maxPriorityFee: fu(gasData.maxPriorityFee, 18),
+        gasEstimate: fu(gasData.gasEstimate, 18),
+    };
+
+    console.log("EthersGas: ", gasString);
     // No good for testing becasue it pulls from live data not the block on hardhat local fork.
     // const polygonGasData: PolygonGasData = (
     //     await axios.get("https://gasstation.polygon.technology/v2")
@@ -53,15 +64,15 @@ export async function getGasData(): Promise<GasData> {
     //         gasEstimate: gasEstimate,
     //         gasPrice:
     //             pu(
-    //                 Math.round(polygonGasData.fast.maxPriorityFee).toString(),
+    //                 Math.round(polygonGasData.fast.maxPriorityFee), 18)),
     //                 "gwei",
     //             ) * gasData.gasEstimate, //ethersGasData.gasPrice,
     //         maxFee: pu(
-    //             Math.round(polygonGasData.fast.maxFee).toString(),
+    //             Math.round(polygonGasData.fast.maxFee), 18)),
     //             "gwei",
     //         ),
     //         maxPriorityFee: pu(
-    //             Math.round(polygonGasData.fast.maxPriorityFee).toString(),
+    //             Math.round(polygonGasData.fast.maxPriorityFee), 18)),
     //             "gwei",
     //         ),
     //     };

@@ -18,6 +18,7 @@ import { signer } from "../../constants/provider";
 import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
 import { params } from "./modules/transaction/params";
 import { safetyChecks } from "./modules/transaction/safetyChecks";
+import { fu } from "../modules/convertBN";
 // import { filterMatches } from "./filterMatches";
 /*
 TODO:
@@ -32,6 +33,7 @@ TODO:
  */
 let filteredTrades: string[]; // Array to store filtered trades
 export let pendingTransactions: { [poolAddress: string]: boolean } = {};
+
 // export let pendingApprovals: { [address: string]: string } = {};
 
 logger.info("Control.ts: pendingTransactions: ");
@@ -69,11 +71,9 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     // return;
                     if (trade.profits.tokenProfit <= 0) {
-                        // console.log("No profit for trade: " + trade.ticker);
+                        console.log("No profit for trade: " + trade.ticker);
                         return;
                     }
-
-                    trade.params = await params(trade);
 
                     let safe = false;
 
@@ -89,6 +89,9 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     // return;
 
+                    const logs = await tradeLogs(trade);
+                    logger.info(logs);
+
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                         console.log(
                             "No profit after trueProfit: ",
@@ -100,6 +103,23 @@ export async function control(data: FactoryPair[], gasData: any) {
                     }
 
                     // logger.info(log.tinyData);
+
+                    // EDIT: now only calling getchGasPrice once per block index.ts.
+                    // this is potentially slowing down tx execution to the point of falure for INSUFICCIENT_OUTPUT_AMOUNT
+                    let gas = await fetchGasPrice(trade);
+                    trade.gas = gas;
+                    if (gas.tested == false) {
+                        console.log("Gas price not tested. Skipping trade.");
+                        return trade;
+                    }
+                    const gasString = {
+                        gasPrice: fu(gas.gasPrice, 18),
+                        maxPriorityFee: fu(gas.maxPriorityFee, 9),
+                        tested: gas.tested,
+                    };
+
+                    console.log("trade.gas.tested :>> ", gasString);
+
                     let tx = null;
                     if (trade.type.includes("flash")) {
                         let tx = await flash(trade);

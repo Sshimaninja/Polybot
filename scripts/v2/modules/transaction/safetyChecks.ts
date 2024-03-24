@@ -82,10 +82,10 @@ export async function safetyChecks(trade: BoolTrade): Promise<boolean> {
         return false;
     }
 
-    if (pendingTransactions[trade.ID] == true) {
-        logger.info("Pending gasEstimate. Skipping gasEstimate.");
-        return false;
-    }
+    // if (pendingTransactions[trade.ID] == true) {
+    //     logger.info("Pending gasEstimate. Skipping gasEstimate.");
+    //     return false;
+    // }
 
     return true;
 }
