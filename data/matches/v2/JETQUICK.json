@@ -111,9 +111,10 @@
           "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
           "decimals": 18
         }
-      },
-      {
-        "ticker": "WMATIC/DAI",
+      }
+    ]
+  }
+]      "ticker": "WMATIC/DAI",
         "poolAID": "0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c",
         "poolBID": "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
         "token0": {

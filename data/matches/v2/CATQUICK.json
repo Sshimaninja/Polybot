@@ -126,9 +126,10 @@
           "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
           "decimals": 6
         }
-      },
-      {
-        "ticker": "WETH/DAI",
+      }
+    ]
+  }
+]      "ticker": "WETH/DAI",
         "poolAID": "0x2b1B874cB749472b963A80c5214b3Cb3fD7021a8",
         "poolBID": "0x4A35582a710E1F4b2030A3F826DA20BfB6703C09",
         "token0": {

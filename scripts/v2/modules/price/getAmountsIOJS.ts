@@ -27,7 +27,11 @@ export async function getAmountsOut(
     return amountReceived[1];
 }
 
-export async function getAmountsIn(router: Contract, amountOut: bigint, path: string[]) {
+export async function getAmountsIn(
+    router: Contract,
+    amountOut: bigint,
+    path: string[],
+) {
     if (path.length < 2) {
         console.log("Path must have at least 2 elements");
         return 0n;

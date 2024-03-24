@@ -7,7 +7,7 @@ import { FactoryPair } from "./constants/interfaces";
 import { logger } from "./constants/logger";
 import { telegramInfo } from "./scripts/v2/modules/transaction/notify";
 // import { fetchGasPriceOnce } from "./scripts/v2/modules/transaction/fetchGasPriceOnce";
-
+export let blockGas = false;
 async function main() {
     const message = `Polybot V2 Started: ${Date.now()}`;
     await telegramInfo(message);
@@ -34,10 +34,12 @@ async function main() {
     const pairList = await dataFeed();
     provider.on("block", async (blockNumber: any) => {
         if (blockNumber === null || undefined) return;
+
         console.log("New block received: Block # " + blockNumber);
         try {
             let gasData = await getGasData();
-
+            // gasData = await fetchGasPriceOnce(gasData);
+            // return;
             await Promise.all(
                 pairList.map(async (pairList: any) => {
                     await control(pairList, gasData);

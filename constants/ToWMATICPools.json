@@ -1,1 +1,122 @@
-[{"ticker":"ETHWMATIC","id":"0xadbF1854e5883eB8aa7BAf50705338739e558E5b","exchange":"QUICK","tokenIn":{"id":"0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619","decimals":"18","symbol":"ETH"},"tokenOut":{"id":"0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","decimals":"18","symbol":"WMATIC"},"reserves":{"reserve0":"455383542226077938378","reserve1":"1356709587768566724346361"},"liquidity":"617823217850131897776567317422819914486542458"},{"ticker":"USDCWMATIC","id":"0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827","exchange":"QUICK","tokenIn":{"id":"0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174","decimals":"18","symbol":"USDC"},"tokenOut":{"id":"0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","decimals":"18","symbol":"WMATIC"},"reserves":{"reserve0":"1173745330741","reserve1":"1100137120153206485505109"},"liquidity":"1291280807954676602920860385650255769"},{"ticker":"USDTWMATIC","id":"0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3","exchange":"QUICK","tokenIn":{"id":"0xc2132D05D31c914a87C6611C10748AEb04B58e8F","decimals":"18","symbol":"USDT"},"tokenOut":{"id":"0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","decimals":"18","symbol":"WMATIC"},"reserves":{"reserve0":"339791991878","reserve1":"317983658911429090740008"},"liquidity":"108048300846169035922101723345655024"},{"ticker":"DAIWMATIC","id":"0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE","exchange":"QUICK","tokenIn":{"id":"0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063","decimals":"18","symbol":"DAI"},"tokenOut":{"id":"0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","decimals":"18","symbol":"WMATIC"},"reserves":{"reserve0":"10157192654849948674811","reserve1":"9528434243172814764690"},"liquidity":"96782142306975643838420494220569040295223590"},{"ticker":"WBTCWMATIC","id":"0xf6B87181BF250af082272E3f448eC3238746Ce3D","exchange":"QUICK","tokenIn":{"id":"0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6","decimals":"18","symbol":"WBTC"},"tokenOut":{"id":"0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","decimals":"18","symbol":"WMATIC"},"reserves":{"reserve0":"22641167","reserve1":"11545512377801151932643"},"liquidity":"261403873846362973699342914381"},{"ticker":"GHSTWMATIC","id":"0x1366c529a133D4153211410126F12Aa4e31AaAc5","exchange":"QUICK","tokenIn":{"id":"0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7","decimals":"18","symbol":"GHST"},"tokenOut":{"id":"0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","decimals":"18","symbol":"WMATIC"},"reserves":{"reserve0":"877606219290375554739","reserve1":"869776166040666969524"},"liquidity":"763320972707827676074965114265085506774236"}]
+[
+    {
+        "ticker": "ETHWMATIC",
+        "id": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
+        "exchange": "QUICK",
+        "tokenIn": {
+            "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+            "decimals": "18",
+            "symbol": "ETH"
+        },
+        "tokenOut": {
+            "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "decimals": "18",
+            "symbol": "WMATIC"
+        },
+        "reserves": {
+            "reserve0": "455383542226077938378",
+            "reserve1": "1356709587768566724346361"
+        },
+        "liquidity": "617823217850131897776567317422819914486542458"
+    },
+    {
+        "ticker": "USDCWMATIC",
+        "id": "0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827",
+        "exchange": "QUICK",
+        "tokenIn": {
+            "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "decimals": "18",
+            "symbol": "USDC"
+        },
+        "tokenOut": {
+            "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "decimals": "18",
+            "symbol": "WMATIC"
+        },
+        "reserves": {
+            "reserve0": "1173745330741",
+            "reserve1": "1100137120153206485505109"
+        },
+        "liquidity": "1291280807954676602920860385650255769"
+    },
+    {
+        "ticker": "USDTWMATIC",
+        "id": "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
+        "exchange": "QUICK",
+        "tokenIn": {
+            "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+            "decimals": "18",
+            "symbol": "USDT"
+        },
+        "tokenOut": {
+            "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "decimals": "18",
+            "symbol": "WMATIC"
+        },
+        "reserves": {
+            "reserve0": "339791991878",
+            "reserve1": "317983658911429090740008"
+        },
+        "liquidity": "108048300846169035922101723345655024"
+    },
+    {
+        "ticker": "DAIWMATIC",
+        "id": "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
+        "exchange": "QUICK",
+        "tokenIn": {
+            "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+            "decimals": "18",
+            "symbol": "DAI"
+        },
+        "tokenOut": {
+            "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "decimals": "18",
+            "symbol": "WMATIC"
+        },
+        "reserves": {
+            "reserve0": "10157192654849948674811",
+            "reserve1": "9528434243172814764690"
+        },
+        "liquidity": "96782142306975643838420494220569040295223590"
+    },
+    {
+        "ticker": "WBTCWMATIC",
+        "id": "0xf6B87181BF250af082272E3f448eC3238746Ce3D",
+        "exchange": "QUICK",
+        "tokenIn": {
+            "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+            "decimals": "18",
+            "symbol": "WBTC"
+        },
+        "tokenOut": {
+            "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "decimals": "18",
+            "symbol": "WMATIC"
+        },
+        "reserves": {
+            "reserve0": "22641167",
+            "reserve1": "11545512377801151932643"
+        },
+        "liquidity": "261403873846362973699342914381"
+    },
+    {
+        "ticker": "GHSTWMATIC",
+        "id": "0x1366c529a133D4153211410126F12Aa4e31AaAc5",
+        "exchange": "QUICK",
+        "tokenIn": {
+            "id": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+            "decimals": "18",
+            "symbol": "GHST"
+        },
+        "tokenOut": {
+            "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "decimals": "18",
+            "symbol": "WMATIC"
+        },
+        "reserves": {
+            "reserve0": "877606219290375554739",
+            "reserve1": "869776166040666969524"
+        },
+        "liquidity": "763320972707827676074965114265085506774236"
+    }
+]

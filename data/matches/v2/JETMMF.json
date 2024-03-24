@@ -1,102 +1,102 @@
 [
-    {
-        "exchangeA": "JET",
-        "factoryA_id": "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
-        "routerA_id": "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
-        "exchangeB": "MMF",
-        "factoryB_id": "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
-        "routerB_id": "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
-        "matches": [
-            {
-                "ticker": "WMATIC/USDT",
-                "poolAID": "0x101640e107C4a72DeC79826768C239F1eB48cc85",
-                "poolBID": "0xa789324E64268C5385eA7678435Fa83532705B0F",
-                "token0": {
-                    "symbol": "WMATIC",
-                    "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-                    "decimals": 18
-                },
-                "token1": {
-                    "symbol": "USDT",
-                    "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-                    "decimals": 6
-                }
-            },
-            {
-                "ticker": "USDC/WETH",
-                "poolAID": "0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF",
-                "poolBID": "0x8C26252B14F9b071585B81b240C4ae2176E8cD3C",
-                "token0": {
-                    "symbol": "USDC",
-                    "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-                    "decimals": 6
-                },
-                "token1": {
-                    "symbol": "WETH",
-                    "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-                    "decimals": 18
-                }
-            },
-            {
-                "ticker": "WBTC/USDC",
-                "poolAID": "0xcda2aBb19DB926d242F871C87B81575DFf7644F2",
-                "poolBID": "0x1aEc8fF1C39c34338327A32bBb35011432614172",
-                "token0": {
-                    "symbol": "WBTC",
-                    "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
-                    "decimals": 8
-                },
-                "token1": {
-                    "symbol": "USDC",
-                    "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-                    "decimals": 6
-                }
-            },
-            {
-                "ticker": "WMATIC/USDC",
-                "poolAID": "0x5E58e0CeD3a272CAeb8bA00F4A4C2805Df6BE495",
-                "poolBID": "0xb965c131f1C48d89B1760860b782D2aCDF87273b",
-                "token0": {
-                    "symbol": "WMATIC",
-                    "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-                    "decimals": 18
-                },
-                "token1": {
-                    "symbol": "USDC",
-                    "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-                    "decimals": 6
-                }
-            },
-            {
-                "ticker": "WETH/USDT",
-                "poolAID": "0xc7f1B47F4ed069E9B34e6bD59792B8ABf5a66339",
-                "poolBID": "0x5adb38019452c5deEBEe4267dD2c84b5BB8682C4",
-                "token0": {
-                    "symbol": "WETH",
-                    "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-                    "decimals": 18
-                },
-                "token1": {
-                    "symbol": "USDT",
-                    "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-                    "decimals": 6
-                }
-            },
-            {
-                "ticker": "USDC/USDT",
-                "poolAID": "0x20BF018FDDBa3b352f3d913FE1c81b846fE0F490",
-                "poolBID": "0x384c1b95027B73a98FE31Ea5B4B7b031b9ddD724",
-                "token0": {
-                    "symbol": "USDC",
-                    "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-                    "decimals": 6
-                },
-                "token1": {
-                    "symbol": "USDT",
-                    "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-                    "decimals": 6
-                }
-            }
-        ]
-    }
+  {
+    "exchangeA": "JET",
+    "factoryA_id": "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7",
+    "routerA_id": "0x5C6EC38fb0e2609672BDf628B1fD605A523E5923",
+    "exchangeB": "MMF",
+    "factoryB_id": "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
+    "routerB_id": "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
+    "matches": [
+      {
+        "ticker": "WMATIC/USDT",
+        "poolAID": "0x101640e107C4a72DeC79826768C239F1eB48cc85",
+        "poolBID": "0xa789324E64268C5385eA7678435Fa83532705B0F",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/WETH",
+        "poolAID": "0xFEFF91C350bB564cA5Dc7D6F7DcD12ac092F94FF",
+        "poolBID": "0x8C26252B14F9b071585B81b240C4ae2176E8cD3C",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        }
+      },
+      {
+        "ticker": "WBTC/USDC",
+        "poolAID": "0xcda2aBb19DB926d242F871C87B81575DFf7644F2",
+        "poolBID": "0x1aEc8fF1C39c34338327A32bBb35011432614172",
+        "token0": {
+          "symbol": "WBTC",
+          "id": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "decimals": 8
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WMATIC/USDC",
+        "poolAID": "0x5E58e0CeD3a272CAeb8bA00F4A4C2805Df6BE495",
+        "poolBID": "0xb965c131f1C48d89B1760860b782D2aCDF87273b",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "WETH/USDT",
+        "poolAID": "0xc7f1B47F4ed069E9B34e6bD59792B8ABf5a66339",
+        "poolBID": "0x5adb38019452c5deEBEe4267dD2c84b5BB8682C4",
+        "token0": {
+          "symbol": "WETH",
+          "id": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "decimals": 18
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      },
+      {
+        "ticker": "USDC/USDT",
+        "poolAID": "0x20BF018FDDBa3b352f3d913FE1c81b846fE0F490",
+        "poolBID": "0x384c1b95027B73a98FE31Ea5B4B7b031b9ddD724",
+        "token0": {
+          "symbol": "USDC",
+          "id": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+          "decimals": 6
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+          "decimals": 6
+        }
+      }
+    ]
+  }
 ]

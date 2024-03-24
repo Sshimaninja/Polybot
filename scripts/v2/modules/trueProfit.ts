@@ -6,7 +6,8 @@ import {
 import { Profit } from "../../../constants/interfaces";
 import { gasTokens, uniswapV2Exchange } from "../../../constants/addresses";
 import { fetchGasPrice } from "./transaction/fetchGasPrice";
-import { WMATICProfit } from "../classes/WMATICProfit";
+import { WMATICFlashProfit } from "../classes/WMATICFlashProfit";
+import { WMATICSingleProfit } from "../classes/WMATICSingleProfit";
 import { tradeLogs } from "./tradeLog";
 import { fu } from "../../modules/convertBN";
 import { logger } from "../../../constants/logger";
@@ -18,20 +19,41 @@ require("dotenv").config();
  * @returns Profit{profit: string, gasEstimate: bigint, gasCost: bigint, gasPool: string}
  */
 export async function trueProfit(trade: BoolTrade): Promise<BoolTrade> {
-    try {
-        // Calculate profit & compare to gas cost
-        let WMATICprofit = new WMATICProfit(
-            trade,
-            gasTokens,
-            uniswapV2Exchange,
-        );
-        let profitInWMATIC = await WMATICprofit.getWMATICProfit();
-        trade.profits.WMATICProfit = profitInWMATIC;
+    if (trade.type.includes("flash")) {
+        try {
+            // Calculate profit & compare to gas cost
+            let WMATICprofit = new WMATICFlashProfit(
+                trade,
+                gasTokens,
+                uniswapV2Exchange,
+            );
+            let profitInWMATIC = await WMATICprofit.getWMATICProfit();
+            trade.profits.WMATICProfit = profitInWMATIC;
 
-        // let logs = await tradeLogs(trade);
-        return trade;
-    } catch (error: any) {
-        logger.error("Error in trueProfit: ", error);
-        return trade;
+            // let logs = await tradeLogs(trade);
+            return trade;
+        } catch (error: any) {
+            logger.error("Error in trueProfit: ", error);
+            return trade;
+        }
     }
+    if (trade.type === "single") {
+        try {
+            // Calculate profit & compare to gas cost
+            let WMATICprofit = new WMATICSingleProfit(
+                trade,
+                gasTokens,
+                uniswapV2Exchange,
+            );
+            let profitInWMATIC = await WMATICprofit.getWMATICProfit();
+            trade.profits.WMATICProfit = profitInWMATIC;
+
+            // let logs = await tradeLogs(trade);
+            return trade;
+        } catch (error: any) {
+            logger.error("Error in trueProfit: ", error);
+            return trade;
+        }
+    }
+    return trade;
 }

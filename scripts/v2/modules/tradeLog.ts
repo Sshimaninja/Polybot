@@ -167,13 +167,21 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
                         ? trade.k.uniswapKPost.toString()
                         : 0,
                 uniswapKPositive: trade.k.uniswapKPositive,
-                tokenProfit:
-                    fu(
-                        trade.profits.tokenProfit,
-                        trade.tokenOut.data.decimals,
-                    ) +
-                    " " +
-                    trade.tokenOut.data.symbol,
+                tokenProfit: trade.type.includes("flash")
+                    ? fu(
+                          trade.profits.tokenProfit,
+                          trade.tokenOut.data.decimals,
+                      ) +
+                      " " +
+                      trade.tokenOut.data.symbol
+                    : trade.type === "single"
+                    ? fu(
+                          trade.profits.tokenProfit,
+                          trade.tokenIn.data.decimals,
+                      ) +
+                      " " +
+                      trade.tokenIn.data.symbol
+                    : "0",
                 wmaticProfit: fu(trade.profits.WMATICProfit, 18) + " WMATIC",
             },
         };

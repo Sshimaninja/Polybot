@@ -1,0 +1,415 @@
+[
+  {
+    "exchange": "MMF",
+    "factoryID": "0x7cFB780010e9C861e03bCbC7AC12E013137D47A5",
+    "routerID": "0x51aba405de2b25e5506dea32a6697f450ceb1a17",
+    "pairs": [
+      {
+        "ticker": "DSF/SOLAR",
+        "poolID": "0xE7a75eE634DfCebef8cD6DBe8Bf8cBDB74478561",
+        "token0": {
+          "symbol": "DSF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "SOLAR",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "MLP/USDC",
+        "poolID": "0xC68433B48b21D4376aA7EEEC205038557D56Fa7C",
+        "token0": {
+          "symbol": "MLP",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "MMF/MUFFIN",
+        "poolID": "0x419d12435D6c7798B7684B2A7766D1f4CC21B825",
+        "token0": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MUFFIN",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "MLP/MMF",
+        "poolID": "0xEADc377ed7b4f7eb26beB0a3F3CC2a574462188e",
+        "token0": {
+          "symbol": "MLP",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "DSF/MUFFIN",
+        "poolID": "0xBbCe6773705d8cda1dBdb9A046A4F1dfFbe3Cbc1",
+        "token0": {
+          "symbol": "DSF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MUFFIN",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "stMATIC/LDO",
+        "poolID": "0x0d54918038dbEE259173bdb055DCbC58211626FC",
+        "token0": {
+          "symbol": "stMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "LDO",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "MLP/WETH",
+        "poolID": "0x5E2698B459DF67c38059228A2c34e4D9E298CEFf",
+        "token0": {
+          "symbol": "MLP",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WETH/MARS",
+        "poolID": "0x7C958773EC17994ecacf7D32Cd54e8a496F43000",
+        "token0": {
+          "symbol": "WETH",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MARS",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WMATIC/MUFFIN",
+        "poolID": "0x21421eff2E9d688b1ea295E80849b42242160984",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MUFFIN",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WMATIC/MLP",
+        "poolID": "0xe64DfdC0e126E2199442Ef72d4A106D8d5B9387e",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MLP",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WMATIC/PHNX",
+        "poolID": "0x337855cd883c391B91ABfeFEd37C4F0AEEB33B0f",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "PHNX",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "MMF/WETH",
+        "poolID": "0x4d129a39E1C93B6CA2925831d86390af8B675c82",
+        "token0": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "USDC/aUSDC",
+        "poolID": "0x203C9145D7514188e99C7D532310C390b42310fE",
+        "token0": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        },
+        "token1": {
+          "symbol": "aUSDC",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WMATIC/aUSDC",
+        "poolID": "0x5ed47114525ed980113289eE7a7045AAD501234F",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "aUSDC",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WMATIC/MMF",
+        "poolID": "0xD15EB8710E28C23993968e671807d572189CC86e",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "MMF/USDC",
+        "poolID": "0x8AB47799cB0d49aEB9E3a47c369813a3a3236790",
+        "token0": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "WMATIC/USDC",
+        "poolID": "0xb965c131f1C48d89B1760860b782D2aCDF87273b",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "WBTC/USDC",
+        "poolID": "0x1aEc8fF1C39c34338327A32bBb35011432614172",
+        "token0": {
+          "symbol": "WBTC",
+          "id": {},
+          "decimals": "8"
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "USDC/WETH",
+        "poolID": "0x8C26252B14F9b071585B81b240C4ae2176E8cD3C",
+        "token0": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        },
+        "token1": {
+          "symbol": "WETH",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WMATIC/USDT",
+        "poolID": "0xa789324E64268C5385eA7678435Fa83532705B0F",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "USDC/USDT",
+        "poolID": "0x384c1b95027B73a98FE31Ea5B4B7b031b9ddD724",
+        "token0": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "WETH/USDT",
+        "poolID": "0x5adb38019452c5deEBEe4267dD2c84b5BB8682C4",
+        "token0": {
+          "symbol": "WETH",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "USDT",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "USDC/LDO",
+        "poolID": "0x5A9F3695E706cDB6f73706bFA4D5293766a95BE2",
+        "token0": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        },
+        "token1": {
+          "symbol": "LDO",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "MMF/MMO",
+        "poolID": "0xd6a88114DCC01f72D1B311aD6adF860724ff35d3",
+        "token0": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MMO",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "WMATIC/stMATIC",
+        "poolID": "0x0404f9B850Df6fabdE06d4C8392AFf1a4E79a47B",
+        "token0": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "stMATIC",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "PIT/USDC",
+        "poolID": "0x0204A8A5901Fb97C2267bC6E8e27954ffF204322",
+        "token0": {
+          "symbol": "PIT",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "USDC",
+          "id": {},
+          "decimals": "6"
+        }
+      },
+      {
+        "ticker": "PIT/WMATIC",
+        "poolID": "0xD65690DC2Abbd397dA494415D1e70206f1254227",
+        "token0": {
+          "symbol": "PIT",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "WMATIC",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "DSF/MMF",
+        "poolID": "0xfc48B66b9119f1d5fD7C8e72E7e489a5D6C0EF55",
+        "token0": {
+          "symbol": "DSF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        }
+      },
+      {
+        "ticker": "MMF/SOLAR",
+        "poolID": "0xe1628A0e5250Fa17271Cef1ED4d892cb32D5ADd4",
+        "token0": {
+          "symbol": "MMF",
+          "id": {},
+          "decimals": "18"
+        },
+        "token1": {
+          "symbol": "SOLAR",
+          "id": {},
+          "decimals": "18"
+        }
+      }
+    ]
+  }
+]

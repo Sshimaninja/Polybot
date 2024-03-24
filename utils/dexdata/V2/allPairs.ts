@@ -2,6 +2,7 @@ import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IERC20 } from "@uniswap/v2-core/build/IERC20.json";
 import { Contract } from "ethers";
+import { fu } from "../../../scripts/modules/convertBN";
 import {
     FactoryMap,
     RouterMap,
@@ -53,7 +54,7 @@ export class AllV2Pairs {
                 const pairs: string[] = [];
                 await Promise.all(
                     Array.from(
-                        { length: allPairsLen.toNumber() },
+                        { length: Number(allPairsLen) },
                         (_, i) => i,
                     ).map(async (index) => {
                         const allPairs = await factoryContract.allPairs(index);
@@ -91,8 +92,8 @@ export class AllV2Pairs {
                         // console.log('Block: ' + block);
 
                         if (
-                            reserves[0].gt(BigInt(1)) &&
-                            reserves[1].gt(BigInt(1)) &&
+                            reserves[0] > 1n &&
+                            reserves[1] > 1n &&
                             blockTimeStampLast > block - 40000 * 12
                         ) {
                             const token0id = await pairContract.token0();
@@ -132,12 +133,12 @@ export class AllV2Pairs {
                                 token0: {
                                     symbol: token0Symbol,
                                     id: token0.getAddress(),
-                                    decimals: token0Decimals,
+                                    decimals: token0Decimals.toString(),
                                 },
                                 token1: {
                                     symbol: token1Symbol,
                                     id: token1.getAddress(),
-                                    decimals: token1Decimals,
+                                    decimals: token1Decimals.toString(),
                                 },
                             };
                             validPairs.push(tokenData);
@@ -166,7 +167,4 @@ export class AllV2Pairs {
             await validatePairs();
         }
     }
-}
-function fu(arg0: any, token0Decimals: any) {
-    throw new Error("Function not implemented.");
 }

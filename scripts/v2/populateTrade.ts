@@ -9,6 +9,7 @@ import { ProfitCalculator } from "./classes/ProfitCalcs";
 import { fetchGasPrice } from "./modules/transaction/fetchGasPrice";
 import { tradeLogs } from "./modules/tradeLog";
 import { logger } from "../../constants/logger";
+import { params } from "./modules/transaction/params";
 
 export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
     const calc = new AmountConverter(trade);
@@ -18,14 +19,14 @@ export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
     // logger.info(logs);
 
     // EDIT: now only calling getchGasPrice once per block index.ts.
-    if (trade.gas.tested == false) {
-        let gas = await fetchGasPrice(trade);
-        if (gas.tested == false) {
-            console.log("Gas price not tested. Skipping trade.");
-            return trade;
-        }
-        trade.gas.tested = true;
-    }
+    // if (trade.gas.tested == false) {
+    //     let gas = await fetchGasPrice(trade);
+    //     if (gas.tested == false) {
+    //         console.log("Gas price not tested. Skipping trade.");
+    //         return trade;
+    //     }
+    //     trade.gas.tested = true;
+    // }
 
     const quotes = await getQuotes(trade);
 
@@ -122,6 +123,8 @@ export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
     );
 
     trade.flash = trade.type === "flashSingle" ? flashSingle : flashMulti;
+
+    trade.params = await params(trade);
 
     return trade;
 }

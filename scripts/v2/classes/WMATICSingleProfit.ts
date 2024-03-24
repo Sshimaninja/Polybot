@@ -1,5 +1,8 @@
 import { ethers, Contract } from "ethers";
-import { BoolTrade /*WmaticProfit*/, ToWMATICPool } from "../../../constants/interfaces";
+import {
+    BoolTrade /*WmaticProfit*/,
+    ToWMATICPool,
+} from "../../../constants/interfaces";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
 import { abi as IUniswapv2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IUniswapV2Factory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
@@ -39,7 +42,7 @@ import { zero, wmatic } from "../../../constants/environment";
 
 /// THAT IS PROBABLY WHY YOU'RE GETTING 0n FOR PROFIT CALCULATIONS.
 
-export class WMATICProfit {
+export class WMATICSingleProfit {
     trade: BoolTrade;
     exchanges: ExchangeMap;
     wmaticID: string;
@@ -58,7 +61,10 @@ export class WMATICProfit {
         this.gasRouter = trade.loanPool.router;
         this.gasPool = trade.target.pool;
         this.tokenProfitBN = BN(
-            fu(this.trade.profits.tokenProfit, this.trade.tokenOut.data.decimals),
+            fu(
+                this.trade.profits.tokenProfit,
+                this.trade.tokenOut.data.decimals,
+            ),
         );
     }
 
@@ -76,10 +82,10 @@ export class WMATICProfit {
     async getWMATICProfit(): Promise<bigint> {
         let profitInWMATIC: bigint | undefined;
         if (this.trade.tokenIn.data.id === this.wmaticID) {
-            profitInWMATIC = await this.tokenInisWMATIC();
+            profitInWMATIC = await this.tokenInIsWMATIC();
         }
         if (this.trade.tokenOut.data.id === this.wmaticID) {
-            profitInWMATIC = await this.tokenOutisWMATIC();
+            profitInWMATIC = await this.tokenOutIsWMATIC();
         }
         if (profitInWMATIC === undefined) {
             profitInWMATIC = await this.scanAllExchangesForWMATIC();
@@ -106,8 +112,8 @@ export class WMATICProfit {
         return profitInWMATIC;
     }
 
-    async tokenOutisWMATIC(): Promise<bigint | undefined> {
-        if (this.trade.tokenOut.data.id == this.wmaticID) {
+    async tokenInIsWMATIC(): Promise<bigint | undefined> {
+        if (this.trade.tokenIn.data.id == this.wmaticID) {
             // console.log("[getProfitInWmatic]: tokenOut is WMATIC");
             let profitInWMATIC = this.trade.profits.tokenProfit;
             let gasRouter = this.trade.target.router;
@@ -124,8 +130,8 @@ export class WMATICProfit {
         }
     }
 
-    async tokenInisWMATIC(): Promise<bigint | undefined> {
-        if (this.trade.tokenIn.data.id == this.wmaticID) {
+    async tokenOutIsWMATIC(): Promise<bigint | undefined> {
+        if (this.trade.tokenOut.data.id == this.wmaticID) {
             // console.log("[getprofitInWMATIC]: tokenIn is WMATIC");
             // console.log(
             //     "[getProfitInWmatic] CHECK TOKENPROFIT TO BN CONVERSION: ",
@@ -134,8 +140,8 @@ export class WMATICProfit {
             // );
             let inMatic = await getAmountsOutBN(
                 this.tokenProfitBN,
-                this.trade.target.reserveOutBN,
                 this.trade.target.reserveInBN,
+                this.trade.target.reserveOutBN,
             );
             // let inMatic = await this.trade.loanPool.router.getAmountsOut(
             //     this.trade.profits.tokenProfit,
@@ -171,10 +177,15 @@ export class WMATICProfit {
             // CHECK TOKENOUT -> WMATIC FIRST:
             let factory = new Contract(f.factory, IUniswapV2Factory, provider);
             let router = new Contract(f.router, IUniswapv2Router02, provider);
-            let pair = await factory.getPair(this.trade.tokenOut.data.id, wmatic);
+            let pair = await factory.getPair(
+                this.trade.tokenOut.data.id,
+                wmatic,
+            );
             pair !== zero ? pair : undefined;
             if (!pair) {
-                console.log("Pair not found for token: " + this.trade.tokenOut.data.id);
+                console.log(
+                    "Pair not found for token: " + this.trade.tokenOut.data.id,
+                );
                 return undefined;
             }
             if (pair) {
@@ -184,7 +195,9 @@ export class WMATICProfit {
                 );
                 // console.log("Factory Key for Profit in WMATIC calculation: " + factoryKey);
                 if (!factoryKey) {
-                    throw new Error("Factory: " + f + " not found in uniswapV2Factory");
+                    throw new Error(
+                        "Factory: " + f + " not found in uniswapV2Factory",
+                    );
                 }
                 let pairC = new Contract(pair, IPair, provider);
                 let r = await pairC.getReserves();
@@ -195,10 +208,18 @@ export class WMATICProfit {
                 // console.log("Check bn conversion: ", r0, r1);
                 let profitInWMATICBN: BN;
                 if ((await pairC.token0()) === this.wmaticID) {
-                    profitInWMATICBN = await getAmountsOutBN(this.tokenProfitBN, r1, r0);
+                    profitInWMATICBN = await getAmountsOutBN(
+                        this.tokenProfitBN,
+                        r1,
+                        r0,
+                    );
                 }
                 if ((await pairC.token1()) === this.wmaticID) {
-                    profitInWMATICBN = await getAmountsOutBN(this.tokenProfitBN, r0, r1);
+                    profitInWMATICBN = await getAmountsOutBN(
+                        this.tokenProfitBN,
+                        r0,
+                        r1,
+                    );
                 } else {
                     return undefined;
                 }
@@ -234,21 +255,31 @@ export class WMATICProfit {
         let profitString = "";
         for (gasToken of Object.values(toWMATIC)) {
             if (gasToken.tokenIn.id == this.trade.tokenOut.data.id) {
-                gasWMATICPrice = gasToken.reserves.reserve1BN.div(gasToken.reserves.reserve0BN);
-                profitInWMATICBN = this.tokenProfitBN.multipliedBy(gasWMATICPrice);
+                gasWMATICPrice = gasToken.reserves.reserve1BN.div(
+                    gasToken.reserves.reserve0BN,
+                );
+                profitInWMATICBN =
+                    this.tokenProfitBN.multipliedBy(gasWMATICPrice);
                 profitString = profitInWMATICBN.toFixed(18);
                 profitInWMATIC = pu(profitString, 18);
                 return profitInWMATIC;
             }
             if (gasToken.tokenIn.id == this.trade.tokenIn.data.id) {
-                gasWMATICPrice = gasToken.reserves.reserve0BN.div(gasToken.reserves.reserve1BN);
-                profitInWMATICBN = this.tokenProfitBN.multipliedBy(gasWMATICPrice);
+                gasWMATICPrice = gasToken.reserves.reserve0BN.div(
+                    gasToken.reserves.reserve1BN,
+                );
+                profitInWMATICBN =
+                    this.tokenProfitBN.multipliedBy(gasWMATICPrice);
                 profitString = profitInWMATICBN.toFixed(18);
                 profitInWMATIC = pu(profitString, 18);
                 // console.log("profitInWMATIC: ", fu(profitInWMATIC, 18));
                 return profitInWMATIC;
             }
-            logger.info("[gasTokentoWMATICPrice]: profitInWMATIC: ", profitString, "WMATIC");
+            logger.info(
+                "[gasTokentoWMATICPrice]: profitInWMATIC: ",
+                profitString,
+                "WMATIC",
+            );
         }
         return undefined;
     }
