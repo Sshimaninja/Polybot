@@ -15,6 +15,7 @@ import { ethers } from "hardhat";
 import { pendingTransactions } from "../../control";
 import { MaxInt256 } from "ethers";
 import { safetyChecks } from "../transaction/safetyChecks";
+import { fixEstimateGas } from "../../../../test/fixEstimateGas";
 
 /**
  * @param trade
@@ -23,16 +24,12 @@ import { safetyChecks } from "../transaction/safetyChecks";
  * @returns gasData: { g.gasEstimate: bigint, gasPrice: bigint, maxFee: number, maxPriorityFee: number }
  */
 export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
-    const maxFeeGasData = trade.gas.maxFee;
-
-    const maxPriorityFeeGasData = trade.gas.maxPriorityFee;
-
     let g: GAS = {
         gasEstimate: trade.gas.gasEstimate,
         tested: false,
         gasPrice: trade.gas.gasPrice,
-        maxFee: maxFeeGasData,
-        maxPriorityFee: maxPriorityFeeGasData,
+        maxFee: trade.gas.maxFee,
+        maxPriorityFee: trade.gas.maxPriorityFee,
     };
     if (trade.type.includes("flash")) {
         logger.info("EstimatingGas for trade: " + trade.ticker + "...");
@@ -61,11 +58,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             logger.info("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
             pendingTransactions[trade.ID] == false;
             return {
-                gasEstimate: g.gasEstimate,
+                gasEstimate: trade.gas.gasEstimate * 2n,
                 tested: true,
-                gasPrice,
-                maxFee: trade.gas.maxFee,
-                maxPriorityFee: trade.gas.maxPriorityFee,
+                gasPrice: trade.gas.gasPrice * 2n,
+                maxFee: trade.gas.maxFee * 2n,
+                maxPriorityFee: trade.gas.maxPriorityFee * 2n,
             };
         } catch (error: any) {
             // const data = await tradeLogs(trade);
@@ -73,18 +70,19 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
                 `>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<`,
             );
             return {
-                gasEstimate: g.gasEstimate,
+                gasEstimate: trade.gas.gasEstimate * 2n,
                 tested: false,
-                gasPrice: trade.gas.gasPrice,
-                maxFee: maxFeeGasData,
-                maxPriorityFee: maxPriorityFeeGasData,
+                gasPrice: trade.gas.gasPrice * 2n,
+                maxFee: trade.gas.maxFee * 2n,
+                maxPriorityFee: trade.gas.maxPriorityFee * 2n,
             };
         }
     }
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
         let p = await trade.params;
-
+        logger.info("params: ");
+        logger.info(p);
         try {
             g.gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.routerAID,
@@ -106,11 +104,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
             );
             pendingTransactions[trade.ID] == false;
             return {
-                gasEstimate: g.gasEstimate * 2n,
+                gasEstimate: trade.gas.gasEstimate * 2n,
                 tested: true,
-                gasPrice,
+                gasPrice: trade.gas.maxFee * 2n,
                 maxFee: trade.gas.maxFee * 2n,
-                maxPriorityFee: trade.gas.maxPriorityFee,
+                maxPriorityFee: trade.gas.maxPriorityFee * 2n,
             };
         } catch (error: any) {
             if (error.message.includes("Nonce too high")) {
@@ -133,11 +131,11 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         }
     } else {
         return {
-            gasEstimate: g.gasEstimate,
+            gasEstimate: g.gasEstimate * 2n,
             tested: false,
-            gasPrice: g.gasPrice,
-            maxFee: g.maxFee,
-            maxPriorityFee: g.maxPriorityFee,
+            gasPrice: trade.gas.gasPrice * 2n,
+            maxFee: trade.gas.maxFee * 2n,
+            maxPriorityFee: trade.gas.maxPriorityFee * 2n,
         };
     }
 }

@@ -64,8 +64,7 @@ export class ProfitCalculator {
             // *update: I'll keep the profit in tokenOut but just trade back for my original tradeSize amount, to keep things easier.
             // *update: I'm changing the logs to show profit in tokenIn because it's more accurate.
             profit.singleProfit =
-                this.quotes.loanPool.tokenInOut -
-                this.trade.tradeSizes.loanPool.tradeSizeTokenIn.size;
+                this.quotes.loanPool.tokenInOut - wallet.tokenIn;
 
             profit.flashProfit =
                 this.quotes.target.flashTokenOutOut > repays.flashSingle

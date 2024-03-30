@@ -66,10 +66,9 @@
           "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
           "decimals": 6
         }
-      }
-    ]
-  }
-]      "ticker": "WMATIC/USDT",
+      },
+      {
+        "ticker": "WMATIC/USDT",
         "poolAID": "0x4dB1087154Cd5B33fa275A88b183619f1a6F6614",
         "poolBID": "0xa789324E64268C5385eA7678435Fa83532705B0F",
         "token0": {
@@ -82,10 +81,9 @@
           "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
           "decimals": 6
         }
-      }
-    ]
-  }
-]      "ticker": "WMATIC/LIRA",
+      },
+      {
+        "ticker": "WMATIC/LIRA",
         "poolAID": "0x44Ef8Db6f04ebe063B110aaeC321FcfB33B92435",
         "poolBID": "0xbA922117FD308Ca0C4071baCb2B5A8eCe21471eF",
         "token0": {

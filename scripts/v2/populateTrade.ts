@@ -53,11 +53,17 @@ export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
             ? multi.flashProfit
             : single.flashProfit;
 
-    maxProfit =
-        maxProfit > single.singleProfit ? maxProfit : single.singleProfit;
+    let singleProfit =
+        multi.singleProfit > single.singleProfit
+            ? multi.singleProfit
+            : single.singleProfit;
+
+    maxProfit = maxProfit > singleProfit ? maxProfit : singleProfit;
 
     trade.type =
-        maxProfit === single.singleProfit
+        maxProfit === multi.singleProfit
+            ? "multi"
+            : single.singleProfit
             ? "single"
             : maxProfit === multi.flashProfit
             ? "flashMulti"
@@ -71,14 +77,11 @@ export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
 
     let walletTradeSizes = await walletTradeSize(trade);
 
-    trade.tradeSizes.loanPool.tradeSizeTokenIn.size =
-        trade.type === "single"
-            ? walletTradeSizes.tokenIn
-            : trade.tradeSizes.loanPool.tradeSizeTokenIn.size;
-
     trade.profits.tokenProfit =
         trade.type === "single"
             ? single.singleProfit
+            : trade.type === "multi"
+            ? multi.singleProfit
             : trade.type === "flashMulti"
             ? multi.flashProfit
             : trade.type === "flashSingle"
@@ -92,7 +95,7 @@ export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
             ? repays.flashSingle
             : repays.single;
 
-    trade.type === "single"
+    trade.type === "single" || trade.type === "multi"
         ? (trade.quotes = {
               target: {
                   tokenInOut: quotes.target.tokenInOut,

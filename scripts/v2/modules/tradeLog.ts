@@ -153,9 +153,10 @@ export async function tradeLogs(trade: BoolTrade): Promise<any> {
             },
 
             gas: {
-                gasEstimate: trade.gas.gasEstimate,
-                maxFee: trade.gas.maxFee,
-                maxPriorityFee: trade.gas.maxPriorityFee,
+                gasPrice: fu(trade.gas.gasPrice, 18),
+                // gasEstimate: fu(trade.gas.gasEstimate, 18),
+                maxFee: fu(trade.gas.maxFee, 9),
+                maxPriorityFee: fu(trade.gas.maxPriorityFee, 9),
             },
             result: {
                 uniswapkPreT:

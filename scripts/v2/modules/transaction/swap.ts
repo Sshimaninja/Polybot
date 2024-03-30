@@ -147,7 +147,10 @@ export async function swap(
         return txResponse;
     } catch (error: any) {
         if (error.message.includes("INSUFFICIENT_INPUT_AMOUNT")) {
-            logger.error(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error);
+            logger.error(
+                ">>>>>>>>>>>>>>>>>>>>Error in swap: INSUFFICIENT_INPUT_AMOUNT " +
+                    error,
+            );
             // logger.error(error.reason);
             // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
             // logger.error(logs);
@@ -156,8 +159,8 @@ export async function swap(
             );
         } else {
             // logger.info(logs);
-            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error);
-            logger.info(error.reason);
+            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error.reason);
+            logger.info(error);
             logger.info(
                 ">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ",
             );
