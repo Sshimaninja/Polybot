@@ -69,6 +69,9 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     let trade: BoolTrade = await t.getTrade();
 
+                    const logs = await tradeLogs(trade);
+                    logger.info(logs);
+
                     // return;
                     if (trade.profits.tokenProfit <= 0) {
                         console.log("No profit for trade: " + trade.ticker);
@@ -89,9 +92,6 @@ export async function control(data: FactoryPair[], gasData: any) {
 
                     // return;
 
-                    const logs = await tradeLogs(trade);
-                    logger.info(logs);
-
                     if (trade.profits.WMATICProfit < trade.gas.gasPrice) {
                         console.log(
                             "No profit after trueProfit: ",
@@ -107,18 +107,18 @@ export async function control(data: FactoryPair[], gasData: any) {
                     // EDIT: now only calling getchGasPrice once per block index.ts.
                     // this is potentially slowing down tx execution to the point of falure for INSUFICCIENT_OUTPUT_AMOUNT
                     let gas = await fetchGasPrice(trade);
-                    trade.gas = gas;
+                    // trade.gas = gas;
                     if (gas.tested == false) {
                         console.log("Gas price not tested. Skipping trade.");
                         return trade;
                     }
-                    const gasString = {
-                        gasPrice: fu(gas.gasPrice, 18),
-                        maxPriorityFee: fu(gas.maxPriorityFee, 9),
-                        tested: gas.tested,
-                    };
+                    // const gasString = {
+                    //     gasPrice: fu(gas.gasPrice, 18),
+                    //     maxPriorityFee: fu(gas.maxPriorityFee, 9),
+                    //     tested: gas.tested,
+                    // };
 
-                    console.log("trade.gas.tested :>> ", gasString);
+                    // console.log("trade.gas.tested :>> ", gasString);
 
                     let tx = null;
                     if (trade.type.includes("flash")) {

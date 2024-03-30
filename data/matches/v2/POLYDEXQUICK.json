@@ -36,10 +36,9 @@
           "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
           "decimals": 18
         }
-      }
-    ]
-  }
-]      "ticker": "WMATIC/USDT",
+      },
+      {
+        "ticker": "WMATIC/USDT",
         "poolAID": "0xB2B39B54a82aEDcab018Eb601e8FCD19bC6Ec8Ab",
         "poolBID": "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
         "token0": {
@@ -52,10 +51,9 @@
           "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
           "decimals": 6
         }
-      }
-    ]
-  }
-]      "ticker": "USDC/WETH",
+      },
+      {
+        "ticker": "USDC/WETH",
         "poolAID": "0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711",
         "poolBID": "0x853Ee4b2A13f8a742d64C8F088bE7bA2131f670d",
         "token0": {

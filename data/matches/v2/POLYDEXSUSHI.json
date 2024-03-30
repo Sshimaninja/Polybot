@@ -51,10 +51,9 @@
           "id": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
           "decimals": 6
         }
-      }
-    ]
-  }
-]      "ticker": "USDC/WETH",
+      },
+      {
+        "ticker": "USDC/WETH",
         "poolAID": "0x2d18f8b79C1703298B0dff74e3BcCFdA8a2e4711",
         "poolBID": "0x34965ba0ac2451A34a0471F04CCa3F990b8dea27",
         "token0": {

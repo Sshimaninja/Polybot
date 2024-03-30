@@ -2,9 +2,6 @@ import { getAmountsOut as getAmountsOutBN } from "./getAmountsIOBN";
 import { BoolTrade, Quotes, Sizes } from "../../../../constants/interfaces";
 import { BN2BigInt, fu, pu } from "../../../modules/convertBN";
 import { getAmountsOut } from "./getAmountsIOJS";
-import { BigNumber as BN } from "bignumber.js";
-import { tradeToPrice } from "../tradeMath";
-import { slip } from "../../../../constants/environment";
 import { walletTradeSize } from "../tools/walletTradeSizes";
 
 export async function getQuotes(trade: BoolTrade): Promise<Quotes> {

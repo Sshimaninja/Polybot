@@ -111,12 +111,11 @@
           "id": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
           "decimals": 18
         }
-      }
-    ]
-  }
-]      "ticker": "WMATIC/DAI",
-        "poolAID": "0xdc30d23c4D1195a9e8D35452d72d754572d1cE1c",
-        "poolBID": "0xEEf611894CeaE652979C9D0DaE1dEb597790C6eE",
+      },
+      {
+        "ticker": "WMATIC/DAI",
+        "poolAID": "0x5f6e7d4a2c3e2d2fbc8b7e3e3e4f6b3f5b2f7b3b",
+        "poolBID": "0x1a9F7Dc9fF31bDf6b7f8B3a1A1cCfCfBfD3Bb9e3",
         "token0": {
           "symbol": "WMATIC",
           "id": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
