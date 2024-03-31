@@ -1,6 +1,5 @@
-import { getAmountsOut as getAmountsOutBN } from "./getAmountsIOBN";
-import { BoolTrade, Quotes, Sizes } from "../../../../constants/interfaces";
-import { BN2BigInt, fu, pu } from "../../../modules/convertBN";
+import { BoolTrade, Quotes } from "../../../../constants/interfaces";
+import { fu } from "../../../modules/convertBN";
 import { getAmountsOut } from "./getAmountsIOJS";
 import { walletTradeSize } from "../tools/walletTradeSizes";
 
@@ -58,7 +57,7 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
 
         const singleTargettokenInOut = await getAmountsOut(
             trade.target.router,
-            singleTargettokenOutOut, // Both tradeSizes should be the same for the amountsOut
+            singleLoanPooltokenOutOut, // Both tradeSizes should be the same for the amountsOut
             [trade.tokenOut.data.id, trade.tokenIn.data.id],
         );
 

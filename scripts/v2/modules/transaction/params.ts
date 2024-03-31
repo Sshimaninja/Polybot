@@ -46,13 +46,6 @@ export async function params(trade: BoolTrade): Promise<any> {
     }
 
     if (trade.type.includes("flash")) {
-        // console.log(
-        //     "[params]: loanPoolBalance: " +
-        //         trade.loanPool.reserveIn +
-        //         " " +
-        //         trade.tokenIn.data.symbol,
-        // );
-
         p = {
             loanFactory: trade.loanPool.factory,
             loanRouter: trade.loanPool.router,

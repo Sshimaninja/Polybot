@@ -121,7 +121,7 @@ contract SwapSingle {
         IUniswapV2Router02 routerA,
         IUniswapV2Router02 routerB,
         uint256 tradeSize,
-        uint256 amountOutA,
+        uint256 amountOut,
         uint256 amountOutB,
         address[] memory path0,
         address[] memory path1,
@@ -130,7 +130,7 @@ contract SwapSingle {
     ) internal {
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[1]);
-        // uint256[] memory amountOutA = routerA.getAmountsOut(tradeSize, path0);
+        // uint256[] memory amountsInOut = routerA.getAmountsOut(tradeSize, path0);
         // require(
         //     amountsOutA[1] >= amountOut,
         //     "Error SwapSingle: routerA.getAmountsOut < amountOutA"
@@ -145,6 +145,10 @@ contract SwapSingle {
         // According to Uniswap docs this contract needs to own the tokens it wants to swap, not just have an allowance.
         // https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/trading-from-a-smart-contract
 
+        /*
+        uint amountIn = 50 * 10 ** DAI.decimals();
+        require(DAI.transferFrom(msg.sender, address(this), amountIn), 'transferFrom failed.');
+        */
         approveTokens(tokenIn, tokenOut, address(routerA), address(routerB));
 
         transferTokensAndCheckAllowance(
@@ -157,21 +161,22 @@ contract SwapSingle {
 
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountOutA,
+            amountOut,
             path0,
             address(this),
             deadline
         );
-        console.log("swapIn[1]: ", swapIn[1]);
 
-        uint256[] memory swapOut = routerB.swapExactTokensForTokens( //this gets profit in tokenIn
+        // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
+        // require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
+
+        routerB.swapExactTokensForTokens(
             swapIn[1],
-            amountOutB, //as much as possible of tokenIn
+            amountOutB,
             path1,
             to,
             deadline
         );
-        console.log("swapOut[1]: ", swapOut[1]);
     }
 }
 
