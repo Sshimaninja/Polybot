@@ -81,15 +81,17 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
     // Calculation for single trade is easier since it doesn't require a custom contract.
     if (trade.type === "single") {
         let p = await trade.params;
-        logger.info("params: ");
-        logger.info(p);
+        // logger.info("params: ");
+        // logger.info(p);
+
+        // KEEPS TRYING TO MAKE A 29 WMATIC PROFIT TRADE BUT KEEPS RESULTING IN 0 RETURN. TROUBLESHOOT THIS.
         try {
             g.gasEstimate = await swapSingle.swapSingle.estimateGas(
                 p.routerAID,
                 p.routerBID,
                 p.tradeSize,
                 p.amountOutA,
-                p.tradeSize,
+                p.amountOutB,
                 p.path0,
                 p.path1,
                 p.to,
