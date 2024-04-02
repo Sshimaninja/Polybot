@@ -14,7 +14,7 @@ import { debugAmounts } from "../../test/debugAmounts";
 import { abi as IFactory } from "@uniswap/v2-core/build/IUniswapV2Factory.json";
 import { abi as IRouter } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
 import { abi as IPair } from "@uniswap/v2-core/build/IUniswapV2Pair.json";
-import { flashMulti, flashSingle } from "../../constants/environment";
+import { flashMulti, flashSingle, swap } from "../../constants/environment";
 import { provider, signer } from "../../constants/provider";
 import { Prices } from "./classes/Prices";
 import { getQuotes } from "./modules/price/getQuotes";
@@ -121,20 +121,20 @@ export class Trade {
                 data: this.match.token1,
                 contract: new Contract(this.match.token1.id, IERC20, signer),
             },
-            flash: flashMulti,
+            contract: swap,
             // TradeSizes must default to toPrice/flash sizes in order to calculate repays later. If flash is not used, these will be reassigned.
             // if
             tradeSizes: {
                 loanPool: {
                     tradeSizeTokenIn: {
                         size: 0n,
-                        sizeBN: BN(0),
+                        // sizeBN: BN(0),
                     },
                 },
                 target: {
                     tradeSizeTokenOut: {
                         size: 0n,
-                        sizeBN: BN(0),
+                        // sizeBN: BN(0),
                     },
                 },
             },

@@ -1,4 +1,4 @@
-import { BigNumber as BN } from "bignumber.js";
+import { BigNumber as bigint } from "bignumber.js";
 import {
     BoolTrade,
     Profcalcs,
@@ -27,21 +27,16 @@ export class ProfitCalculator {
         this.repays = repays;
     }
 
-    async getMultiProfit(): Promise<Profcalcs> {
-        let profit: Profcalcs = { singleProfit: 0n, flashProfit: 0n };
-
+    async getMultiFlashProfit(): Promise<bigint> {
+        let profit: bigint = 0n;
         try {
-            profit.singleProfit =
-                this.quotes.target.tokenOutOut -
-                this.quotes.loanPool.tokenOutOut;
-
-            profit.flashProfit =
+            profit =
                 this.quotes.target.flashTokenOutOut > this.repays.flashMulti
                     ? this.quotes.target.flashTokenOutOut -
                       this.repays.flashMulti
                     : 0n;
-            const profitBN = BigInt2BN(
-                profit.flashProfit,
+            const profitbigint = BigInt2BN(
+                profit,
                 this.trade.tokenOut.data.decimals,
             );
 
@@ -54,8 +49,8 @@ export class ProfitCalculator {
         }
     }
 
-    async getSingleProfit(): Promise<Profcalcs> {
-        let profit: Profcalcs = { singleProfit: 0n, flashProfit: 0n };
+    async getSingleFlashProfit(): Promise<bigint> {
+        let profit: bigint = 0n;
 
         try {
             let wallet = await walletTradeSize(this.trade);
@@ -63,10 +58,8 @@ export class ProfitCalculator {
             // This actually gets traded back into tokenIn, but for now we're representing it as tokenOut until I add the switch in the logs.
             // *update: I'll keep the profit in tokenOut but just trade back for my original tradeSize amount, to keep things easier.
             // *update: I'm changing the logs to show profit in tokenIn because it's more accurate.
-            profit.singleProfit =
-                this.quotes.loanPool.tokenInOut - wallet.tokenIn;
 
-            profit.flashProfit =
+            profit =
                 this.quotes.target.flashTokenOutOut > repays.flashSingle
                     ? this.quotes.target.flashTokenOutOut - repays.flashSingle
                     : 0n;
@@ -77,5 +70,21 @@ export class ProfitCalculator {
             console.log(error);
             return profit;
         }
+    }
+
+    async getMultiProfit(): Promise<bigint> {
+        let profit: bigint = 0n;
+        profit =
+            this.quotes.target.tokenOutOut - this.quotes.loanPool.tokenOutOut;
+        return profit;
+    }
+
+    async getSingleProfit(): Promise<bigint> {
+        let profit: bigint = 0n;
+        // let wallet = await walletTradeSize(this.trade);
+        const repays = this.repays;
+        profit =
+            this.quotes.loanPool.tokenInOut - this.quotes.target.tokenInOut;
+        return profit;
     }
 }

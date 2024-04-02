@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 import { FactoryPair, TradePair } from "../../../constants/interfaces";
 import { signer } from "../../../constants/provider";
-import { swapSingleID } from "../../../constants/environment";
+import { swapID } from "../../../constants/environment";
 import { swap } from "../../../test/testFunds";
 import {
     gasTokens,

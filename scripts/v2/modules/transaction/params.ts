@@ -2,7 +2,7 @@ import { BoolTrade } from "../../../../constants/interfaces";
 import { signer } from "../../../../constants/provider";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { ethers } from "ethers";
-import { swapSingleID } from "../../../../constants/environment";
+import { swapID } from "../../../../constants/environment";
 // import { checkApprovalRouter, checkApprovalSingle } from "../../../../utils/approvals";
 import { fu } from "../../../modules/convertBN";
 import { logger } from "../../../../constants/logger";
@@ -24,7 +24,7 @@ export async function params(trade: BoolTrade): Promise<any> {
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             amountOutA: trade.quotes.target.tokenOutOut, //high Output tokenIn to tokenOut
-            amountOutB: trade.tradeSizes.loanPool.tradeSizeTokenIn.size, //  trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
+            // amountOutB: trade.tradeSizes.loanPool.tradeSizeTokenIn.size, //  trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
             path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
             to: await signer.getAddress(),
@@ -37,14 +37,13 @@ export async function params(trade: BoolTrade): Promise<any> {
             routerBID: await trade.loanPool.router.getAddress(), //high Output tokenOut to tokenIn
             tradeSize: trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
             amountOutA: trade.quotes.target.tokenOutOut, //high Output tokenIn to tokenOut
-            amountOutB: trade.quotes.loanPool.tokenInOut, //  trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
+            // amountOutB: trade.quotes.loanPool.tokenInOut, //trade.quotes.loanPool.tokenInOut, //high Output tokenOut to tokenIn
             path0: [trade.tokenIn.data.id, trade.tokenOut.data.id],
             path1: [trade.tokenOut.data.id, trade.tokenIn.data.id],
             to: await signer.getAddress(),
             deadline: Math.floor(Date.now() / 1000) + 60 * 5, // 5 minutes}
         };
     }
-
     if (trade.type.includes("flash")) {
         p = {
             loanFactory: trade.loanPool.factory,

@@ -10,7 +10,7 @@ import { tradeLogs } from "./modules/tradeLog";
 import { logger } from "../../constants/logger";
 import { slip } from "../../constants/environment";
 import { flash } from "./modules/transaction/flash";
-import { swap } from "./modules/transaction/swap";
+import { swapIt as swap } from "./modules/transaction/swap";
 import { trueProfit } from "./modules/trueProfit";
 import { filterTrade } from "./modules/filterTrade";
 import { signer } from "../../constants/provider";
@@ -69,9 +69,6 @@ export async function control(data: FactoryPair[], gasData: any) {
                     const t = new Trade(pair, match, p0, p1, slip, gasData);
                     let trade: BoolTrade = await t.getTrade();
 
-                    const logs = await tradeLogs(trade);
-                    logger.info(logs);
-
                     // return;
                     if (trade.profits.tokenProfit <= 0) {
                         console.log("No profit for trade: " + trade.ticker);
@@ -119,6 +116,9 @@ export async function control(data: FactoryPair[], gasData: any) {
                     // };
 
                     // console.log("trade.gas.tested :>> ", gasString);
+
+                    const logs = await tradeLogs(trade);
+                    logger.info(logs);
 
                     let tx = null;
                     if (trade.type.includes("flash")) {
