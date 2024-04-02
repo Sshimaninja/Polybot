@@ -356,7 +356,7 @@ export interface BoolTrade {
     ticker: string;
     tokenIn: { data: Token; contract: Contract };
     tokenOut: { data: Token; contract: Contract };
-    flash: Contract;
+    contract: Contract;
     tradeSizes: Sizes;
     wallet: {
         tokenInBalance: bigint;
@@ -401,13 +401,13 @@ export interface Sizes {
     loanPool: {
         tradeSizeTokenIn: {
             size: bigint;
-            sizeBN: BN;
+            // sizeBN: BN;
         };
     };
     target: {
         tradeSizeTokenOut: {
             size: bigint;
-            sizeBN: BN;
+            // sizeBN: BN;
         };
     };
 }

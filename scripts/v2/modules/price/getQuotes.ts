@@ -21,20 +21,6 @@ export async function getQuotes(trade: BoolTrade): Promise<Quotes> {
 
     let wallet = await walletTradeSize(trade);
 
-    // ///YOU CAN'T PASS IN TRADESIZE TO GET AMOUTN OF tokenIn OUT
-
-    // if (wallet.tokenIn <= 0 && wallet.tokenOut <= 0) {
-    // }
-    // if (trade.tradeSizes.loanPool.tokenIn.size <= 0) {
-    // }
-
-    // in single/non-flash trades, profit must be returned to tokenIn, so this calc is needed to work out trade .
-    // const walletString = {
-    //     tokenIn: fu(wallet.tokenIn, trade.tokenIn.data.decimals) + trade.tokenIn.data.symbol,
-    //     tokenOut: fu(wallet.tokenOut, trade.tokenOut.data.decimals) + trade.tokenOut.data.symbol,
-    // };
-    // console.log("WalletBalances: ");
-    // console.log(walletString);
     const walletQuotes = async () => {
         // If you only have WMATIC in your wallet (to simplify the bot) singleLoanPoolTokenInOut == 0.
         const singleLoanPooltokenOutOut = await getAmountsOut(

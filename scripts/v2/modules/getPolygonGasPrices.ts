@@ -8,7 +8,7 @@ import { fu, pu } from "../../modules/convertBN";
  *
  *
  */
-// export var gasMult = 9n * 10n ** 9n;
+export var gasMult = 2n;
 
 export async function getGasData(): Promise<GasData> {
     let gasData: GasData = {
@@ -44,9 +44,9 @@ export async function getGasData(): Promise<GasData> {
         maxPriorityFee: ethersGas.maxPriorityFeePerGas,
     };
     gasData.gasPrice = gasData.maxFee * gasData.gasEstimate; // * baseFee!;
-    // gasData.gasPrice; //+= gasMult;
-    // gasData.maxFee; //+= gasMult;
-    // gasData.maxPriorityFee; //+= gasMult;
+    gasData.gasPrice += gasMult;
+    gasData.maxFee += gasMult;
+    gasData.maxPriorityFee += gasMult;
     const gasString = {
         gasPrice: fu(gasData.gasPrice, 18),
         maxFee: fu(gasData.maxFee, 18),

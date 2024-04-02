@@ -6,7 +6,7 @@ import {
     TransactionResponse,
     ethers,
 } from "ethers";
-import { swapSingle } from "../../../../constants/environment";
+import { swap } from "../../../../constants/environment";
 import { BoolTrade } from "../../../../constants/interfaces";
 import { fu, pu } from "../../../modules/convertBN";
 import { provider, signer } from "../../../../constants/provider";
@@ -16,10 +16,10 @@ import { tradeLogs } from "../../modules/tradeLog";
 import { walletBal } from "../tools/walletBal";
 import { pendingTransactions } from "../../control";
 
-export async function swap(
+export async function swapIt(
     trade: BoolTrade,
 ): Promise<TransactionResponse | null> {
-    const swapSingleAddress = await swapSingle.getAddress();
+    const swapAddress = await swap.getAddress();
     const logs = await tradeLogs(trade);
     if (pendingTransactions[trade.ID]) {
         logger.info(
@@ -84,26 +84,43 @@ export async function swap(
                 trade.tokenOut.data.symbol,
         );
         pendingTransactions[trade.ID] = true;
-
-        let tx: TransactionRequest = await swapSingle.swapSingle(
-            // p.target,
-            p.routerAID,
-            p.routerBID,
-            p.tradeSize,
-            p.amountOutA,
-            p.amountOutB,
-            p.path0,
-            p.path1,
-            p.to,
-            p.deadline,
-            {
-                Type: 2,
-                gasLimit: trade.gas.gasEstimate,
-                maxFeePerGas: trade.gas.maxFee,
-                maxPriorityFeePerGas: trade.gas.maxPriorityFee,
-            },
-        );
-
+        let tx: TransactionRequest = {} as TransactionRequest;
+        if ((trade.type = "single")) {
+            tx = await trade.contract.swapSingle(
+                p.routerAID,
+                p.routerBID,
+                p.tradeSize,
+                p.amountOutA,
+                p.path0,
+                p.path1,
+                p.to,
+                p.deadline,
+                {
+                    Type: 2,
+                    gasLimit: trade.gas.gasEstimate,
+                    maxFeePerGas: trade.gas.maxFee,
+                    maxPriorityFeePerGas: trade.gas.maxPriorityFee,
+                },
+            );
+        }
+        if (trade.type === "multi") {
+            tx = await trade.contract.swap(
+                p.routerAID,
+                p.routerBID,
+                p.tradeSize,
+                p.amountOutA,
+                p.path0,
+                p.path1,
+                p.to,
+                p.deadline,
+                {
+                    Type: 2,
+                    gasLimit: trade.gas.gasEstimate,
+                    maxFeePerGas: trade.gas.maxFee,
+                    maxPriorityFeePerGas: trade.gas.maxPriorityFee,
+                },
+            );
+        }
         const txResponse = await signer.sendTransaction(tx);
         const receipt = txResponse.hash;
 

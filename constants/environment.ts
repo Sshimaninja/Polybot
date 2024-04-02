@@ -1,8 +1,8 @@
 import { ethers } from "ethers";
 import { config as dotenvConfig } from "dotenv";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
-import { abi as ISwapSingle } from "../artifacts/contracts/v2/SwapSingle.sol/SwapSingle.json";
-import { abi as IFlashMulti } from "../artifacts/contracts/v2/flashMultiTest.sol/flashMultiTest.json";
+import { abi as ISwap } from "../artifacts/contracts/v2/swap.sol/Swap.json";
+import { abi as IFlashMulti } from "../artifacts/contracts/v2/flashMulti.sol/flashMulti.json";
 import { abi as IFlashSingle } from "../artifacts/contracts/v2/flashSingleTest.sol/flashSingleTest.json";
 import { provider, wallet, signer } from "./provider";
 import { BigNumber as BN } from "bignumber.js";
@@ -16,7 +16,8 @@ export let slip = BN(0.02);
 if (
     process.env.FLASH_MULTI === undefined ||
     process.env.FLASH_SINGLE === undefined ||
-    process.env.SWAP_SINGLE === undefined
+    process.env.SWAP_SINGLE === undefined ||
+    process.env.SWAP_MULTI === undefined
 ) {
     logger.error("No contract address set in .env file");
     throw new Error("No contract address set in .env file");
@@ -47,15 +48,11 @@ export const usdt = new ethers.Contract(
     IERC20,
     provider,
 );
-export const swapSingleID = process.env.SWAP_SINGLE;
+export const swapID = process.env.SWAP_SINGLE;
 export const flashMultiID = process.env.FLASH_MULTI;
 export const flashSingleID = process.env.FLASH_SINGLE;
 
-export const swapSingle = new ethers.Contract(
-    swapSingleID,
-    ISwapSingle,
-    signer,
-);
+export const swap = new ethers.Contract(swapID, ISwap, signer);
 export const flashMulti = new ethers.Contract(
     flashMultiID,
     IFlashMulti,

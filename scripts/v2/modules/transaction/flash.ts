@@ -57,7 +57,7 @@ export async function flash(
 
     await notify(trade);
 
-    let tx: Transaction = await trade.flash.flashSwap(
+    let tx: Transaction = await trade.contract.flashSwap(
         trade.loanPool.factory,
         trade.loanPool.router,
         trade.target.router,

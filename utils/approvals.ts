@@ -2,7 +2,7 @@
 // import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 // import { signer } from "../constants/provider";
 // import { BoolTrade } from "../constants/interfaces";
-// import { swapSingleID } from "../constants/environment";
+// import { swapID } from "../constants/environment";
 // // import { pendingApprovals } from "../scripts/v2/control";
 
 // async function approveToken(
@@ -44,7 +44,7 @@
 
 // export async function checkApprovalSingle(trade: BoolTrade): Promise<bigint> {
 //     const maxInt = ethers.MaxInt256;
-//     const swapContractID = swapSingleID;
+//     const swapContractID = swapID;
 //     pendingApprovals[swapContractID] = trade.tokenIn.data.id;
 //     const approveTokenInForRouter = await approveToken(
 //         trade.tokenIn.data.id,

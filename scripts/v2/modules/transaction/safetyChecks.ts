@@ -4,7 +4,7 @@ import { tradeLogs } from "../tradeLog";
 import { logger } from "../../../../constants/logger";
 import { fu, pu } from "../../../modules/convertBN";
 import { signer } from "../../../../constants/provider";
-import { swapSingle, swapSingleID } from "../../../../constants/environment";
+import { swap, swapID } from "../../../../constants/environment";
 import { debugAmounts } from "../../../../test/debugAmounts";
 import { abi as IERC20 } from "@openzeppelin/contracts/build/contracts/IERC20.json";
 import { abi as IUniswapV2Router02 } from "@uniswap/v2-periphery/build/IUniswapV2Router02.json";
@@ -21,7 +21,7 @@ export async function safetyChecks(trade: BoolTrade): Promise<boolean> {
 
     let swapApproval: bigint = await trade.tokenIn.contract.allowance(
         ownerID,
-        swapSingleID,
+        swapID,
     );
     let routerApproval: bigint = await trade.tokenIn.contract.allowance(
         ownerID,

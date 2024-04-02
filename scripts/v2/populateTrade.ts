@@ -1,4 +1,4 @@
-import { flashMulti, flashSingle } from "../../constants/environment";
+import { flashMulti, flashSingle, swap } from "../../constants/environment";
 import { getQuotes } from "./modules/price/getQuotes";
 import { getK } from "./modules/tools/getK";
 import { walletTradeSize } from "./modules/tools/walletTradeSizes";
@@ -34,88 +34,74 @@ export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
     const repays = await r.getRepays();
     trade.loanPool.repays = repays;
 
-    const p = new ProfitCalculator(trade, calc, repays, quotes);
-    const multi = await p.getMultiProfit();
-    const single = await p.getSingleProfit();
+    const profitCalc = new ProfitCalculator(trade, calc, repays, quotes);
+    let p = {
+        multi: await profitCalc.getMultiProfit(),
+        single: await profitCalc.getSingleProfit(),
+        flashMulti: await profitCalc.getMultiFlashProfit(),
+        flashSingle: await profitCalc.getSingleFlashProfit(),
+    };
+    // if (
+    //     multi.flashProfit <= 0n &&
+    //     multi.singleProfit <= 0n &&
+    //     single.flashProfit <= 0n &&
+    //     single.singleProfit <= 0n
+    // ) {
+    //     trade.type = "filtered: 0 profit";
+    //     return trade;
+    // }
 
-    if (
-        multi.flashProfit <= 0n &&
-        multi.singleProfit <= 0n &&
-        single.flashProfit <= 0n &&
-        single.singleProfit <= 0n
-    ) {
-        trade.type = "filtered: 0 profit";
-        return trade;
-    }
+    let swapProfit = p.multi > p.single ? p.multi : p.single;
+    let flashProfit =
+        p.flashMulti > p.flashSingle ? p.flashMulti : p.flashSingle;
 
-    let maxProfit =
-        multi.flashProfit > single.flashProfit
-            ? multi.flashProfit
-            : single.flashProfit;
-
-    let singleProfit =
-        multi.singleProfit > single.singleProfit
-            ? multi.singleProfit
-            : single.singleProfit;
-
-    maxProfit = maxProfit > singleProfit ? maxProfit : singleProfit;
-
-    trade.type =
-        maxProfit === multi.singleProfit
-            ? "multi"
-            : single.singleProfit
-            ? "single"
-            : maxProfit === multi.flashProfit
-            ? "flashMulti"
-            : maxProfit === single.flashProfit
-            ? "flashSingle"
-            : maxProfit === 0n
-            ? "filtered: 0 profit"
-            : "filtered: unknown";
+    let maxProfit = swapProfit > flashProfit ? swapProfit : flashProfit;
 
     trade.profits.tokenProfit = maxProfit;
 
-    let walletTradeSizes = await walletTradeSize(trade);
-
-    trade.profits.tokenProfit =
-        trade.type === "single"
-            ? single.singleProfit
-            : trade.type === "multi"
-            ? multi.singleProfit
-            : trade.type === "flashMulti"
-            ? multi.flashProfit
-            : trade.type === "flashSingle"
-            ? single.flashProfit
-            : 0n;
+    if (maxProfit === p.multi) {
+        trade.type = "multi";
+    }
+    if (maxProfit === p.single) {
+        trade.type = "single";
+    }
+    if (maxProfit === p.flashMulti) {
+        trade.type = "flashMulti";
+    }
+    if (maxProfit === p.flashSingle) {
+        trade.type = "flashSingle";
+    }
 
     trade.loanPool.amountRepay =
         trade.type === "flashMulti"
             ? repays.flashMulti
             : trade.type === "flashSingle"
             ? repays.flashSingle
-            : repays.single;
+            : 0n; // Regular swaps have no repay as there is no loan.
 
-    trade.type === "single" || trade.type === "multi"
-        ? (trade.quotes = {
-              target: {
-                  tokenInOut: quotes.target.tokenInOut,
-                  tokenOutOut: quotes.target.tokenOutOut,
-              },
-              loanPool: {
-                  tokenInOut: quotes.loanPool.tokenInOut,
-                  tokenOutOut: quotes.loanPool.tokenOutOut,
-              },
-          })
-        : (trade.quotes = {
-              target: {
-                  tokenInOut: quotes.target.flashTokenInOut,
-                  tokenOutOut: quotes.target.flashTokenOutOut,
-              },
-              loanPool: {
-                  tokenInOut: quotes.loanPool.flashTokenInOut,
-                  tokenOutOut: quotes.loanPool.flashTokenOutOut,
-              },
-          });
+    if (trade.type === "single" || trade.type === "multi") {
+        trade.quotes = {
+            target: {
+                tokenInOut: quotes.target.tokenInOut,
+                tokenOutOut: quotes.target.tokenOutOut,
+            },
+            loanPool: {
+                tokenInOut: quotes.loanPool.tokenInOut,
+                tokenOutOut: quotes.loanPool.tokenOutOut,
+            },
+        };
+    }
+    if (trade.type.includes("flash"))
+        trade.quotes = {
+            target: {
+                tokenInOut: quotes.target.flashTokenInOut,
+                tokenOutOut: quotes.target.flashTokenOutOut,
+            },
+            loanPool: {
+                tokenInOut: quotes.loanPool.flashTokenInOut,
+                tokenOutOut: quotes.loanPool.flashTokenOutOut,
+            },
+        };
 
     trade.k = await getK(
         trade.type,
@@ -125,7 +111,15 @@ export async function populateTrade(trade: BoolTrade): Promise<BoolTrade> {
         calc,
     );
 
-    trade.flash = trade.type === "flashSingle" ? flashSingle : flashMulti;
+    if (trade.type === "single" || trade.type === "multi") {
+        trade.contract = swap;
+    }
+    if (trade.type === "flashMulti") {
+        trade.contract = flashMulti;
+    }
+    if (trade.type === "flashSingle") {
+        trade.contract = flashSingle;
+    }
 
     trade.params = await params(trade);
 

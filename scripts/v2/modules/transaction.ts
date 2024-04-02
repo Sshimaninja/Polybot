@@ -2,11 +2,13 @@ import { BoolTrade } from "../../../constants/interfaces";
 import { pendingTransactions } from "../control";
 import { logger } from "../../../constants/logger";
 import { ethers, TransactionReceipt } from "ethers";
-import { execute } from "./transaction/flash";
+import { flash } from "./transaction/flash";
 import { swap } from "./transaction/swap";
 import { fu } from "../../modules/convertBN";
 
-export async function sortTx(trade: BoolTrade): Promise<TransactionReceipt | undefined> {
+export async function sortTx(
+    trade: BoolTrade,
+): Promise<TransactionReceipt | undefined> {
     if (trade.profits.WMATICProfit > trade.gas.gasPrice) {
         trade.pending = true;
         logger.info(
@@ -27,7 +29,10 @@ export async function sortTx(trade: BoolTrade): Promise<TransactionReceipt | und
             trade.target.exchange,
             " | ",
             "Trade Size: ",
-            fu(trade.tradeSizes.pool0.token0.size, trade.tokenIn.data.decimals),
+            fu(
+                trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
+                trade.tokenIn.data.decimals,
+            ),
             "Profit: ",
             fu(trade.profits.WMATICProfit, 18),
             "Gas Cost: ",
@@ -35,7 +40,12 @@ export async function sortTx(trade: BoolTrade): Promise<TransactionReceipt | und
             "Flash Type: ",
             trade.type,
         );
-        logger.info("====================" + "Trade Data " + trade.ticker + "====================");
+        logger.info(
+            "====================" +
+                "Trade Data " +
+                trade.ticker +
+                "====================",
+        );
     }
     try {
         let tx;

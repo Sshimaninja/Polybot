@@ -4,7 +4,7 @@
 // import path from "path";
 // import { FactoryPair, TradePair } from "../../../constants/interfaces";
 // import { signer } from "../../../constants/provider";
-// import { swapSingleID } from "../../../constants/environment";
+// import { swapID } from "../../../constants/environment";
 // import { swap } from "../../../test/testFunds";
 
 // export async function approveAll() {
@@ -45,18 +45,18 @@
 //                     maxInt = 2n ** 96n - 1n;
 //                     console.log("Approving tokens for swapSingle: ", match.ticker);
 //                     routeIn = await approve(match.token0.id, pair.routerA_id, maxInt);
-//                     swapIn = await approve(match.token0.id, swapSingleID, maxInt);
+//                     swapIn = await approve(match.token0.id, swapID, maxInt);
 //                     // }
 //                     // if (match.token1.id == "QUICK") {
 //                     // maxInt = 2n ** 96n - 1n;
 //                     // console.log("Approving tokens for swapSingle: ", match.ticker);
 //                     // routeOut = await approve(match.token1.id, pair.routerA_id, maxInt);
-//                     // swapOut = await approve(match.token1.id, swapSingleID, maxInt);
+//                     // swapOut = await approve(match.token1.id, swapID, maxInt);
 //                     // console.log("Approving tokens for target router: ", match.ticker);
 //                 } else {
-//                     swapIn = await approve(match.token0.id, swapSingleID, maxInt);
+//                     swapIn = await approve(match.token0.id, swapID, maxInt);
 //                     routeIn = await approve(match.token0.id, pair.routerA_id, maxInt);
-//                     // swapOut = await approve(match.token1.id, swapSingleID, maxInt);
+//                     // swapOut = await approve(match.token1.id, swapID, maxInt);
 //                     // routeOut = await approve(match.token1.id, pair.routerA_id, maxInt);
 //                 }
 //                 const a = {
