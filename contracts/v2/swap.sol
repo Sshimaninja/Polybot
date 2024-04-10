@@ -235,17 +235,23 @@ contract Swap {
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[1]);
         uint256[] memory amountsOutA = routerA.getAmountsOut(tradeSize, path0);
-        require(
-            amountsOutA[1] >= amountOut,
-            "Error SwapSingle: routerA.getAmountsOut < amountOutA"
+        console.log("amountsOutA expected: ", amountOut);
+        console.log("amountsOutA actual::: ", amountsOutA[1]);
+        // require(
+        //     amountsOutA[1] >= amountOut,
+        //     "Error SwapSingle: routerA.getAmountsOut < amountOutA"
+        // );
+        uint256[] memory amountsOutB = routerB.getAmountsOut(
+            amountsOutA[1],
+            path1
         );
-        uint256[] memory amountsOutB = routerB.getAmountsOut(amountOut, path1);
         require(
-            amountsOutB[1] >= tradeSize,
-            "Error SwapSingle: routerB.getAmountsOut < tradeSize"
+            amountsOutB[1] > tradeSize,
+            "Error SwapSingle: routerB.getAmountsOut =< tradeSize"
         );
 
         uint256 balance = tokenIn.balanceOf(msg.sender);
+
         require(
             balance >= tradeSize,
             "SwapSingle: INSUFFICIENT_WALLET_BALANCE"
