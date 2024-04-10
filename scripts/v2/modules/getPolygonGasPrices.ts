@@ -54,7 +54,7 @@ export async function getGasData(): Promise<GasData> {
         gasEstimate: fu(gasData.gasEstimate, 18),
     };
 
-    console.log("EthersGas: ", gasString);
+    // console.log("EthersGas: ", gasString);
     // No good for testing becasue it pulls from live data not the block on hardhat local fork.
     // const polygonGasData: PolygonGasData = (
     //     await axios.get("https://gasstation.polygon.technology/v2")

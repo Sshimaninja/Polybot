@@ -1,4 +1,5 @@
 ////SPDX-License-Identifier: UNLICENSED
+// solium-disable-next-line security/no-block-members
 pragma solidity ^0.8.19;
 
 import "hardhat/console.sol";
@@ -80,15 +81,6 @@ contract Swap {
         console.log("SwapSingle: tokens approved");
     }
 
-    // function safeTransferFrom(address token, address from, address to, uint value) internal {
-    //     // bytes4(keccak256(bytes('transferFrom(address,address,uint256)')));
-    //     (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x23b872dd, from, to, value));
-    //     require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: TRANSFER_FROM_FAILED');
-    // }
-    // function approveContract(IERC20 token, uint256 amount) external {
-    //     token.approve(address(this), );
-    // }
-
     function transferTokensAndCheckAllowance(
         IERC20 tokenIn,
         IERC20 tokenOut,
@@ -129,11 +121,16 @@ contract Swap {
     ) internal {
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[1]);
-        uint256[] memory amountsInOut = routerA.getAmountsOut(tradeSize, path0);
-        // require(
-        //     amountsOutA[1] >= amountOut,
-        //     "Error SwapSingle: routerA.getAmountsOut < amountOutA"
-        // );
+        uint256[] memory amountsOutA = routerA.getAmountsOut(tradeSize, path0);
+        require(
+            amountsOutA[1] >= amountOut,
+            "Error SwapSingle: routerA.getAmountsOut < amountOutA"
+        );
+        uint256[] memory amountsOutB = routerB.getAmountsOut(amountOut, path1);
+        require(
+            amountsOutB[1] > tradeSize,
+            "Error SwapSingle: routerB.getAmountsOut < tradeSize"
+        );
 
         uint256 balance = tokenIn.balanceOf(msg.sender);
         require(
@@ -158,24 +155,29 @@ contract Swap {
             tradeSize
         );
 
+        console.log(
+            "tokens tx'd and approvals done. New Contract balance: ",
+            tokenIn.balanceOf(address(this))
+        );
+
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountsInOut[1],
+            amountsOutA[1],
             path0,
             address(this),
             deadline
         );
+        console.log("swapIn: ", swapIn[1]);
 
-        // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
-        // require(amountsOutB[1] >= tradeSize, "Error SwapSingle: Insufficient output: Target");
-
-        routerB.swapExactTokensForTokens(
+        uint256[] memory swapOut = routerB.swapExactTokensForTokens(
             swapIn[1],
-            tradeSize,
+            amountsOutB[1],
             path1,
             to,
             deadline
         );
+        console.log("swapOut: ", swapOut[1]);
+        console.log("Profit: ", swapOut[1] - tradeSize);
     }
 
     // multi gets profit in tokenOut
@@ -232,22 +234,23 @@ contract Swap {
     ) internal {
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[1]);
-        uint256[] memory amountsInOut = routerA.getAmountsOut(tradeSize, path0);
-        // require(
-        //     amountsOutA[1] >= amountOut,
-        //     "Error SwapMulti: routerA.getAmountsOut < amountOutA"
-        // );
+        uint256[] memory amountsOutA = routerA.getAmountsOut(tradeSize, path0);
+        require(
+            amountsOutA[1] >= amountOut,
+            "Error SwapSingle: routerA.getAmountsOut < amountOutA"
+        );
+        uint256[] memory amountsOutB = routerB.getAmountsOut(amountOut, path1);
+        require(
+            amountsOutB[1] >= tradeSize,
+            "Error SwapSingle: routerB.getAmountsOut < tradeSize"
+        );
 
         uint256 balance = tokenIn.balanceOf(msg.sender);
-        require(balance >= tradeSize, "SwapMulti: INSUFFICIENT_WALLET_BALANCE");
+        require(
+            balance >= tradeSize,
+            "SwapSingle: INSUFFICIENT_WALLET_BALANCE"
+        );
 
-        // According to Uniswap docs this contract needs to own the tokens it wants to swap, not just have an allowance.
-        // https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/trading-from-a-smart-contract
-
-        /*
-        uint amountIn = 50 * 10 ** DAI.decimals();
-        require(DAI.transferFrom(msg.sender, address(this), amountIn), 'transferFrom failed.');
-        */
         approveTokens(tokenIn, tokenOut, address(routerA), address(routerB));
 
         transferTokensAndCheckAllowance(
@@ -260,14 +263,11 @@ contract Swap {
 
         uint256[] memory swapIn = routerA.swapExactTokensForTokens(
             tradeSize,
-            amountsInOut[1],
+            amountsOutA[1],
             path0,
             address(this),
             deadline
         );
-
-        // uint256[] memory amountsOutB = routerB.getAmountsOut(swapIn[1], path1);
-        // require(amountsOutB[1] >= tradeSize, "Error SwapMulti: Insufficient output: Target");
 
         routerB.swapTokensForExactTokens(
             swapIn[1],
