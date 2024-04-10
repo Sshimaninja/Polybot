@@ -16,6 +16,7 @@ import { pendingTransactions } from "../../control";
 import { MaxInt256 } from "ethers";
 import { safetyChecks } from "../transaction/safetyChecks";
 import { fixEstimateGas } from "../../../../test/fixEstimateGas";
+import { params } from "../transaction/params";
 
 /**
  * @param trade
@@ -31,160 +32,59 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         maxFee: trade.gas.maxFee,
         maxPriorityFee: trade.gas.maxPriorityFee,
     };
-    if (trade.type.includes("flash")) {
-        logger.info("EstimatingGas for trade: " + trade.ticker + "...");
-        try {
-            // const fix = await fixEstimateGas(trade);
-            // logger.info(fix);
-
-            if (pendingTransactions[trade.ID] == true) {
-                logger.info("Pending transaction. Skipping trade.");
-                return g;
-            }
-            pendingTransactions[trade.ID] == true;
+    try {
+        if (pendingTransactions[trade.ID] == true) {
+            logger.info("Pending transaction. Skipping trade.");
+            return g;
+        }
+        pendingTransactions[trade.ID] == true;
+        const swap = await params(trade);
+        const ps = swap.swapParams;
+        const pf = swap.flashParams;
+        if (trade.type.includes("flash")) {
             g.gasEstimate = await trade.contract.flashSwap.estimateGas(
-                trade.loanPool.factory,
-                trade.loanPool.router,
-                trade.target.router,
-                trade.tokenIn.data.id,
-                trade.tokenOut.data.id,
-                trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-                trade.quotes.target.tokenOutOut,
-                trade.loanPool.amountRepay,
+                pf.loanFactory,
+                pf.loanRouter,
+                pf.targetRouter,
+                pf.tokenInID,
+                pf.tokenOutID,
+                pf.amountIn,
+                pf.amountOut,
+                pf.amountToRepay,
             );
-            logger.info(">>>>>>>>>>gasEstimate SUCCESS: ", g.gasEstimate);
-            let gasPrice = g.gasEstimate * trade.gas.maxFee;
-            logger.info("GASLOGS: ", gasPrice);
-            logger.info("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
-            pendingTransactions[trade.ID] == false;
-            return {
-                gasEstimate: trade.gas.gasEstimate * 2n,
-                tested: true,
-                gasPrice: trade.gas.gasPrice * 2n,
-                maxFee: trade.gas.maxFee * 2n,
-                maxPriorityFee: trade.gas.maxPriorityFee * 2n,
-            };
-        } catch (error: any) {
-            // const data = await tradeLogs(trade);
-            logger.error(
-                `>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<`,
-            );
-            return {
-                gasEstimate: trade.gas.gasEstimate * 2n,
-                tested: false,
-                gasPrice: trade.gas.gasPrice * 2n,
-                maxFee: trade.gas.maxFee * 2n,
-                maxPriorityFee: trade.gas.maxPriorityFee * 2n,
-            };
         }
-    }
-    // Calculation for single trade is easier since it doesn't require a custom contract.
-    if (trade.type === "single") {
-        let p = await trade.params;
-        // logger.info("params: ");
-        // logger.info(p);
-
-        // KEEPS TRYING TO MAKE A 29 WMATIC PROFIT TRADE BUT KEEPS RESULTING IN 0 RETURN. TROUBLESHOOT THIS.
-        try {
+        if (trade.type === "single" || trade.type === "multi") {
             g.gasEstimate = await trade.contract.swapSingle.estimateGas(
-                p.routerAID,
-                p.routerBID,
-                p.tradeSize,
-                p.amountOutA,
-                p.path0,
-                p.path1,
-                p.to,
-                p.deadline,
+                ps.routerAID,
+                ps.routerBID,
+                ps.tradeSize,
+                ps.amountOutA,
+                ps.path0,
+                ps.path1,
+                ps.to,
+                ps.deadline,
             );
-            // logger.info(">>>>>>>>>>swapSingle g.gasEstimate SUCCESS: ", g.gasEstimate);
-            let gasPrice = g.gasEstimate * trade.gas.maxFee;
-            // logger.info("swapSingle GASLOGS: ", gasPrice);
-            logger.info(
-                "swapSingle GASESTIMATE SUCCESS::::::",
-                fu(gasPrice, 18),
-            );
-            pendingTransactions[trade.ID] == false;
-            return {
-                gasEstimate: trade.gas.gasEstimate * 2n,
-                tested: true,
-                gasPrice: trade.gas.maxFee * 2n,
-                maxFee: trade.gas.maxFee * 2n,
-                maxPriorityFee: trade.gas.maxPriorityFee * 2n,
-            };
-        } catch (error: any) {
-            if (error.message.includes("Nonce too high")) {
-                logger.error("Nonce too high. Skipping trade.");
-                return g;
-            } else {
-                const data = await tradeLogs(trade);
-                logger.error(
-                    `>>>>>>>>>>>>>START: Error in fetchGasPrice for trade: ${
-                        trade.ticker
-                    } ${trade.loanPool.exchange + trade.target.exchange} ${
-                        trade.type
-                    } ${error.reason} <<<<<<<<<<<<<<<`,
-                    error,
-                    data.data,
-                    `>>>>>>>>>>>>>>>>>>>>>>>>>>END: Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
-                );
-                return g;
-            }
         }
-    }
-    if (trade.type === "multi") {
-        let p = await trade.params;
-        // logger.info("params: ");
-        // logger.info(p);
-
-        // KEEPS TRYING TO MAKE A 29 WMATIC PROFIT TRADE BUT KEEPS RESULTING IN 0 RETURN. TROUBLESHOOT THIS.
-        try {
-            g.gasEstimate = await trade.contract.swapMulti.estimateGas(
-                p.routerAID,
-                p.routerBID,
-                p.tradeSize,
-                p.amountOutA,
-                p.path0,
-                p.path1,
-                p.to,
-                p.deadline,
-            );
-            // logger.info(">>>>>>>>>>swapSingle g.gasEstimate SUCCESS: ", g.gasEstimate);
-            let gasPrice = g.gasEstimate * trade.gas.maxFee;
-            // logger.info("swapSingle GASLOGS: ", gasPrice);
-            logger.info(
-                "swapSingle GASESTIMATE SUCCESS::::::",
-                fu(gasPrice, 18),
-            );
-            pendingTransactions[trade.ID] == false;
-            return {
-                gasEstimate: trade.gas.gasEstimate * 2n,
-                tested: true,
-                gasPrice: trade.gas.maxFee * 2n,
-                maxFee: trade.gas.maxFee * 2n,
-                maxPriorityFee: trade.gas.maxPriorityFee * 2n,
-            };
-        } catch (error: any) {
-            if (error.message.includes("Nonce too high")) {
-                logger.error("Nonce too high. Skipping trade.");
-                return g;
-            } else {
-                const data = await tradeLogs(trade);
-                logger.error(
-                    `>>>>>>>>>>>>>START: Error in fetchGasPrice for trade: ${
-                        trade.ticker
-                    } ${trade.loanPool.exchange + trade.target.exchange} ${
-                        trade.type
-                    } ${error.reason} <<<<<<<<<<<<<<<`,
-                    error,
-                    data.data,
-                    `>>>>>>>>>>>>>>>>>>>>>>>>>>END: Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
-                );
-                return g;
-            }
-        }
-    } else {
+        logger.info(">>>>>>>>>>gasEstimate SUCCESS: ", g.gasEstimate);
+        let gasPrice = g.gasEstimate * trade.gas.maxFee;
+        logger.info("GASLOGS: ", gasPrice);
+        logger.info("GASESTIMATE SUCCESS::::::", fu(gasPrice, 18));
+        pendingTransactions[trade.ID] == false;
         return {
-            gasEstimate: g.gasEstimate * 2n,
+            gasEstimate: trade.gas.gasEstimate * 2n,
+            tested: true,
+            gasPrice: trade.gas.gasPrice * 2n,
+            maxFee: trade.gas.maxFee * 2n,
+            maxPriorityFee: trade.gas.maxPriorityFee * 2n,
+        };
+    } catch (error: any) {
+        // const data = await tradeLogs(trade);
+        logger.error(
+            `>>>>>>>>>>Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<`,
+            // error,
+        );
+        return {
+            gasEstimate: trade.gas.gasEstimate * 2n,
             tested: false,
             gasPrice: trade.gas.gasPrice * 2n,
             maxFee: trade.gas.maxFee * 2n,
@@ -192,46 +92,3 @@ export async function fetchGasPrice(trade: BoolTrade): Promise<GAS> {
         };
     }
 }
-
-//     try {
-//         g.gasEstimate = await swapSingle.swapSingle.estimateGas(
-//             trade.loanPool.router,
-//             trade.target.router,
-//             trade.tradeSizes.loanPool.tradeSizeTokenIn.size,
-//             0n,
-//             0n,
-//             [trade.tokenIn.data.id, trade.tokenOut.data.id],
-//             [trade.tokenOut.data.id, trade.tokenIn.data.id],
-//             await signer.getAddress(),
-//             Math.floor(Date.now() / 1000) + 60 * 5,
-//         );
-//         g.gasPrice = g.gasEstimate * trade.gas.maxFee;
-//         logger.info("swapSingle GASESTIMATE SUCCESS::::::", fu(g.gasPrice, 18));
-//         pendingTransactions[trade.ID] == false;
-//         return {
-//             g.gasEstimate: g.gasEstimate * 2n,
-//             tested: true,
-//             gasPrice: g.gasPrice,
-//             maxFee: trade.gas.maxFee * 2n,
-//             maxPriorityFee: trade.gas.maxPriorityFee,
-//         };
-//     } catch (error: any) {
-//         if (error.message.includes("Nonce too high")) {
-//             logger.error("Nonce too high. Skipping trade.");
-//             return g;
-//         } else {
-//             const data = await tradeLogs(trade);
-//             logger.error(
-//                 `>>>>>>>>>>>>>START: Error in fetchGasPrice for trade: ${
-//                     trade.ticker
-//                 } ${trade.loanPool.exchange + trade.target.exchange} ${
-//                     trade.type
-//                 } ${error.reason} <<<<<<<<<<<<<<<`,
-//                 error,
-//                 data.data,
-//                 `>>>>>>>>>>>>>>>>>>>>>>>>>>END: Error in fetchGasPrice for trade: ${trade.ticker} ${trade.type} ${error.reason} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`,
-//             );
-//             return g;
-//         }
-//     }
-// }
