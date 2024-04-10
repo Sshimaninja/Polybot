@@ -86,8 +86,8 @@ export async function flash(
 
         //Print balances after trade
         const newBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ", oldBal);
-        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ", newBal);
+        logger.info(">>>>>>>>>>>Old Balance: ", oldBal);
+        logger.info(">>>>>>>>>>>New Balance: ", newBal);
         logger.info(
             "::::::::::::::::::::::::END TRANSACTION::::::::::::::::::::::",
         );

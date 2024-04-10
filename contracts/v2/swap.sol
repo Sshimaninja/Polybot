@@ -122,13 +122,9 @@ contract Swap {
         IERC20 tokenIn = IERC20(path0[0]);
         IERC20 tokenOut = IERC20(path0[1]);
         uint256[] memory amountsOutA = routerA.getAmountsOut(tradeSize, path0);
-        require(
-            amountsOutA[1] >= amountOut,
-            "Error SwapSingle: routerA.getAmountsOut < amountOutA"
-        );
         uint256[] memory amountsOutB = routerB.getAmountsOut(amountOut, path1);
         require(
-            amountsOutB[1] > tradeSize,
+            amountsOutB[1] >= tradeSize,
             "Error SwapSingle: routerB.getAmountsOut < tradeSize"
         );
 
@@ -141,10 +137,6 @@ contract Swap {
         // According to Uniswap docs this contract needs to own the tokens it wants to swap, not just have an allowance.
         // https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/trading-from-a-smart-contract
 
-        /*
-        uint amountIn = 50 * 10 ** DAI.decimals();
-        require(DAI.transferFrom(msg.sender, address(this), amountIn), 'transferFrom failed.');
-        */
         approveTokens(tokenIn, tokenOut, address(routerA), address(routerB));
 
         transferTokensAndCheckAllowance(

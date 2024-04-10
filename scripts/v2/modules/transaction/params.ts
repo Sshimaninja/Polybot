@@ -106,7 +106,6 @@ export async function params(trade: BoolTrade): Promise<{
             pf.amountIn,
             pf.amountOut,
             pf.amountToRepay,
-            pf.deadline,
             {
                 Type: 2,
                 gasLimit: trade.gas.gasEstimate,
@@ -117,3 +116,26 @@ export async function params(trade: BoolTrade): Promise<{
     }
     return { swap, swapParams: p, flashParams: pf };
 }
+// function flashSwap(
+//     address loanFactory,
+//     address loanRouter,
+//     address targetRouter,
+//     address token0ID,
+//     address token1ID,
+//     uint256 amountIn,
+//     uint256 amountOut,
+//     uint256 amountToRepay
+// ) external {
+// key: 'flashSwap',
+// args: [
+//   '0xCf083Be4164828f00cAE704EC15a36D711491284',
+//   '0xC0788A3aD43d79aa53B09c2EaCc313A787d1d607',
+//   '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
+//   '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+//   '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+//   54897976877338564407n,
+//   49646268824915942607n,
+//   51739509899649324576n,
+//   1712770840,
+//   [Object]
+// ]

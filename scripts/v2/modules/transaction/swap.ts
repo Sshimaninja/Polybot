@@ -56,7 +56,7 @@ export async function swapIt(
     try {
         const oldBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         logger.info(
-            ">>>>>>>>>>>>>>>>>>>>>>>>>>Old Balance: ",
+            ">>>>>>>>>>>Old Balance: ",
             "TokenIn: ",
             fu(oldBal.tokenIn, trade.tokenIn.data.decimals) +
                 " " +
@@ -92,7 +92,7 @@ export async function swapIt(
         //Print balances after trade
         const newBal = await walletBal(trade.tokenIn.data, trade.tokenOut.data);
         logger.info(
-            ">>>>>>>>>>>>>>>>>>>>>>>>>>New Balance: ",
+            ">>>>>>>>>>>New Balance: ",
             "TokenIn: ",
             fu(newBal.tokenIn, trade.tokenIn.data.decimals) +
                 " " +
@@ -113,22 +113,17 @@ export async function swapIt(
     } catch (error: any) {
         if (error.message.includes("INSUFFICIENT_INPUT_AMOUNT")) {
             logger.error(
-                ">>>>>>>>>>>>>>>>>>>>Error in swap: INSUFFICIENT_INPUT_AMOUNT " +
-                    error,
+                ">>>>>Error in swap: INSUFFICIENT_INPUT_AMOUNT " + error,
             );
             // logger.error(error.reason);
-            // logger.error(">>>>>>>>>>>>>>>>>>>>TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ");
+            // logger.error(">>>>>TRADE LOGS:>>>>> ");
             // logger.error(logs);
-            logger.error(
-                ">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ",
-            );
+            logger.error(">>>>>ERROR TRADE LOGS:>>>>> ");
         } else {
             // logger.info(logs);
-            logger.info(">>>>>>>>>>>>>>>>>>>>Error in swap: " + error.reason);
+            logger.info(">>>>>Error in swap: " + error.reason);
             logger.info(error);
-            logger.info(
-                ">>>>>>>>>>>>>>>>>>>>ERROR TRADE LOGS:>>>>>>>>>>>>>>>>>>>> ",
-            );
+            logger.info(">>>>>ERROR TRADE LOGS:>>>>> ");
         }
         return null;
     }
