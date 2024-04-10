@@ -103,7 +103,7 @@ export class WMATICFlashProfit {
         }
         if (profitInWMATIC === undefined) {
             // console.log(
-            //     ">>>>>>>>>>>>>>>>>>>>>>>>Profit in WMATIC is undefined. trade: ",
+            //     ">>>>>>>>>Profit in WMATIC is undefined. trade: ",
             //     this.trade.ticker,
             //     "<<<<<<<<<<<<<<<<<<<<<<<<<<",
             // );
@@ -158,7 +158,7 @@ export class WMATICFlashProfit {
 
             let profitInWMATIC = pu(inMatic.toFixed(18), 18);
             // console.log(
-            //     ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]:  profitInWMATICBN:  " + inMatic,
+            //     ">>>>[getProfitInWmatic]:  profitInWMATICBN:  " + inMatic,
             //     " string: ",
             //     inMatic.toFixed(18),
             //     " bigint: ",
@@ -228,7 +228,7 @@ export class WMATICFlashProfit {
                     18,
                 );
                 // console.log(
-                //     ">>>>>>>>>>>>>>>>>>>[getProfitInWmatic]: profitInWMATICBN: ",
+                //     ">>>>[getProfitInWmatic]: profitInWMATICBN: ",
                 //     profitInWMATICBN,
                 //     " string: ",
                 //     profitInWMATICBN.toFixed(18),
