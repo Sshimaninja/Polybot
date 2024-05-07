@@ -6,7 +6,10 @@ coverage
 coverage.json
 typechain
 typechain-types
-
+hh.txt
+hh.log
+app.txt
+app.log
 cache
 bin
 NOTES
