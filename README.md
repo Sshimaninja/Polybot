@@ -1,7 +1,7 @@
 
 # A uniswap V2 clone-agnostic arbitrage bot
 
-This bot is set for use on a private node on Polygon network.
+This bot is set for use on a private node on Polygon network. RPC nodes hosted by Alchemy or Infura don't have the throughput. You'll be locked/burn though your daily limits in about 10 minutes. 
 
 It is set to use Uniswap V2 flash swaps for liquidity across all assets on all exchanges across the network. You can use DeFi Llama to find more UniswapV2 clones. 
 
@@ -12,6 +12,17 @@ The bot prefers a private node because proprietary RPCs rate limit and the bot h
 Unless you have access to a private RPC for every chain you want to run it on, a rate limit should be set somewhere. 
 
 The bot is designed as a basic framework for defi arbitrage trades, and over time, more DeFi protocols should be added to increase opportunities (Balancer, Aave, Kyber, etc.)
+
+# Notes:
+
+I wrote (almost) every line in this bot in an ambitious project to learn Typescript to a highly developed level, as well as several blockchain protocols I was utilizing, as well as how to aggregate and filter data. 
+
+By the time I had launched this bot on my dedicated Hetzner server, most of the liquidity from Uniswap V2 had gone and I had to begin work on a Uniswap V3 bot, which is pending, though may not be completed as I'm beginning to consider that the pace of software in that particular space (decentralized finance) moves at a pace fast enough to require a team of developers now. Gone are the days when a solo dev could make a mark on the various pools across the chains. 
+
+I recommend Hetzner Robot for your server. I ran this on AWS and burned through about 600 gbp in a month. Hetzner requires more Linux and server hosting knowledge, but it is worthwhile for the steep discount. I ran a bot on Hetzner for roughly 200 gbp/month with all NVME drives.
+
+Moving on...
+
 
 # Issues:
 
