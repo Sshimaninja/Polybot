@@ -29,104 +29,104 @@ import fs from "fs";
 //     liquidity: bigint;
 // }
 export async function getGas2WMATICArray(): Promise<ToWMATICPool[]> {
-    async function getGasTokenToWMATICPool(): Promise<ToWMATICPool[]> {
-        const wmaticID = await wmatic.getAddress();
-        const ToWMATICPools: ToWMATICPool[] = [];
-        for (let exchange in uniswapV2Exchange) {
-            let exchangeID = uniswapV2Exchange[exchange].factory;
-            for (let token in gasTokens) {
-                if (gasTokens[token] !== wmaticID) {
-                    let tokenID = gasTokens[token];
-                    const factory = new Contract(exchangeID, IUniswapV2Factory, wallet);
-                    const pair = await factory.getPair(wmaticID, tokenID);
-                    if (pair != zero) {
-                        const pairContract = new Contract(pair, IPair, wallet);
-                        const r = await pairContract.getReserves();
-                        const r0: bigint = r[0];
-                        const r1: bigint = r[1];
-                        const token0 = {
-                            id: await pairContract.token0(),
-                            decimals: Number(await pairContract.decimals()),
-                            reserves: r0,
-                        };
-                        const token1 = {
-                            id: await pairContract.token1(),
-                            decimals: Number(await pairContract.decimals()),
-                            reserves: r1,
-                        };
-                        const tokenIn = token0.id == wmaticID ? token1 : token0;
-                        const tokenOut = token0.id == wmaticID ? token0 : token1;
+	async function getGasTokenToWMATICPool(): Promise<ToWMATICPool[]> {
+		const wmaticID = await wmatic.getAddress();
+		const ToWMATICPools: ToWMATICPool[] = [];
+		for (let exchange in uniswapV2Exchange) {
+			let exchangeID = uniswapV2Exchange[exchange].factory;
+			for (let token in gasTokens) {
+				if (gasTokens[token] !== wmaticID) {
+					let tokenID = gasTokens[token];
+					const factory = new Contract(exchangeID, IUniswapV2Factory, wallet);
+					const pair = await factory.getPair(wmaticID, tokenID);
+					if (pair != zero) {
+						const pairContract = new Contract(pair, IPair, wallet);
+						const r = await pairContract.getReserves();
+						const r0: bigint = r[0];
+						const r1: bigint = r[1];
+						const token0 = {
+							id: await pairContract.token0(),
+							decimals: Number(await pairContract.decimals()),
+							reserves: r0,
+						};
+						const token1 = {
+							id: await pairContract.token1(),
+							decimals: Number(await pairContract.decimals()),
+							reserves: r1,
+						};
+						const tokenIn = token0.id == wmaticID ? token1 : token0;
+						const tokenOut = token0.id == wmaticID ? token0 : token1;
 
-                        const ToWMATICPool: ToWMATICPool = {
-                            ticker: token + "WMATIC",
-                            id: pair,
+						const ToWMATICPool: ToWMATICPool = {
+							ticker: token + "WMATIC",
+							id: pair,
 
-                            exchange: exchange,
-                            tokenIn: { id: tokenIn.id, decimals: tokenIn.decimals, symbol: token },
-                            tokenOut: {
-                                id: tokenOut.id,
-                                decimals: tokenOut.decimals,
-                                symbol: "WMATIC",
-                            },
-                            reserves: {
-                                reserve0: tokenIn.reserves,
-                                reserve0BN: BN(fu(tokenIn.reserves, tokenIn.decimals)),
-                                reserve1: tokenOut.reserves,
-                                reserve1BN: BN(fu(tokenOut.reserves, tokenOut.decimals)),
-                            },
-                            liquidity: tokenIn.reserves * tokenOut.reserves,
-                        };
-                        ToWMATICPools.push(ToWMATICPool);
-                    }
-                }
-            }
-            // console.log("ToWMATICPools: ", ToWMATICPools);
-            return ToWMATICPools;
-        }
-        console.log("Something wrong with the ToWMATICPools: ", ToWMATICPools);
-        return ToWMATICPools;
-    }
+							exchange: exchange,
+							tokenIn: { id: tokenIn.id, decimals: tokenIn.decimals, symbol: token },
+							tokenOut: {
+								id: tokenOut.id,
+								decimals: tokenOut.decimals,
+								symbol: "WMATIC",
+							},
+							reserves: {
+								reserve0: tokenIn.reserves,
+								reserve0BN: BN(fu(tokenIn.reserves, tokenIn.decimals)),
+								reserve1: tokenOut.reserves,
+								reserve1BN: BN(fu(tokenOut.reserves, tokenOut.decimals)),
+							},
+							liquidity: tokenIn.reserves * tokenOut.reserves,
+						};
+						ToWMATICPools.push(ToWMATICPool);
+					}
+				}
+			}
+			// console.log("ToWMATICPools: ", ToWMATICPools);
+			return ToWMATICPools;
+		}
+		console.log("Something wrong with the ToWMATICPools: ", ToWMATICPools);
+		return ToWMATICPools;
+	}
 
-    async function compareLiquidity(ToWMATICPools: ToWMATICPool[]): Promise<ToWMATICPool[]> {
-        const highestLiquidityPools: { [key: string]: ToWMATICPool } = {};
+	async function compareLiquidity(ToWMATICPools: ToWMATICPool[]): Promise<ToWMATICPool[]> {
+		const highestLiquidityPools: { [key: string]: ToWMATICPool } = {};
 
-        for (let ToWMATICPool of ToWMATICPools) {
-            // Create a unique key for the pair of tokens
-            const key = ToWMATICPool.tokenIn.id;
+		for (let ToWMATICPool of ToWMATICPools) {
+			// Create a unique key for the pair of tokens
+			const key = ToWMATICPool.tokenIn.id;
 
-            // If the key doesn't exist in the object, or if the current ToWMATICPool has higher liquidity,
-            // add/replace the ToWMATICPool in the object
-            if (
-                !highestLiquidityPools[key] ||
-                ToWMATICPool.liquidity > highestLiquidityPools[key].liquidity
-            ) {
-                highestLiquidityPools[key] = ToWMATICPool;
-            }
-        }
+			// If the key doesn't exist in the object, or if the current ToWMATICPool has higher liquidity,
+			// add/replace the ToWMATICPool in the object
+			if (
+				!highestLiquidityPools[key] ||
+				ToWMATICPool.liquidity > highestLiquidityPools[key].liquidity
+			) {
+				highestLiquidityPools[key] = ToWMATICPool;
+			}
+		}
 
-        // Convert the object values to an array and return it
-        // console.log("highestLiquidityPools: ", highestLiquidityPools);
-        return Object.values(highestLiquidityPools);
-    }
-    const ToWMATICPools = await getGasTokenToWMATICPool();
-    const highestLiquidityPools = await compareLiquidity(ToWMATICPools);
-    // fs.writeFile(
-    //     "./constants/ToWMATICPools.json",
-    //     JSON.stringify(highestLiquidityPools, (key, value) => {
-    //         if (typeof value === "bigint") {
-    //             return value.toString();
-    //         }
-    //         return value;
-    //     }),
-    //     (err) => {
-    //         if (err) {
-    //             console.error(err);
-    //             return;
-    //         }
-    //         console.log("File has been created");
-    //     },
-    // );
-    return highestLiquidityPools;
+		// Convert the object values to an array and return it
+		// console.log("highestLiquidityPools: ", highestLiquidityPools);
+		return Object.values(highestLiquidityPools);
+	}
+	const ToWMATICPools = await getGasTokenToWMATICPool();
+	const highestLiquidityPools = await compareLiquidity(ToWMATICPools);
+	// fs.writeFile(
+	//     "./constants/ToWMATICPools.json",
+	//     JSON.stringify(highestLiquidityPools, (key, value) => {
+	//         if (typeof value === "bigint") {
+	//             return value.toString();
+	//         }
+	//         return value;
+	//     }),
+	//     (err) => {
+	//         if (err) {
+	//             console.error(err);
+	//             return;
+	//         }
+	//         console.log("File has been created");
+	//     },
+	// );
+	return highestLiquidityPools;
 }
 getGas2WMATICArray();
 
