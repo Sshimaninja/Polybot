@@ -21,7 +21,9 @@ Current issues can be manually copied to ERROR.txt from app.log for ease of view
 
 # Commands: 
 
-After installing, you should 'apt-get update' & 'npm install'.
+After installing, you should 'apt-get update' & 'npm install'. Also, you should compile the hardhat contracts. 
+
+For your IDE I recommend downloading EVM compilers and using local compiling. 
 
 I've provided '.env.test' and '.env.live' examples, for which variables need to be set for live/vs test environments as needed. 
 
