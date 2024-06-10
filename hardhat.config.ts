@@ -12,12 +12,21 @@ console.log(
 );
 module.exports = {
     paths: {
-        sources: "./contracts/v2",
+        sources: "./contracts/v3",
     },
     solidity: {
         compilers: [
             {
-                version: "0.8.19",
+                version: "0.8.2",
+                settings: {
+                    optimizer: {
+                        enabled: true,
+                        runs: 200,
+                    },
+                },
+            },
+            {
+                version: "0.8.20",
                 settings: {
                     optimizer: {
                         enabled: true,
@@ -64,7 +73,7 @@ module.exports = {
                 interval: 2000,
             },
             forking: {
-                url: `https://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
+                url: process.env.ALCHEMY,
                 // blockNumber: 53054772,
                 // blockNumber: 51500044, //THIS BLOCK SHOWS 3 PROFITABLE TRADES IN HH.
                 // blockNumber: 52014583, //using this block because there is a trade on wmatic/collar for troubleshooting
@@ -72,8 +81,7 @@ module.exports = {
                 blockNumber: 54852275, // 100% of gas used in this block
             },
             accounts: {
-                accounts:
-                    "ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80",
+                accounts: process.env.PRIVATE_KEY !== undefined,
                 initialBaseBalance: "1000000000000000000000000000", // 1000000000 ETH in wei
             },
         },
@@ -82,8 +90,7 @@ module.exports = {
             accounts: "remote",
         },
         polygon: {
-            url: "http://65.109.125.21:8544",
-            // url: `wss://polygon-mainnet.g.alchemy.com/v2/SYBkEnqFyPQHdAZr-TnaUVAmTKfvZZe-`,
+            url: "http://127.0.0.1:8545/",
             // accounts: [process.env.PRIVATE_KEY],
             chainID: 137,
         },
@@ -95,3 +102,4 @@ module.exports = {
         },
     },
 };
+
